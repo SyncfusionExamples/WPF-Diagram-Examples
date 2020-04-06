@@ -2,4 +2,8 @@
 This repository contains the samples that demonstrate the functionalities of Diagram control
 
 
-| [Getting Started](https://github.com/SyncfusionExamples/WPF-Diagram-Examples/tree/master/Samples/GettingStarted) | Nodes  |
+<table>
+ <tr>
+  <td><a href="Samples/GettingStarted">Getting Started</a></td>
+ </tr>
+</table>
