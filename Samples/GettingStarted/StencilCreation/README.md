@@ -1,0 +1,1 @@
+# Stencil creation sample
