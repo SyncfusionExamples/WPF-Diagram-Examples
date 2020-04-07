@@ -1,7 +1,7 @@
-# Organization chart with drag drop from stencil sample
-This sample demonstrate the automatic arrangements of the nodes to create oraganization chart by dragging and droppings nodes from stencil.
+# Flowchart Layout sample
+This sample demonstrate how to create a simple Flowchart Layout using SfDiagram.
 
-__*Documentation*__: https://help.syncfusion.com/wpf/diagram/automatic-layouts#how-to-create-a-parent---child-relation-with-dropped-nodes-from-stencil
+__*Documentation*__: https://help.syncfusion.com/wpf/diagram/automatic-layouts#flowchart-layout
 
 ## Project pre-requisites
 To run this application, you need to have the below two in your system
