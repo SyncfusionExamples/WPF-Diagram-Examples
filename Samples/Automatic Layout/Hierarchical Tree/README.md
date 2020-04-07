@@ -1,4 +1,4 @@
-# Flowchart Layout sample
+# Hierarchical Tree sample
 This sample demonstrate how to create a simple Hierarchical tree Layout using SfDiagram.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/automatic-layouts#hierarchical-tree-layout

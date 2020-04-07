@@ -1,4 +1,4 @@
-# Flowchart Layout sample
+# Organization Chart sample
 This sample demonstrate how to create a simple Organization Chart Layout using SfDiagram.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/automatic-layouts#organization-layout

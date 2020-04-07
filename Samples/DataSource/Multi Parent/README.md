@@ -1,8 +1,7 @@
-# Radial Tree sample
-This sample demonstrate how to create a simple Radial Tree Layout using SfDiagram.
+# Multi Parent sample
+This sample demonstrate how to create a simple Multiple Parent layout sample using SfDiagram.
 
-__*Documentation*__: https://help.syncfusion.com/wpf/diagram/automatic-layouts#radial-tree-layout
-
+__*Documentation*__: https://help.syncfusion.com/wpf/diagram/datasource#layout-with-multiple-parents
 ## Project pre-requisites
 To run this application, you need to have the below two in your system
 
