@@ -1,5 +1,5 @@
 # Serialization sample
-This sample demonstrate how to serialize Diagram elements with CustomContent. This will help to serialize custom classes with DataContact attribute.
+This sample demonstrate how to serialize Diagram elements with custom contents. This will help to serialize custom classes with DataContact attribute.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/serialization
 ## Project pre-requisites
