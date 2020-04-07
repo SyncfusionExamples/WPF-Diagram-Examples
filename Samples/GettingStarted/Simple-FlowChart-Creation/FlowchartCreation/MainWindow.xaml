@@ -1,0 +1,133 @@
+﻿<Window x:Class="FlowchartCreation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlowchartCreation"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Initialize Shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!--Style for Shape of the Node-->
+            <Style TargetType="Path"
+                   x:Key="ShapeStyle">
+                <Setter Property="Fill"
+                        Value="#FF5B9BD5" />
+                <Setter Property="Stretch"
+                        Value="Fill" />
+                <Setter Property="Stroke"
+                        Value="#FFEDF1F6" />
+            </Style>
+
+            <!--To apply Style for NodeViewModel-->
+            <Style TargetType="syncfusion:Node">
+                <Setter Property="ShapeStyle"
+                        Value="{StaticResource ShapeStyle}"></Setter>
+            </Style>
+
+            <!--Style for TargetDecorator of the Connector-->
+            <Style TargetType="Path"
+                   x:Key="TargetDecoratorStyle">
+                <Setter Property="Stroke"
+                        Value="Black" />
+                <Setter Property="Stretch"
+                        Value="Fill" />
+                <Setter Property="Fill"
+                        Value="Black" />
+                <Setter Property="Height"
+                        Value="10" />
+                <Setter Property="Width"
+                        Value="10" />
+            </Style>
+
+            <!--Style for Geometry of the Connector-->
+            <Style TargetType="Path"
+                   x:Key="ConnectorGeometryStyle">
+                <Setter Property="Stroke"
+                        Value="Black" />
+                <Setter Property="StrokeThickness"
+                        Value="1" />
+            </Style>
+
+            <!--To apply Style for ConnectorViewModel-->
+            <Style TargetType="syncfusion:Connector">
+                <Setter Property="TargetDecoratorStyle"
+                        Value="{StaticResource TargetDecoratorStyle}" />
+                <Setter Property="ConnectorGeometryStyle"
+                        Value="{StaticResource ConnectorGeometryStyle}" />
+            </Style>
+
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.DataContext>
+        <syncfusion:DiagramViewModel>
+            <syncfusion:DiagramViewModel.Nodes>
+                <!--Observable Collection of NodeViewModel-->
+                <syncfusion:NodeCollection>
+                    <!--Begin-->
+                    <syncfusion:NodeViewModel ID="Begin"
+                                              OffsetX="300"
+                                              OffsetY="60"
+                                              Shape="{StaticResource Ellipse}"
+                                              UnitHeight="40"
+                                              UnitWidth="120">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <!--Observable Collection of AnnotationEditorViewModel-->
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Begin" />
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+                    <!--Process-->
+                    <syncfusion:NodeViewModel ID="Process"
+                                              UnitHeight="60"
+                                              UnitWidth="120"
+                                              OffsetX="300"
+                                              OffsetY="140"
+                                              Shape="{StaticResource PredefinedProcess}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Process" />
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+                    <!--End-->
+                    <syncfusion:NodeViewModel ID="End"
+                                              UnitHeight="40"
+                                              UnitWidth="40"
+                                              OffsetX="300"
+                                              OffsetY="225"
+                                              Shape="{StaticResource Ellipse}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="End" />
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+                </syncfusion:NodeCollection>
+            </syncfusion:DiagramViewModel.Nodes>
+            <syncfusion:DiagramViewModel.Connectors>
+                <!--Observable Collection of ConnectorViewModel-->
+                <syncfusion:ConnectorCollection>
+                    <syncfusion:ConnectorViewModel SourceNodeID="Begin"
+                                                   TargetNodeID="Process" />
+                    <syncfusion:ConnectorViewModel SourceNodeID="Process"
+                                                   TargetNodeID="End" />
+                </syncfusion:ConnectorCollection>
+            </syncfusion:DiagramViewModel.Connectors>
+        </syncfusion:DiagramViewModel>
+    </Window.DataContext>
+
+    <Grid>
+        <!--Initializes the SfDiagram in XMAL window-->
+        <syncfusion:SfDiagram x:Name="diagram"
+                              Nodes="{Binding Nodes}"
+                              Connectors="{Binding Connectors}">
+        </syncfusion:SfDiagram>
+    </Grid>
+</Window>
