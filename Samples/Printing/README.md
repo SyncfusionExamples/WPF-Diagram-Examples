@@ -5,7 +5,7 @@
 * [CustomMargin.xaml](./CS/CustomMargin.xaml)
 * [MainWindow.xaml](./CS/MainWindow.xaml)
 
-# How to print the Diagram in WPF application
+# Print the Diagram in WPF application
 This sample demonstrate how to print the content displayed in the diagram page.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/printing
