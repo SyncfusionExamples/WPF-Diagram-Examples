@@ -1,7 +1,7 @@
 <!-- default file list -->
 *Files to look at*:
 
-* [ViewModel.cs](./CS/ViewModel/DiagramVM.cs)
+* [DiagramVM.cs](./CS/ViewModel/DiagramVM.cs)
 * [CustomMargin.xaml](./CS/CustomMargin.xaml)
 * [MainWindow.xaml](./CS/MainWindow.xaml)
 
