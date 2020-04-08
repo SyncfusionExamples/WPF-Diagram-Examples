@@ -1,0 +1,34 @@
+﻿<Window x:Class="Fit_to_page_command.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fit_to_page_command"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:ViewModel="clr-namespace:Fit_to_page_command.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <ViewModel:DiagramVM/>
+    </Window.DataContext> 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
+        <Syncfusion:SfDiagram x:Name="Diagram"
+                              Grid.Column="0"
+                              Nodes="{Binding Nodes}"
+                              Theme="{Binding Theme}"
+                              PageSettings="{Binding PageSettings}"/>        
+        <StackPanel Grid.Column="1" Orientation="Vertical">
+            <Button Height="50" Content="Can Zoom In" Name="CanZoomIn" Command="{Binding CanZoomIn}"/>
+            <Button Height="50" Content="Fit To Width" Name="FitToWidth" Command="{Binding FitToWidth}"/>
+            <Button Height="50" Content="Fit To Height" Name="FitToHeight" Command="{Binding FitToHeight}"/>
+            <Button Height="50" Content="Fit To Page" Name="FitToPage" Command="{Binding FitToPage}"/>
+            <Button Height="50" Content="Page Settings" Name="PageSettings" Command="{Binding PageSettingsCommand}"/>
+            <Button Height="50" Content="Content" Name="Content" Command="{Binding Content}"/>
+            <Button Height="50" Content="Custom Region" Name="CustomRegion" Command="{Binding CustomRegion}"/>
+        </StackPanel>
+    </Grid>
+</Window>

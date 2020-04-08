@@ -1,0 +1,33 @@
+﻿<Window x:Class="Zoom_Command.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zoom_Command"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:ViewModel="clr-namespace:Zoom_Command.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <ViewModel:DiagramVM/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
+        <Syncfusion:SfDiagram x:Name="Diagram" 
+                              Theme="{Binding Theme}"
+                              Grid.Column="0"
+                              Nodes="{Binding Nodes}"/>
+        <StackPanel Grid.Column="1" Orientation="Vertical">
+            <Button Height="50" Content="ZoomIn" Name="ZoomIn" Command="{Binding ZoomIn}"/>
+            <Button Height="50" Content="ZoomOut" Name="ZoomOut" Command="{Binding ZoomOut}"/>
+            <Button Height="50" Content="ZoomTo" Name="ZoomTo" Command="{Binding ZoomTo}"/>
+            <Button Height="50" Content="HorizontalScroll" Name="HorizontalScroll" Command="{Binding HorizontalScroll}"/>
+            <Button Height="50" Content="VerticalScroll" Name="VerticalScroll" Command="{Binding VerticalScroll}"/>
+            <Button Height="50" Content="Pan" Name="Pan" Command="{Binding Pan}"/>
+            <Button Height="50" Content="Reset" Name="Reset" Command="{Binding Reset}"/>
+        </StackPanel>
+    </Grid>
+</Window>

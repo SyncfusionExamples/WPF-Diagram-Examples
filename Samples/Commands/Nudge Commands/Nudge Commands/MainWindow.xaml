@@ -1,0 +1,40 @@
+﻿<Window x:Class="Nudge_Commands.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nudge_Commands"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Initialize Shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
+        <Syncfusion:SfDiagram x:Name="Diagram" Grid.Column="0">
+            <Syncfusion:SfDiagram.Theme>
+                <Syncfusion:OfficeTheme/>
+            </Syncfusion:SfDiagram.Theme>
+            <Syncfusion:SfDiagram.Nodes>
+                <Syncfusion:NodeCollection>
+                    <Syncfusion:NodeViewModel OffsetX = "300" OffsetY = "100" UnitHeight = "100" UnitWidth = "100" Shape ="{StaticResource Rectangle}"/>
+                </Syncfusion:NodeCollection>
+            </Syncfusion:SfDiagram.Nodes>
+        </Syncfusion:SfDiagram>
+        <StackPanel Grid.Column="1" Orientation="Vertical" FocusManager.IsFocusScope="True" Focusable="True">
+            <Button Height="50" Content="Move Up" Name="MoveUp" Command="Syncfusion:DiagramCommands.MoveUp"/>
+            <Button Height="50" Content="Move Left" Name="MoveLeft" Command="Syncfusion:DiagramCommands.MoveLeft"/>
+            <Button Height="50" Content="Move Down" Name="MoveDown" Command="Syncfusion:DiagramCommands.MoveDown"/>
+            <Button Height="50" Content="Move Right" Name="MoveRight" Command="Syncfusion:DiagramCommands.MoveRight"/>
+        </StackPanel>
+    </Grid>
+</Window>
