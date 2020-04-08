@@ -15,4 +15,7 @@ This repository contains the samples that demonstrate the functionalities of Dia
  <tr>
   <td><a href="Samples/Serialization">Serialization</a></td>
  </tr>
+  <tr>
+  <td><a href="Samples/Commands">Commands</a></td>
+ </tr>
 </table>
