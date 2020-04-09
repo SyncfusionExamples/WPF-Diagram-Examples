@@ -1,0 +1,23 @@
+﻿<Application x:Class="Localization.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Localization"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Initialize Shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!--Style for Node-->
+            <Style TargetType="Path"
+                   x:Key="Nodestyle">
+                <Setter Property="Stretch"
+                        Value="Fill" />
+                <Setter Property="Fill"
+                        Value="#FF5B9BD5" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
