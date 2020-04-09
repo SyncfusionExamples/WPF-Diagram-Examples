@@ -1,0 +1,870 @@
+﻿<Window x:Class="Shapes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shapes"
+        mc:Ignorable="d"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <syncfusion:SfDiagram x:Name="diagram">
+            <syncfusion:SfDiagram.Nodes>
+                <syncfusion:NodeCollection>
+
+                    <syncfusion:NodeViewModel UnitHeight="30" UnitWidth="150" OffsetX="70" OffsetY="15">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:TextAnnotationViewModel Text="Basic Shapes" FontWeight="Bold" FontSize="20"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Rectangle shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="50" OffsetY="80" UnitWidth="70" 
+                                              Shape="{StaticResource Rectangle}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Rectangle"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Rectangle shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="170" OffsetY="80" UnitWidth="70" 
+                                              Shape="{StaticResource Triangle}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Triangle"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Plus shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="290" OffsetY="80" UnitWidth="70" 
+                                              Shape="{StaticResource Plus}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Plus"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Pentagon shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="410" OffsetY="80" UnitWidth="70"
+                                              Shape="{StaticResource Pentagon}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Pentagon"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Hexagon shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="530" OffsetY="80" UnitWidth="70"
+                                              Shape="{StaticResource Hexagon}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Hexagon"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Heptagon shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="650" OffsetY="80" UnitWidth="70" 
+                                              Shape="{StaticResource Heptagon}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Heptagon"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Octagon shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="770" OffsetY="80" UnitWidth="70" 
+                                              Shape="{StaticResource Octagon}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Octagon"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Trapezoid shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="890" OffsetY="80" UnitWidth="70" 
+                                              Shape="{StaticResource Trapezoid}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Trapezoid"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Decagon shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="1010" OffsetY="80" UnitWidth="70" 
+                                              Shape="{StaticResource Decagon}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Decagon"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--RightTriangle shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="1130" OffsetY="80" UnitWidth="70" 
+                                              Shape="{StaticResource RightTriangle}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="RightTriangle"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Cylinder shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="50" OffsetY="200" UnitWidth="70" 
+                                              Shape="{StaticResource Cylinder}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Cylinder"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Diamond shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="170" OffsetY="200" UnitWidth="70"
+                                              Shape="{StaticResource Diamond}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Diamond"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--TwoSideFlatCorner shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="290" OffsetY="200" UnitWidth="70"
+                                              Shape="{StaticResource TwoSideFlatCorner}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="TwoSideFlatCorner"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--RoundedRectangle shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="410" OffsetY="200" UnitWidth="70"
+                                              Shape="{StaticResource RoundedRectangle}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="RoundedRectangle"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Cloud shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="530" OffsetY="200" UnitWidth="70" 
+                                              Shape="{StaticResource Cloud}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Cloud"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--CloudCallOut shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="650" OffsetY="200" UnitWidth="70" 
+                                              Shape="{StaticResource CloudCallOut}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="CloudCallOut"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Paralleogram shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="770" OffsetY="200" UnitWidth="70" 
+                                              Shape="{StaticResource Paralleogram}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Paralleogram"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Frame shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="890" OffsetY="200" UnitWidth="70" 
+                                              Shape="{StaticResource Frame}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Frame"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Donut shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="1010" OffsetY="200" UnitWidth="70" 
+                                              Shape="{StaticResource Donut}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Donut"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--RectangleCallOut shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="1130" OffsetY="200" UnitWidth="70" 
+                                              Shape="{StaticResource RectangleCallOut}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="RectangleCallOut"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--RoundedRectangleCallOut shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="50" OffsetY="320" UnitWidth="70"
+                                              Shape="{StaticResource RoundedRectangleCallOut}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="RoundedRectangleCallOut"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--OvalCallOut shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="170" OffsetY="320" UnitWidth="70"
+                                              Shape="{StaticResource OvalCallOut}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="OvalCallOut"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Cube shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="290" OffsetY="320" UnitWidth="70"
+                                              Shape="{StaticResource Cube}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Cube"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--NoSymbol shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="410" OffsetY="320" UnitWidth="70"
+                                              Shape="{StaticResource NoSymbol}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="NoSymbol"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--FourPointStar shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="530" OffsetY="320" UnitWidth="70"
+                                              Shape="{StaticResource FourPointStar}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="FourPointStar"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--FivePointStar shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="650" OffsetY="320" UnitWidth="70"
+                                              Shape="{StaticResource FivePointStar}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="FivePointStar"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--SixPointStar shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="770" OffsetY="320" UnitWidth="70"
+                                              Shape="{StaticResource SixPointStar}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="SixPointStar"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--SixteenPointStar shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="890" OffsetY="320" UnitWidth="70"
+                                              Shape="{StaticResource SixteenPointStar}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="SixteenPointStar"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--TwentyFourPointStar shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="1010" OffsetY="320" UnitWidth="70"
+                                              Shape="{StaticResource TwentyFourPointStar}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="TwentyFourPointStar"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--ThirtyTwoPointStar shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="1130" OffsetY="320" UnitWidth="70"
+                                              Shape="{StaticResource ThirtyTwoPointStar}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="ThirtyTwoPointStar"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <syncfusion:NodeViewModel UnitHeight="30" OffsetX="60" OffsetY="410" UnitWidth="130" >
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:TextAnnotationViewModel FontSize="20" FontWeight="Bold" Text="Flow shapes"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Process shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="50" OffsetY="480" UnitWidth="70" 
+                                              Shape="{StaticResource Process}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Process"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Decision shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="170" OffsetY="480" UnitWidth="70" 
+                                              Shape="{StaticResource Decision}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Decision"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Terminator shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="290" OffsetY="480" UnitWidth="70" 
+                                              Shape="{StaticResource Terminator}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Terminator"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Sort shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="410" OffsetY="480" UnitWidth="70" 
+                                              Shape="{StaticResource Sort}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Sort"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Document shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="530" OffsetY="480" UnitWidth="70" 
+                                              Shape="{StaticResource Document}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Document"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--MultiDocument shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="650" OffsetY="480" UnitWidth="70"
+                                              Shape="{StaticResource MultiDocument}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="MultiDocument"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--DirectData shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="770" OffsetY="480" UnitWidth="70"
+                                              Shape="{StaticResource DirectData}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="DirectData"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--SequentialData shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="890" OffsetY="480" UnitWidth="70"
+                                              Shape="{StaticResource SequentialData}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="SequentialData"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--PaperTap shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="1010" OffsetY="480" UnitWidth="70" 
+                                              Shape="{StaticResource PaperTap}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="PaperTap"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Collate shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="1130" OffsetY="480" UnitWidth="70" 
+                                              Shape="{StaticResource Collate}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Collate"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--SummingJunction shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="50" OffsetY="600" UnitWidth="70" 
+                                              Shape="{StaticResource SummingJunction}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="SummingJunction"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Or shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="170" OffsetY="600" UnitWidth="70" 
+                                              Shape="{StaticResource Or}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Or"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--InternalStorage shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="290" OffsetY="600" UnitWidth="70" 
+                                              Shape="{StaticResource InternalStorage}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="InternalStorage"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--PredefinedProcess shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="410" OffsetY="600" UnitWidth="70" 
+                                              Shape="{StaticResource PredefinedProcess}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="PredefinedProcess"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Merge shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="530" OffsetY="600" UnitWidth="70" 
+                                              Shape="{StaticResource Merge}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Merge"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--OffPageReference shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="650" OffsetY="600" UnitWidth="70" 
+                                              Shape="{StaticResource OffPageReference}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="OffPageReference"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--SequentialAccessStorage shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="770" OffsetY="600" UnitWidth="70" 
+                                              Shape="{StaticResource SequentialAccessStorage}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="SequentialAccessStorage"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--StoredData shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="890" OffsetY="600" UnitWidth="70" 
+                                              Shape="{StaticResource StoredData}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="StoredData"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--PunchedCard shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="1010" OffsetY="600" UnitWidth="70" 
+                                              Shape="{StaticResource PunchedCard}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="PunchedCard"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--LoopLimit shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="1130" OffsetY="600" UnitWidth="70" 
+                                              Shape="{StaticResource LoopLimit}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="LoopLimit"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+
+                    <syncfusion:NodeViewModel UnitHeight="30" OffsetX="60" OffsetY="680" UnitWidth="150">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:TextAnnotationViewModel FontSize="20" FontWeight="Bold" Text="Arrow Shapes"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--CircularArrow1 shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="50" OffsetY="750" UnitWidth="70" 
+                                              Shape="{StaticResource CircularArrow1}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="CircularArrow1"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--CurvedRightArrow1 shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="170" OffsetY="750" UnitWidth="70" 
+                                              Shape="{StaticResource CurvedRightArrow1}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="CurvedRightArrow1"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--CurvedRightArrow1 shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="290" OffsetY="750" UnitWidth="70" 
+                                              Shape="{StaticResource CurvedRightArrow1}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="CurvedUpArrow1"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--CurvedLeftArrow1 shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="410" OffsetY="750" UnitWidth="70" 
+                                              Shape="{StaticResource CurvedLeftArrow1}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="CurvedLeftArrow1"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--CurvedDownArrow1 shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="530" OffsetY="750" UnitWidth="70" 
+                                              Shape="{StaticResource CurvedDownArrow1}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="CurvedDownArrow1"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--UTurnArrow1 shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="650" OffsetY="750" UnitWidth="70" 
+                                              Shape="{StaticResource UTurnArrow1}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="UTurnArrow1"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--RightArrow shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="770" OffsetY="750" UnitWidth="70" 
+                                              Shape="{StaticResource RightArrow}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="RightArrow"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--LeftArrow shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="890" OffsetY="750" UnitWidth="70" 
+                                              Shape="{StaticResource LeftArrow}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="LeftArrow"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--TopArrow shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="1010" OffsetY="750" UnitWidth="70" 
+                                              Shape="{StaticResource TopArrow}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="TopArrow"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--BottomArrow shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="1130" OffsetY="750" UnitWidth="70" 
+                                              Shape="{StaticResource BottomArrow}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="BottomArrow"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--MultiArrow shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="50" OffsetY="870" UnitWidth="70" 
+                                              Shape="{StaticResource MultiArrow}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="MultiArrow"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--BlockArrow shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="170" OffsetY="870" UnitWidth="70" 
+                                              Shape="{StaticResource BlockArrow}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="BlockArrow"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--QuadBlockArrow shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="290" OffsetY="870" UnitWidth="70" 
+                                              Shape="{StaticResource QuadBlockArrow}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="QuadBlockArrow"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--NotchedArrow shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="410" OffsetY="870" UnitWidth="70" 
+                                              Shape="{StaticResource NotchedArrow}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="NotchedArrow"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--LeftRightBlockArrow shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="530" OffsetY="870" UnitWidth="70" 
+                                              Shape="{StaticResource LeftRightBlockArrow}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="LeftRightBlockArrow"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--QuadArrow shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="650" OffsetY="870" UnitWidth="70" 
+                                              Shape="{StaticResource QuadArrow}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="QuadArrow"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--DoubleArrow shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="770" OffsetY="870" UnitWidth="70" 
+                                              Shape="{StaticResource DoubleArrow}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="DoubleArrow"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--FlexibleArrow shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="890" OffsetY="870" UnitWidth="70" 
+                                              Shape="{StaticResource FlexibleArrow}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="FlexibleArrow"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <syncfusion:NodeViewModel UnitHeight="30" OffsetX="80" OffsetY="950" UnitWidth="150" >
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:TextAnnotationViewModel FontSize="20" FontWeight="Bold" Text="Data Flow shapes"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--OvalProcess shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="50" OffsetY="1010" UnitWidth="70" 
+                                              Shape="{StaticResource OvalProcess}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="OvalProcess"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--ExternalIndicator shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="170" OffsetY="1010" UnitWidth="70" 
+                                              Shape="{StaticResource ExternalIndicator }">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="ExternalIndicator"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Object shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="290" OffsetY="1010" UnitWidth="70" 
+                                              Shape="{StaticResource Object}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Object"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--MultipleProcess shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="410" OffsetY="1010" UnitWidth="70" 
+                                              Shape="{StaticResource MultipleProcess}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="MultipleProcess"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--State shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="530" OffsetY="1010" UnitWidth="70" 
+                                              Shape="{StaticResource State}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="State"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Stop1 shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="650" OffsetY="1010" UnitWidth="70" 
+                                              Shape="{StaticResource Stop1}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Stop1"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Entity1 shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="770" OffsetY="1010" UnitWidth="70" 
+                                              Shape="{StaticResource Entity1}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Entity1"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <syncfusion:NodeViewModel UnitHeight="30" OffsetX="60" OffsetY="1090" UnitWidth="150">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:TextAnnotationViewModel FontSize="20" FontWeight="Bold" Text="UML Shapes"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Activity shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="50" OffsetY="1150" UnitWidth="70" 
+                                              Shape="{StaticResource Activity}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Activity"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--FinalNode shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="170" OffsetY="1150" UnitWidth="70" 
+                                              Shape="{StaticResource FinalNode}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="FinalNode"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--Note shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="290" OffsetY="1150" UnitWidth="70" 
+                                              Shape="{StaticResource Note}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Note"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--User shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="410" OffsetY="1150" UnitWidth="70" 
+                                              Shape="{StaticResource User}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="User"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--UseCase shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="530" OffsetY="1150" UnitWidth="70" 
+                                              Shape="{StaticResource UseCase}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="UseCase"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+
+                    <!--StrongEntity shape-->
+                    <syncfusion:NodeViewModel UnitHeight="70" OffsetX="650" OffsetY="1150" UnitWidth="70" 
+                                              Shape="{StaticResource StrongEntity}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="StrongEntity"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+                    
+                </syncfusion:NodeCollection>
+            </syncfusion:SfDiagram.Nodes>
+        </syncfusion:SfDiagram>
+    </Grid>
+</Window>

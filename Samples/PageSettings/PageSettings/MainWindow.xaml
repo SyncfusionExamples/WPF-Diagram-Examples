@@ -1,0 +1,64 @@
+﻿<Window x:Class="PageSettingsSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PageSettingsSample"
+        mc:Ignorable="d"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <syncfusion:SfDiagram x:Name="diagram">
+            <!--Initialize the rulers-->
+            <syncfusion:SfDiagram.HorizontalRuler>
+                <syncfusion:Ruler/>
+            </syncfusion:SfDiagram.HorizontalRuler>
+            <syncfusion:SfDiagram.VerticalRuler>
+                <syncfusion:Ruler Orientation="Vertical"/>
+            </syncfusion:SfDiagram.VerticalRuler>
+            
+            <!--Initialize the page settings with page settings values-->
+            <syncfusion:SfDiagram.PageSettings>
+                <local:PageSettingsViewModel PageOrientation="Landscape" PageWidth="300" PageHeight="400" 
+                             ShowPageBreaks="True" MultiplePage="True" PageBorderThickness="5" 
+                             PageBackground="LightGreen" PageBorderBrush="Black">
+                    <local:PageSettingsViewModel.Unit>
+                        <syncfusion:LengthUnit Unit="Pixels"/>
+                    </local:PageSettingsViewModel.Unit>
+                </local:PageSettingsViewModel>
+            </syncfusion:SfDiagram.PageSettings>
+
+            <!--Initialize the Nodes-->
+            <syncfusion:SfDiagram.Nodes>
+                <!--Initialize the Nodes Collection-->
+                <syncfusion:NodeCollection>
+                    <!--Creating source node-->
+                    <syncfusion:NodeViewModel ID="sourceNode" 
+                                      UnitWidth="100" UnitHeight="50" 
+                                      OffsetX="300" OffsetY="150" 
+                                      Shape="{StaticResource Rectangle}"/>
+
+                    <!--Creating target node-->
+                    <syncfusion:NodeViewModel ID="targetNode" 
+                                      UnitWidth="100" UnitHeight="50" 
+                                      OffsetX="500" OffsetY="300" 
+                                      Shape="{StaticResource Rectangle}"/>
+
+                </syncfusion:NodeCollection>
+            </syncfusion:SfDiagram.Nodes>
+
+            <!--Initialize the connectors-->
+            <syncfusion:SfDiagram.Connectors>
+                <!--Initialize the Connector Collection-->
+                <syncfusion:ConnectorCollection>
+
+                    <!--create the connector with source node and target nodes-->
+                    <syncfusion:ConnectorViewModel x:Name="NodeToNodeConnection" 
+                                           SourceNodeID="sourceNode" 
+                                           TargetNodeID="targetNode"/>
+
+                </syncfusion:ConnectorCollection>
+            </syncfusion:SfDiagram.Connectors>
+        </syncfusion:SfDiagram>
+    </Grid>
+</Window>

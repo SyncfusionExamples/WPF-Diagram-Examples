@@ -1,0 +1,77 @@
+﻿<Application x:Class="ConnectorAppearance.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ConnectorAppearance"
+             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--Common style for connector geometry lines-->
+            <Style TargetType="Path" x:Key="connectorLineStyle">
+                <Setter Property="Stroke" Value="#6BA5D7"/>
+                <Setter Property="StrokeThickness" Value="1"/>
+            </Style>
+
+            <!--Common style for filled decortors-->
+            <Style TargetType="Path" x:Key="DecoratorFillStyle">
+                <Setter Property="Stroke" Value="#6BA5D7"/>
+                <Setter Property="Fill" Value="#6BA5D7"/>
+                <Setter Property="StrokeThickness" Value="1"/>
+                <Setter Property="Stretch" Value="Fill"/>
+                <Setter Property="StrokeLineJoin" Value="Round"/>
+                <Setter Property="StrokeStartLineCap" Value="Round"/>
+                <Setter Property="StrokeEndLineCap" Value="Round"/>
+                <Setter Property="StrokeDashCap" Value="Round"/>
+            </Style>
+
+            <!--Common style for hollow type decortors-->
+            <Style TargetType="Path" x:Key="DecoratorHollowStyle">
+                <Setter Property="Stroke" Value="#6BA5D7"/>
+                <Setter Property="Fill" Value="White"/>
+                <Setter Property="StrokeThickness" Value="1"/>
+                <Setter Property="Stretch" Value="Fill"/>
+                <Setter Property="StrokeLineJoin" Value="Round"/>
+                <Setter Property="StrokeStartLineCap" Value="Round"/>
+                <Setter Property="StrokeEndLineCap" Value="Round"/>
+                <Setter Property="StrokeDashCap" Value="Round"/>
+            </Style>
+
+            <!--Custom style for connectors line-->
+            <Style TargetType="Path" x:Key="CustomConnectorStyle">
+                <Setter Property="Stroke" Value="Red"/>
+                <Setter Property="StrokeThickness" Value="2"/>
+                <Setter Property="StrokeDashArray" Value="2"/>
+                <Setter Property="Opacity" Value="0.8"/>
+            </Style>
+
+            <!--Common style for filled decortors-->
+            <Style TargetType="Path" x:Key="CustomDecoratorStyle">
+                <Setter Property="Stroke" Value="Black"/>
+                <Setter Property="Fill" Value="Red"/>
+                <Setter Property="StrokeThickness" Value="1.5"/>
+                <Setter Property="Stretch" Value="Fill"/>
+                <Setter Property="StrokeLineJoin" Value="Round"/>
+                <Setter Property="StrokeStartLineCap" Value="Round"/>
+                <Setter Property="StrokeEndLineCap" Value="Round"/>
+                <Setter Property="StrokeDashCap" Value="Round"/>
+            </Style>
+
+            <!--Style for Nodes-->
+            <Style TargetType="syncfusion:Node">
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="#6BA5D7"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                            <Setter Property="Stroke" Value="White"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
