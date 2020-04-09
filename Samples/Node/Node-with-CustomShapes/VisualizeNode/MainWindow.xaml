@@ -1,0 +1,104 @@
+﻿<Window x:Class="VisualizeNode.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VisualizeNode"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <!--Initialize Diagram-->
+        <syncfusion:SfDiagram x:Name="diagramControl">
+
+            <syncfusion:SfDiagram.Nodes>
+                <syncfusion:NodeCollection>
+                    <!--custom shape using path data-->
+                    <syncfusion:NodeViewModel UnitWidth="100"
+                                              UnitHeight="100"
+                                              OffsetX="100"
+                                              OffsetY="100"
+                                              Shape="{StaticResource Rectangle}"
+                                              ShapeStyle="{StaticResource ShapeStyle}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="PathData"
+                                                                      Margin="0,70,0,0"></syncfusion:AnnotationEditorViewModel>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+                    <!--custom shape using data template-->
+                    <syncfusion:NodeViewModel UnitWidth="100"
+                                              UnitHeight="100"
+                                              OffsetX="400"
+                                              OffsetY="100"
+                                              ContentTemplate="{StaticResource Square}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="ConntentTemplate"
+                                                                      Margin="0,70,0,0"></syncfusion:AnnotationEditorViewModel>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+                    <!--custom shape using geometry-->
+                    <syncfusion:NodeViewModel UnitWidth="100"
+                                              UnitHeight="90"
+                                              OffsetX="400"
+                                              OffsetY="400">
+                        <syncfusion:NodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="100"
+                                             RadiusY="100"></EllipseGeometry>
+                        </syncfusion:NodeViewModel.Shape>
+                        <syncfusion:NodeViewModel.ShapeStyle>
+                            <Style TargetType="Path">
+                                <Setter Property="Stretch"
+                                        Value="Fill"></Setter>
+                                <Setter Property="Fill"
+                                        Value="#13c6ff"></Setter>
+                            </Style>
+                        </syncfusion:NodeViewModel.ShapeStyle>
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Geometry"
+                                                                      Margin="0,70,0,0"></syncfusion:AnnotationEditorViewModel>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+                    <!--Node with image as content-->
+                    <syncfusion:NodeViewModel UnitHeight="100"
+                                              UnitWidth="100"
+                                              OffsetX="100"
+                                              OffsetY="400">
+                        <!--Assigning user image as Node's Content-->
+                        <syncfusion:NodeViewModel.Content>
+                            <Image Source="/Image/user_image.png"
+                                   Height="100"
+                                   Width="100" />
+                        </syncfusion:NodeViewModel.Content>
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="ImageContent"
+                                                                      Margin="0,70,0,0"></syncfusion:AnnotationEditorViewModel>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+                    <!--Node with builtinshape as shape-->
+                    <syncfusion:NodeViewModel UnitHeight="100"
+                                              UnitWidth="100"
+                                              OffsetX="600"
+                                              OffsetY="250"
+                                              Shape="{StaticResource Diamond}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="BuiltinShape"
+                                                                      Margin="0,70,0,0"></syncfusion:AnnotationEditorViewModel>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+                </syncfusion:NodeCollection>
+            </syncfusion:SfDiagram.Nodes>
+
+        </syncfusion:SfDiagram>
+
+    </Grid>
+</Window>
