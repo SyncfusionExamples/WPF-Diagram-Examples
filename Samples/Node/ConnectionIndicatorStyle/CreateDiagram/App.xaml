@@ -1,0 +1,30 @@
+﻿<Application x:Class="CreateDiagram.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CreateDiagram"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <!--Initialize Shapes-->
+            <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--Defines the custom connection indicator style for port connection-->
+            <Style TargetType="Path" x:Key="PortConnectorIndicatorstyle">
+                <Setter Property="Stroke"
+                        Value="Yellow" />
+                <Setter Property="StrokeThickness"
+                        Value="2"></Setter>
+            </Style>
+
+            <!--Defines the custom connection indicator style for port connection-->
+            <Style TargetType="Path" x:Key="NodeConnectorIndicatorstyle">
+                <Setter Property="Stroke" Value="Yellow"/>
+                <Setter Property="StrokeThickness" Value="2"/>
+            </Style>
+        </ResourceDictionary>
+
+      
+    </Application.Resources>
+</Application>
