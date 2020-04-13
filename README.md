@@ -24,4 +24,19 @@ This repository contains the samples that demonstrate the functionalities of Dia
  <tr>
   <td><a href="Samples/Theme">Theme</a></td>
  </tr>
+ <tr>
+  <td><a href="Samples/Localization">Localization</a></td>
+ </tr>
+ <tr>
+  <td><a href="Samples/ContextMenu">ContextMenu</a></td>
+ </tr>
+ <tr>
+  <td><a href="Samples/Node">Node</a></td>
+ </tr>
+ <tr>
+  <td><a href="Samples/Port">Port</a></td>
+ </tr>
+ <tr>
+  <td><a href="Samples/Interaction">Interaction</a></td>
+ </tr>
 </table>
