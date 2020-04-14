@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29006.145
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeviewToDiagram", "TreeviewToDiagram.csproj", "{F9416581-BB5E-4007-8AE5-89F49364FB69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9416581-BB5E-4007-8AE5-89F49364FB69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9416581-BB5E-4007-8AE5-89F49364FB69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9416581-BB5E-4007-8AE5-89F49364FB69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9416581-BB5E-4007-8AE5-89F49364FB69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2AEA4208-2D9B-421B-8133-30A4114E7241}
+	EndGlobalSection
+EndGlobal
