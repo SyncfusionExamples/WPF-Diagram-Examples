@@ -1,0 +1,76 @@
+﻿<Window x:Class="CreateDiagram.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CreateDiagram"
+        xmlns:diagram="clr-namespace:Syncfusion.UI.Xaml.Diagram;assembly=Syncfusion.SfDiagram.WPF"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:utility="clr-namespace:Syncfusion.UI.Xaml.Diagram.Utility;assembly=Syncfusion.SfDiagram.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="525">
+
+    <Window.Resources>
+      
+        <!--View for the NodeViewModel-->
+        <Style TargetType="{x:Type diagram:Node}">
+            <!--Any Geomtry can be assigned for Shape-->
+            <Setter Property="Shape">
+                <Setter.Value>
+                    <RectangleGeometry Rect="10,10,10,10"></RectangleGeometry>
+                </Setter.Value>
+            </Setter>
+            <!--Style is based on Path-->
+            <Setter Property="ShapeStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill"
+                                Value="CornflowerBlue"></Setter>
+                        <Setter Property="Stretch" Value="Fill"></Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style TargetType="Shape"
+               x:Key="previewstyle">
+            <Setter Property="Stroke"
+                    Value="CornflowerBlue"></Setter>
+            <Setter Property="StrokeThickness"
+                    Value="1.5"></Setter>
+            <Setter Property="StrokeDashArray"
+                    Value="3,3"></Setter>
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <!--Create SfDiagram Instance-->
+        <diagram:SfDiagram x:Name="Diagram">
+            <diagram:SfDiagram.PreviewSettings>
+                <diagram:PreviewSettings PreviewMode="Preview" PreviewStyle="{StaticResource previewstyle}"
+                                         ConnectorRefreshingSpan="300"></diagram:PreviewSettings>
+            </diagram:SfDiagram.PreviewSettings>
+            <!--Initialize Nodes - Node is an entity to visualize the data-->
+            <diagram:SfDiagram.Nodes>
+                <diagram:NodeCollection>
+                    <!--OffsetX and OffsetY - helps to position the Node in Diagram-->
+                    <!--NodeViewModel is business class and DataContext of Node(Control or View)-->
+                    <diagram:NodeViewModel ID="node1"
+                                           OffsetX="200"
+                                           OffsetY="200"
+                                           UnitHeight="100"
+                                           UnitWidth="100">
+                    </diagram:NodeViewModel>
+                    <diagram:NodeViewModel ID="node2" OffsetX="350" OffsetY="300" UnitHeight="100" UnitWidth="100"/>
+                </diagram:NodeCollection>
+            </diagram:SfDiagram.Nodes>
+            <!--Initialize Connectors - Connector is an entity to visualize the relationship-->
+            <diagram:SfDiagram.Connectors>
+              <diagram:ConnectorCollection>
+                   <diagram:ConnectorViewModel SourceNodeID="node1" TargetNodeID="node2"></diagram:ConnectorViewModel>
+              </diagram:ConnectorCollection>
+            </diagram:SfDiagram.Connectors>
+        </diagram:SfDiagram>
+    </Grid>
+</Window>
