@@ -1,4 +1,4 @@
-# Shapes sample
+# Virtualization sample
 
 This sample demonstrates virtualization behaviour of SfDigaram control.
 

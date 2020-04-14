@@ -1,4 +1,4 @@
-# Exporting sample
+# Snapping sample
 
 This sample demonstrates how to snap the diagram objects with page.
 
