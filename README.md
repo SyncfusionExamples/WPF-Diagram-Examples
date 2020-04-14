@@ -78,4 +78,7 @@ This repository contains the samples that demonstrate the functionalities of Dia
  <tr>
   <td><a href="Samples/Overview">Overview</a></td>
  </tr>
+  <tr>
+  <td><a href="Samples/TreeViewToDiagram">TreeViewToDiagram</a></td>
+ </tr>
 </table>
