@@ -1,0 +1,795 @@
+﻿<Application x:Class="StencilCategorySample.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:StencilCategorySample"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" 
+             xmlns:Stencil="clr-namespace:Syncfusion.UI.Xaml.Diagram.Stencil;assembly=Syncfusion.SfDiagram.Wpf"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Dictionary which contains the inbuilt shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--custom path data-->
+            <sys:String x:Key="CustomPath">
+                F1M1.66,0.25C0.882,0.25,0.25,0.881,0.25,1.66L0.25,24.622C0.25,25.401,0.882,26.032,1.66,26.032L4.48,26.032C5.259,26.032,5.89,25.401,5.89,24.622L5.89,1.66C5.89,0.881,5.259,0.25,4.48,0.25z
+            </sys:String>
+
+            <DataTemplate x:Key="singleSofa">
+                <Viewbox Stretch="Fill">
+                    <Grid>
+                        <Grid Height="26.282" Canvas.Left="607.871" Canvas.Top="397.714" Width="22.907">
+                            <Path Data="F1M1.66,0.25C0.882,0.25,0.25,0.881,0.25,1.66L0.25,24.622C0.25,25.401,0.882,26.032,1.66,26.032L4.48,26.032C5.259,26.032,5.89,25.401,5.89,24.622L5.89,1.66C5.89,0.881,5.259,0.25,4.48,0.25z" Fill="#FFFF99CC" Stroke="#FFBE1E2D" StrokeThickness="0.5" Margin="16.767,0,0,0"/>
+                            <Path Data="F1M1.66,0.25C0.882,0.25,0.25,0.881,0.25,1.659L0.25,4.038C0.25,4.817,0.882,5.448,1.66,5.448L15.581,5.448C16.36,5.448,16.991,4.817,16.991,4.038L16.991,1.659C16.991,0.881,16.36,0.25,15.581,0.25z" Fill="#FFFF99CC" Stroke="#FFBE1E2D" StrokeThickness="0.5" Margin="0.026,20.584,5.64,0"/>
+                            <Path Data="F1M1.66,0.25C0.882,0.25,0.25,0.881,0.25,1.659L0.25,4.038C0.25,4.817,0.882,5.448,1.66,5.448L15.581,5.448C16.36,5.448,16.991,4.817,16.991,4.038L16.991,1.659C16.991,0.881,16.36,0.25,15.581,0.25z" Fill="#FFFF99CC" Stroke="#FFBE1E2D" StrokeThickness="0.5" Margin="0.026,0.059,5.64,20.525"/>
+                            <Path Data="F1M1.66,0.25C0.881,0.25,0.25,0.881,0.25,1.66L0.25,13.907C0.25,14.686,0.881,15.317,1.66,15.317L15.582,15.317C16.36,15.317,16.991,14.686,16.991,13.907L16.991,1.66C16.991,0.881,16.36,0.25,15.582,0.25z" Fill="#FFFF6699" Stroke="#FFBE1E2D" StrokeThickness="0.5" Margin="0,5.258,5.666,5.457"/>
+                            <Path Data="F1M0,3.53L0.349,3.879 3.88,0.348 3.531,0z" Fill="#FFFF99CC" Margin="9.552,8.654,9.475,13.749"/>
+                            <Path Data="F1M0,0.349L3.531,3.879 3.88,3.531 0.349,0z" Fill="#FFFF99CC" Margin="9.552,8.654,9.475,13.749"/>
+                            <Path Data="F1M0.937,0.001C0.443,-0.021 0.024,0.36 0.001,0.854 -0.022,1.349 0.36,1.767 0.854,1.789 1.348,1.813 1.766,1.431 1.791,0.937 1.812,0.443 1.43,0.025 0.937,0.001" Fill="#FFFF99CC" Margin="10.596,9.698,10.519,14.794"/>
+                            <Path Data="F1M0,0.65C0,0.997 0.272,1.283 0.619,1.297 0.793,1.305 0.959,1.246 1.086,1.129 1.215,1.012 1.29,0.852 1.299,0.679L1.299,0.677C1.299,0.3 1.027,0.016 0.681,0.001 0.507,-0.008 0.341,0.052 0.213,0.17 0.084,0.287 0.01,0.446 0.002,0.619z" Fill="#FFFF6699" Margin="10.842,9.945,10.766,15.039"/>
+                            <Path Data="F1M0,3.531L0.349,3.879 3.88,0.348 3.531,0z" Fill="#FFFF99CC" Margin="9.552,13.55,9.475,8.853"/>
+                            <Path Data="F1M0,0.349L3.531,3.879 3.88,3.532 0.349,0z" Fill="#FFFF99CC" Margin="9.552,13.549,9.475,8.854"/>
+                            <Path Data="F1M0.937,0.001C0.443,-0.021 0.024,0.361 0.001,0.855 -0.022,1.348 0.36,1.767 0.854,1.791 1.348,1.813 1.766,1.431 1.791,0.938 1.812,0.443 1.43,0.025 0.937,0.001" Fill="#FFFF99CC" Margin="10.596,14.594,10.519,9.896"/>
+                            <Path Data="F1M0,0.65C0,0.997 0.272,1.283 0.619,1.297 0.793,1.305 0.959,1.246 1.086,1.129 1.215,1.012 1.29,0.852 1.299,0.679L1.299,0.678C1.299,0.3 1.027,0.017 0.681,0 0.507,-0.006 0.341,0.053 0.213,0.17 0.084,0.287 0.01,0.447 0.002,0.619z" Fill="#FFFF6699" Margin="10.842,14.84,10.766,10.144"/>
+                            <Path Data="F1M0,3.53L0.349,3.879 3.88,0.347 3.53,0z" Fill="#FFFF99CC" Margin="3.81,11.102,15.217,11.301"/>
+                            <Path Data="F1M0,0.348L3.53,3.879 3.88,3.531 0.349,0z" Fill="#FFFF99CC" Margin="3.81,11.101,15.217,11.302"/>
+                            <Path Data="F1M0.937,0.001C0.443,-0.023 0.023,0.358 0.001,0.854 -0.022,1.346 0.359,1.766 0.854,1.788 1.347,1.813 1.766,1.43 1.789,0.936 1.812,0.442 1.43,0.023 0.937,0.001" Fill="#FFFF99CC" Margin="4.854,12.147,16.263,12.346"/>
+                            <Path Data="F1M0,0.65C0,0.999 0.272,1.282 0.618,1.298 0.793,1.305 0.959,1.246 1.087,1.129 1.215,1.012 1.29,0.852 1.298,0.679L1.298,0.678C1.298,0.301 1.027,0.017 0.68,0.001 0.507,-0.007 0.341,0.053 0.212,0.171 0.084,0.287 0.01,0.447 0.001,0.62z" Fill="#FFFF6699" Margin="5.1,12.392,16.509,12.592"/>
+                        </Grid>
+                    </Grid>
+                </Viewbox>
+            </DataTemplate>
+
+            <DataTemplate x:Key="mat">
+                <Viewbox Stretch="Fill">
+                    <Grid>
+                        <Path Margin="0,0,195.037,120.907"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.963,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="13.961,0,181.073,120.907"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.965,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="27.927,0,167.11,120.907"
+                      Data="F1M3.489,12.093L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="41.89,0,153.147,120.907"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.963,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="55.853,0,139.182,120.907"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.965,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="69.818,0,125.219,120.907"
+                      Data="F1M3.489,12.093L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="83.781,0,111.256,120.907"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="97.744,0,97.292,120.907"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="111.708,0,83.328,120.907"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="125.671,0,69.366,120.907"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="139.633,0,55.402,120.907"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="153.598,0,41.438,120.907"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="167.562,0,27.475,120.907"
+                      Data="F1M3.489,12.093L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="181.525,0,13.511,120.907"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="195.489,0,-0.453,120.907"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="0,12.092,195.037,108.815"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.963,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="13.961,12.092,181.073,108.815"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.965,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="27.927,12.092,167.11,108.815"
+                      Data="F1M3.489,12.093L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="41.89,12.092,153.147,108.815"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.963,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="55.853,12.092,139.182,108.815"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.965,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="69.818,12.092,125.219,108.815"
+                      Data="F1M3.489,12.093L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="83.781,12.092,111.256,108.815"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="97.744,12.092,97.292,108.815"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="111.708,12.092,83.328,108.815"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="125.671,12.092,69.366,108.815"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="139.633,12.092,55.402,108.815"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="153.598,12.092,41.438,108.815"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="167.562,12.092,27.475,108.815"
+                      Data="F1M3.489,12.093L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="181.525,12.092,13.511,108.815"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="195.489,12.092,-0.453,108.815"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="13.961,120.925,181.073,-0.018"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.965,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="27.927,120.925,167.11,-0.018"
+                      Data="F1M3.489,12.093L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="41.89,120.925,153.147,-0.018"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.963,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="55.853,120.925,139.182,-0.018"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.965,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="69.818,120.925,125.219,-0.018"
+                      Data="F1M3.489,12.093L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="83.781,120.925,111.256,-0.018"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="97.744,120.925,97.292,-0.018"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="111.708,120.925,83.328,-0.018"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="125.671,120.925,69.366,-0.018"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="139.633,120.925,55.402,-0.018"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="153.598,120.925,41.438,-0.018"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="167.562,120.925,27.475,-0.018"
+                      Data="F1M3.489,12.093L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="181.525,120.925,13.511,-0.018"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="155.081,95.931,42.841,27.476"
+                      Data="F1M2.769,9.593L0,4.797 2.769,0 8.309,0 11.078,4.797 8.309,9.593z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="0,24.186,195.037,96.722"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.963,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="13.961,24.186,181.073,96.722"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.965,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="27.927,24.186,167.11,96.722"
+                      Data="F1M3.489,12.092L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="41.89,24.186,153.147,96.722"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.963,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="55.853,24.186,139.182,96.722"
+                      Data="F1M3.491,12.092L0,6.046 3.491,0 10.473,0 13.965,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="69.818,24.186,125.219,96.722"
+                      Data="F1M3.489,12.092L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="83.781,24.186,111.256,96.722"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="97.744,24.186,97.292,96.722"
+                      Data="F1M3.491,12.092L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="111.708,24.186,83.328,96.722"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="125.671,24.186,69.366,96.722"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="139.633,24.186,55.402,96.722"
+                      Data="F1M3.491,12.092L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="153.598,24.186,41.438,96.722"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="167.562,24.186,27.475,96.722"
+                      Data="F1M3.489,12.092L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="181.525,24.186,13.511,96.722"
+                      Data="F1M3.491,12.092L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="195.489,24.186,-0.453,96.722"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="0,36.278,195.037,84.629"
+                      Data="F1M3.49,12.092L0,6.046 3.49,-0.001 10.473,-0.001 13.963,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="13.961,36.278,181.073,84.629"
+                      Data="F1M3.49,12.092L0,6.046 3.49,-0.001 10.473,-0.001 13.965,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="27.927,36.278,167.11,84.629"
+                      Data="F1M3.489,12.092L0,6.046 3.489,-0.001 10.472,-0.001 13.963,6.046 10.472,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="41.89,36.278,153.147,84.629"
+                      Data="F1M3.49,12.092L0,6.046 3.49,-0.001 10.473,-0.001 13.963,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="55.853,36.278,139.182,84.629"
+                      Data="F1M3.491,12.092L0,6.046 3.491,-0.001 10.473,-0.001 13.965,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="69.818,36.278,125.219,84.629"
+                      Data="F1M3.489,12.092L0,6.046 3.489,-0.001 10.472,-0.001 13.963,6.046 10.472,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="83.781,36.278,111.256,84.629"
+                      Data="F1M3.49,12.092L0,6.046 3.49,-0.001 10.472,-0.001 13.963,6.046 10.472,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="97.744,36.278,97.292,84.629"
+                      Data="F1M3.491,12.092L0,6.046 3.491,-0.001 10.473,-0.001 13.964,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="111.708,36.278,83.328,84.629"
+                      Data="F1M3.49,12.092L0,6.046 3.49,-0.001 10.473,-0.001 13.964,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="125.671,36.278,69.366,84.629"
+                      Data="F1M3.49,12.092L0,6.046 3.49,-0.001 10.472,-0.001 13.963,6.046 10.472,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="139.633,36.278,55.402,84.629"
+                      Data="F1M3.491,12.092L0,6.046 3.491,-0.001 10.473,-0.001 13.964,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="153.598,36.278,41.438,84.629"
+                      Data="F1M3.49,12.092L0,6.046 3.49,-0.001 10.473,-0.001 13.964,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="167.562,36.278,27.475,84.629"
+                      Data="F1M3.489,12.092L0,6.046 3.489,-0.001 10.472,-0.001 13.963,6.046 10.472,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="181.525,36.278,13.511,84.629"
+                      Data="F1M3.491,12.092L0,6.046 3.491,-0.001 10.473,-0.001 13.964,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="195.489,36.278,-0.453,84.629"
+                      Data="F1M3.49,12.092L0,6.046 3.49,-0.001 10.473,-0.001 13.964,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="0,48.37,195.037,72.537"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.963,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="13.961,48.37,181.073,72.537"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.965,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="27.927,48.37,167.11,72.537"
+                      Data="F1M3.489,12.093L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="41.89,48.37,153.147,72.537"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.963,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="55.853,48.37,139.182,72.537"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.965,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="69.818,48.37,125.219,72.537"
+                      Data="F1M3.489,12.093L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="83.781,48.37,111.256,72.537"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="97.744,48.37,97.292,72.537"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="111.708,48.37,83.328,72.537"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="125.671,48.37,69.366,72.537"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="139.633,48.37,55.402,72.537"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="153.598,48.37,41.438,72.537"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="167.562,48.37,27.475,72.537"
+                      Data="F1M3.489,12.093L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="181.525,48.37,13.511,72.537"
+                      Data="F1M3.491,12.093L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="195.489,48.37,-0.453,72.537"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="0,60.463,195.037,60.445"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.963,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="13.961,60.463,181.073,60.445"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.965,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="27.927,60.463,167.11,60.445"
+                      Data="F1M3.489,12.092L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="41.89,60.463,153.147,60.445"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.963,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="55.853,60.463,139.182,60.445"
+                      Data="F1M3.491,12.092L0,6.046 3.491,0 10.473,0 13.965,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="69.818,60.463,125.219,60.445"
+                      Data="F1M3.489,12.092L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="83.781,60.463,111.256,60.445"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="97.744,60.463,97.292,60.445"
+                      Data="F1M3.491,12.092L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="111.708,60.463,83.328,60.445"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="125.671,60.463,69.366,60.445"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="139.633,60.463,55.402,60.445"
+                      Data="F1M3.491,12.092L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="153.598,60.463,41.438,60.445"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="167.562,60.463,27.475,60.445"
+                      Data="F1M3.489,12.092L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="181.525,60.463,13.511,60.445"
+                      Data="F1M3.491,12.092L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="195.489,60.463,-0.453,60.445"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="0,72.555,195.037,48.352"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.963,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="13.961,72.555,181.073,48.352"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.965,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="27.927,72.555,167.11,48.352"
+                      Data="F1M3.489,12.093L0,6.047 3.489,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="41.89,72.555,153.147,48.352"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.963,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="55.853,72.555,139.182,48.352"
+                      Data="F1M3.491,12.093L0,6.047 3.491,0 10.473,0 13.965,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="69.818,72.555,125.219,48.352"
+                      Data="F1M3.489,12.093L0,6.047 3.489,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="83.781,72.555,111.256,48.352"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="97.744,72.555,97.292,48.352"
+                      Data="F1M3.491,12.093L0,6.047 3.491,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="111.708,72.555,83.328,48.352"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="125.671,72.555,69.366,48.352"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="139.633,72.555,55.402,48.352"
+                      Data="F1M3.491,12.093L0,6.047 3.491,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="153.598,72.555,41.438,48.352"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="167.562,72.555,27.475,48.352"
+                      Data="F1M3.489,12.093L0,6.047 3.489,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="181.525,72.555,13.511,48.352"
+                      Data="F1M3.491,12.093L0,6.047 3.491,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="195.489,72.555,-0.453,48.352"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="0,84.648,195.037,36.259"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.963,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="13.961,84.648,181.073,36.259"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.965,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="27.927,84.648,167.11,36.259"
+                      Data="F1M3.489,12.093L0,6.047 3.489,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="41.89,84.648,153.147,36.259"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.963,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="55.853,84.648,139.182,36.259"
+                      Data="F1M3.491,12.093L0,6.047 3.491,0 10.473,0 13.965,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="69.818,84.648,125.219,36.259"
+                      Data="F1M3.489,12.093L0,6.047 3.489,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="83.781,84.648,111.256,36.259"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="97.744,84.648,97.292,36.259"
+                      Data="F1M3.491,12.093L0,6.047 3.491,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="111.708,84.648,83.328,36.259"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="125.671,84.648,69.366,36.259"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="139.633,84.648,55.402,36.259"
+                      Data="F1M3.491,12.093L0,6.047 3.491,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="153.598,84.648,41.438,36.259"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="167.562,84.648,27.475,36.259"
+                      Data="F1M3.489,12.093L0,6.047 3.489,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="181.525,84.648,13.511,36.259"
+                      Data="F1M3.491,12.093L0,6.047 3.491,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="195.489,84.648,-0.453,36.259"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="0,96.741,195.037,24.167"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.963,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="13.961,96.741,181.073,24.167"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.965,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="27.927,96.741,167.11,24.167"
+                      Data="F1M3.489,12.092L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="41.89,96.741,153.147,24.167"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.963,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="55.853,96.741,139.182,24.167"
+                      Data="F1M3.491,12.092L0,6.046 3.491,0 10.473,0 13.965,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="69.818,96.741,125.219,24.167"
+                      Data="F1M3.489,12.092L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="83.781,96.741,111.256,24.167"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="97.744,96.741,97.292,24.167"
+                      Data="F1M3.491,12.092L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="111.708,96.741,83.328,24.167"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="125.671,96.741,69.366,24.167"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="139.633,96.741,55.402,24.167"
+                      Data="F1M3.491,12.092L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="153.598,96.741,41.438,24.167"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="167.562,96.741,27.475,24.167"
+                      Data="F1M3.489,12.092L0,6.046 3.489,0 10.472,0 13.963,6.046 10.472,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="181.525,96.741,13.511,24.167"
+                      Data="F1M3.491,12.092L0,6.046 3.491,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="195.489,96.741,-0.453,24.167"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="195.489,120.926,-0.453,-0.018"
+                      Data="F1M3.49,12.092L0,6.046 3.49,0 10.473,0 13.964,6.046 10.473,12.092z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="0,108.833,195.037,12.074"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.963,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="13.961,108.833,181.073,12.074"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.965,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="27.927,108.833,167.11,12.074"
+                      Data="F1M3.489,12.093L0,6.047 3.489,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="41.89,108.833,153.147,12.074"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.963,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="55.853,108.833,139.182,12.074"
+                      Data="F1M3.491,12.093L0,6.047 3.491,0 10.473,0 13.965,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="69.818,108.833,125.219,12.074"
+                      Data="F1M3.489,12.093L0,6.047 3.489,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="83.781,108.833,111.256,12.074"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="97.744,108.833,97.292,12.074"
+                      Data="F1M3.491,12.093L0,6.047 3.491,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="111.708,108.833,83.328,12.074"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="125.671,108.833,69.366,12.074"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="139.633,108.833,55.402,12.074"
+                      Data="F1M3.491,12.093L0,6.047 3.491,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="153.598,108.833,41.438,12.074"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="167.562,108.833,27.475,12.074"
+                      Data="F1M3.489,12.093L0,6.047 3.489,0 10.472,0 13.963,6.047 10.472,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="181.525,108.833,13.511,12.074"
+                      Data="F1M3.491,12.093L0,6.047 3.491,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                        <Path Margin="195.489,108.833,-0.453,12.074"
+                      Data="F1M3.49,12.093L0,6.047 3.49,0 10.473,0 13.964,6.047 10.473,12.093z"
+                      Fill="#FFBF906A"
+                      UseLayoutRounding="False" />
+                        <Path Margin="0,120.925,195.037,-0.018"
+                      Data="F1M3.49,12.093L0,6.046 3.49,0 10.473,0 13.963,6.046 10.473,12.093z"
+                      Fill="#FFE89C56"
+                      UseLayoutRounding="False" />
+                    </Grid>
+                </Viewbox>
+            </DataTemplate>
+
+            <x:Array Type="sys:String" x:Key="customShapeCollection">
+                <sys:String>Rectangle</sys:String>
+                <sys:String>Cube</sys:String>
+                <sys:String>Triangle</sys:String>
+                <sys:String>Ellipse</sys:String>
+                <sys:String>CustomPath</sys:String>
+                <sys:String>singleSofa</sys:String>
+                <sys:String>mat</sys:String>
+            </x:Array>
+
+            <!--Style for Node-->
+            <Style TargetType="Syncfusion:Node">
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="CornflowerBlue"/>
+                            <Setter Property="Stroke" Value="#727272"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="Path" x:Key="NodeStyle">
+                <Setter Property="Fill" Value="CornflowerBlue"/>
+                <Setter Property="Stroke" Value="#FFC8C8C8 "/>
+                <Setter Property="StrokeThickness" Value="1"/>
+                <Setter Property="Stretch" Value="Fill"/>
+            </Style>
+
+            <Style TargetType="Path" x:Key="ElectricNodeStyle">
+                <Setter Property="Stroke" Value="Black"/>
+                <Setter Property="StrokeThickness" Value="1"/>
+                <Setter Property="Stretch" Value="Fill"/>
+            </Style>
+
+            <!--Style for Symbol-->
+            <Style TargetType="Stencil:Symbol">
+                <Setter Property="Margin" Value="4"></Setter>
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="ToolTip" Value="{Binding ToolTip}" />
+                <Setter Property="Width" Value="50" />
+                <Setter Property="Height" Value="50" />
+            </Style>
+
+            <!--Style for Symbol Group-->
+            <Style TargetType="Stencil:SymbolGroup">
+                <Setter Property="FontFamily" Value="Regular"/>
+                <Setter Property="Background" Value="#ffffff"/>
+                <Setter Property="Foreground" Value="#222222"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="HeaderTemplate">
+                    <Setter.Value>
+                        <DataTemplate>
+                            <Stencil:Header>
+                                <Stencil:Header.Template>
+                                    <ControlTemplate TargetType="Stencil:Header">
+                                        <Grid>
+                                            <Border x:Name="header" 
+                                                    Background="#f5f5f5" 
+                                                    BorderBrush="#dfdfdf" 
+                                                    BorderThickness="1">
+                                                <ContentPresenter Margin="10" Content="{Binding}"/>
+                                            </Border>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Stencil:Header.Template>
+                            </Stencil:Header>
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
