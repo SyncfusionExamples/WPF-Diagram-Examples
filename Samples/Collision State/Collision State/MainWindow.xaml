@@ -1,0 +1,20 @@
+﻿<Window x:Class="Collision_State.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Collision_State"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:ViewModel="clr-namespace:Collision_State.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowState="Maximized">
+    <Window.DataContext>
+        <ViewModel:DiagramVM/>
+    </Window.DataContext>
+    <Grid>
+        <Syncfusion:SfDiagram Theme="{Binding Theme}" 
+                              Nodes="{Binding Nodes}"
+                              Connectors="{Binding Connectors}"
+                              SelectorChangedCommand="{Binding SelectorChangedCommand}"/>
+    </Grid>
+</Window>
