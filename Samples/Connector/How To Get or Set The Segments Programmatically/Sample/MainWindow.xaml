@@ -1,0 +1,16 @@
+﻿<Window x:Class="Incident_sample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Incident_sample"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"        
+        Title="MainWindow" WindowState="Maximized" Height="350" Width="525">
+    <Grid>
+        <syncfusion:SfDiagram x:Name="diagram" PortVisibility="Visible"/>
+        <Button x:Name="LoadSegment" Height="50" Width="80" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Click="LoadSegment_Click" Content="Load Segments"/>
+    </Grid>
+</Window>
