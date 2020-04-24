@@ -1,0 +1,65 @@
+﻿<Window x:Class="FloatElementsSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FloatElementsSample"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowState="Maximized">
+    <Window.Resources>
+        <Style TargetType="Syncfusion:Node">
+            <Setter Property="Shape">
+                <Setter.Value>
+                <RectangleGeometry Rect="100,100,100,100"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ShapeStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Stretch" Value="Fill"/>
+                        <Setter Property="Fill" Value="CornflowerBlue"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="750"/>
+            <ColumnDefinition Width="750"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Syncfusion:SfDiagram x:Name="diagram1" 
+                                  Grid.Column="0" 
+                                  BorderBrush="DarkBlue" 
+                                  BorderThickness="4" 
+                                  AllowDrop="True" 
+                                  Constraints="Default,FloatElements">
+                <Syncfusion:SfDiagram.Nodes>
+                <Syncfusion:NodeCollection>
+                        <Syncfusion:NodeViewModel UnitHeight="100" UnitWidth="100" OffsetX="100" OffsetY="100"/>
+                    </Syncfusion:NodeCollection>
+            </Syncfusion:SfDiagram.Nodes>
+            <Syncfusion:SfDiagram.Connectors>
+                <Syncfusion:ConnectorCollection/>
+            </Syncfusion:SfDiagram.Connectors>
+        </Syncfusion:SfDiagram>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Syncfusion:SfDiagram x:Name="diagram2"
+                                  Grid.Column="1"
+                                  BorderBrush="Yellow"
+                                  BorderThickness="4"
+                                  AllowDrop="True"
+                                  Constraints="Default,FloatElements">
+                <Syncfusion:SfDiagram.Nodes>
+                    <Syncfusion:NodeCollection/>
+                </Syncfusion:SfDiagram.Nodes>
+                <Syncfusion:SfDiagram.Connectors>
+                    <Syncfusion:ConnectorCollection/>
+                </Syncfusion:SfDiagram.Connectors>
+            </Syncfusion:SfDiagram>
+        </Grid>
+    </Grid>
+</Window>

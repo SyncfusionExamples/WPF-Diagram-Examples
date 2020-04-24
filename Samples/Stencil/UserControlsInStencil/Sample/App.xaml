@@ -1,0 +1,36 @@
+﻿<Application x:Class="Xaml_Designer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Xaml_Designer"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BindingStyle.xaml" />
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate x:Key="custombuttontemplate">
+                <Border Background="Transparent" BorderBrush="Gray" BorderThickness="0.5" >
+                    <Button Content="{Binding Text}"  IsHitTestVisible="{Binding IsHitTestVisible}"></Button>
+                </Border>
+            </DataTemplate>
+            <DataTemplate x:Key="customcomboboxtemplate">
+                <ComboBox x:Name="cboBox1" ItemsSource="{Binding Items}" IsHitTestVisible="{Binding IsHitTestVisible}"  SelectedIndex="0"  DisplayMemberPath="Name" MinWidth="120">
+                </ComboBox>
+            </DataTemplate>
+            <DataTemplate x:Key="customDataGridtemplate">
+                <DataGrid ItemsSource="{Binding Employees}" IsHitTestVisible="{Binding IsHitTestVisible}" />
+            </DataTemplate>
+            <DataTemplate x:Key="customTextBoxtemplate">
+                <TextBox Text="{Binding Text}" IsHitTestVisible="{Binding IsHitTestVisible}"></TextBox>
+            </DataTemplate>
+            <DataTemplate x:Key="customtextBlocktemplate">
+                <TextBlock Text="{Binding Text}" IsHitTestVisible="{Binding IsHitTestVisible}" Background="LightGray"></TextBlock>
+            </DataTemplate>
+            <DataTemplate x:Key="customEllipsetemplate">
+                <Ellipse   Stretch="Fill" Fill="Gray"></Ellipse>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
