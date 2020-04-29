@@ -10,13 +10,19 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        
+
         <DataTemplate x:Key="PrintHeaderTemplate">
-            <TextBlock Text="Customized Header" FontSize="35" FontStyle="Italic" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="PageHeader" FontSize="35" FontStyle="Italic" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </DataTemplate>
 
         <DataTemplate x:Key="PrintFooterTemplate">
-            <TextBlock Text="Customized Footer" FontSize="35" FontStyle="Italic" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontSize="12">
+                <TextBlock.Text>
+                    <Binding Path="PageIndex"
+                             RelativeSource="{RelativeSource Mode=FindAncestor,AncestorType={x:Type Printing:PrintPageControl}}"
+                             StringFormat="Page : {0}" />
+                </TextBlock.Text>
+            </TextBlock>
         </DataTemplate>
 
         <!--ViewTemplate of Annotation-->
