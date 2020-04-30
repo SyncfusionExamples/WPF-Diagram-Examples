@@ -203,7 +203,7 @@ namespace GettingStarted_Print.ViewModel
             //Initializing PrintingService for DiagramViewModel
             PrintingService = new CustomPrintingService(this);
 
-            //to display page number at top of the print preview.
+            //to display page number at bottom of the print preview.
             PrintingService.PrintSettings.PageHeaderHeight = 50;
             PrintingService.PrintSettings.PageHeaderTemplate = App.Current.MainWindow.Resources["PrintHeaderTemplate"] as DataTemplate;
             PrintingService.PrintSettings.PageFooterHeight = 50;

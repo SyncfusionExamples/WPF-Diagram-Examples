@@ -25,6 +25,14 @@ namespace CustomContextMenu
         {
             IGraphInfo diagramInfo = (Diagram.Info as IGraphInfo);
 
+            DiagramMenuItem menu = new DiagramMenuItem()
+            {
+                Content = "Delete",
+                Command = diagramInfo.Commands.Delete,
+                Icon = @"pack://application:,,,/Icons/delete.png"
+            };
+            Diagram.Menu.MenuItems.Add(menu);
+
             //Initialize  the new custom Menu with zoom functionalities
             DiagramMenuItem Zoom = new DiagramMenuItem()
             {
@@ -32,7 +40,7 @@ namespace CustomContextMenu
                 Icon = @"pack://application:,,,/Icons/zoom.jpg",
             };
 
-            //Intialize the sub-menu item for Zooming enu with ZoomIn command
+            //Intialize the sub-menu item for Zooming menu with ZoomIn command
             DiagramMenuItem zoomIn = new DiagramMenuItem()
             {
                 // Defines the content of menu item
