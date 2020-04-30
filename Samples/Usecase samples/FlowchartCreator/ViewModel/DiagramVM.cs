@@ -13,6 +13,7 @@ using Syncfusion.UI.Xaml.Diagram;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Windows.Input;
 
 namespace FlowchartCreator.ViewModel
@@ -53,6 +54,8 @@ namespace FlowchartCreator.ViewModel
         {
             PrintingService = new PrintingService();
             //Custom command to execute export action
+            LoadCommand = new Command(OnLoadCommand);
+            SaveCommand = new Command(OnSaveCommand);
             ExportCommand = new Command(OnExported);
             PrintClickCommand = new Command(OnPrintCommand);
             DropCommand = new Command(OnItemDroped);
@@ -60,12 +63,38 @@ namespace FlowchartCreator.ViewModel
 
             
         }
-        
+        public ICommand LoadCommand { get; set; }
+        public ICommand SaveCommand { get; set; }
         public ICommand ExportCommand { get; set; }
         public ICommand PrintClickCommand { get; set; }
 
 
-        
+        private void OnLoadCommand(object obj)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "XAML File (*.xaml)|*.xaml";
+            if (dialog.ShowDialog() == true)
+            {
+                using (Stream myStream = dialog.OpenFile())
+                {
+                    (Info as IGraphInfo).Load(myStream);
+                }
+            }
+        }
+        private void OnSaveCommand(object obj)
+        {
+            //To Represent SaveFile Dialog Box
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Title = "Save XAML";
+            dialog.Filter = "XAML File (*.xaml)|*.xaml";
+            if (dialog.ShowDialog() == true)
+            {
+                using (Stream str = File.Open(dialog.FileName, FileMode.CreateNew))
+                {
+                    (Info as IGraphInfo).Save(str);
+                }
+            }
+        }
         private void OnExported(object ob)
         {
             String obj = this.ExportType;
