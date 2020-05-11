@@ -1,0 +1,39 @@
+﻿<Application x:Class="BringToView.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:BringToView"
+             xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+                                   
+                    <Style TargetType="Path" x:Key="NodeStyle">
+                        <Setter Property="Stretch"
+                                Value="Fill"></Setter>
+                        <Setter Property="Fill"
+                                Value="CornflowerBlue"></Setter>
+                    </Style>
+               
+
+            <Style TargetType="Path"
+                   x:Key="ViewNodeStyle">
+                <Setter Property="Stretch"
+                        Value="Fill"></Setter>
+                <Setter Property="Fill"
+                        Value="Yellow"></Setter>
+            </Style>
+
+            <Style TargetType="Path"
+                   x:Key="CenterNodeStyle">
+                <Setter Property="Stretch"
+                        Value="Fill"></Setter>
+                <Setter Property="Fill"
+                        Value="DeepPink"></Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
