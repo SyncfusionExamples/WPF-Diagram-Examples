@@ -1,0 +1,17 @@
+﻿<Application x:Class="ToolSelection.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ToolSelection"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Path"
+                   x:Key="NodeStyle">
+                <Setter Property="Stretch"
+                        Value="Fill"></Setter>
+                <Setter Property="Fill"
+                        Value="CornflowerBlue"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
