@@ -89,7 +89,7 @@ namespace FlowchartCreator.ViewModel
             dialog.Filter = "XAML File (*.xaml)|*.xaml";
             if (dialog.ShowDialog() == true)
             {
-                using (Stream str = File.Open(dialog.FileName, FileMode.CreateNew))
+                using (Stream str = File.Open(dialog.FileName, FileMode.OpenOrCreate))
                 {
                     (Info as IGraphInfo).Save(str);
                 }
