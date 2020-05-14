@@ -1,0 +1,168 @@
+﻿<Window x:Class="Selectionmode.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Selectionmode"
+        xmlns:Viewmodel="clr-namespace:Selectionmode.ViewModel"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Initialize Shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="Syncfusion:Node">
+                <Setter Property="Shape"
+                        Value="{StaticResource Diamond}"></Setter>
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill"
+                                    Value="CornflowerBlue" />
+                            <Setter Property="Stretch"
+                                    Value="Fill" />
+                            <Setter Property="Stroke"
+                                    Value="Black" />
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.DataContext>
+        <Viewmodel:DiagramVM></Viewmodel:DiagramVM>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Syncfusion:SfDiagram Nodes="{Binding Nodes}"
+                              Grid.Column="0"
+                              SingleSelectionMode="{Binding SingleSelectionMode}"
+                              MultipleSelectionMode="{Binding MultipleSelectionMode}"                 
+                              Connectors="{Binding Connectors}"></Syncfusion:SfDiagram>
+        <Grid Grid.Column="1">
+            <StackPanel Orientation="Vertical"
+                        Grid.Column="1">
+                <StackPanel Orientation="Horizontal"
+                            Margin="20">
+                    <RadioButton x:Name="SelectNode1"
+                                 Command="{Binding SelectButtonCommand}"
+                                 CommandParameter="{Binding ElementName=SelectNode1}"
+                                 Padding="20"
+                                 GroupName="Rbutton"
+                                 Width="20"
+                                 Height="20"></RadioButton>
+                    <TextBlock Text="Select Node1"></TextBlock>
+                </StackPanel>
+
+                <TextBlock Text="SingleSelectionMode"></TextBlock>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="20">
+                    <RadioButton x:Name="Select"
+                                 Padding="20"
+                                 GroupName="Rbutton"
+                                 Command="{Binding SelectButtonCommand}"
+                                 CommandParameter="{Binding ElementName=Select}"
+                                 Width="20"
+                                 Height="20"></RadioButton>
+                    <TextBlock Text="Select"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Margin="20">
+                    <RadioButton x:Name="ToggleSelect"
+                                 GroupName="Rbutton"
+                                 Padding="20"
+                                 Command="{Binding SelectButtonCommand}"
+                                 CommandParameter="{Binding ElementName=ToggleSelect}"
+                                 Width="20"
+                                 Height="20"></RadioButton>
+                    <TextBlock Text="ToggleSelection"></TextBlock>
+                </StackPanel>
+
+                <TextBlock Text="MultipleSelectionMode"></TextBlock>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="20">
+                    <RadioButton x:Name="Default"
+                                 Padding="20"
+                                 GroupName="Rbutton"
+                                 Width="20"
+                                 Command="{Binding SelectButtonCommand}"
+                                 CommandParameter="{Binding ElementName=Default}"
+                                 Height="20"></RadioButton>
+
+                    <TextBlock Text="Default"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Margin="20">
+                    <RadioButton x:Name="None"
+                                 GroupName="Rbutton"
+                                 Padding="20"
+                                 Command="{Binding SelectButtonCommand}"
+                                 CommandParameter="{Binding ElementName=None}"
+                                 Width="20"
+                                 Height="20"></RadioButton>
+                    <TextBlock Text="None"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="20">
+                    <RadioButton x:Name="HoldKeyAndTap"
+                                 GroupName="Rbutton"
+                                 Padding="20"
+                                 Command="{Binding SelectButtonCommand}"
+                                 CommandParameter="{Binding ElementName=HoldKeyAndTap}"
+                                 Width="20"
+                                 Height="20"></RadioButton>
+                    <TextBlock Text="HoldKeyAndTap"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="20">
+                    <RadioButton x:Name="JustTap"
+                                 GroupName="Rbutton"
+                                 Padding="20"
+                                 Command="{Binding SelectButtonCommand}"
+                                 CommandParameter="{Binding ElementName=JustTap}"
+                                 Width="20"
+                                 Height="20"></RadioButton>
+                    <TextBlock Text="JustTap"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="20">
+                    <RadioButton x:Name="RubberBandCompleteIntersect"
+                                 GroupName="Rbutton"
+                                 Padding="20"
+                                 Command="{Binding SelectButtonCommand}"
+                                 CommandParameter="{Binding ElementName=RubberBandCompleteIntersect}"
+                                 Width="20"
+                                 Height="20"></RadioButton>
+                    <TextBlock Text="RubberBandCompleteIntersect"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="20">
+                    <RadioButton x:Name="RubberBandPartialIntersect"
+                                 GroupName="Rbutton"
+                                 Padding="20"
+                                 Command="{Binding SelectButtonCommand}"
+                                 CommandParameter="{Binding ElementName=RubberBandPartialIntersect}"
+                                 Width="20"
+                                 Height="20"></RadioButton>
+                    <TextBlock Text="RubberBandPartialIntersect"></TextBlock>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

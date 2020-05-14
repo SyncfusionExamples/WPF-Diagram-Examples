@@ -1,5 +1,5 @@
-# Preview Settings sample
-This repository contains sample which shows how to enable previewsettings to SfDiagram.
+# SelectionMode sample
+This repository contains sample which shows how to switch between selection modes at runtime in diagram.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/interaction#previewsettings
 
