@@ -51,30 +51,7 @@
 
             <!--Initializes Connector-->
             <ViewModel:DiagramVM.Connectors>
-                <Syncfusion:ConnectorCollection>
-                    <Syncfusion:ConnectorViewModel x:Name="simpleConnector" 
-                                           SourcePoint="100,100" 
-                                           TargetPoint="100,200">
-                        <!--Initialize the AnnotationCollection-->
-                        <Syncfusion:ConnectorViewModel.Annotations>
-                            <Syncfusion:AnnotationCollection>
-                                <!--Initialize the Annotation with alignment property-->
-                                <Syncfusion:AnnotationEditorViewModel Content="Annotation" />
-                            </Syncfusion:AnnotationCollection>
-                        </Syncfusion:ConnectorViewModel.Annotations>
-                    </Syncfusion:ConnectorViewModel>
-                    <Syncfusion:ConnectorViewModel x:Name="simpleConnector2" 
-                                           SourcePoint="100,100" 
-                                           TargetPoint="200,100">
-                        <!--Initialize the AnnotationCollection-->
-                        <Syncfusion:ConnectorViewModel.Annotations>
-                            <Syncfusion:AnnotationCollection>
-                                <!--Initialize the Annotation with alignment property-->
-                                <Syncfusion:AnnotationEditorViewModel Content="Annotation"/>
-                            </Syncfusion:AnnotationCollection>
-                        </Syncfusion:ConnectorViewModel.Annotations>
-                    </Syncfusion:ConnectorViewModel>
-                </Syncfusion:ConnectorCollection>
+                <Syncfusion:ConnectorCollection/>
             </ViewModel:DiagramVM.Connectors>
         </ViewModel:DiagramVM>
     </Window.DataContext>
