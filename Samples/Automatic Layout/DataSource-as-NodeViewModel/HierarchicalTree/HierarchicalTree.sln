@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.161
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HierarchicalTree", "HierarchicalTree.csproj", "{221B1021-6E43-4080-8C92-D5FB74916191}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syncfusion.SfDiagram.WPF_2012", "..\srccc\WPF\SfDiagram.WPF\Src\Syncfusion.SfDiagram.WPF_2012.csproj", "{3B9B663F-7725-4883-B7C2-217DBB3D5A0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Release-Xml|Any CPU = Release-Xml|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{221B1021-6E43-4080-8C92-D5FB74916191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{221B1021-6E43-4080-8C92-D5FB74916191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{221B1021-6E43-4080-8C92-D5FB74916191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{221B1021-6E43-4080-8C92-D5FB74916191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{221B1021-6E43-4080-8C92-D5FB74916191}.Release-Xml|Any CPU.ActiveCfg = Release|Any CPU
+		{221B1021-6E43-4080-8C92-D5FB74916191}.Release-Xml|Any CPU.Build.0 = Release|Any CPU
+		{3B9B663F-7725-4883-B7C2-217DBB3D5A0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B9B663F-7725-4883-B7C2-217DBB3D5A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B9B663F-7725-4883-B7C2-217DBB3D5A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B9B663F-7725-4883-B7C2-217DBB3D5A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B9B663F-7725-4883-B7C2-217DBB3D5A0E}.Release-Xml|Any CPU.ActiveCfg = Release-Xml|Any CPU
+		{3B9B663F-7725-4883-B7C2-217DBB3D5A0E}.Release-Xml|Any CPU.Build.0 = Release-Xml|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC4CA45A-8547-4778-A50E-D616F33451A6}
+	EndGlobalSection
+EndGlobal
