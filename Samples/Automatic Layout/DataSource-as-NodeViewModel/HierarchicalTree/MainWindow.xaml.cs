@@ -25,10 +25,6 @@ namespace HierarchicalTree
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            (diagram.DataSourceSettings.DataSource as Employees).RemoveAt(3);
-        }
+       
     }
 }

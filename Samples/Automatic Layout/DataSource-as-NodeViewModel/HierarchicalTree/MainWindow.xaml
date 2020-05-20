@@ -77,26 +77,17 @@
         <Viewmodel:DiagramVM></Viewmodel:DiagramVM>
     </Window.DataContext>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"></ColumnDefinition>
-            <ColumnDefinition Width="100"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
+    <Grid>     
         <!--Initialize Diagram-->
 
-        <Syncfusion:SfDiagram x:Name="diagram" Grid.Column="0"
+        <Syncfusion:SfDiagram x:Name="diagram" 
                               Nodes="{Binding Nodes}"
-                              ItemDeletedCommand="{Binding ItemDeletedCommand}"
+                              ItemDeletingCommand="{Binding ItemDeletingCommand}"
                               Connectors="{Binding Connectors}"
                               DataSourceSettings="{Binding DataSourceSettings}"
                               LayoutManager="{Binding LayoutManager}"
                               Menu="{Binding Menu}">
         </Syncfusion:SfDiagram>
-        <Button Content="Remove"
-                Width="80"
-                Height="50"
-                Grid.Column="1"
-                Command="{Binding RemoveCommand}"></Button>
+      
     </Grid>
 </Window>

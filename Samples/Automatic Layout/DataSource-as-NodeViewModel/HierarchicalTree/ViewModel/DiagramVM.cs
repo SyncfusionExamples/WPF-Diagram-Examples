@@ -14,14 +14,7 @@ using System.Windows.Media;
 namespace HierarchicalTree.ViewModel
 {
     public class DiagramVM : DiagramViewModel
-    {
-        private ICommand _RemoveCommand;
-       
-        public ICommand RemoveCommand
-        {
-            get { return _RemoveCommand; }
-            set { _RemoveCommand = value; }
-        }
+    {        
         public DiagramVM()
         {
             PageSettings = new PageSettings()
@@ -48,21 +41,14 @@ namespace HierarchicalTree.ViewModel
                     Orientation = TreeOrientation.LeftToRight,
                 }
             };
-            RemoveCommand = new Command(OnRemove);
-            ItemDeletedCommand = new Command(OnItemDeleting);
-        }
-
-        private void OnRemove(object obj)
-        {
-
-            var item = (this.DataSourceSettings.DataSource as Employees)[4];
-            (this.DataSourceSettings.DataSource as Employees).Remove(item);
-           // this.LayoutManager.Layout.InvalidateLayout();
             
+            ItemDeletingCommand = new Command(OnItemDeleting);
+           
         }
-        private void OnItemDeleting(object obj)
+
+        private void OnItemDeleting(object args)
         {
-            //(obj as ItemDeletingEventArgs).DeleteSuccessors = true;
+            (args as ItemDeletingEventArgs).DeleteSuccessors = true;
         }
 
         /// <summary>
