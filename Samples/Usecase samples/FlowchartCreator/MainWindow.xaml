@@ -6,10 +6,49 @@
         xmlns:RulerControl="clr-namespace:Syncfusion.UI.Xaml.Diagram.Controls;assembly=Syncfusion.SfDiagram.Wpf"
         xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" 
         xmlns:Stencil="clr-namespace:Syncfusion.UI.Xaml.Diagram.Stencil;assembly=Syncfusion.SfDiagram.Wpf"
+        xmlns:skinmanager="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+        skinmanager:SfSkinManager.VisualStyle="MaterialLight"
         xmlns:local="clr-namespace:FlowchartCreator"
         xmlns:ViewModel="clr-namespace:FlowchartCreator.ViewModel"
         mc:Ignorable="d"
         Title="Flowchart Creator" WindowState="Maximized">
+    <Window.Resources>
+        <!--Style for Node-->
+        <Style TargetType="Syncfusion:Node">
+            <Setter Property="ShapeStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="Transparent"/>
+                        <Setter Property="Stroke" Value="DarkGray"/>
+                        <Setter Property="Stretch" Value="Fill"/>
+                        <Setter Property="StrokeThickness" Value="3"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Style for TargetDecorator of the Connector-->
+        <Style TargetType="Path" x:Key="TargetDecoratorStyle">
+            <Setter Property="Stroke" Value="DarkGray"/>
+            <Setter Property="Stretch" Value="Fill"/>
+            <Setter Property="Fill" Value="DarkGray"/>
+            <Setter Property="Height" Value="10"/>
+            <Setter Property="Width" Value="10"/>
+        </Style>
+
+        <!--Style for Geometry of the Connector-->
+        <Style TargetType="Path" x:Key="ConnectorGeometryStyle">
+            <Setter Property="Stroke" Value="DarkGray" />
+            <Setter Property="StrokeThickness" Value="2" />
+        </Style>
+
+        <!--To apply Style for ConnectorViewModel-->
+        <Style TargetType="Syncfusion:Connector" >
+            <Setter Property="TargetDecoratorStyle" Value="{StaticResource TargetDecoratorStyle}"/>
+            <Setter Property="ConnectorGeometryStyle" Value="{StaticResource ConnectorGeometryStyle}"/>
+        </Style>
+
+    </Window.Resources>
     <Window.DataContext>
         <ViewModel:DiagramVM>
             <!--To Represent HorizontalRuler,VerticalRuler-->
@@ -64,20 +103,26 @@
         <StackPanel Grid.Row="0">
             <ToolBarTray>
                 <ToolBar>
-                    <Button Style="{StaticResource ButtonStyle}" Command="{Binding ElementName=diagram,Path=DataContext.LoadCommand,Mode=TwoWay}" Name="PART_ButtonOpen" Width="30"  Height="30"  IsEnabled="True" ToolTip="Click to an existing diagram" 
+                    <Grid>
+                        <Button Command="{Binding ElementName=diagram,Path=DataContext.LoadCommand,Mode=TwoWay}" Name="PART_ButtonOpen" Width="30"  Height="30"  IsEnabled="True" ToolTip="Click to an existing diagram" 
                                     Margin="5,5,5,5">
-                        <Path Data="M4.2269996,4.2919953 L17.998994,4.2919953 14.687995,13.008 1.2630012,13.008 z M0,0 L5.230007,0 6.2759965,2.5020059 14.676,2.5020059 14.674001,3.2690042 3.5720037,3.2690042 0.26000953,13.008 0,13.008 z" Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Height="15" Canvas.Left="0" Stretch="Fill" Canvas.Top="3.095" Width="20"/>
-                    </Button>
+                            <Path Data="M4.2269996,4.2919953 L17.998994,4.2919953 14.687995,13.008 1.2630012,13.008 z M0,0 L5.230007,0 6.2759965,2.5020059 14.676,2.5020059 14.674001,3.2690042 3.5720037,3.2690042 0.26000953,13.008 0,13.008 z" Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Height="15" Canvas.Left="0" Stretch="Fill" Canvas.Top="3.095" Width="20"/>
+                        </Button>
+                    </Grid>
                     <Separator />
-                    <Button Style="{StaticResource ButtonStyle}" Name="PART_ButtonSave" Command="{Binding ElementName=diagram,Path=DataContext.SaveCommand,Mode=TwoWay}" Width="30"  Height="30"  IsEnabled="True" ToolTip="Click to aave the diagram to local disk" 
+                    <Grid>
+                        <Button Name="PART_ButtonSave" Command="{Binding ElementName=diagram,Path=DataContext.SaveCommand,Mode=TwoWay}" Width="30"  Height="30"  IsEnabled="True" ToolTip="Click to aave the diagram to local disk" 
                                     Margin="5,5,5,5">
-                        <Path Data="M1.9720016,14.106 L1.9720016,16.144 12.604012,16.144 12.604012,14.106 z M3.7840089,0.023001014 L5.7600088,0.023001014 5.7600088,5.156001 3.7840089,5.156001 z M0,0 L1.8840016,0 1.8840016,6.1610001 12.604012,6.1610001 12.604012,0 14.608013,0 14.608013,17.999999 0,17.999999 z" Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Height="19" Canvas.Left="49.353" Stretch="Fill" Canvas.Top="1.099" Width="16"/>
-                    </Button>
+                            <Path Data="M1.9720016,14.106 L1.9720016,16.144 12.604012,16.144 12.604012,14.106 z M3.7840089,0.023001014 L5.7600088,0.023001014 5.7600088,5.156001 3.7840089,5.156001 z M0,0 L1.8840016,0 1.8840016,6.1610001 12.604012,6.1610001 12.604012,0 14.608013,0 14.608013,17.999999 0,17.999999 z" Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Height="19" Canvas.Left="49.353" Stretch="Fill" Canvas.Top="1.099" Width="16"/>
+                        </Button>
+                    </Grid>
                     <Separator/>
-                    <Button Style="{StaticResource ButtonStyle}" Command="{Binding ElementName=diagram,Path=DataContext.PrintClickCommand,Mode=TwoWay}" Name="PART_ButtonPrint" Width="30"  Height="30"  IsEnabled="True" ToolTip="Click to print the diagram" 
+                    <Grid>
+                        <Button Command="{Binding ElementName=diagram,Path=DataContext.PrintClickCommand,Mode=TwoWay}" Name="PART_ButtonPrint" Width="30"  Height="30"  IsEnabled="True" ToolTip="Click to print the diagram" 
                                     Margin="5,5,5,5">
-                        <Path Data="F1M235.967,99.88L229.46,99.88L229.46,96.688L235.967,96.688z M229.46,84.563L235.967,84.563L235.967,86.793L229.46,86.793z M241.783,86.793L237.046,86.793L237.046,83.371L228.361,83.371L228.361,86.793L223.783,86.793L223.783,96.688L228.361,96.688L228.361,101.072L237.046,101.072L237.046,96.688L241.783,96.688z" Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Height="19" Canvas.Left="75.314" Stretch="Fill" Canvas.Top="1.248" Width="20"/>
-                    </Button>
+                            <Path Data="F1M235.967,99.88L229.46,99.88L229.46,96.688L235.967,96.688z M229.46,84.563L235.967,84.563L235.967,86.793L229.46,86.793z M241.783,86.793L237.046,86.793L237.046,83.371L228.361,83.371L228.361,86.793L223.783,86.793L223.783,96.688L228.361,96.688L228.361,101.072L237.046,101.072L237.046,96.688L241.783,96.688z" Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Height="19" Canvas.Left="75.314" Stretch="Fill" Canvas.Top="1.248" Width="20"/>
+                        </Button>
+                    </Grid>
                     <Separator/>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -94,7 +139,7 @@
                               VerticalAlignment="Center"
                       Grid.Column="0">
                         </ComboBox>
-                        <Button Grid.Column="1" Style="{StaticResource ButtonStyle}" Command="{Binding ElementName=diagram,Path=DataContext.ExportCommand,Mode=TwoWay}" Name="PART_ButtonExport" Width="30"  Height="30"  IsEnabled="True" ToolTip="Click to print the diagram" 
+                        <Button Grid.Column="1" Command="{Binding ElementName=diagram,Path=DataContext.ExportCommand,Mode=TwoWay}" Name="PART_ButtonExport" Width="30"  Height="30"  IsEnabled="True" ToolTip="Click to print the diagram" 
                                     Margin="5,5,5,5">
                             <Path Data="M23.468018,4.224001L32,12.799994 23.468018,20.36201 23.468018,16.327996C23.468018,16.327996 8.7410278,12.297995 5.0570068,20.36201 5.0570068,18.346993 6.3980103,8.2599984 23.468018,8.2599984z M0,0L21.333008,0 21.333008,4.269991 19.200012,4.269991 19.200012,2.1329966 2.132019,2.1329966 2.132019,23.470988 19.200012,23.470988 19.200012,21.340007 21.333008,21.340007 21.333008,25.606 0,25.606z" Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Height="19" Canvas.Left="75.314" Stretch="Fill" Canvas.Top="1.248" Width="20"/>
                         </Button>

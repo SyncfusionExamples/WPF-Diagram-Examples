@@ -58,7 +58,7 @@ namespace FlowchartCreator.ViewModel
             SaveCommand = new Command(OnSaveCommand);
             ExportCommand = new Command(OnExported);
             PrintClickCommand = new Command(OnPrintCommand);
-            DropCommand = new Command(OnItemDroped);
+            DropCommand = new Command(OnItemDropped);
             ItemAddedCommand = new Command(OnItemAdded);
 
             
@@ -219,7 +219,7 @@ namespace FlowchartCreator.ViewModel
         /// The method will be invoked when node is dropped on to another node.
         /// </summary>
         /// <param name="obj">Item dropped event argument</param>
-        private void OnItemDroped(object obj)
+        private void OnItemDropped(object obj)
         {
             ItemDropEventArgs args = obj as ItemDropEventArgs;
             if (args != null)
