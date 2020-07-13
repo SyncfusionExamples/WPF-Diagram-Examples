@@ -49,7 +49,7 @@
                         <syncfusion:SwimlaneViewModel.Header>
                             <syncfusion:SwimlaneHeader UnitHeight="32" >
                                 <syncfusion:SwimlaneHeader.Annotation>
-                                    <syncfusion:AnnotationEditorViewModel Content="Swimlane"></syncfusion:AnnotationEditorViewModel>
+                                    <syncfusion:AnnotationEditorViewModel Content="SALES PROCESS FLOW CHART"></syncfusion:AnnotationEditorViewModel>
                                 </syncfusion:SwimlaneHeader.Annotation>
                             </syncfusion:SwimlaneHeader>
                         </syncfusion:SwimlaneViewModel.Header>

@@ -38,9 +38,6 @@
     <Reference Include="Syncfusion.Licensing, Version=18.2460.0.44, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
       <HintPath>packages\Syncfusion.Licensing.18.2.0.44\lib\net46\Syncfusion.Licensing.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.SfDiagram.WPF, Version=18.2460.0.44, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.SfDiagram.WPF.18.2.0.44\lib\net46\Syncfusion.SfDiagram.WPF.dll</HintPath>
-    </Reference>
     <Reference Include="Syncfusion.SfShared.WPF, Version=18.2460.0.44, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>packages\Syncfusion.SfShared.WPF.18.2.0.44\lib\net46\Syncfusion.SfShared.WPF.dll</HintPath>
     </Reference>
@@ -117,6 +114,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Theme_Sfdiagram_development_March_2020\WPF\SfDiagram.WPF\Src\Syncfusion.SfDiagram.WPF_2015.csproj">
+      <Project>{e18cfd68-5392-4aff-bf84-6c7ec1745ac0}</Project>
+      <Name>Syncfusion.SfDiagram.WPF_2015</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

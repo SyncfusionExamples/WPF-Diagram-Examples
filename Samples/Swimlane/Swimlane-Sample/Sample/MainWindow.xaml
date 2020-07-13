@@ -6,7 +6,7 @@
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:local="clr-namespace:Swimlane"
         xmlns:diagram="clr-namespace:Syncfusion.UI.Xaml.Diagram;assembly=Syncfusion.SfDiagram.WPF"
-        xmlns:viewmodel="clr-namespace:SwimLane.ViewModel" WindowState="Maximized"
+        xmlns:viewmodel="clr-namespace:Swimlane.ViewModel" WindowState="Maximized"
          xmlns:skinmanager="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         skinmanager:SfSkinManager.VisualStyle="MaterialLight"
         mc:Ignorable="d"
@@ -16,25 +16,165 @@
         <viewmodel:DiagramVM></viewmodel:DiagramVM>
     </Window.DataContext>
     <Window.Resources>
-        <!--Style for Symbol-->
-        <Style TargetType="syncfusion:Symbol">
-            <Setter Property="Width" Value="50"/>
-            <Setter Property="Height" Value="50"/>
-            <Setter Property="Padding" Value="3" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Margin" Value="4"></Setter>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+
+            <!--Style for Node-->
+            <Style TargetType="syncfusion:Node">
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="#5b9bd5"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="syncfusion:AnnotationEditor">
+                <Setter Property="ViewTemplate">
+                    <Setter.Value>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Content}" TextWrapping="Wrap" Foreground="Black" FontSize="12"></TextBlock>
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <!--Style for Swimlane-->
+
+            <!--<Style TargetType="syncfusion:Swimlane">
+            <Setter Property="Shape">
+                <Setter.Value>
+                    <RectangleGeometry Rect="0,0,100,100"></RectangleGeometry>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ShapeStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="AliceBlue"/>
+                        <Setter Property="Stretch" Value="Fill"/>
+                        <Setter Property="Stroke" Value="#487ca9"/>
+                        <Setter Property="StrokeThickness" Value="1"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+
+
+            <!--Style for Node-->
+
+            <!--<Style TargetType="syncfusion:SwimlaneHeader">
+            <Setter Property="ShapeStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="Yellow"/>
+                        <Setter Property="Stretch" Value="Fill"/>
+                        <Setter Property="Stroke" Value="#487ca9"/>
+                        <Setter Property="StrokeThickness" Value="1"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsPhaseHeader" Value="True">
+                    <Setter Property="ShapeStyle">
+                        <Setter.Value>
+                            <Style TargetType="Path">
+                                <Setter Property="Fill" Value="#4f88bb"/>
+                                <Setter Property="Stretch" Value="Fill"/>
+                                <Setter Property="Stroke" Value="#487ca9"/>
+                                <Setter Property="StrokeThickness" Value="1"/>
+                            </Style>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsLaneHeader" Value="True">
+                    <Setter Property="ShapeStyle">
+                        <Setter.Value>
+                            <Style TargetType="Path">
+                                <Setter Property="Fill" Value="#4f88bb"/>
+                                <Setter Property="Stretch" Value="Fill"/>
+                                <Setter Property="Stroke" Value="#487ca9"/>
+                                <Setter Property="StrokeThickness" Value="1"/>
+                            </Style>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
+
+            <!--Style for Node-->
+
+            <!--<Style TargetType="diagram:Lane">
+            <Setter Property="ShapeStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Stroke" Value="#487ca9"/>
+                        <Setter Property="StrokeThickness" Value="1"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
         </Style>
 
-        <!--Style for Symbol Group-->
-        <Style TargetType="syncfusion:SymbolGroup">
-            <Setter Property="FontFamily" Value="Regular"/>
-            <Setter Property="Background" Value="#ffffff"/>
-            <Setter Property="Foreground" Value="#222222"/>
-            <Setter Property="FontSize" Value="14"/>
+        <Style TargetType="diagram:Phase">
+            <Setter Property="ShapeStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Stroke" Value="#487ca9"/>
+                        <Setter Property="StrokeThickness" Value="1"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
 
-        </Style>
+            <!--Style for Connector-->
+            <Style TargetType="syncfusion:Connector" >
+                <Setter Property="ConnectorGeometryStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stroke" Value="#5d9dd6"/>
+                            <Setter Property="StrokeThickness" Value="2"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="TargetDecorator" Value="M0,0 L10,5 L0,10 L 0,0Z"></Setter>
+                <Setter Property="TargetDecoratorStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="#5d9dd6"/>
+                            <Setter Property="Stroke" Value="#5d9dd6"/>
+                            <Setter Property="StrokeThickness" Value="2"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--Style for Port-->
+            <Style TargetType="syncfusion:NodePort">
+                <Setter Property="Shape">
+                    <Setter.Value>
+                        <EllipseGeometry RadiusX="5" RadiusY="5"></EllipseGeometry>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="Black"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                            <Setter Property="Stroke" Value="Black"/>
+                            <Setter Property="StrokeThickness" Value="1"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="LaneHeaderStyle" TargetType="Path">
+                <Setter Property="Fill" Value="#FF5B9BD5"/>
+                <Setter Property="Stretch" Value="Fill"/>
+                <Setter Property="Stroke" Value="#41719C"/>
+                <Setter Property="StrokeThickness" Value="1"/>
+            </Style>
+        </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -128,7 +268,7 @@
                     </syncfusion:Stencil.SymbolGroups>
                 </syncfusion:Stencil>
             </Grid>
-            <syncfusion:SfDiagram Grid.Column="1" Nodes="{Binding Nodes}"
+            <syncfusion:SfDiagram x:Name="diagram" Grid.Column="1" Nodes="{Binding Nodes}" PortVisibility="Collapse"
                               Swimlanes="{Binding Swimlanes}"
                               Connectors="{Binding Connectors}"
                               SelectedItems="{Binding SelectedItems}"
