@@ -11,28 +11,21 @@
     <Window.Resources>
         <ResourceDictionary>
             <Style TargetType="Path" x:Key="SwimlaneHeaderStyle">
-                <Setter Property="Fill" Value="#FF5B9BD5"/>
+                <Setter Property="Fill" Value="CadetBlue"/>
                 <Setter Property="Stretch" Value="Fill"/>
                 <Setter Property="Stroke" Value="#41719C"/>
                 <Setter Property="StrokeThickness" Value="1"/>
             </Style>
-            <Style TargetType="syncfusion:Swimlane">
-                <Setter Property="Shape">
-                    <Setter.Value>
-                        <RectangleGeometry Rect="0,0,100,100"></RectangleGeometry>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="ShapeStyle">
-                    <Setter.Value>
-                        <Style TargetType="Path">
-                            <Setter Property="Fill" Value="AliceBlue"/>
-                            <Setter Property="Stretch" Value="Fill"/>
-                            <Setter Property="Stroke" Value="Yellow"/>
-                            <Setter Property="StrokeThickness" Value="1"/>
-                        </Style>
-                    </Setter.Value>
-                </Setter>
-            </Style>
+
+            <!--Template overriding for view template-->
+            <DataTemplate x:Key="viewTemplate">
+                <TextBlock Text="{Binding Path=Content, Mode=TwoWay}" 
+               FontStyle="Italic" FontSize="12" 
+               FontFamily="TimesNewRomen" 
+               TextDecorations="Underline" 
+               FontWeight="Bold" 
+               Foreground="AliceBlue"/>
+            </DataTemplate>
         </ResourceDictionary>
         
     </Window.Resources>
@@ -44,12 +37,13 @@
                 <!-- Initialize the SwimlaneCollection -->
                 <syncfusion:SwimlaneCollection>
                     <!--Initialize the Swimlane-->
-                    <syncfusion:SwimlaneViewModel OffsetX="300" OffsetY="150"  
+                    <syncfusion:SwimlaneViewModel OffsetX="300" OffsetY="150" Orientation="Horizontal" 
                 UnitHeight="120" UnitWidth="450">
                         <syncfusion:SwimlaneViewModel.Header>
-                            <syncfusion:SwimlaneHeader UnitHeight="32" >
+                            <!--Initialize the Swimlane Header-->
+                            <syncfusion:SwimlaneHeader UnitHeight="32" ShapeStyle="{StaticResource SwimlaneHeaderStyle}">
                                 <syncfusion:SwimlaneHeader.Annotation>
-                                    <syncfusion:AnnotationEditorViewModel Content="SALES PROCESS FLOW CHART"></syncfusion:AnnotationEditorViewModel>
+                                    <syncfusion:AnnotationEditorViewModel Content="SALES PROCESS FLOW CHART" ViewTemplate="{StaticResource viewTemplate}"></syncfusion:AnnotationEditorViewModel>
                                 </syncfusion:SwimlaneHeader.Annotation>
                             </syncfusion:SwimlaneHeader>
                         </syncfusion:SwimlaneViewModel.Header>

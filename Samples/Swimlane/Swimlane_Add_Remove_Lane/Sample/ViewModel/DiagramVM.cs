@@ -59,7 +59,7 @@ namespace Swimlane.ViewModel
                 UnitHeight = 32,
                 Annotation = new AnnotationEditorViewModel()
                 {
-                    Content = "Swimlane"
+                    Content = "SALES PROCESS FLOW CHART"
                 },
             };
 
@@ -71,7 +71,7 @@ namespace Swimlane.ViewModel
                     Header=new SwimlaneHeader()
                     {
                         UnitHeight=30,
-                        Annotation=new AnnotationEditorViewModel(){Content="Lane"}                        
+                        Annotation=new AnnotationEditorViewModel(){Content="Consumer"}                        
                     }
                 }
             };

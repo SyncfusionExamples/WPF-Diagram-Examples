@@ -59,7 +59,7 @@ namespace Swimlane.ViewModel
                 UnitHeight = 32,
                 Annotation = new AnnotationEditorViewModel()
                 {
-                    Content = "Swimlane"
+                    Content = "SALES PROCESS FLOW CHART"
                 },
             };
 
@@ -71,7 +71,7 @@ namespace Swimlane.ViewModel
                     Header=new SwimlaneHeader()
                     {
                         UnitHeight=24,
-                        Annotation=new AnnotationEditorViewModel(){Content="Phase"},
+                        Annotation=new AnnotationEditorViewModel(){Content="Phase 1"},
                     }
                 }
             };
@@ -103,7 +103,7 @@ namespace Swimlane.ViewModel
             var swimlane = (this.Swimlanes as SwimlaneCollection).FirstOrDefault() as SwimlaneViewModel;
             if (swimlane != null)
             {
-                (swimlane.Phases as PhaseCollection).Add(new PhaseViewModel() { UnitWidth = 100 });
+                (swimlane.Phases as PhaseCollection).Add(new PhaseViewModel() { UnitWidth = 100,Header=new SwimlaneHeader() { Annotation=new AnnotationEditorViewModel() { Content = "Phase"+ " " + ((swimlane.Phases as PhaseCollection).Count + 1) } } });
             }
         }
         private void OnRemove(object obj)
