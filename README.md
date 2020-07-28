@@ -67,6 +67,9 @@ This repository contains the samples that demonstrate the functionalities of Dia
   <td><a href="Samples/Node">Node</a></td>
  </tr>
  <tr>
+  <td><a href="Samples/Group">Group</a></td>
+ </tr>
+ <tr>
   <td><a href="Samples/Port">Port</a></td>
  </tr>
  <tr>
