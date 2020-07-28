@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.36
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupScenario", "GroupScenario.csproj", "{AA34306B-A839-4294-8678-03BC6A920602}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Release-Xml|Any CPU = Release-Xml|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA34306B-A839-4294-8678-03BC6A920602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA34306B-A839-4294-8678-03BC6A920602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA34306B-A839-4294-8678-03BC6A920602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA34306B-A839-4294-8678-03BC6A920602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA34306B-A839-4294-8678-03BC6A920602}.Release-Xml|Any CPU.ActiveCfg = Release|Any CPU
+		{AA34306B-A839-4294-8678-03BC6A920602}.Release-Xml|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45D4D2A6-5BD6-4236-A137-DA0EC0E1D00D}
+	EndGlobalSection
+EndGlobal
