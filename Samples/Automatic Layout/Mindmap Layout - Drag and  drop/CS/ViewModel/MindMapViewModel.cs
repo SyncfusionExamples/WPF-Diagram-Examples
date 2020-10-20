@@ -8,7 +8,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-
+using System.Collections.Generic;
 
 namespace AutomaticLayout_MindmapLayout.ViewModel
 {
@@ -21,9 +21,10 @@ namespace AutomaticLayout_MindmapLayout.ViewModel
             Source = new Uri(@"/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml", UriKind.RelativeOrAbsolute)
         };
 
-        public ICommand _AddLeftCommand;
-        public ICommand _AddRightCommand;
-        public ICommand _DeleteCommand;
+        ICommand _AddLeftCommand;
+        ICommand _AddRightCommand;
+        ICommand _DeleteCommand;
+        ICommand _ItemDropCommand;
 
         public ICommand AddLeftCommand
         {
@@ -42,7 +43,17 @@ namespace AutomaticLayout_MindmapLayout.ViewModel
             get { return _DeleteCommand; }
             set { _DeleteCommand = value; }
         }
-
+        public ICommand ItemDropCommand
+        {
+            get { return _ItemDropCommand; }
+            set
+            {
+                if (_ItemDropCommand != value)
+                {
+                    _ItemDropCommand = value;
+                }
+            }
+        }
         #endregion
 
         #region constructor
@@ -80,6 +91,7 @@ namespace AutomaticLayout_MindmapLayout.ViewModel
             ItemAddedCommand = new DelegateCommand(OnItemAdded);
             ItemSelectedCommand = new DelegateCommand(OnItemSelected);
             ItemDeletingCommand = new DelegateCommand(OnItemDeleting);
+            ItemDropCommand = new DelegateCommand(OnItemDroped);
             NodeChangedCommand = new DelegateCommand(OnNodeChanged);
             AddLeftCommand = new DelegateCommand(OnAddLeftChild);
             AddRightCommand = new DelegateCommand(OnAddRightChild);
@@ -414,8 +426,47 @@ namespace AutomaticLayout_MindmapLayout.ViewModel
             {
                 (args.Item as NodeViewModel).Annotations = null;
             }
+            if (args != null && args.Item is NodeViewModel)
+            {
+                //Enble the droping of one node to another node
+                (args.Item as NodeViewModel).Constraints = (args.Item as NodeViewModel).Constraints.Add(NodeConstraints.AllowDrop);
+            }
         }
 
+        /// <summary>
+        /// The method will be invoked when node is dropped on to another node.
+        /// </summary>
+        /// <param name="obj">Item dropped event argument</param>
+        private void OnItemDroped(object obj)
+        {
+            ItemDropEventArgs args = obj as ItemDropEventArgs;
+            if (args != null)
+            {
+                if (!(args.Target is SfDiagram))
+                {
+                    foreach (object targetElement in args.Target as IEnumerable<object>)
+                    {
+                        if (targetElement is NodeViewModel)
+                        {
+                            NodeViewModel sourcenode = args.Source as NodeViewModel;
+                            NodeViewModel targetnode = targetElement as NodeViewModel;
+                            if (sourcenode.Content is MindmapDataItem && targetnode.Content is MindmapDataItem
+                                && (sourcenode.Content as MindmapDataItem).ParentId != (targetnode.Content as MindmapDataItem).Id)
+                            {
+                                //Change the parent id of the source node to target node's id.
+                                (sourcenode.Content as MindmapDataItem).Parent.Children.Remove((sourcenode.Content as MindmapDataItem));
+                                (targetnode.Content as MindmapDataItem).Children.Add((sourcenode.Content as MindmapDataItem));
+                                (sourcenode.Content as MindmapDataItem).Parent = (targetnode.Content as MindmapDataItem);
+                                (sourcenode.Content as MindmapDataItem).UpdateIdAndParentID();
+                                //Update the layout to re-render the UI
+                                LayoutManager.Layout.UpdateLayout();
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
         #endregion
     }
 

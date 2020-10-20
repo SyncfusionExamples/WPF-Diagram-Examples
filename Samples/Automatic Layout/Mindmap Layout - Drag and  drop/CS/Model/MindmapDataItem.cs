@@ -1,13 +1,13 @@
 ﻿using Syncfusion.UI.Xaml.Diagram.Layout;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace AutomaticLayout_MindmapLayout.Model
 {
-    public class MindmapDataItem
+    public class MindmapDataItem : INotifyPropertyChanged
     {
         private RootChildDirection _direction = RootChildDirection.Left;
-        private int _id = 0;
         private List<MindmapDataItem> _children;
         public MindmapDataItem()
         {
@@ -18,7 +18,7 @@ namespace AutomaticLayout_MindmapLayout.Model
         {
             get
             {
-                return Parent == null ? _id.ToString() : Parent.Id.ToString() + (Parent.Children.IndexOf(this) + 1).ToString();
+                return Parent == null ? "0" : Parent.Id.ToString() + (Parent.Children.IndexOf(this) + 1).ToString();
             }
         }
         public string ParentId
@@ -78,6 +78,20 @@ namespace AutomaticLayout_MindmapLayout.Model
                     return "#3dbfc9";
             }
             return "#3dbfc9";
+        }
+        public void UpdateIdAndParentID()
+        {
+            OnPropertyChanged(("Id"));
+            OnPropertyChanged(("ParentId"));
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
     public class MindmapDataItems : ObservableCollection<MindmapDataItem>
