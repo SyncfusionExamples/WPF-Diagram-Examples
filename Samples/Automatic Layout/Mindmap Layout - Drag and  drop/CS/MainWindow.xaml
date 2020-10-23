@@ -95,6 +95,7 @@
                               NodeChangedCommand="{Binding NodeChangedCommand}"
                               ItemSelectedCommand="{Binding ItemSelectedCommand}"
                               ItemDeletingCommand="{Binding ItemDeletingCommand}"
+                              ItemDeletedCommand="{Binding ItemDeletedCommand}"
                               DropCommand="{Binding ItemDropCommand}"
                               DataSourceSettings="{Binding DataSourceSettings}"
                               LayoutManager="{Binding LayoutManager}"
