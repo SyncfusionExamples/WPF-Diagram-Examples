@@ -90,13 +90,14 @@
                               Connectors="{Binding Connectors}"
                               Tool="{Binding Tool}"
                               DefaultConnectorType="{Binding DefaultConnectorType}"
-                              DataSourceSettings="{Binding DataSourceSettings}"
-                              LayoutManager="{Binding LayoutManager}"
                               SelectedItems="{Binding SelectedItems}"
                               ItemAddedCommand="{Binding ItemAddedCommand}"
                               NodeChangedCommand="{Binding NodeChangedCommand}"
                               ItemSelectedCommand="{Binding ItemSelectedCommand}"
                               ItemDeletingCommand="{Binding ItemDeletingCommand}"
+                              ItemDeletedCommand="{Binding ItemDeletedCommand}"
+                              DataSourceSettings="{Binding DataSourceSettings}"
+                              LayoutManager="{Binding LayoutManager}"
                               Menu="{x:Null}"/>
         </Grid>
         <StackPanel Grid.Column="1" Margin="10">

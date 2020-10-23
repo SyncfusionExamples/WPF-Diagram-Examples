@@ -1,24 +1,62 @@
 ﻿using Syncfusion.UI.Xaml.Diagram.Layout;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 
 namespace AutomaticLayout_MindmapLayout.Model
 {
-    public class MindmapDataItem
+    public class MindmapDataItem : INotifyPropertyChanged
     {
         private RootChildDirection _direction = RootChildDirection.Left;
-        private int _id = 0;
-        private List<MindmapDataItem> _children;
+        private ObservableCollection<MindmapDataItem> _children;
+        private MindmapDataItem _parent = null;
         public MindmapDataItem()
         {
 
         }
-        public MindmapDataItem Parent { get; set; }
+        public MindmapDataItem Parent 
+        { 
+            get
+            {
+                return _parent;
+            }
+            set
+            {
+                if(_parent != null && _parent != value)
+                {
+                    if (value == null)
+                    {
+                        _parent.Children.Remove(this);
+                        _parent = value;
+                    }
+                    else
+                    {
+                        MindmapDataItem oldParent = _parent;
+                        int index = oldParent.Children.IndexOf(this);
+                        oldParent.Children.Remove(this);
+                        _parent = value;
+                        _parent.Children.Add(this);
+                        this.UpdateIdAndParentID();
+                        if (index < oldParent.Children.Count)
+                        {
+                            oldParent.Children[index].UpdateIdAndParentID();
+                        }
+                    }
+                }
+                else
+                {
+                    _parent = value;
+                    if (_parent != null)
+                        _parent.Children.Add(this);
+                }
+            }
+        }
         public string Id 
         {
             get
             {
-                return Parent == null ? _id.ToString() : Parent.Id.ToString() + (Parent.Children.IndexOf(this) + 1).ToString();
+                return Parent == null ? "0" : Parent.Id.ToString() + (Parent.Children.IndexOf(this) + 1).ToString();
             }
         }
         public string ParentId
@@ -54,14 +92,17 @@ namespace AutomaticLayout_MindmapLayout.Model
                 _direction = value;
             }
         }
-        public List<MindmapDataItem> Children {
+        public ObservableCollection<MindmapDataItem> Children {
             get
             {
                 if (_children == null)
-                    _children = new List<MindmapDataItem>();
+                {
+                    _children = new ObservableCollection<MindmapDataItem>();
+                }
                 return _children;
             }
         }
+
         private string GetColor()
         {
             switch (Level)
@@ -78,6 +119,20 @@ namespace AutomaticLayout_MindmapLayout.Model
                     return "#3dbfc9";
             }
             return "#3dbfc9";
+        }
+        public void UpdateIdAndParentID()
+        {
+            OnPropertyChanged(("Id"));
+            OnPropertyChanged(("ParentId"));
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
     public class MindmapDataItems : ObservableCollection<MindmapDataItem>
