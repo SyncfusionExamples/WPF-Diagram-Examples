@@ -11,6 +11,8 @@ namespace AutomaticLayout_MindmapLayout.Model
         private RootChildDirection _direction = RootChildDirection.Left;
         private ObservableCollection<MindmapDataItem> _children;
         private MindmapDataItem _parent = null;
+        private State isexpand;
+
         public MindmapDataItem()
         {
 
@@ -25,23 +27,19 @@ namespace AutomaticLayout_MindmapLayout.Model
             {
                 if(_parent != null && _parent != value)
                 {
-                    if (value == null)
+                    MindmapDataItem oldParent = _parent;
+                    int index = oldParent.Children.IndexOf(this);
+                    oldParent.Children.Remove(this);
+
+                    for (int i = index; i < _parent.Children.Count; i++)
                     {
-                        _parent.Children.Remove(this);
-                        _parent = value;
+                        oldParent.Children[i].UpdateIdAndParentID();
                     }
-                    else
+                    _parent = value;
+                    if (_parent != null)
                     {
-                        MindmapDataItem oldParent = _parent;
-                        int index = oldParent.Children.IndexOf(this);
-                        oldParent.Children.Remove(this);
-                        _parent = value;
                         _parent.Children.Add(this);
                         this.UpdateIdAndParentID();
-                        if (index < oldParent.Children.Count)
-                        {
-                            oldParent.Children[index].UpdateIdAndParentID();
-                        }
                     }
                 }
                 else
@@ -85,11 +83,15 @@ namespace AutomaticLayout_MindmapLayout.Model
         {
             get
             {
-                return (Parent != null && Parent.Level != 0 )? Parent.Direction : _direction;
+                return IsRoot? RootChildDirection.Left & RootChildDirection.Right : _direction;
             }
             set
             {
-                _direction = value;
+                if (_direction != value)
+                {
+                    _direction = value;
+                    OnPropertyChanged("Direction");
+                }
             }
         }
         public ObservableCollection<MindmapDataItem> Children {
@@ -100,6 +102,39 @@ namespace AutomaticLayout_MindmapLayout.Model
                     _children = new ObservableCollection<MindmapDataItem>();
                 }
                 return _children;
+            }
+        }
+
+
+        public bool HasChild
+        {
+            get
+            {
+                return (_children != null && _children.Count > 0 && !IsRoot);
+            }
+        }
+
+        public bool IsRoot
+        {
+            get
+            {
+                return _parent == null;
+            }
+        }
+
+        public State IsExpand
+        {
+            get
+            {
+                return isexpand;
+            }
+            set
+            {
+                if (isexpand != value)
+                {
+                    isexpand = value;
+                    OnPropertyChanged(("IsExpand"));
+                }
             }
         }
 
@@ -135,6 +170,14 @@ namespace AutomaticLayout_MindmapLayout.Model
             }
         }
     }
+
+    public enum State
+    {
+        Expand,
+        Collapse,
+        None
+    };
+
     public class MindmapDataItems : ObservableCollection<MindmapDataItem>
     {
 

@@ -24,6 +24,7 @@ namespace AutomaticLayout_MindmapLayout.ViewModel
         ICommand _AddLeftCommand;
         ICommand _AddRightCommand;
         ICommand _DeleteCommand;
+        ICommand _ExpandCollapseCommand;
 
         public ICommand AddLeftCommand
         {
@@ -41,6 +42,18 @@ namespace AutomaticLayout_MindmapLayout.ViewModel
         {
             get { return _DeleteCommand; }
             set { _DeleteCommand = value; }
+        }
+
+        public ICommand ExpandCollapseCommand
+        {
+            get { return _ExpandCollapseCommand; }
+            set
+            {
+                if (_ExpandCollapseCommand != value)
+                {
+                    _ExpandCollapseCommand = value;
+                }
+            }
         }
 
         #endregion
@@ -70,7 +83,7 @@ namespace AutomaticLayout_MindmapLayout.ViewModel
                 },
                 RefreshFrequency = RefreshFrequency.ArrangeParsing
             };
-
+            this.Constraints = GraphConstraints.Default & ~GraphConstraints.Selectable;
             SelectedItems = new SelectorViewModel()
             {
                 Commands = null,
@@ -78,55 +91,68 @@ namespace AutomaticLayout_MindmapLayout.ViewModel
             };
 
             ItemAddedCommand = new DelegateCommand(OnItemAdded);
-            ItemSelectedCommand = new DelegateCommand(OnItemSelected);
-            ItemDeletingCommand = new DelegateCommand(OnItemDeleting);
-            ItemDeletedCommand = new DelegateCommand(OnItemDeleted);
             NodeChangedCommand = new DelegateCommand(OnNodeChanged);
-            AddLeftCommand = new DelegateCommand(OnAddLeftChild);
-            AddRightCommand = new DelegateCommand(OnAddRightChild);
-            DeleteCommand = new DelegateCommand(OnItemDelete);
+            ExpandCollapseCommand = new DelegateCommand(OnExpandCollaseCommand);
         }
 
         #endregion
 
         #region Helper Methods
+        /// <summary>
+        /// The method to execute the expand and collapse operation.
+        /// </summary>
+        /// <param name="args">The parent node to be expanded or collapsed</param>
+        private void OnExpandCollaseCommand(object args)
+        {
+            if (args is Node && (args as Node).DataContext is NodeViewModel)
+            {
+                ExpandCollapseParameter obj = new ExpandCollapseParameter();
+                obj.Node = (args as Node).DataContext as NodeViewModel;
+                obj.IsUpdateLayout = true;
+                obj.IsEnableAnimation = true;
+                IGraphInfo graphinfo = Info as IGraphInfo;
+                if (((args as Node).DataContext as NodeViewModel).IsExpanded)
+                {
+                    graphinfo.Commands.ExpandCollapse.Execute(obj);
+                    ((args as Node).DataContext as NodeViewModel).IsExpanded = false;
+                    ((args as Node).Content as MindmapDataItem).IsExpand = State.Collapse;
+                }
+                else
+                {
+                    graphinfo.Commands.ExpandCollapse.Execute(obj);
+                    ((args as Node).DataContext as NodeViewModel).IsExpanded = true;
+                    ((args as Node).Content as MindmapDataItem).IsExpand = State.Expand;
+                }
+                (((this.LayoutManager.Layout as MindMapTreeLayout).LayoutRoot as INode).Info as INodeInfo).BringIntoCenter();
+            }
+        }
 
         private void OnNodeChanged(object obj)
         {
             var args = obj as ChangeEventArgs<object, NodeChangedEventArgs>;
-            if(args.Item is NodeViewModel && (args.Item as NodeViewModel).IsSelected )
+            var layout = this.LayoutManager.Layout as SfMindMapTreeLayout;
+            NodeViewModel node = args.Item as NodeViewModel;
+            if (layout.LayoutRoot != null)
             {
-                UpdateQuickCommands(args.Item as NodeViewModel);
+                if (node != layout.LayoutRoot)
+                {
+                    if (layout.Orientation == Orientation.Horizontal)
+                    {
+                        bool isLeftNode = (node.OffsetX < (layout.LayoutRoot as INode).OffsetX);
+                        (node.Content as MindmapDataItem).Direction = isLeftNode ? RootChildDirection.Left : RootChildDirection.Right;
+                    }
+                    else
+                    {
+                        bool isTopNode = node.OffsetY < (layout.LayoutRoot as INode).OffsetY;
+                        (node.Content as MindmapDataItem).Direction = isTopNode ? RootChildDirection.Top : RootChildDirection.Bottom;
+                    }
+                }
             }
             if (args.NewValue.InteractionState == NodeChangedInteractionState.Dragged)
             {
                 this.LayoutManager.Layout.InvalidateLayout();
             }
-        }
 
-        private void OnItemDeleting(object obj)
-        {
-            var args = obj as ItemDeletingEventArgs;
-            var item = args.Item as NodeViewModel;
-            if (item != null && (item.Content as MindmapDataItem).Parent != null)
-            {
-                args.DeleteDependentConnector = true;
-                args.DeleteSuccessors = true;
-            }
-            else
-            {
-                args.Cancel = true;
-            }
-        }
-
-        private void OnItemDeleted(object obj)
-        {
-            var args = obj as ItemDeletedEventArgs;
-            var item = args.Item as NodeViewModel;
-            if (item != null && (item.Content as MindmapDataItem).Parent != null)
-            {
-                (item.Content as MindmapDataItem).Parent = null;
-            }
         }
 
         public MindmapDataItems GetMindmapDataItemCollection()
@@ -197,174 +223,19 @@ namespace AutomaticLayout_MindmapLayout.ViewModel
             };
             return item;
         }
-
-        private void OnItemDelete(object obj)
-        {
-            (this.Info as IGraphInfo).Commands.Delete.Execute(null);
-        }
-
-        private void OnAddRightChild(object obj)
-        {
-            if (this.SelectedItems is SelectorViewModel sv)
-            {
-                if (sv.Nodes is ObservableCollection<object> nodes && nodes.Any())
-                {
-                    var parent = (nodes.First() as NodeViewModel).Content as MindmapDataItem;
-                    var item = new MindmapDataItem()
-                    {
-                        Label = "New Child",
-                        Parent = parent,
-                        Direction = RootChildDirection.Right
-                    };
-                    (this.DataSourceSettings.DataSource as MindmapDataItems).Add(item);
-                    this.LayoutManager.Layout.InvalidateLayout();
-                }
-            }
-        }
-
-        private void OnAddLeftChild(object obj)
-        {
-            if (this.SelectedItems is SelectorViewModel sv)
-            {
-                if (sv.Nodes is ObservableCollection<object> nodes && nodes.Any())
-                {
-                    var parent = (nodes.First() as NodeViewModel).Content as MindmapDataItem;
-                    var item = new MindmapDataItem()
-                    {
-                        Label = "New Child",
-                        Parent = parent,
-                        Direction = RootChildDirection.Left
-                    };
-                    (this.DataSourceSettings.DataSource as MindmapDataItems).Add(item);
-                    this.LayoutManager.Layout.InvalidateLayout();
-                }
-            }
-        }
-
-        private void OnItemSelected(object obj)
-        {
-            var args = obj as ItemSelectedEventArgs;
-
-            if (this.SelectedItems is SelectorViewModel)
-            {
-                SelectorViewModel sv = this.SelectedItems as SelectorViewModel;
-                if (sv.Nodes is ObservableCollection<object> nodes && nodes.Any())
-                {
-                    var node = nodes.First() as NodeViewModel;
-                    UpdateQuickCommands(node);
-                }
-            }
-        }
-
-        private void UpdateQuickCommands(NodeViewModel node)
-        {
-            var layout = this.LayoutManager.Layout as SfMindMapTreeLayout;
-            if (node == layout.LayoutRoot)
-            {
-                (this.SelectedItems as SelectorViewModel).Commands = new QuickCommandCollection()
-                        {
-                            new QuickCommandViewModel()
-                            {
-                                Shape = resourceDictionary["Ellipse"],
-                                OffsetX = layout.Orientation == Orientation.Horizontal ? 0 : 0.5,
-                                OffsetY = layout.Orientation == Orientation.Horizontal ? 0.5 : 0,
-                                Command = AddLeftCommand,
-                                Content = layout.Orientation == Orientation.Horizontal ? "M12,0 L12,7.0000002 31,7.0000002 31,12 12,12 12,19 0,9.5000002 z" : "M9.5000002,0 L19,12 12,12 12,31 7.0000002,31 7.0000002,12 0,12 z",
-                                HorizontalAlignment = HorizontalAlignment.Center,
-                                VerticalAlignment = VerticalAlignment.Center,
-                                Margin = layout.Orientation == Orientation.Horizontal ? new Thickness(-20,0,0,0) : new Thickness(0,-20,0,0),
-                            },
-
-                            new QuickCommandViewModel()
-                            {
-                                Shape = resourceDictionary["Ellipse"],
-                                OffsetX = layout.Orientation == Orientation.Horizontal ? 1 : 0.5,
-                                OffsetY = layout.Orientation == Orientation.Horizontal ? 0.5 : 1,
-                                Command = AddRightCommand,
-                                Content = layout.Orientation == Orientation.Horizontal ? "M19,0 L31,9.5 19,19 19,12 0,12 0,7.0000001 19,7.0000001 z" : "M7.0000002,0 L12,0 12,19 19,19 9.5000002,31 0,19 7.0000002,19 z",
-                                HorizontalAlignment = HorizontalAlignment.Center,
-                                VerticalAlignment = VerticalAlignment.Center,
-                                Margin = layout.Orientation == Orientation.Horizontal ? new Thickness(20,0,0,0) : new Thickness(0,20,0,0),
-                            }
-                        };
-            }
-            else
-            {
-                if (layout.Orientation == Orientation.Horizontal)
-                {
-                    bool isLeftNode = (node.OffsetX < (layout.LayoutRoot as INode).OffsetX);
-                    (this.SelectedItems as SelectorViewModel).Commands = new QuickCommandCollection()
-                                {
-                                    new QuickCommandViewModel()
-                                    {
-                                        Shape = resourceDictionary["Ellipse"],
-                                        OffsetX = isLeftNode ? 0 : 1,
-                                        OffsetY = 0.5,
-                                        Command = isLeftNode?  AddLeftCommand : AddRightCommand,
-                                        Content = isLeftNode? "M12,0 L12,7.0000002 31,7.0000002 31,12 12,12 12,19 0,9.5000002 z" : "M19,0 L31,9.5 19,19 19,12 0,12 0,7.0000001 19,7.0000001 z",
-                                        HorizontalAlignment = HorizontalAlignment.Center,
-                                        VerticalAlignment = VerticalAlignment.Center,
-                                        Margin = isLeftNode? new Thickness(-20,0,0,0): new Thickness(20,0,0,0),
-                                    },
-
-                                    new QuickCommandViewModel()
-                                    {
-                                        Shape = resourceDictionary["Ellipse"],
-                                        OffsetX = 0.5,
-                                        OffsetY = 1,
-                                        Command = DeleteCommand,
-                                        Content = "M1.0000023,3 L7.0000024,3 7.0000024,8.75 C7.0000024,9.4399996 6.4400025,10 5.7500024,10 L2.2500024,10 C1.5600024,10 1.0000023,9.4399996 1.0000023,8.75 z M2.0699998,0 L5.9300004,0 6.3420029,0.99999994 8.0000001,0.99999994 8.0000001,2 0,2 0,0.99999994 1.6580048,0.99999994 z",
-                                        HorizontalAlignment = HorizontalAlignment.Center,
-                                        VerticalAlignment = VerticalAlignment.Center,
-                                        Margin = new Thickness(0,0,0,-20),
-                                    }
-                                };
-                }
-                else
-                {
-                    bool isTopNode = node.OffsetY < (layout.LayoutRoot as INode).OffsetY;
-                    (this.SelectedItems as SelectorViewModel).Commands = new QuickCommandCollection()
-                                {
-                                    new QuickCommandViewModel()
-                                    {
-                                        Shape = resourceDictionary["Ellipse"],
-                                        OffsetX = 0.5,
-                                        OffsetY = isTopNode? 0 : 1,
-                                        Command = isTopNode ? AddLeftCommand : AddRightCommand,
-                                        Content = isTopNode ? "M9.5000002,0 L19,12 12,12 12,31 7.0000002,31 7.0000002,12 0,12 z" : "M7.0000002,0 L12,0 12,19 19,19 9.5000002,31 0,19 7.0000002,19 z",
-                                        HorizontalAlignment = HorizontalAlignment.Center,
-                                        VerticalAlignment = VerticalAlignment.Center,
-                                        Margin = isTopNode ? new Thickness(0,-20,0,0) : new Thickness(0,20,0,0),
-                                    },
-
-                                    new QuickCommandViewModel()
-                                    {
-                                        Shape = resourceDictionary["Ellipse"],
-                                        OffsetX = 1,
-                                        OffsetY = 0.5,
-                                        Command = DeleteCommand,
-                                        Content = "M1.0000023,3 L7.0000024,3 7.0000024,8.75 C7.0000024,9.4399996 6.4400025,10 5.7500024,10 L2.2500024,10 C1.5600024,10 1.0000023,9.4399996 1.0000023,8.75 z M2.0699998,0 L5.9300004,0 6.3420029,0.99999994 8.0000001,0.99999994 8.0000001,2 0,2 0,0.99999994 1.6580048,0.99999994 z",
-                                        HorizontalAlignment = HorizontalAlignment.Center,
-                                        VerticalAlignment = VerticalAlignment.Center,
-                                        Margin = new Thickness(0,0,-20,0),
-                                    }
-                                };
-                }
-            }
-        }
-
+                        
         private void OnItemAdded(object obj)
         {
             var args = obj as ItemAddedEventArgs;
 
             if (args.Item != null && args.Item is NodeViewModel && args.ItemSource == ItemSource.ClipBoard)
             {
-                (args.Item as NodeViewModel).IsSelected = true;
                 (this.Info as IGraphInfo).Commands.Delete.Execute(null);
             }
             if (args.Item != null && args.Item is NodeViewModel && args.ItemSource != ItemSource.ClipBoard)
             {
                 (args.Item as NodeViewModel).Annotations = null;
+                (args.Item as NodeViewModel).Constraints = NodeConstraints.Default & ~NodeConstraints.Selectable;
             }
         }
 

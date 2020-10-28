@@ -25,23 +25,19 @@ namespace AutomaticLayout_MindmapLayout.Model
             {
                 if(_parent != null && _parent != value)
                 {
-                    if (value == null)
+                    MindmapDataItem oldParent = _parent;
+                    int index = oldParent.Children.IndexOf(this);
+                    oldParent.Children.Remove(this);
+
+                    for (int i = index; i < _parent.Children.Count; i++)
                     {
-                        _parent.Children.Remove(this);
-                        _parent = value;
+                        oldParent.Children[i].UpdateIdAndParentID();
                     }
-                    else
+                    _parent = value;
+                    if (_parent != null)
                     {
-                        MindmapDataItem oldParent = _parent;
-                        int index = oldParent.Children.IndexOf(this);
-                        oldParent.Children.Remove(this);
-                        _parent = value;
                         _parent.Children.Add(this);
                         this.UpdateIdAndParentID();
-                        if (index < oldParent.Children.Count)
-                        {
-                            oldParent.Children[index].UpdateIdAndParentID();
-                        }
                     }
                 }
                 else

@@ -18,7 +18,6 @@ namespace AutomaticLayout_MindmapLayout
         private void Diagram_Loaded(object sender, RoutedEventArgs e)
         {
             var layout = this.Diagram.LayoutManager.Layout as SfMindMapTreeLayout;
-            (layout.LayoutRoot as INode).IsSelected = true;
 
             (this.Diagram.Info as IGraphInfo).Commands.FitToPage.Execute(null);
 

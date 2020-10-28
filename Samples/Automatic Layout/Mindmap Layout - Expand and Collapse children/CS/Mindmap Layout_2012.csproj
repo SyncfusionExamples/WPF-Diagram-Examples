@@ -79,6 +79,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Utility\Command.cs" />
+    <Compile Include="Utility\Converters.cs" />
     <Compile Include="ViewModel\MindMapViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

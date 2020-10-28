@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutomaticLayout_MindmapLayout"
+        xmlns:converter="clr-namespace:AutomaticLayout_MindmapLayout.Utility"
         Icon="App.ico"
         Title="Mind map Layout"
         xmlns:viewmodel="clr-namespace:AutomaticLayout_MindmapLayout.ViewModel"       
@@ -15,6 +16,12 @@
         <viewmodel:MindMapViewModel/>
     </Window.DataContext>
     <Window.Resources>
+
+        <viewmodel:MindMapOrientation x:Key="mindMapOrientation"/>
+        <viewmodel:MindMapSplitMode x:Key="mindMapSplitMode"/>
+        <converter:BoolToVisibiltyConverter x:Key="BoolToVisibiltyConverter" />
+        <converter:EnumtoBoolConverter x:Key="EnumtoBoolConverter" />
+        <converter:DirectionToHorizontalAlignmentConverter x:Key="DirectionToHorizontalAlignmentConverter"/>
 
         <!--Style for Connector-->
         <Style TargetType="syncfusion:Connector">
@@ -37,7 +44,12 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
+        <DataTemplate x:Key="expandcollapsebutton">
+            <Grid>
+                <Ellipse Fill="Black" Width="20" Height="20"/>
+                <Path Data="M0,0L32,0 32,3.606 0,3.606z" Height="10" Width="10" Fill="White"/>
+            </Grid>
+        </DataTemplate>
         <!--Style for Node-->
         <Style TargetType="syncfusion:Node">
             <Setter Property="Annotations" Value="{x:Null}"/>
@@ -51,6 +63,85 @@
                                     <Style TargetType="TextBox" BasedOn="{x:Null}"/>
                                 </TextBox.Style>
                             </TextBox>
+                            <Button Visibility="{Binding Path=HasChild, Converter={StaticResource BoolToVisibiltyConverter}}" Background="Black" BorderBrush="Black" Width="15" Height="15"
+                                    HorizontalAlignment="{Binding Direction, Mode=OneWay, UpdateSourceTrigger=PropertyChanged,
+                                                    Converter={StaticResource DirectionToHorizontalAlignmentConverter}}" 
+                                    VerticalAlignment="Center"
+                                Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type syncfusion:SfDiagram}}, Path=DataContext.ExpandCollapseCommand}" 
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type syncfusion:Node}}}" Cursor="Hand">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Grid>
+                                            <Ellipse Fill="Black"/>
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <Button.Style> 
+                                    <Style TargetType="Button">
+                                        <Setter Property="Content">
+                                            <Setter.Value>
+                                                <Grid>
+                                                    <Path Data="M0,0L32,0 32,3.606 0,3.606z"
+                                                      Stretch="Uniform" Fill="White" Height="10" Width="10" RenderTransformOrigin="0.5,0.5"/>
+                                                </Grid>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=IsExpand,
+                                                   Converter={StaticResource EnumtoBoolConverter}}" Value="false">
+                                                <Setter Property="Content">
+                                                    <Setter.Value>
+                                                        <Grid>
+                                                            <Path Data="M14,0L18,0 18,14 32,14 32,18 18,18 18,32 14,32 14,18 0,18 0,14 14,14z" Stretch="Uniform"
+                                                              Fill="White" Height="10" Width="10" RenderTransformOrigin="0.5,0.5"/>
+                                                        </Grid>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                            <Button Margin="0,0,0,-10" Visibility="{Binding Path=IsRoot, Converter={StaticResource BoolToVisibiltyConverter}}" Background="Black" BorderBrush="Black" Width="15" Height="15"
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Bottom"
+                                Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type syncfusion:SfDiagram}}, Path=DataContext.ExpandCollapseCommand}" 
+                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type syncfusion:Node}}}" Cursor="Hand">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Grid>
+                                            <Ellipse Fill="Black"/>
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Button.Template>
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Content">
+                                            <Setter.Value>
+                                                <Grid>
+                                                    <Path Data="M0,0L32,0 32,3.606 0,3.606z"
+                                                      Stretch="Uniform" Fill="White" Height="10" Width="10" RenderTransformOrigin="0.5,0.5"/>
+                                                </Grid>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=IsExpand,
+                                                   Converter={StaticResource EnumtoBoolConverter}}" Value="false">
+                                                <Setter Property="Content">
+                                                    <Setter.Value>
+                                                        <Grid>
+                                                            <Path Data="M14,0L18,0 18,14 32,14 32,18 18,18 18,32 14,32 14,18 0,18 0,14 14,14z" Stretch="Uniform"
+                                                              Fill="White" Height="10" Width="10" RenderTransformOrigin="0.5,0.5"/>
+                                                        </Grid>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
                         </Grid>
                     </DataTemplate>
                 </Setter.Value>
@@ -72,16 +163,14 @@
             </Setter>
         </Style>
 
-        <viewmodel:MindMapOrientation x:Key="mindMapOrientation"/>
-        <viewmodel:MindMapSplitMode x:Key="mindMapSplitMode"/>
 
 
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="8*"/>
-            <ColumnDefinition Width="360"/>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+
         <Grid Grid.Column="0">
 
             <!--Initialize Diagram-->
@@ -93,46 +182,11 @@
                               SelectedItems="{Binding SelectedItems}"
                               ItemAddedCommand="{Binding ItemAddedCommand}"
                               NodeChangedCommand="{Binding NodeChangedCommand}"
-                              ItemSelectedCommand="{Binding ItemSelectedCommand}"
                               ItemDeletingCommand="{Binding ItemDeletingCommand}"
                               ItemDeletedCommand="{Binding ItemDeletedCommand}"
                               DataSourceSettings="{Binding DataSourceSettings}"
                               LayoutManager="{Binding LayoutManager}"
-                              Menu="{x:Null}"/>
+                              Menu="{x:Null}" />
         </Grid>
-        <StackPanel Grid.Column="1" Margin="10">
-
-            <Label Margin="0,0,0,0" Content="Properties" FontSize="18" />
-            <Rectangle HorizontalAlignment="Stretch" Fill="#dddddd" Height="1.3"  Grid.Row="1" Grid.Column="1" Margin="0,0,0,0"></Rectangle>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="44"/>
-                    <RowDefinition Height="44"/>
-                    <RowDefinition Height="44"/>
-                    <RowDefinition Height="44"/>
-                </Grid.RowDefinitions>
-
-                <TextBlock Margin="10,0,0,0"  Grid.Row="0" Grid.Column="0" Text="Horizontal Spacing" VerticalAlignment="Center"/>
-                <syncfusion:UpDown MinValue="20" Margin="10,10,0,10" Grid.Row="0" Grid.Column="1"
-                               Value="{Binding ElementName=Diagram,  Path= LayoutManager.Layout.HorizontalSpacing, Mode=TwoWay}"/>
-
-                <TextBlock Margin="10,0,0,0" Grid.Row="1" Grid.Column="0" Text="Vertical Spacing" VerticalAlignment="Center" />
-                <syncfusion:UpDown MinValue="50"  Margin="10,10,0,10" Grid.Row="1" Grid.Column="1"
-                               Value="{Binding ElementName= Diagram, Path=LayoutManager.Layout.VerticalSpacing, Mode=TwoWay}"/>
-
-                <TextBlock Margin="10,16,0,0" Grid.Row="2" Grid.Column="0" Text="Orientation" />
-                <ComboBox Margin="10,10,0,10" Grid.Row="2" Grid.Column="1" ItemsSource="{StaticResource mindMapOrientation}"
-                                          SelectedValue="{Binding ElementName= Diagram, Path=LayoutManager.Layout.Orientation, Mode=TwoWay}"/>
-
-                <TextBlock Margin="10,16,0,0" Grid.Row="3" Grid.Column="0" Text="Split Mode" />
-                <ComboBox Margin="10,10,0,10" Grid.Row="3" Grid.Column="1" ItemsSource="{StaticResource mindMapSplitMode}"
-                                          SelectedValue="{Binding ElementName= Diagram, Path=LayoutManager.Layout.SplitMode, Mode=TwoWay}"/>
-
-            </Grid>
-        </StackPanel>
     </Grid>
 </Window>
