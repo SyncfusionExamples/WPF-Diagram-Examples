@@ -14,6 +14,10 @@
     </Window.DataContext>
     
     <Window.Resources>
+        <DataTemplate x:Key="TitleTemplate">
+            <TextBlock x:Name="HeaderText" Text="{Binding}" FontSize="15" FontWeight="SemiBold"  Foreground="#2b579a" >
+            </TextBlock>
+        </DataTemplate>
         <!--Style for Node-->
         <Style TargetType="{x:Type syncfusion:Node}">
             <Setter Property="ShapeStyle">
@@ -87,7 +91,7 @@
             <ColumnDefinition Width="8*"/>
         </Grid.ColumnDefinitions>
         <!--Define the Stencil-->
-        <stencil:Stencil Grid.Column="0" BorderThickness="1" BorderBrush="#dfdfdf" x:Name="stencil" ExpandMode="All" SymbolFilters="{Binding Symbolfilters}" SelectedFilter="{Binding Selectedfilter}">
+        <stencil:Stencil Grid.Column="0" BorderThickness="1" BorderBrush="#dfdfdf" Title="Shapes" TitleTemplate="{StaticResource TitleTemplate}"  x:Name="stencil" ExpandMode="All" SymbolFilters="{Binding Symbolfilters}" SelectedFilter="{Binding Selectedfilter}">
             <!--Initialize the SymbolSource-->
             <stencil:Stencil.SymbolSource>
                 <!--Initialize the SymbolCollection-->

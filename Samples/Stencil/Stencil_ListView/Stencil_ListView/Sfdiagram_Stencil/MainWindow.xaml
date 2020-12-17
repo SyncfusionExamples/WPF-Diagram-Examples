@@ -1,0 +1,150 @@
+﻿<Window x:Class="Sfdiagram_Stencil.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sfdiagram_Stencil"
+        mc:Ignorable="d"
+         xmlns:util="clr-namespace:Syncfusion.UI.Xaml.Diagram.Utility"
+        xmlns:diagram="clr-namespace:Syncfusion.UI.Xaml.Diagram;assembly=Syncfusion.SfDiagram.Wpf"
+         xmlns:sync="http://schemas.syncfusion.com/wpf"
+        WindowState="Maximized"
+xmlns:System="clr-namespace:System;assembly=mscorlib"
+                xmlns:sys="clr-namespace:System.Windows;assembly=PresentationCore"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:StencilVM></local:StencilVM>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="Path" x:Key="connectorstyle">
+            <Setter Property="Stroke" Value="Blue"/>
+            <Setter Property="StrokeThickness" Value="2"></Setter>
+        </Style>
+        <Style TargetType="Path" x:Key="targetdecorator">
+            <Setter Property="Width" Value="10"/>
+            <Setter Property="Height" Value="10"/>
+            <Setter Property="Stroke" Value="Blue"/>
+            <Setter Property="Fill" Value="Blue"></Setter>
+            <Setter Property="Stretch" Value="Fill"></Setter>
+        </Style>
+        <Style TargetType="Path" x:Key="nodestyle">
+            <Setter Property="Fill" Value="Gray"></Setter>
+            <Setter Property="Stretch" Value="Fill"></Setter>
+        </Style>
+        <Style TargetType="sync:Node">
+            <Setter Property="ShapeStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="#FF5B9BD5"></Setter>
+                        <Setter Property="Stretch" Value="Fill"></Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ObjectDataProvider x:Key="DisplayMode" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="sync:DisplayMode"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="SymbolFilterDisplayMode" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="sync:SymbolFilterDisplayMode"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <DataTemplate x:Key="TitleTemplate">
+            <TextBlock x:Name="HeaderText" Text="{Binding}" FontSize="15" FontWeight="SemiBold"  Foreground="#2b579a" >
+            </TextBlock>
+        </DataTemplate>
+        <Style TargetType="sync:Symbol" >
+            <Setter Property="Padding" Value="4" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BorderThickness" Value="1, 1, 1, 1" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="50" />
+            <Setter Property="Height" Value="50" />
+        </Style>
+
+        <DataTemplate x:Key="Diamond">
+            <StackPanel>
+                <Path Stretch="Fill"
+              Data="M 397.784,287.875L 369.5,316.159L 341.216,287.875L 369.5,259.591L 397.784,287.875 Z"
+              Fill="White"
+              Stroke="Black"
+              StrokeThickness="1" />
+                <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="Diamond" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="symboltemplate">
+            <StackPanel>
+                <Image Source="/Image/user_image.png"
+                       Width="100"
+                       Height="80" />
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="User" />
+            </StackPanel>
+        </DataTemplate>
+        <Style TargetType="TextBlock" x:Key="HeaderStyle">
+            <Setter Property="Foreground" Value="Black"></Setter>
+        </Style>
+        <Style TargetType="TextBlock"  x:Key="FilterTextStyle">
+            <Setter Property="Foreground" Value="Red"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+
+            <sync:Stencil BorderBrush="#dfdfdf" Title="Shapes"   BorderThickness="1" Width="250"  x:Name="stencil" Grid.Row="1"  ShowDisplayModeToggleButton="True" TitleTemplate="{StaticResource TitleTemplate}"
+                             ExpandMode="All" ShowSearchTextBox="True" SymbolFilterDisplayMode="List" SymbolFilters="{ Binding Symbolfilters}" SelectedFilter="{Binding Selectedfilter}" >
+                <!--Initialize the stencil categories-->
+                <sync:Stencil.Categories>
+                    <sync:StencilCategoryCollection>
+                        <!--Specify the basic shapes category with title and resource key-->
+                        <sync:StencilCategory Title="Basic Shapes" Keys="{StaticResource BasicShapes}"/>
+                        <sync:StencilCategory Title="Flow Shapes" Keys="{StaticResource FlowShapes}"/>
+                        <sync:StencilCategory Title="Arrow Shapes" Keys="{StaticResource ArrowShapes}"/>
+                        <sync:StencilCategory Title="DataFlow Shapes" Keys="{StaticResource DataFlowShapes}"/>
+                        <sync:StencilCategory Title="UMLActivity Shapes" Keys="{StaticResource UMLActivity}"/>
+                        <sync:StencilCategory Title="UMLUseCase Shapes" Keys="{StaticResource UMLUseCase}"/>
+                        <sync:StencilCategory Title="UMLRelationship Shapes" Keys="{StaticResource UMLRelationship}"/>
+                        <sync:StencilCategory Title="Swimlane Shapes" Keys="{StaticResource SwimlaneShapes}"/>
+                        <sync:StencilCategory Title="BPMNEditor Shapes" Keys="{StaticResource BPMNEditorShapes}"/>
+                    </sync:StencilCategoryCollection>
+                </sync:Stencil.Categories>
+
+                <sync:Stencil.SymbolGroups>
+                    <sync:SymbolGroups>
+                        <!--Separate groups based on the key-->
+                        <sync:SymbolGroupProvider MappingName="Key"/>
+                    </sync:SymbolGroups>
+                </sync:Stencil.SymbolGroups>
+            </sync:Stencil>
+            <!--</sync:DockingManager>-->
+        </Grid>
+        <Grid Grid.Column="1">
+            <sync:SfDiagram x:Name="diagram">
+                <sync:SfDiagram.Nodes>
+                    <sync:NodeCollection></sync:NodeCollection>
+                </sync:SfDiagram.Nodes>
+                <sync:SfDiagram.Connectors>
+                    <sync:ConnectorCollection/>
+                </sync:SfDiagram.Connectors>
+                <sync:SfDiagram.Groups>
+                    <sync:GroupCollection></sync:GroupCollection>
+                </sync:SfDiagram.Groups>
+            </sync:SfDiagram>
+        </Grid>
+    </Grid>
+
+</Window>
