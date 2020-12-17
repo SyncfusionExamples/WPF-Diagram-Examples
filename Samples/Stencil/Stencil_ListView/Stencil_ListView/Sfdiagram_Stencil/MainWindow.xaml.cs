@@ -31,7 +31,10 @@ namespace Sfdiagram_Stencil
             InitializeComponent();
             diagram.PageSettings.PageWidth = 1000;
             diagram.PageSettings.PageHeight = 1000;
-
+            diagram.HorizontalRuler = new Syncfusion.UI.Xaml.Diagram.Controls.Ruler() { };
+            diagram.VerticalRuler = new Syncfusion.UI.Xaml.Diagram.Controls.Ruler() { Orientation = Orientation.Vertical };
+            diagram.SnapSettings.SnapToObject = SnapToObject.All;
+            diagram.SnapSettings.SnapConstraints = SnapConstraints.All;
         }
 
     }

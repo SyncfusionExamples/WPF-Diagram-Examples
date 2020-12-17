@@ -101,6 +101,7 @@ xmlns:System="clr-namespace:System;assembly=mscorlib"
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="250"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
@@ -144,6 +145,26 @@ xmlns:System="clr-namespace:System;assembly=mscorlib"
                     <sync:GroupCollection></sync:GroupCollection>
                 </sync:SfDiagram.Groups>
             </sync:SfDiagram>
+        </Grid>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <TextBlock Text="Options" FontWeight="Bold" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+            </Grid>
+            <StackPanel Grid.Row="1">
+                <CheckBox Margin="0,10,0,10" IsChecked="{Binding ElementName=stencil,Path=ShowSearchTextBox,Mode=TwoWay}" Content="Show search textbox"></CheckBox>
+                <CheckBox x:Name="showGridlines" Margin="0,10,0,0"  
+                          IsChecked="{Binding ElementName=stencil,Path=ShowDisplayModeToggleButton,Mode=TwoWay}" 
+                          Content="Show display mode togglebutton"  >
+                </CheckBox>
+                <TextBlock Text="Symbol filter display mode" FontWeight="Bold"  Margin="0,10,0,10"   Height="30" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+                <ComboBox Height="22px"  Grid.Row="1" Grid.Column="1" 
+                               ItemsSource="{Binding Source={StaticResource SymbolFilterDisplayMode}}" SelectedItem="{Binding ElementName=stencil,Path=SymbolFilterDisplayMode}">
+                </ComboBox>
+            </StackPanel>
         </Grid>
     </Grid>
 
