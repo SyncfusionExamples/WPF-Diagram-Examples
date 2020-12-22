@@ -16,7 +16,10 @@ This repository contains the samples that demonstrate the functionalities of Dia
   <td><a href="Samples/Connector">Connector</a></td>
  </tr>
  <tr>
-  <td><a href="Samples/Annotations">Annotation</a></td>
+ <td><a href="Samples/Annotations">Annotation</a></td>
+ </tr> 
+ <tr>
+ <td><a href="Samples/Diagram Ribbon">Diagram Ribbon</a></td>
  </tr>
  <tr>
   <td><a href="Samples/Gridlines">Gridlines</a></td>
