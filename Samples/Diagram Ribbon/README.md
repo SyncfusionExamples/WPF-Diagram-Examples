@@ -1,4 +1,4 @@
-# Radial Tree sample
+# Diagram Ribbon Sample
 This sample demonstrate how to create a simple Diagram Designer using SfDiagram and SfDiagramRibbon.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/diagram-ribbon
