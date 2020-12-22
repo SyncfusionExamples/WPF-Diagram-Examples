@@ -51,12 +51,12 @@
         </Syncfusion:SfDiagram>
         <StackPanel Grid.Column="1" Orientation="Vertical" FocusManager.IsFocusScope="True" Focusable="True">
             <Button Height="50" Content="ConnectorTool" Name="Connector" Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolConnectorCommandParameter}"/>
-            <Button Height="50" Content="EllipseTool" Name="Ellipse" Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolEllipseCommandParameter}"/>
-            <Button Height="50" Content="FreedomTool" Name="Freehand" Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolFreehandCommandParameter}"/>
-            <Button Height="50" Content="PointerTool" Name="Select" Command="Syncfusion:DiagramCommands.SelectTool"/>
-            <Button Height="50" Content="TextTool" Name="TextNode" Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolTextCommandParameter}"/>
-            <Button Height="50" Content="LineTool" Name="Line" Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolLineCommandParameter}"/>
-            <Button Height="50" Content="RectangleTool" Name="Rectangle" Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolRectangleCommandParameter}"/>
+            <Button Height="50" Content="Ellipse Tool" Name="Ellipse" Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolEllipseCommandParameter}"/>
+            <Button Height="50" Content="Freehand Tool" Name="Freehand" Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolFreehandCommandParameter}"/>
+            <Button Height="50" Content="Pointer Tool" Name="Select" Command="Syncfusion:DiagramCommands.SelectTool"/>
+            <Button Height="50" Content="Text Tool" Name="TextNode" Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolTextCommandParameter}"/>
+            <Button Height="50" Content="Line Tool" Name="Line" Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolLineCommandParameter}"/>
+            <Button Height="50" Content="Rectangle Tool" Name="Rectangle" Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolRectangleCommandParameter}"/>
            
             <TextBlock Text="Edit and Format Text" Margin="0,10,0,10"></TextBlock>
             <Button Height="50" Content="EditAnnotation" Name="EditAnnotation" Command="Syncfusion:DiagramCommands.EditAnnotation"/>
