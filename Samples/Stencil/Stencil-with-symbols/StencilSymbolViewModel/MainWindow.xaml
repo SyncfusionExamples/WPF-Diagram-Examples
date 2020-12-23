@@ -54,16 +54,22 @@
                     <Setter.Value>
                         <Style  TargetType="Path">
                             <Setter Property="Fill"
-                                    Value="CornflowerBlue" />
-                            <Setter Property="Stroke"
-                                    Value="#727272" />
+                                    Value="#FF5B9BD5" />
                             <Setter Property="Stretch"
                                     Value="Fill" />
                         </Style>
                     </Setter.Value>
                 </Setter>
             </Style>
-
+            <Style TargetType="Syncfusion:Connector">
+                <Setter Property="ConnectorGeometryStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stroke" Value="#FF5B9BD5"></Setter>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
             <!--Style for Symbol-->
             <Style TargetType="Stencil:Symbol">
                 <Setter Property="Width"
@@ -165,7 +171,7 @@
                              Grid.Row="1"
                              ExpandMode="ZeroOrMore"
                              BorderBrush="#dfdfdf"
-                             BorderThickness="0,0,1,0">
+                             BorderThickness="1">
                 <Stencil:Stencil.SymbolSource>
                     <local:SymbolCollection>
                         <Syncfusion:SymbolViewModel Symbol="User" Key="Image"
