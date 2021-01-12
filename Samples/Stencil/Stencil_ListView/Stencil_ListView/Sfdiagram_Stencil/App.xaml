@@ -1,0 +1,99 @@
+﻿<Application x:Class="Sfdiagram_Stencil.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Sfdiagram_Stencil"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Initialize Shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="Arrow">
+            <StackPanel >
+                <Viewbox Stretch="Fill">
+                    <Canvas Width="150.000" Height="100.000">
+                        <Path StrokeThickness="2.5" Stroke="#ff000000" StrokeMiterLimit="1.0" Data="F1 M 67.132,67.522 L 18.625,67.360 C 4.829,67.464 5.000,67.948 5.000,56.440 L 5.000,42.114 C 5.000,32.219 6.301,33.045 14.520,32.926 L 67.236,32.926 L 67.236,26.890 C 67.236,18.308 66.757,19.783 72.692,25.916 L 85.969,39.634 C 96.918,50.948 98.289,47.675 88.006,58.296 L 73.133,73.659 C 66.015,81.011 67.132,81.589 67.132,71.353 L 67.132,67.522 L 67.132,67.522 Z">
+                            <Path.Fill>
+                                <LinearGradientBrush MappingMode="Absolute" StartPoint="365.553,361.690" EndPoint="365.553,419.924">
+                                    <LinearGradientBrush.GradientStops>
+                                        <GradientStop Offset="0.00" Color="#ff323232"/>
+                                        <GradientStop Offset="0.52" Color="#ffffffff"/>
+                                        <GradientStop Offset="1.00" Color="#ff323232"/>
+                                    </LinearGradientBrush.GradientStops>
+                                    <LinearGradientBrush.Transform>
+                                        <MatrixTransform Matrix="1.000,0.000,-0.000,-1.000,-315.552,440.808" />
+                                    </LinearGradientBrush.Transform>
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                    </Canvas>
+                </Viewbox>
+                <TextBlock Text="Arrow" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="7" ></TextBlock>
+            </StackPanel>
+            <!--<Viewbox >
+                <Canvas Width="150.000" Height="100.000">
+                    <Path StrokeThickness="2.5" Stroke="#ff000000" StrokeMiterLimit="1.0" Data="F1 M 67.132,67.522 L 18.625,67.360 C 4.829,67.464 5.000,67.948 5.000,56.440 L 5.000,42.114 C 5.000,32.219 6.301,33.045 14.520,32.926 L 67.236,32.926 L 67.236,26.890 C 67.236,18.308 66.757,19.783 72.692,25.916 L 85.969,39.634 C 96.918,50.948 98.289,47.675 88.006,58.296 L 73.133,73.659 C 66.015,81.011 67.132,81.589 67.132,71.353 L 67.132,67.522 L 67.132,67.522 Z">
+                        <Path.Fill>
+                            <LinearGradientBrush MappingMode="Absolute" StartPoint="365.553,361.690" EndPoint="365.553,419.924">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Offset="0.00" Color="#ff323232"/>
+                                    <GradientStop Offset="0.52" Color="#ffffffff"/>
+                                    <GradientStop Offset="1.00" Color="#ff323232"/>
+                                </LinearGradientBrush.GradientStops>
+                                <LinearGradientBrush.Transform>
+                                    <MatrixTransform Matrix="1.000,0.000,-0.000,-1.000,-315.552,440.808" />
+                                </LinearGradientBrush.Transform>
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                    </Path>
+                    <TextBlock Text="Arrow"></TextBlock>
+                </Canvas>
+            </Viewbox>-->
+        </DataTemplate>
+
+        <DataTemplate x:Key="Block">
+            <Grid >
+                <Viewbox Stretch="Fill" Width="100" Height="100">
+                    <Canvas Width="100.000" Height="100.000">
+                        <Path StrokeThickness="2.5" Stroke="#ff000000" StrokeMiterLimit="1.0" Data="M0.500001,0.5L28.203,0.5L28.203,23.53L14.351,28.203L0.5,23.53z">
+                        </Path>
+                    </Canvas>
+                </Viewbox>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="Cylinder">
+            <Grid >
+                <Viewbox Stretch="Fill" Grid.Row="0" Margin="0,0,0,0">
+                    <Canvas Width="150.000" Height="100.000">
+                        <Path StrokeThickness="2.5" Stroke="#ff000000" StrokeMiterLimit="1.0" Data="M0.5,13.434L0.533621,13.434C1.23074,20.1226 20.7522,25.4861 44.75,25.4861C68.7478,25.4861 88.2693,20.1226 88.9664,13.434L89,13.434L89,89.2672L88.9763,89.2672C88.9822,89.3364 89,89.4036 89,89.4729C89,89.5104 88.9891,89.546 88.9871,89.5836C88.9891,89.6311 89,89.6776 89,89.726C89,96.5857 69.1889,102.146 44.75,102.146C20.3111,102.146 0.5,96.5857 0.5,89.726C0.5,89.6776 0.510878,89.6311 0.512855,89.5836C0.510878,89.546 0.5,89.5104 0.5,89.4729C0.5,89.4036 0.5178,89.3364 0.52373,89.2672L0.5,89.2672zM44.75,0.5C69.1889,0.5 89,5.90013 89,12.561C89,19.2219 69.1889,24.622 44.75,24.622C20.3111,24.622 0.5,19.2219 0.5,12.561C0.5,5.90013 20.3111,0.5 44.75,0.5z">
+                            <!--<Path.Fill>
+                            <LinearGradientBrush MappingMode="Absolute" StartPoint="365.553,361.690" EndPoint="365.553,419.924">
+                                <LinearGradientBrush.GradientStops>
+                                    <GradientStop Offset="0.00" Color="#ff323232"/>
+                                    <GradientStop Offset="0.52" Color="#ffffffff"/>
+                                    <GradientStop Offset="1.00" Color="#ff323232"/>
+                                </LinearGradientBrush.GradientStops>
+                                <LinearGradientBrush.Transform>
+                                    <MatrixTransform Matrix="1.000,0.000,-0.000,-1.000,-315.552,440.808" />
+                                </LinearGradientBrush.Transform>
+                            </LinearGradientBrush>
+                        </Path.Fill>-->
+                        </Path>
+                    </Canvas>
+                </Viewbox>
+               
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="Rectangle">
+            <Viewbox Stretch="Fill" Grid.Row="0" Margin="0,0,0,0">
+                <Canvas Width="150.000" Height="100.000">
+                    <Path StrokeThickness="2.5" Stroke="#ff000000" Fill="White" StrokeMiterLimit="1.0" Data="M0.5,0.5L25.5,0.5L25.5,25.557L0.5,25.557z">
+                    </Path>
+                </Canvas>
+            </Viewbox>
+        </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

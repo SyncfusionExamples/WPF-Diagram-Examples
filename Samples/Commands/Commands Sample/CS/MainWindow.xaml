@@ -1,0 +1,457 @@
+﻿<Window x:Class="Getting_Started_Commands.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Getting_Started_Commands"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:viewmodel="clr-namespace:Getting_Started_Commands.Viewmodel"
+        xmlns:utility="clr-namespace:Commands.Utility"
+        xmlns:skinmanager="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+        skinmanager:SfSkinManager.VisualStyle="MaterialLight"
+        mc:Ignorable="d"
+        Icon="App.ico"
+        Title="Commands" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+       
+        <utility:PointerToolConverter x:Key="pointertoolconverter"/>
+        <utility:ConnectorToolConverter x:Key="connectortoolconverter"/>
+        <utility:ZoomPanToolConverter x:Key="zoompantoolconverter"/>
+        <utility:TextToolConverter x:Key="texttoolconverter"/>
+       
+        <Syncfusion:RotateParameter RotationDirection="Clockwise" Angle="45" x:Key="RotateCommandRightParameter"/>
+        <Syncfusion:RotateParameter RotationDirection="AntiClockwise" Angle="45" x:Key="RotateCommandLeftParameter"/>
+
+        <Syncfusion:SelectToolCommandParameter DrawingTool="Ellipse" Tool="ContinuesDraw"  x:Key="SelectToolEllipseCommandParameter"/>
+        <Syncfusion:SelectToolCommandParameter DrawingTool="Rectangle" Tool="ContinuesDraw"  x:Key="SelectToolRectangleCommandParameter"/>
+        <Syncfusion:SelectToolCommandParameter DrawingTool="TextNode" Tool="ContinuesDraw"  x:Key="SelectToolTextnodeCommandParameter"/>
+        <Syncfusion:SelectToolCommandParameter DrawingTool="FreeHand" Tool="ContinuesDraw"  x:Key="SelectToolfreehandCommandParameter"/>
+        <Syncfusion:SelectToolCommandParameter DrawingTool="Connector" Tool="ContinuesDraw"  x:Key="SelectToolconnectorCommandParameter"/>
+        <Syncfusion:SelectToolCommandParameter DrawingTool="Connector" Tool="ContinuesDraw"  ConnectorType="Line" x:Key="SelectToollineCommandParameter"/>
+        
+        <DataTemplate x:Key="RectangleToolTemplate">
+            <Grid>
+                <Path x:Name="Rectangle_Draw_Tool_16" Data="M0.99999994,1.0000002 L0.99999994,13 17,13 17,1.0000002 z M0,0 L18,0 18,14 0,14 z" Fill="Black" HorizontalAlignment="Center" Height="10" Stretch="Fill" VerticalAlignment="Center" Width="14" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="EllipseToolTemplate">
+            <Grid>
+                <Path x:Name="Ellipse_Draw_Tool_16" Data="M8,1 C4.1399994,1 1,3.6909943 1,7 1,10.309006 4.1399994,13 8,13 11.860001,13 15,10.309006 15,7 15,3.6909943 11.860001,1 8,1 z M8,0 C12.411003,0 16,3.1399994 16,7 16,10.860001 12.411003,14 8,14 3.5889969,14 0,10.860001 0,7 0,3.1399994 3.5889969,0 8,0 z" Fill="Black" HorizontalAlignment="Center" Height="12" Stretch="Fill" VerticalAlignment="Center" Width="14" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="LineToolTemplate">
+            <Grid>
+                <Path x:Name="Line_Draw_Tool_16" Data="M0.50024414,0 C0.62824619,-3.2850949E-09 0.75624829,0.048747265 0.85423726,0.1462417 L15.85378,15.146013 C16.04878,15.34201 16.04878,15.658013 15.85378,15.85401 15.75576,15.951009 15.627773,16.000004 15.499786,16.000004 15.371799,16.000004 15.243813,15.951009 15.145793,15.85401 L0.14625101,0.85423868 C-0.048750335,0.6582427 -0.048750335,0.34223797 0.14625101,0.1462417 0.24423998,0.048747265 0.37224206,-3.2850949E-09 0.50024414,0 z" Fill="Black" HorizontalAlignment="Center" Height="12" Stretch="Fill" VerticalAlignment="Center" Width="12" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PolyLineToolTemplate">
+            <Grid>
+                <Path x:Name="Polyline_Draw_Tool_16" Data="M7.3300051,0 L13.999,6.7630005 13.286965,7.4649963 8.3300036,2.4379883 8.3300036,16 0,7.553009 0.71197394,6.8510132 7.3300051,13.562012 z" Fill="Black" HorizontalAlignment="Center" Height="12" Stretch="Fill" VerticalAlignment="Center" Width="11.999" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="FreeHandToolTemplate">
+            <Grid>
+                <Path x:Name="FreeForm_Draw_Tool_16" Data="M0,0 L3.921997,0 C6.1709899,0 7.9999999,1.8289948 7.9999999,4.0780029 7.9999999,5.7550049 6.993988,7.2409973 5.4370116,7.8639984 L4.5429992,8.2220001 C3.6050109,8.5970001 2.9999999,9.4909973 2.9999999,10.5 2.9999999,12.429993 4.5700072,14 6.4999999,14 L9.9999999,14 9.9999999,15 6.4999999,15 C4.0190124,15 1.9999999,12.981003 1.9999999,10.5 1.9999999,9.0800018 2.8519897,7.8209991 4.1709899,7.2929993 L5.0650024,6.9349976 C6.2409972,6.4649963 6.9999999,5.3439941 6.9999999,4.0780029 6.9999999,2.3809967 5.618988,1 3.921997,0.99999994 L0,0.99999994 z" Fill="Black" HorizontalAlignment="Center" Height="12" Stretch="Fill" VerticalAlignment="Center" Width="10" />
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <Window.DataContext>
+        <viewmodel:CommandsViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Syncfusion:ToolBarAdv GripperVisibility="Collapsed" OverflowButtonVisibility="Collapsed" Grid.Row="0" FocusManager.IsFocusScope="True" Focusable="True">
+            <Button Name="Cut" Width="24" Height="30" ToolTip="Cut" Command="Syncfusion:DiagramCommands.Cut" Cursor="Hand" CommandParameter="Cut" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M3.5,11 C2.6719971,11 2,11.671997 2,12.5 2,13.328003 2.6719971,14 3.5,14 4.32901,14 5,13.328003 5,12.5 5,11.671997 4.32901,11 3.5,11 z M3.5,2 C2.6719971,2 2,2.6719971 2,3.5 2,4.3280029 2.6719971,5 3.5,5 4.32901,5 5,4.3280029 5,3.5 5,2.6719971 4.32901,2 3.5,2 z M15.999023,1 L15.999023,2 11.003998,7 9,5 12.985016,1.0419922 z M3.4630127,0 L3.4960022,0 3.5,0 3.5039978,0 3.5370178,0 C5.381012,0.019958496 6.8840027,1.4649658 6.9930115,3.2859497 6.9990234,3.3569946 7.0010071,3.4289551 7,3.5 7.0299988,3.9379883 7,4.5 7,4.5 L16,14 16,14.994995 13,14.994995 8,10 6.5280151,10.743958 C6.8280029,11.258972 6.9990234,11.856995 7,12.495972 L7,12.5 C7,12.504944 7,12.509949 7,12.515991 6.9920044,14.437988 5.4330139,15.994995 3.5079956,16 L3.5,16 3.4920044,16 C1.5630188,15.994995 0,14.430969 0,12.5 0,10.566956 1.5670166,9 3.5,9 4.0690002,9 4.6070251,9.1359863 5.0820007,9.3769531 L6,8 5.0820007,6.6229858 C4.6289978,6.8539429 4.1190186,6.9869995 3.57901,6.9989624 3.552002,7.0009766 3.5250244,7.0019531 3.5,7.0019531 3.4460144,7.0019531 3.3919983,7 3.3380127,6.9959717 1.4949951,6.9119873 0.023010254,5.4019775 0,3.5439453 L0,3.5049438 0,3.5 0,3.4949951 0,3.4559937 C0.024017334,1.5559692 1.5620117,0.019958496 3.4630127,0 z"
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Stretch="Fill" 
+                      Width="16" 
+                      Height="16"/>
+            </Button>
+            <Button Name="Copy" Width="24" Height="30" ToolTip="Copy" Command="Syncfusion:DiagramCommands.Copy" Cursor="Hand" CommandParameter="Copy" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M5.0000086,5.0000267 L5.0000086,14.000027 14.001992,14.000027 14.000009,5.0000267 z M5.0000086,3.0000267 L14.000009,3.0000267 C15.103005,3.0000267 16.000009,3.8969994 16.000009,5.0000267 L16.000009,14.000027 C16.000009,15.102993 15.103005,16.000027 14.000009,16.000027 L5.0000086,16.000027 C3.8970118,16.000027 3.0000086,15.102993 3.0000086,14.000027 L3.0000086,5.0000267 C3.0000086,3.8969994 3.8970118,3.0000267 5.0000086,3.0000267 z M2,0 L12,0 12,2 2,2 2,13 0,13 0,2 C0,0.89700007 0.89699984,0 2,0 z" 
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Stretch="Fill" 
+                      Width="16"                       
+                      Height="16"/>
+            </Button>
+            <Button Name="Paste" Width="24" Height="30" ToolTip="Paste" Command="Syncfusion:DiagramCommands.Paste" Cursor="Hand" CommandParameter="Paste" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M1.9999999,4.0080425 L1.9999999,14.008008 12,14.008008 12,4.0080425 11,4.0080425 11,5.0080392 2.9999999,5.0080392 2.9999999,4.0080425 z M5.9999999,2.0080497 L5.9999999,3.0080461 7.9999999,3.0080461 7.9999999,2.0080497 z M6.9999999,0 C8.9999999,0 9.0390014,1.9999929 8.9999999,2.0080497 L13,2.0080497 C13.556,2.0080497 14,2.4529943 14,3.0020036 L14,3.4999878 14,15.00599 C14,15.562995 13.550995,16.008001 12.998993,16.008001 L12.5,16.008001 1.5569763,16.008001 0.99899277,16.008001 C0.44097891,16.008001 -8.914536E-08,15.556952 1.4210855E-14,15.000985 L1.4210855E-14,3.0150041 C-8.914536E-08,2.4579992 0.44699088,2.0070121 0.99999985,2.0060355 L4.9999999,1.999993 C4.9999999,1.9999929 4.9999999,0 6.9999999,0 z"
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Stretch="Fill"
+                      Width="14" 
+                      Height="16.008"/>
+            </Button>
+            <Button x:Name="Undo" Width="24" Height="30" ToolTip="Undo" Command="Syncfusion:DiagramCommands.Undo" Cursor="Hand" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M0,0 L2.8080139,3.2579956 C4.2789917,1.9130249 6.151001,1.0770264 8.2009888,1.0770264 11.855011,1.0770264 14.931,3.6290283 16,7.1090088 L14.127991,7.7579956 C13.325989,5.1130371 10.963013,3.1650391 8.1560059,3.1650391 6.6409912,3.1650391 5.2139893,3.7689819 4.1440125,4.7420044 L7,8 0,8 z" 
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Stretch="Fill"
+                      Width="16"
+                      Height="8"/>
+            </Button>
+            <Button x:Name="Redo" Width="24" Height="30" ToolTip="Redo" Command="Syncfusion:DiagramCommands.Redo" Cursor="Hand" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M16,0 L16,8.0000002 9.0000005,8.0000002 11.854,4.7420003 C10.785,3.7680001 9.3590004,3.1650002 7.8430004,3.1650003 5.0360003,3.1650002 2.6730003,5.1130002 1.8720007,7.7580001 L0,7.1090002 C1.0690002,3.6290002 4.1440001,1.0770001 7.7980003,1.0770001 9.8480005,1.0770001 11.72,1.9130001 13.191,3.2580003 z"
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="8" 
+                      Stretch="Fill"
+                      Width="16"/>
+            </Button>
+            <Syncfusion:ToolBarItemSeparator/>
+            <Button Name="AlignLeft" Width="24" Height="30" ToolTip="Align Left" Command="Syncfusion:DiagramCommands.AlignLeft" Cursor="Hand" CommandParameter="AlignLeft" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M0.49199963,7.9999967 L9.5079999,7.9999967 C9.6489999,8.0159969 9.7659998,8.0709963 9.859,8.1639967 9.9539998,8.2569971 9.9999999,8.3749971 10,8.5149965 L10,10.506997 C9.9999999,10.647997 9.9539998,10.764997 9.859,10.858996 9.7659998,10.952996 9.6489999,10.999997 9.5079999,10.999997 L0.49199963,10.999997 C0.35200024,10.999997 0.23400021,10.952996 0.14099979,10.858996 0.048000336,10.764997 0,10.647997 0,10.506997 L0,8.5149965 C0,8.3749971 0.048000336,8.2569971 0.14099979,8.1639967 0.23400021,8.0709963 0.35200024,8.0159969 0.49199963,7.9999967 z M3.4919977,3 L9.5079975,3 C9.6489973,3.0150001 9.7659974,3.0699999 9.8589973,3.164 9.9539974,3.2579999 9.9999974,3.375 9.9999974,3.516 L9.9999974,5.5079999 C9.9999974,5.6490002 9.9539974,5.7659998 9.8589973,5.8590002 9.7659974,5.954 9.6489973,6 9.5079975,6 L3.4919977,6 C3.350997,6 3.2339973,5.954 3.1409979,5.8590002 3.0469971,5.7659998 2.9999971,5.6490002 2.9999971,5.5079999 L2.9999971,3.516 C2.9999971,3.375 3.0469971,3.2579999 3.1409979,3.164 3.2339973,3.0699999 3.350997,3.0150001 3.4919977,3 z M11.999999,0 L13.999999,0 13.999999,16 11.999999,16 z"
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="16"
+                      Stretch="Fill"
+                      Width="14"/>
+            </Button>
+            <Button Name="AlignCenter" Width="24" Height="30" ToolTip="Align Center" Command="Syncfusion:DiagramCommands.AlignCenter" Cursor="Hand" CommandParameter="AlignCenter" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M4.9999933,0 L6.9999933,0 6.9999933,3 10.007995,3 C10.148995,3.0150001 10.265995,3.0699999 10.358995,3.164 10.452995,3.2579999 10.499995,3.375 10.499995,3.516 L10.499995,5.5079999 C10.499995,5.6490002 10.452995,5.7659998 10.358995,5.8590002 10.265995,5.954 10.148995,6 10.007995,6 L6.9999933,6 6.9999933,7.9999967 11.508,7.9999967 C11.648,8.0159969 11.766,8.0709963 11.859,8.1639967 11.952,8.2569971 12,8.3749971 12,8.5149965 L12,10.506997 C12,10.647997 11.952,10.764997 11.859,10.858996 11.766,10.952996 11.648,10.999997 11.508,10.999997 L6.9999933,10.999997 6.9999933,16 4.9999933,16 4.9999933,10.999997 0.4920001,10.999997 C0.35100031,10.999997 0.23400021,10.952996 0.14100027,10.858996 0.046000004,10.764997 0,10.647997 0,10.506997 L0,8.5149965 C0,8.3749971 0.046000004,8.2569971 0.14100027,8.1639967 0.23400021,8.0709963 0.35100031,8.0159969 0.4920001,7.9999967 L4.9999933,7.9999967 4.9999933,6 1.9919949,6 C1.8509951,6 1.733995,5.954 1.640995,5.8590002 1.545995,5.7659998 1.499995,5.6490002 1.499995,5.5079999 L1.499995,3.516 C1.499995,3.375 1.545995,3.2579999 1.640995,3.164 1.733995,3.0699999 1.8509951,3.0150001 1.9919949,3 L4.9999933,3 z"
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="16" 
+                      Stretch="Fill"
+                      Width="12"/>
+            </Button>
+            <Button Name="AlignRight" Width="24" Height="30" ToolTip="Align Right" Command="Syncfusion:DiagramCommands.AlignRight" Cursor="Hand" CommandParameter="AlignRight" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M4.4919968,8 L13.507996,8 C13.648003,8.0159988 13.765999,8.0709991 13.859001,8.1639938 13.951996,8.2569962 14,8.375 14,8.5149994 L14,10.506996 C14,10.647995 13.951996,10.764999 13.859001,10.858994 13.765999,10.952995 13.648003,11 13.507996,11 L4.4919968,11 C4.3509979,11 4.2340012,10.952995 4.1409988,10.858994 4.0459976,10.764999 4,10.647995 4,10.506996 L4,8.5149994 C4,8.375 4.0459976,8.2569962 4.1409988,8.1639938 4.2340012,8.0709991 4.3509979,8.0159988 4.4919968,8 z M4.4920015,3 L10.508002,3 C10.649002,3.0149999 10.766002,3.0700002 10.859002,3.164 10.953001,3.2579999 11.000001,3.375 11.000001,3.5159998 L11.000001,5.5079999 C11.000001,5.6489999 10.953001,5.766 10.859002,5.859 10.766002,5.954 10.649002,6 10.508002,6 L4.4920015,6 C4.3510017,6 4.2340016,5.954 4.1410017,5.859 4.0460016,5.766 4.0000016,5.6489999 4.0000017,5.5079999 L4.0000017,3.5159998 C4.0000016,3.375 4.0460016,3.2579999 4.1410017,3.164 4.2340016,3.0700002 4.3510017,3.0149999 4.4920015,3 z M0,0 L2,0 2,16 0,16 z"
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="16" 
+                      Stretch="Fill"
+                      Width="14"/>
+            </Button>
+            <Button Name="AlignTop" Width="24" Height="30" ToolTip="Align Top" Command="Syncfusion:DiagramCommands.AlignTop" Cursor="Hand" CommandParameter="AlignTop" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M3.516,4.0000014 L5.5079999,4.0000014 C5.6490002,4.0000014 5.7659998,4.0460014 5.8590002,4.1410017 5.954,4.2340016 6,4.3510017 6,4.4920015 L6,10.508001 C6,10.649002 5.954,10.766002 5.8590002,10.859001 5.7659998,10.953002 5.6490002,11.000002 5.5079999,11.000002 L3.516,11.000002 C3.375,11.000002 3.2579999,10.953002 3.164,10.859001 3.0699999,10.766002 3.0150001,10.649002 3,10.508001 L3,4.4920015 C3.0150001,4.3510017 3.0699999,4.2340016 3.164,4.1410017 3.2579999,4.0460014 3.375,4.0000014 3.516,4.0000014 z M8.5149965,3.9999993 L10.506997,3.9999993 C10.647997,3.9999993 10.764997,4.0459991 10.858996,4.1409993 10.952996,4.2339993 10.999997,4.3509994 10.999997,4.4919991 L10.999997,13.507999 C10.999997,13.647999 10.952996,13.765999 10.858996,13.858999 10.764997,13.951999 10.647997,13.999999 10.506997,13.999999 L8.5149965,13.999999 C8.3749971,13.999999 8.2569971,13.951999 8.1639967,13.858999 8.0709963,13.765999 8.0159969,13.647999 7.9999967,13.507999 L7.9999967,4.4919991 C8.0159969,4.3509994 8.0709963,4.2339993 8.1639967,4.1409993 8.2569971,4.0459991 8.3749971,3.9999993 8.5149965,3.9999993 z M0,0 L16,0 16,2 0,2 z"
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="14" 
+                      Stretch="Fill" 
+                      Width="16" />
+            </Button>
+            <Button Name="AlignMiddle" Width="24" Height="30" ToolTip="Align Middle" Command="Syncfusion:DiagramCommands.AlignMiddle" Cursor="Hand" CommandParameter="AlignMiddle" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M5.4930034,0 L7.4850035,0 C7.6250033,0 7.7430034,0.046000004 7.8360033,0.14100027 7.9290032,0.23400021 7.9840031,0.35100031 8.0000029,0.4920001 L8.0000029,5.000001 10,5.000001 10,1.9920025 C10,1.8510027 10.046,1.7340026 10.141,1.6410027 10.234,1.5460026 10.351,1.5000026 10.492,1.5000026 L12.484,1.5000026 C12.625,1.5000026 12.742,1.5460026 12.836,1.6410027 12.93,1.7340026 12.985,1.8510027 13,1.9920025 L13,5.000001 16,5.000001 16,7.000001 13,7.000001 13,10.008003 C12.985,10.149003 12.93,10.266003 12.836,10.359003 12.742,10.453002 12.625,10.500002 12.484,10.500002 L10.492,10.500002 C10.351,10.500002 10.234,10.453002 10.141,10.359003 10.046,10.266003 10,10.149003 10,10.008003 L10,7.000001 8.0000029,7.000001 8.0000029,11.508 C7.9840031,11.648 7.9290032,11.766 7.8360033,11.859 7.7430034,11.952 7.6250033,12 7.4850035,12 L5.4930034,12 C5.3520031,12 5.2350035,11.952 5.1410031,11.859 5.0470033,11.766 5.0000033,11.648 5.0000033,11.508 L5.0000033,7.000001 0,7.000001 0,5.000001 5.0000033,5.000001 5.0000033,0.4920001 C5.0000033,0.35100031 5.0470033,0.23400021 5.1410031,0.14100027 5.2350035,0.046000004 5.3520031,0 5.4930034,0 z"
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="12" 
+                      Stretch="Fill"
+                      Width="16" />
+            </Button>
+            <Button Name="AlignBottom" Width="24" Height="30" ToolTip="Align Bottom" Command="Syncfusion:DiagramCommands.AlignBottom" Cursor="Hand" CommandParameter="AlignBottom" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M0,11.999999 L16,11.999999 16,13.999999 0,13.999999 z M10.492004,2.9999992 L12.483994,2.9999992 C12.625,2.999999 12.742004,3.0469961 12.835999,3.1409978 12.929993,3.2340002 12.985001,3.350997 13,3.4919957 L13,9.5079947 C12.985001,9.6490011 12.929993,9.7659979 12.835999,9.8590002 12.742004,9.9539938 12.625,9.999999 12.483994,9.999999 L10.492004,9.999999 C10.350998,9.999999 10.233994,9.9539938 10.141006,9.8590002 10.046005,9.7659979 10,9.6490011 10,9.5079947 L10,3.4919957 C10,3.350997 10.046005,3.2340002 10.141006,3.1409978 10.233994,3.0469961 10.350998,2.999999 10.492004,2.9999992 z M5.4930034,0 L7.4850032,0 C7.6250033,-2.3841858E-07 7.7430034,0.047999859 7.8360033,0.14099979 7.9290032,0.23399997 7.9840033,0.35199976 8.0000033,0.4920001 L8.0000033,9.5079999 C7.9840033,9.6489997 7.9290032,9.7659998 7.8360033,9.8589997 7.7430034,9.954 7.6250033,10 7.4850032,10 L5.4930034,10 C5.3520031,10 5.2350035,9.954 5.1410031,9.8589997 5.0470033,9.7659998 5.0000033,9.6489997 5.0000033,9.5079999 L5.0000033,0.4920001 C5.0000033,0.35199976 5.0470033,0.23399997 5.1410031,0.14099979 5.2350035,0.047999859 5.3520031,-2.3841858E-07 5.4930034,0 z"
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="14" 
+                      Stretch="Fill"
+                      Width="16"/>
+            </Button>
+            <Syncfusion:ToolBarItemSeparator/>
+            <Button Name="RotateRight" Width="24" Height="30" IsEnabled="{Binding Enabled}" ToolTip="Rotate Right" Command="Syncfusion:DiagramCommands.Rotate" Cursor="Hand" CommandParameter="{StaticResource RotateCommandRightParameter}" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M7,6 L7,14 0,14 z M4.6949925,1.1270013 L6.0280001,1.1270013 6.0280001,1.7940013 6.6949928,1.7940013 6.6949928,2.460001 7.3620005,2.460001 7.3620005,3.127001 6.6949928,3.127001 6.6949928,3.7940013 6.0280001,3.7940013 6.0280001,4.4610014 4.6949925,4.4610014 4.6949925,3.7940013 5.3620005,3.7940013 5.3620005,3.127001 4.3619986,3.126997 C3.4429984,3.126997 2.6949983,3.8749971 2.6949983,4.7939968 L2.6949983,5.7939968 2.0279984,5.7939968 2.0279984,4.7939968 C2.0279984,3.5069971 3.0749984,2.4609971 4.3619986,2.4609971 L5.3620005,2.4609971 5.3620005,1.7940013 4.6949925,1.7940013 z M9,0 L16,14 9,14 z"
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="14" 
+                      Stretch="Fill"
+                      Width="16"/>
+            </Button>
+            <Button Name="RotateLeft" Width="24" Height="30" IsEnabled="{Binding Enabled}" ToolTip="Rotate Left" Command="Syncfusion:DiagramCommands.Rotate" Cursor="Hand" CommandParameter="{StaticResource RotateCommandLeftParameter}" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M9,6.0000002 L16,14 9,14 z M9.9719996,1.1270013 L11.305,1.1270013 11.305,1.7940011 10.638,1.7940011 10.638,2.4609971 11.638001,2.4609971 C12.925002,2.4609971 13.972002,3.5069971 13.972002,4.7939968 L13.972002,5.7939968 13.305002,5.7939968 13.305002,4.7939968 C13.305002,3.8749971 12.557002,3.126997 11.638001,3.126997 L10.638,3.127001 10.638,3.7940013 11.305,3.7940013 11.305,4.4610014 9.9719996,4.4610014 9.9719996,3.7940013 9.3049998,3.7940013 9.3049998,3.127001 8.6379995,3.127001 8.6379995,2.460001 9.3049996,2.460001 9.3049996,1.7940011 9.9719996,1.7940011 z M7,0 L7,14 0,14 z"
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="14"
+                      Stretch="Fill"
+                      Width="16"/>
+            </Button>
+            <Syncfusion:ToolBarItemSeparator/>
+            <Button Name="FlipVertical" Width="24" Height="30" IsEnabled="{Binding FlipEnabled}" ToolTip="Flip Vertical" Command="{Binding AllCommand}" Cursor="Hand" CommandParameter="FlipVertical" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M9,0 L16,14 9,14 z M7,0 L7,14 0,14 z" 
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="14" 
+                      Stretch="Fill"
+                      Width="16"/>
+            </Button>
+            <Button Name="FlipHorizontal" Width="24" Height="30" IsEnabled="{Binding FlipEnabled}" ToolTip="Flip Horizontal" Command="{Binding AllCommand}" Cursor="Hand" CommandParameter="FlipHorizontal" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M0,9 L14,9 14,16 z M14,0 L14,7 0,7 z" 
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="16" 
+                      Stretch="Fill" 
+                      Width="14" />
+            </Button>
+            <Syncfusion:ToolBarItemSeparator/>
+            <Button Name="SpaceAcross" Width="24" Height="30" ToolTip="Space Across" Command="Syncfusion:DiagramCommands.SpaceAcross" Cursor="Hand" CommandParameter="SpaceAcross" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M5.4920015,2 L7.4840016,2 C7.6250017,2 7.7420015,2.046 7.8350017,2.141 7.9300017,2.234 7.9830017,2.3510001 8.0000017,2.4920001 L8.0000017,14.508 C7.9830017,14.649 7.9300017,14.766 7.8350017,14.859 7.7420015,14.954 7.6250017,15 7.4840016,15 L5.4920015,15 C5.3510017,15 5.2340016,14.954 5.1410017,14.859 5.0460014,14.766 5.0000014,14.649 5.0000014,14.508 L5.0000014,2.4920001 C5.0000014,2.3510001 5.0460014,2.234 5.1410017,2.141 5.2340016,2.046 5.3510017,2 5.4920015,2 z M11,0 L13,0 13,16 11,16 z M0,0 L2,0 2,16 0,16 z"
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="16"
+                      Stretch="Fill"
+                      Width="13"/>
+            </Button>
+            <Button Name="SpaceDown" Width="24" Height="30" ToolTip="Space Down" Command="Syncfusion:DiagramCommands.SpaceDown" Cursor="Hand" CommandParameter="SpaceDown" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M0,11 L16,11 16,13 0,13 z M1.4919968,5 L13.508003,5 C13.649002,5 13.765999,5.0460052 13.859001,5.1409988 13.954002,5.2340012 14,5.3509979 14,5.4920044 L14,7.4840012 C14,7.625 13.954002,7.7420044 13.859001,7.8349991 13.765999,7.9300003 13.649002,7.9830017 13.508003,8 L1.4919968,8 C1.3509979,7.9830017 1.2340012,7.9300003 1.1409988,7.8349991 1.0459976,7.7420044 1,7.625 1,7.4840012 L1,5.4920044 C1,5.3509979 1.0459976,5.2340012 1.1409988,5.1409988 1.2340012,5.0460052 1.3509979,5 1.4919968,5 z M0,0 L16,0 16,2 0,2 z" 
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="13"
+                      Stretch="Fill"
+                      Width="16"/>
+            </Button>
+            <Syncfusion:ToolBarItemSeparator/>
+            <Button Name="SameWidth" Width="24" Height="30" ToolTip="Same Width" Command="Syncfusion:DiagramCommands.SameWidth" Cursor="Hand" CommandParameter="SameWidth" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M4.25,5.25 L4.25,7 10.75,7 10.75,5.25 13,7.5 10.75,9.75 10.75,8 4.25,8 4.25,9.75 2,7.5 z M2,2 L2,7.5 2,13 13,13 13,7.5 13,2 z M0,0 L15,0 15,15 0,15 z" 
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="15" 
+                      Stretch="Fill"
+                      Width="15" />
+            </Button>
+            <Button Name="SameHeight" Width="24" Height="30" ToolTip="Same Height" Command="Syncfusion:DiagramCommands.SameHeight" Cursor="Hand" CommandParameter="SameHeight" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path Data="M7.5,2 L9.75,4.25 8,4.25 8,10.75 9.75,10.75 7.5,13 5.25,10.75 7,10.75 7,4.25 5.25,4.25 z M2,2 L2,13 7.5,13 13,13 13,2 7.5,2 z M0,0 L15,0 15,15 0,15 z" 
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="15" 
+                      Stretch="Fill"
+                      Width="15" />
+            </Button>
+            <Button Name="SameSize" Width="24" Height="30" ToolTip="Same Size" Command="Syncfusion:DiagramCommands.SameSize" Cursor="Hand" CommandParameter="SameSize" Margin="2,0,2,0" Style="{StaticResource WPFGlyphButtonStyle}">
+                <Path x:Name="Same_size" Data="M7.5,2 L9.25,3.75 8,3.75 8,7 11.25,7 11.25,5.75 13,7.5 11.25,9.25 11.25,8 8,8 8,11.25 9.25,11.25 7.5,13 5.75,11.25 7,11.25 7,8 3.75,8 3.75,9.25 2,7.5 3.75,5.75 3.75,7 7,7 7,3.75 5.75,3.75&#xd;&#xa; z M2,2 L2,7.5 2,13 7.5,13 13,13 13,7.5 13,2 7.5,2 z M0,0 L15,0 15,15 0,15 z" 
+                      Fill="{Binding Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type Button}}}"
+                      Height="15"
+                      Stretch="Fill"
+                      Width="15" />
+            </Button>
+
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="Part_Bold" ToolTip="Make your text Bold." Style="{StaticResource WPFGlyphButtonStyle}"
+                                                                 Margin = "0,4,2,4"
+                                                                 Height="24"
+                                                                 Width="24"                                                                 
+                                                                 Command="Syncfusion:DiagramCommands.ToggleBold">
+
+
+                    <Path x:Name="Bold_16" Data="M1.9569681,8.5469971 L1.9569681,14.305 4.6129713,14.305 C5.7619567,14.305 6.653008,14.043999 7.2860031,13.523003 7.9189978,13.002998 8.2359529,12.288002 8.2359529,11.380997 8.2359529,9.4919968 6.8919602,8.5469971 4.2059889,8.5469971 z M1.9569681,1.6959991 L1.9569681,6.8619995 3.9609943,6.8619995 C5.0319772,6.8619995 5.8749938,6.6139984 6.4879689,6.1200027 7.1019821,5.6259995 7.4089885,4.9280014 7.4089885,4.0279999 7.4089885,2.4729996 6.3409968,1.6959991 4.2059889,1.6959991 z M0,0 L4.7529855,0 C6.1970148,0 7.3419719,0.33899689 8.1889558,1.0159988 9.0349632,1.6920013 9.4579978,2.5739975 9.4579978,3.659996 9.4579978,4.5680008 9.2019553,5.3560028 8.6889558,6.0250015 8.1779695,6.6949997 7.4710002,7.1709976 6.5700002,7.4540024 L6.5700002,7.4980011 C7.6959758,7.625 8.5969758,8.0309982 9.2719627,8.7200012 9.9479871,9.4079971 10.286,10.302002 10.286,11.403 10.286,12.771996 9.7729993,13.879997 8.7479768,14.727997 7.7230144,15.575996 6.4299855,16 4.8690133,16 L0,16 z" Fill="Black" HorizontalAlignment="Center" Height="14" Stretch="Fill" VerticalAlignment="Center" Width="9" />
+
+                </Button>
+                <Button x:Name="Part_Italic"  ToolTip="Italicize your text" Style="{StaticResource WPFGlyphButtonStyle}"
+                                                                 Margin = "2,4,2,4"
+                                                                 Width="24"
+                                                                 Height="24"                                                               
+                                                                 Command="Syncfusion:DiagramCommands.ToggleItalic">
+
+                    <Path x:Name="Italic" Data="M3.5000001,0 L11.5,0 C11.776,0 12,0.22399998 12,0.5 12,0.77600002 11.776,1 11.5,1 L7.8964692,1 5.1268979,13 8.5000001,13 C8.7760011,13 9.0000001,13.223999 9.0000001,13.5 9.0000001,13.776001 8.7760011,14 8.5000001,14 L4.4998227,14 0.49999997,14 C0.22399911,14 8.9406967E-08,13.776001 0,13.5 8.9406967E-08,13.223999 0.22399911,13 0.49999997,13 L4.1035462,13 6.8731175,1 3.5000001,1 C3.2240001,1 3.0000001,0.77600002 3.0000001,0.5 3.0000001,0.22399998 3.2240001,0 3.5000001,0 z" Fill="Black" HorizontalAlignment="Center" Height="14" Stretch="Fill" VerticalAlignment="Center" Width="12"/>
+
+                </Button>
+                <Button x:Name="Part_Underline" ToolTip="Underline your text." Style="{StaticResource WPFGlyphButtonStyle}"
+                                                                 Margin = "2,4,2,4"
+                                                                 Height="24"
+                                                                 Width="24"                                                               
+                                                                 Command="Syncfusion:DiagramCommands.ToggleUnderline">
+
+                    <Path x:Name="Underline" Data="M0.49999997,13 L9.4999999,13 C9.7759999,13 9.9999999,13.224 9.9999999,13.5 9.9999999,13.776 9.7759999,14 9.4999999,14 L0.49999997,14 C0.22399992,14 -8.9406939E-08,13.776 2.8421709E-14,13.5 -8.9406939E-08,13.224 0.22399992,13 0.49999997,13 z M0.49999997,0 C0.77600089,0 0.99999991,0.22400093 0.99999991,0.49999997 L0.99999991,7 C0.99999991,9.2060013 2.7940063,11 4.9999999,11 7.2059936,11 8.9999999,9.2060013 8.9999999,7 L8.9999999,0.49999997 C8.9999999,0.22400093 9.2239989,0 9.4999999,0 9.7760009,0 9.9999999,0.22400093 9.9999999,0.49999997 L9.9999999,7 C9.9999999,9.757 7.7570037,12 4.9999999,12 2.2429961,12 -8.9406939E-08,9.757 2.8421709E-14,7 L2.8421709E-14,0.49999997 C-8.9406939E-08,0.22400093 0.22399893,0 0.49999997,0 z" Fill="Black" HorizontalAlignment="Center" Height="14" Stretch="Fill" VerticalAlignment="Center" Width="10" />
+                </Button>
+                <Button x:Name="Part_StrikeThrough" ToolTip="Cross something out by drawing a line through it." Style="{StaticResource WPFGlyphButtonStyle}"
+                                                                 Margin = "2,4,2,4"
+                                                                 Height="24"
+                                                                 Width="24"                                                                
+                                                                 Command="Syncfusion:DiagramCommands.ToggleStrikeThrough">
+
+                    <Path Data="M9.3305612,7.9119906 L9.3574967,7.962687 C9.4323964,8.0956945 9.5242519,8.2207923 9.6330018,8.3379793 9.9830012,8.7119784 10.425001,8.8989778 10.964001,8.8989778 11.593,8.8989778 12.088,8.6579785 12.446,8.1759796 12.490625,8.1156049 12.532469,8.0522923 12.571529,7.9860449 L12.612724,7.9119906 z M2.043169,7.9119906 L2.044282,7.9364662 C2.0690012,8.2018232 2.1802349,8.4221039 2.377985,8.5979786 2.6039848,8.7989779 2.9059839,8.8989778 3.2829828,8.8989778 3.7979822,8.8989778 4.2249813,8.7189779 4.5619802,8.355979 4.6669798,8.2431669 4.7555733,8.120882 4.8277617,7.9891243 L4.8675289,7.9119906 z M5.06598,6.3349838 L3.4989824,6.5509832 C3.0159836,6.618983 2.6519842,6.7379827 2.4069853,6.9089825 L2.4030085,6.9119906 5.06598,6.9119906 z M11.122001,3.8469906 C10.517001,3.8469904 10.030001,4.0569899 9.6620016,4.4789888 9.2940021,4.8989878 9.110002,5.4269865 9.110002,6.061985 L9.110002,6.9119906 12.929796,6.9119906 12.948453,6.7724051 C12.970812,6.5812962 12.981999,6.378484 12.982,6.1639845 12.981999,5.4399865 12.815,4.8729879 12.48,4.461989 12.146,4.0519899 11.693,3.8469904 11.122001,3.8469906 z M8.0690026,0 L9.110002,0 9.110002,4.2659894 9.1350021,4.2659894 C9.6470017,3.4019915 10.396001,2.9709926 11.382001,2.9709926 12.215,2.9709926 12.868999,3.2619919 13.339999,3.8439904 13.811999,4.424989 14.047999,5.204987 14.047999,6.1829846 14.047999,6.3867965 14.038718,6.5830147 14.020149,6.7716327 L14.003807,6.9119906 15.28468,6.9119906 15.281308,6.8776431 C15.272429,6.7632058 15.267992,6.6459846 15.267992,6.5259819 15.267992,5.4549968 15.574998,4.59498 16.188036,3.9459926 16.801988,3.2959979 17.621019,2.9709854 18.645005,2.9709854 19.215989,2.9709854 19.719041,3.0770035 20.155992,3.2880024 L20.155992,4.3549896 C19.67302,4.0159999 19.157029,3.8469934 18.607042,3.8469933 17.942003,3.8469934 17.397996,4.0850003 16.972032,4.5609834 16.546983,5.0369971 16.334031,5.6619978 16.334031,6.4369924 16.334031,6.5798664 16.341097,6.7170808 16.35521,6.8486354 L16.363252,6.9119906 20,6.9119906 20,7.9119906 16.691629,7.9119906 16.730479,7.9755039 C16.791348,8.0693216 16.859197,8.1574783 16.934007,8.2399731 17.334031,8.6789994 17.871019,8.9000077 18.543015,8.9000077 19.110032,8.9000077 19.642991,8.7109818 20.142991,8.3350048 L20.142991,9.324996 C19.642991,9.6249843 19.051011,9.7759852 18.366014,9.7759852 17.439012,9.7759852 16.691026,9.4739833 16.121995,8.871016 15.872617,8.6071916 15.677983,8.3091135 15.537925,7.9768591 L15.512476,7.9119906 13.759455,7.9119906 13.73838,7.9677362 C13.614483,8.2739639 13.453374,8.5497289 13.254999,8.7949781 12.726,9.4479766 12.003,9.7749758 11.084001,9.7749758 10.225001,9.7749758 9.5750017,9.4119763 9.1350021,8.6839786 L9.110002,8.6839786 9.110002,9.6229758 8.0690026,9.6229758 8.0690026,7.9119906 6.1069775,7.9119906 6.1069775,9.6229758 5.06598,9.6229758 5.06598,8.6069784 5.0409794,8.6069784 C4.5879803,9.3859763 3.9209824,9.7749758 3.0419836,9.7749758 2.3939848,9.7749758 1.8869858,9.6039762 1.5209866,9.2609768 1.1778622,8.9394155 0.99557781,8.5194163 0.97413254,8.0018039 L0.97229481,7.9119906 0,7.9119906 0,6.9119906 1.1790533,6.9119906 1.1814909,6.9067481 C1.4887838,6.2897184 2.1341724,5.9127972 3.1179838,5.775985 L5.06598,5.5029857 C5.06598,4.3989884 4.6199808,3.8469896 3.7269821,3.8469897 2.943984,3.8469896 2.2369852,4.1129891 1.606986,4.6469879 L1.606986,3.5799905 C2.245985,3.1739912 2.9819841,2.9709917 3.8159819,2.970992 5.3429794,2.9709917 6.1069775,3.7789898 6.1069775,5.3959861 L6.1069775,6.9119906 8.0690026,6.9119906 z" Fill="Black" HorizontalAlignment="Center" Height="8" Stretch="Fill" VerticalAlignment="Center" Width="16"/>
+                </Button>
+            </StackPanel>
+
+            <Syncfusion:RibbonBar x:Name="Part_Toolsbar"
+                                                      Header = "Tools"
+                                                      IsLauncherButtonVisible ="False"
+                                                      IsPanelStateCollapsed="False">
+                <Syncfusion:RibbonButton x:Name="Part_PointerTool"
+                                                             Label = "Pointer Tool"     
+                                                             SizeForm = "Small"
+                                                             IconType = "Icon"
+                                                             Margin="0,4,2,0.5"
+                                                             Height="22"
+                                         Command="Syncfusion:DiagramCommands.SelectTool"
+                                                             IsSelected="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=DataContext.Tool , Mode=TwoWay , Converter={StaticResource pointertoolconverter}}">
+                    <Syncfusion:RibbonButton.ToolTip>
+                        <Syncfusion:ScreenTip Description="Pointer Tool">
+                            <TextBlock Text="Select,move and resize objects." MaxWidth="200" TextWrapping="Wrap" TextAlignment="Justify"/>
+                        </Syncfusion:ScreenTip>
+                    </Syncfusion:RibbonButton.ToolTip>
+                    <Syncfusion:RibbonButton.IconTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Path x:Name="Pointer_Tool_16" Data="M1,2.4460001 L1,13.044 3.3309994,10.749 5.1259997,14.669 6.6379995,13.975 4.8269997,10.016 8.5589996,10.016 z M0,0 L11,11.016 6.4019997,11.016 7.9849997,14.454 4.6379995,16 3.0159998,12.467 0,15.44 z" Fill="Black" HorizontalAlignment="Center" Height="16" Stretch="Fill" VerticalAlignment="Center" Width="11"/>
+                            </Grid>
+                        </DataTemplate>
+                    </Syncfusion:RibbonButton.IconTemplate>
+                </Syncfusion:RibbonButton>
+                <Syncfusion:RibbonButton x:Name="Part_ConnectorTool"
+                                                             Label = "Connector"
+                                                             SizeForm = "Small"
+                                                             IconType = "Icon"
+                                                             Height="22"
+                                                             Margin="0,0.5,2,0.5"
+                                         Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolconnectorCommandParameter}"
+                                                             IsSelected="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=DataContext.DrawingTool , Mode=TwoWay , Converter={StaticResource connectortoolconverter}}">
+                    <Syncfusion:RibbonButton.ToolTip>
+                        <Syncfusion:ScreenTip Description="Connector">
+                            <TextBlock Text="Draw connectors between objects." MaxWidth="200" TextWrapping="Wrap" TextAlignment="Justify"/>
+                        </Syncfusion:ScreenTip>
+                    </Syncfusion:RibbonButton.ToolTip>
+                    <Syncfusion:RibbonButton.IconTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Path x:Name="Connector_Tool_16" Data="M1,12 L1,15 4,15 4,12 z M12,1 L12,4 15,4 15,1 z M11,0 L16,0 16,5 14,5 14,8 3,8 3,11 5,11 5,16 0,16 0,11 2,11 2,7 13,7 13,5 11,5 z" Fill="Black" HorizontalAlignment="Center" Height="16" Stretch="Fill" VerticalAlignment="Center" Width="16"/>
+                            </Grid>
+                        </DataTemplate>
+                    </Syncfusion:RibbonButton.IconTemplate>
+                </Syncfusion:RibbonButton>
+                <Syncfusion:RibbonButton x:Name="Part_TextNodeTool"
+                                                             Label = "Text"
+                                                             SizeForm = "Small"
+                                                             IconType = "Icon"
+                                                             Height="22"
+                                                             Margin="0,0.5,2,0"
+                                         Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolTextnodeCommandParameter}"
+                                                             IsSelected="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=DataContext.DrawingTool , Mode=TwoWay , Converter={StaticResource texttoolconverter}}">
+                    <Syncfusion:RibbonButton.ToolTip>
+                        <Syncfusion:ScreenTip Description="Text">
+                            <TextBlock Text="Add a text shape." MaxWidth="200" TextWrapping="Wrap" TextAlignment="Justify"/>
+                        </Syncfusion:ScreenTip>
+                    </Syncfusion:RibbonButton.ToolTip>
+                    <Syncfusion:RibbonButton.IconTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Path x:Name="Text_Tool_16" Data="M5.0000001,0.99999994 L2.8380128,7 7.136963,7.0060425 z M4.3619996,0 L5.6220093,0 10,12 8.7500001,12 7.5000001,8 2.5000001,8 1.2500001,12 0,12 z" Fill="Black" HorizontalAlignment="Center" Height="12" Stretch="Fill" VerticalAlignment="Center" Width="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </Syncfusion:RibbonButton.IconTemplate>
+                </Syncfusion:RibbonButton>
+                <Syncfusion:SplitButton x:Name="Part_DrawingTool"
+                                                            Margin="2,4,2,0.5"
+                                                            Width="35"
+                                                            Height="22"                                                            
+                                                            Label="Rectangle"
+                                                            IconType="Icon"
+                                                            SizeForm="Small"
+                                                            Syncfusion:SimplifiedLayoutSettings.DisplayMode="Normal"
+                                                            IconTemplate="{StaticResource RectangleToolTemplate}">
+                    <Syncfusion:SplitButton.ToolTip>
+                        <Syncfusion:ScreenTip Description="Drawing Tools">
+                            <TextBlock Text="Use basic drawing tools such as rectangle,ellipse and line." MaxWidth="200" TextWrapping="Wrap" TextAlignment="Justify"/>
+                        </Syncfusion:ScreenTip>
+                    </Syncfusion:SplitButton.ToolTip>
+                    <Syncfusion:SplitButton.Items>
+                        <Syncfusion:RibbonButton x:Name="Part_RectangleTool"
+                                                                     Label = "Rectangle"
+                                                                     SizeForm="Small"
+                                                                     IconType="Icon"
+                                                                     Height="24"
+                                                                     Command="Syncfusion:DiagramCommands.SelectTool"
+                                                 CommandParameter="{StaticResource SelectToolRectangleCommandParameter}"
+                                                                     IconTemplate="{StaticResource RectangleToolTemplate}">
+                        </Syncfusion:RibbonButton>
+                        <Syncfusion:RibbonButton x:Name="Part_EllipseTool"
+                                                                     Label = "Ellipse"
+                                                                     SizeForm="Small"
+                                                                     IconType="Icon"
+                                                                     Height="24"
+                                                 Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolEllipseCommandParameter}"
+                                                                     IconTemplate="{StaticResource EllipseToolTemplate}">
+                        </Syncfusion:RibbonButton>
+                        <Syncfusion:RibbonButton x:Name="Part_LineTool"
+                                                                     Label = "Line"
+                                                                     SizeForm="Small"
+                                                                     IconType="Icon"
+                                                                     Height="24"
+                                                 Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToollineCommandParameter}"
+                                                                     IconTemplate="{StaticResource LineToolTemplate}">
+                        </Syncfusion:RibbonButton>
+                       
+                        <Syncfusion:RibbonButton x:Name="Part_FreehandTool"
+                                                                     Label = "FreeHand"
+                                                                     SizeForm="Small"
+                                                                     IconType="Icon"
+                                                                     Height="24"
+                                                 Command="Syncfusion:DiagramCommands.SelectTool" CommandParameter="{StaticResource SelectToolfreehandCommandParameter}"
+                                                                     IconTemplate="{StaticResource FreeHandToolTemplate}">
+                        </Syncfusion:RibbonButton>
+                    </Syncfusion:SplitButton.Items>
+                </Syncfusion:SplitButton>
+            </Syncfusion:RibbonBar>
+
+
+            <Syncfusion:DropDownButton x:Name="Part_Select"
+                                                               IconType="Icon"
+                                                               SizeForm="Large"
+                                                               Label="Select">
+                <Syncfusion:DropDownButton.ToolTip>
+                    <Syncfusion:ScreenTip Description="Select">
+                        <TextBlock Text="Select all objects in your diagram." TextAlignment="Justify" TextWrapping="Wrap" MaxWidth="200"/>
+                    </Syncfusion:ScreenTip>
+                </Syncfusion:DropDownButton.ToolTip>
+                <Syncfusion:DropDownButton.IconTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Path x:Name="Select32" Data="M0.99998903,1.6761964 L0.99998903,22.283029 4.0059528,19.42605 C4.2939438,19.153055 4.6749362,19.003053 5.0789389,19.003053 5.1659436,19.003053 5.2579378,19.010053 5.3459343,19.025057 5.837933,19.109056 6.2569198,19.420049 6.4639181,19.855049 L8.8408903,24.844005 12.297853,23.305021 9.9848904,18.46606 C9.764892,18.006063 9.8078904,17.479069 10.09988,17.057071 10.38488,16.649072 10.857867,16.406074 11.367871,16.406074 L16.261814,16.406074 z M0.51828378,0.00036181557 C0.63853663,0.004912628 0.7567361,0.052334147 0.84798276,0.13920836 L17.847795,16.546078 C17.993789,16.688074 18.039794,16.904072 17.96379,17.093069 17.887803,17.282072 17.7038,17.406067 17.499807,17.406067 L11.367871,17.406067 C11.186873,17.406067 11.01587,17.49107 10.920869,17.628065 10.836871,17.749067 10.82387,17.901066 10.887881,18.034063 L13.421849,23.337019 C13.479847,23.460018 13.485844,23.600017 13.438847,23.726015 13.392843,23.853018 13.296851,23.955013 13.17385,24.010013 L8.8018898,25.956001 C8.7358965,25.985 8.6668963,25.999 8.5989041,25.999 8.4118943,25.999 8.2319035,25.894001 8.1468977,25.714002 L5.5609283,20.285045 C5.4929356,20.143047 5.3499321,20.041048 5.1769299,20.011049 L5.0789389,20.003046 C4.9339361,20.003046 4.7939381,20.057047 4.6949405,20.151047 L0.84497678,23.810018 C0.69998926,23.948013 0.48598712,23.987015 0.30299052,23.907017 0.11898678,23.828016 5.4560019E-08,23.648016 0,23.448017 L0,0.49920627 C5.4560019E-08,0.29820752 0.11999385,0.11720922 0.30498921,0.039208723 0.37324118,0.010334192 0.44613209,-0.0023687361 0.51828378,0.00036181557 z" Fill="Black" HorizontalAlignment="Center" Height="25.999" Stretch="Fill" VerticalAlignment="Center" Width="18" />
+                        </Grid>
+                    </DataTemplate>
+                </Syncfusion:DropDownButton.IconTemplate>
+                <Syncfusion:DropDownButton.Items>
+                    <Syncfusion:RibbonButton x:Name="Part_SelectAll"
+                                                                     Label="Select All"
+                                                                     IconType="Icon"
+                                                                     SizeForm="Small"
+                                                                     Height="24"
+                                                                     Padding="2,0,0,0"
+                                                                     Command="Syncfusion:DiagramCommands.SelectAll">
+                        <Syncfusion:RibbonButton.IconTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Path x:Name="SelectAll_16" Data="M8.0000002,13 L10,13 10,14 8.0000002,14 z M4.0000001,13 L6,13 6,14 4.0000001,14 z M13,12 L14,12 14,13 14,14 13,14 12,14 12,13 13,13 z M0,12 L1.0000002,12 1.0000002,13 2.0000002,13 2.0000002,14 1.0000002,14 0,14 0,13 z M13,8.0000002 L14,8.0000002 14,10 13,10 z M0,8.0000002 L1.0000002,8.0000002 1.0000002,10 0,10 z M6.979001,4.7419879 C6.9589968,4.8750138 6.9349947,4.9799943 6.9109926,5.05699 L6.2299922,7.0510087 7.7460003,7.0510087 7.0590031,5.05699 C7.0379918,4.9910111 7.0160036,4.8870072 6.9929934,4.7419879 z M6.5440032,4.0000141 L7.4699988,4.0000141 9.3099971,9.0000138 8.4089954,9.0000138 7.9640028,7.7270036 6.0160025,7.7270036 5.5870014,9.0000138 4.6899971,9.0000138 z M13,4.0000001 L14,4.0000001 14,6 13,6 z M0,4.0000001 L1.0000002,4.0000001 1.0000002,6 0,6 z M12,0 L13,0 14,0 14,1.0000002 14,2.0000002 13,2.0000002 13,1.0000002 12,1.0000002 z M8.0000002,0 L10,0 10,1.0000002 8.0000002,1.0000002 z M4.0000001,0 L6,0 6,1.0000002 4.0000001,1.0000002 z M0,0 L1.0000002,0 2.0000002,0 2.0000002,1.0000002 1.0000002,1.0000002 1.0000002,2.0000002 0,2.0000002 0,1.0000002 z" Fill="Black" HorizontalAlignment="Center" Height="12" Stretch="Fill" VerticalAlignment="Center" Width="12"/>
+                                </Grid>
+                            </DataTemplate>
+                        </Syncfusion:RibbonButton.IconTemplate>
+                    </Syncfusion:RibbonButton>
+                    <Syncfusion:RibbonButton x:Name="Part_SelectNode"
+                                                                     Label="Select Nodes"
+                                                                     IconType="Icon"
+                                                                     SizeForm="Small"
+                                                                     Height="24"
+                                                                     Padding="2,0,0,0"
+                                                                     Command="Syncfusion:DiagramCommands.SelectByType"
+                                                                     CommandParameter="{x:Type viewmodel:CustomNodeViewModel}">
+                        <Syncfusion:RibbonButton.IconTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Path x:Name="select_nodes_16" Data="M1,11 L1,13 3,13 3,11 2.5,11 1.5,11 z M7.9999999,6.5 L7.9999999,6.9999998 7.9999999,8 7.9999999,8.5 12,8.5 12,6.5 z M1,1 L1,3 1.5,3 2.5,3 3,3 3,1 z M0,0 L4,0 4,4.0000002 2.5,4.0000002 2.5,6.9999998 7,6.9999998 7,5.5000001 13,5.5000001 13,9.5 7,9.5 7,8 2.5,8 2.5,10 4,10 4,14 0,14 0,10 1.5,10 1.5,4.0000002 0,4.0000002 z" Fill="Black" HorizontalAlignment="Center" Height="13" Stretch="Fill" VerticalAlignment="Center" Width="12"/>
+                                </Grid>
+                            </DataTemplate>
+                        </Syncfusion:RibbonButton.IconTemplate>
+                    </Syncfusion:RibbonButton>
+                    <Syncfusion:RibbonButton x:Name="Part_SelectConnector"
+                                                                     Label="Select Connectors"
+                                                                     IconType="Icon"
+                                                                     SizeForm="Small"
+                                                                     Height="24"
+                                                                     Padding="2"
+                                                                     Command="Syncfusion:DiagramCommands.SelectByType"
+                                                                     CommandParameter="{x:Type Syncfusion:ConnectorViewModel}">
+                        <Syncfusion:RibbonButton.IconTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Path x:Name="select_connectors_16" Data="M2.6700001,0 L3.375,0.70999908 1.9233551,2.1519885 6.6880009,2.1519885 6.6880009,11.151989 11.28739,11.151989 9.8349968,9.7100131 10.539999,8.9999964 13.210997,11.651985 10.539999,14.302997 9.8349968,13.59298 11.287129,12.151989 5.6880012,12.151989 5.6880012,3.1519885 1.9236007,3.1519885 3.375,4.5929918 2.6700001,5.3029909 0,2.6519952 z" Fill="Black" HorizontalAlignment="Center" Height="13.303" Stretch="Fill" VerticalAlignment="Center" Width="12.211"/>
+                                </Grid>
+                            </DataTemplate>
+                        </Syncfusion:RibbonButton.IconTemplate>
+                    </Syncfusion:RibbonButton>
+                </Syncfusion:DropDownButton.Items>
+            </Syncfusion:DropDownButton>
+        </Syncfusion:ToolBarAdv>
+        
+        <Syncfusion:SfDiagram Grid.Row="1"
+                              Menu="{x:Null}"
+                              Constraints="{Binding Constraints}"
+                              Nodes="{Binding Nodes}"
+                              Connectors="{Binding Connectors}"
+                              SnapSettings="{Binding SnapSettings}"
+                              HorizontalRuler="{Binding HorizontalRuler}"
+                              VerticalRuler="{Binding VerticalRuler}"
+                              SelectedItems="{Binding SelectedItems}"
+                              ItemAddedCommand="{Binding ItemAddedCommand}"
+                              ItemSelectedCommand="{Binding ItemSelectedCommand}"
+                              ItemUnSelectedCommand="{Binding ItemUnSelectedCommand}"/>
+    </Grid>
+</Window>
