@@ -1,0 +1,9 @@
+﻿<Application x:Class="Different_Objects_from_SfTreeView_To_Diagram.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Different_Objects_from_SfTreeView_To_Diagram"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
