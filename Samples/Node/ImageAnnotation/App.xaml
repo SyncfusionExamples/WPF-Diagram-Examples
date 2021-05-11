@@ -1,0 +1,38 @@
+﻿<Application x:Class="ImageAnnotation.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ImageAnnotation"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Initialize Shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--annotation viewtemplate-->
+            <DataTemplate x:Key="viewtemplate">
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <Image Source="{Binding Path=Content}"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Width="60" Height="60" Stretch="Fill" />
+                </Border>
+            </DataTemplate>
+
+            <!--annotation edittemplate-->
+            <DataTemplate x:Key="edittemplate">
+                <Border BorderBrush="Black" BorderThickness="1">
+                    <Image Source="{Binding Path=Content}"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Width="60" Height="60" Stretch="Fill" />
+                </Border>
+            </DataTemplate>
+
+            <!--Shape style for node-->
+            <Style TargetType="Path" x:Key="nodeshapestyle">
+                <Setter Property="Fill" Value="LightBlue" />
+                <Setter Property="Stretch" Value="Fill" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
