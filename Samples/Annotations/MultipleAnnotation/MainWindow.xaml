@@ -1,0 +1,39 @@
+﻿<Window x:Class="MultipleAnnotation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MultipleAnnotation"
+         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <DataTemplate x:Key="viewtemplate">
+            <Border BorderBrush="Black">
+                <TextBlock Text="{Binding Path=Content, Mode=TwoWay}"
+               Foreground="White"/>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <!--Initialize the SfDiagram-->
+        <syncfusion:SfDiagram x:Name="diagram" Grid.Column="1">
+            <!--Initialize the NodeCollection-->
+            <syncfusion:SfDiagram.Nodes>
+                <syncfusion:NodeCollection>
+                    <!--Initialize the Node-->
+                    <syncfusion:NodeViewModel UnitHeight="65" UnitWidth="100" OffsetX="100" OffsetY="100" Shape="{StaticResource Terminator}">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <!--Initialize the AnnotationCollection-->
+                            <syncfusion:AnnotationCollection>
+                                <!--Initialize the Annotation-->
+                                <syncfusion:AnnotationEditorViewModel Content="Annotation">
+                                </syncfusion:AnnotationEditorViewModel>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </syncfusion:NodeViewModel>
+                </syncfusion:NodeCollection>
+            </syncfusion:SfDiagram.Nodes>
+        </syncfusion:SfDiagram>
+    </Grid>
+</Window>
