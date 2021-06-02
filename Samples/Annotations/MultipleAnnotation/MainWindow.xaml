@@ -7,33 +7,44 @@
          xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <local:MultipleAnnotationVM/>
+    </Window.DataContext>
     <Window.Resources>
-        <DataTemplate x:Key="viewtemplate">
-            <Border BorderBrush="Black">
-                <TextBlock Text="{Binding Path=Content, Mode=TwoWay}"
-               Foreground="White"/>
-            </Border>
-        </DataTemplate>
+        <Style TargetType="syncfusion:Connector">
+            <Setter Property="ConnectorGeometryStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Stroke" Value="#FF5B9BD5"></Setter>
+                        <Setter Property="StrokeThickness" Value="1"></Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="TargetDecoratorStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="#FF5B9BD5"></Setter>
+                        <Setter Property="StrokeThickness" Value="1"></Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="syncfusion:Node">
+            <Setter Property="ShapeStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="#FF5B9BD5"/>
+                        <Setter Property="Stretch" Value="Fill"/>
+                        <Setter Property="Stroke" Value="#FFEDF1F6 "/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid>
-        <!--Initialize the SfDiagram-->
-        <syncfusion:SfDiagram x:Name="diagram" Grid.Column="1">
-            <!--Initialize the NodeCollection-->
-            <syncfusion:SfDiagram.Nodes>
-                <syncfusion:NodeCollection>
-                    <!--Initialize the Node-->
-                    <syncfusion:NodeViewModel UnitHeight="65" UnitWidth="100" OffsetX="100" OffsetY="100" Shape="{StaticResource Terminator}">
-                        <syncfusion:NodeViewModel.Annotations>
-                            <!--Initialize the AnnotationCollection-->
-                            <syncfusion:AnnotationCollection>
-                                <!--Initialize the Annotation-->
-                                <syncfusion:AnnotationEditorViewModel Content="Annotation">
-                                </syncfusion:AnnotationEditorViewModel>
-                            </syncfusion:AnnotationCollection>
-                        </syncfusion:NodeViewModel.Annotations>
-                    </syncfusion:NodeViewModel>
-                </syncfusion:NodeCollection>
-            </syncfusion:SfDiagram.Nodes>
+        <syncfusion:SfDiagram x:Name="Diagram" 
+                              Nodes="{Binding Nodes}"
+                              Connectors="{Binding Connectors}">
         </syncfusion:SfDiagram>
     </Grid>
 </Window>

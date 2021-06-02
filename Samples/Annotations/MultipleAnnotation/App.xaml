@@ -5,43 +5,5 @@
               xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BindingStyle.xaml" />
-                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-            <Style TargetType="syncfusion:Connector" BasedOn="{StaticResource ConnectorBindingStyle}">
-                <Setter Property="ConnectorGeometryStyle">
-                    <Setter.Value>
-                        <Style TargetType="Path">
-                            <Setter Property="Stroke" Value="#FF5B9BD5"></Setter>
-                            <Setter Property="StrokeThickness" Value="1"></Setter>
-                        </Style>
-                    </Setter.Value>
-                </Setter>
-                <Setter Property="TargetDecoratorStyle">
-                    <Setter.Value>
-                        <Style TargetType="Path">
-                            <Setter Property="Fill" Value="#FF5B9BD5"></Setter>
-                            <Setter Property="StrokeThickness" Value="1"></Setter>
-                        </Style>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-            <Style TargetType="syncfusion:Node" BasedOn="{StaticResource NodeBindingStyle}">
-                <Setter Property="ShapeStyle">
-                    <Setter.Value>
-                        <Style TargetType="Path">
-                            <Setter Property="Fill" Value="#FF5B9BD5"/>
-                            <Setter Property="Stretch" Value="Fill"/>
-                            <Setter Property="Stroke" Value="#FFEDF1F6 "/>
-                        </Style>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-            <Style TargetType="syncfusion:AnnotationEditor" BasedOn="{StaticResource AnnotationEditorBindingStyle}">
-
-            </Style>
-        </ResourceDictionary>
     </Application.Resources>
 </Application>
