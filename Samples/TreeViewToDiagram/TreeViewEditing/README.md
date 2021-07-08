@@ -1,6 +1,8 @@
 # Treeview diagram with editing sample
 
-This sample demonstrates how to create treeview diagram with editing option in diagram control.
+This sample demonstrates how to create treeview diagram with editing option in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) control.
+
+[WPF TreeView](https://www.syncfusion.com/wpf-controls/treeview) and [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) elements editing can be synchronized by binding the operations of the elements as implemented in the following sample. Each tree view element can be displayed as a node in the diagram.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/automatic-layouts#hierarchical-tree-layout
 

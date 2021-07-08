@@ -2,6 +2,8 @@
 
 This sample demonstrates how to stop infite scrolling of the diagram dynamically.
 
+[WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) can be scrolled horizontally or vertically infinitely, by default. This can be limited by using the [ScrollSettings.ScrollLimit](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.ScrollLimit.html) property of diagram.
+
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/scroll-settings/scrolllimit
 
 ## Project pre-requisites
