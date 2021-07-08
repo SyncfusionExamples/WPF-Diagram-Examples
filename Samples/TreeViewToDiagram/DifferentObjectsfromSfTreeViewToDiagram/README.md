@@ -1,5 +1,7 @@
 # Drag and Drop from SfTreeView to diagram sample
-This sample demonstrates how to drag and drop different shaped objects from SfTreeView element to SfDiagram.
+This sample demonstrates how to drag and drop different shaped objects from SfTreeView element to [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+
+[WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) supports dragging and dropping the objects (unknown) from another item's control (apart from stencil). The DragEnter event is used to achieve this drag and drop by changing the unknown object to a known object that is predefined diagram types.
 
 __*Documentation*__: https://www.syncfusion.com/kb/10574/how-to-drag-and-drop-elements-from-SfTreeView
 
