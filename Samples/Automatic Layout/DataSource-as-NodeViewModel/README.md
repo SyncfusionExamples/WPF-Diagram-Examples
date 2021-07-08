@@ -1,6 +1,8 @@
 # Hierarchical Tree with datasource as nodeviewmodel sample
 This sample demonstrate How to generate Layout with DataSource as NodeViewModel instead of business object class.
 
+[WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) can be populated with the [nodes](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.NodeViewModel.html) and [connectors](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.ConnectorViewModel.html) based on the information provided from an external data source. The [DataSource](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.DataSourceSettings~DataSource.html) property is used to define the data source either as a collection of any business objects or collection of Nodes. Here, diagram is generated as layout with DataSource as NodeViewModel.
+
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/automatic-layouts#hierarchical-tree-layout
 
 ## Project pre-requisites

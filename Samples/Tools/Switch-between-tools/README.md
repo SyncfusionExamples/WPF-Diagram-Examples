@@ -1,6 +1,12 @@
 # Switch between tools at runtime through SetTool sample
 
-This sample demonstrates how to set tool to an element at runtime through SetTool() method. 
+This sample demonstrates how to set tool to an element at runtime through SetTool() method.
+
+Each object in the [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) control has default action when interacting on them. Those default actions can be customized by overriding the virtual method [SfDiagram.SetTool](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.SfDiagram~SetTool.html). The SetTool method takes the [SetToolArgs](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.SetToolArgs.html) as an argument that is used to know the objects under the mouse when modifying the tools of them.
+
+[Source](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.SetToolArgs~Source.html) –  To know the object on which item the mouse is interacting.
+[Action](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.SetToolArgs~Action.html) - To customize the tools of the diagram object.
+
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/tools
 
