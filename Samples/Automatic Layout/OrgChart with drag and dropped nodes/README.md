@@ -1,6 +1,8 @@
 # Organization chart with drag drop from stencil sample
 This sample demonstrate the automatic arrangements of the nodes to create oraganization chart by dragging and droppings nodes from stencil.
 
+The [ItemDropEvent](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.IGraphInfo~ItemDropEvent_EV.html) is triggered when the [Node](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.NodeViewModel.html) or [Connector](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.ConnectorViewModel.html) is dragged and dropped to another once the [AllowDrop](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.NodeConstraints.html) Constraints is enabled for Node or Connector in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram). Here, you get the source of the argument as drag item and Target as dropped items (List of items). This event helps us to reposition the nodes and relationship.
+
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/automatic-layouts#how-to-create-a-parent---child-relation-with-dropped-nodes-from-stencil
 
 ## Project pre-requisites

@@ -2,6 +2,8 @@
 
 This repository contains sample which shows how to to achieve ZoomIn/ZoomOut functionality in Ports.
 
+Zooming can be applied over ports using the [ViewPortChangedEvent](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.IGraphInfo~ViewPortChangedEvent_EV.html) by changing the width and height of the ports when page is getting zoom-in or zoom-out depends the zoom factor values of the [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram). This event will be raised whenever a diagram and its objects have been changed.
+
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/port/port
 
 ## Project pre-requisites

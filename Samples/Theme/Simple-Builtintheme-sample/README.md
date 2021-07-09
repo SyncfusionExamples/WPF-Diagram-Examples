@@ -1,5 +1,7 @@
 # Built-in-Theme for Diagram in WPF application
-This sample demonstrates how to apply built-in-theme for sfDiagram.
+This sample demonstrates how to apply built-in-theme for [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+
+Built-in theme support is provided for [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) and its elements ([node](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.NodeViewModel.html), [connector](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.ConnectorViewModel.html) and [annotation](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.TextAnnotationViewModel.html)). If we assign [Theme](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.Theming.DiagramTheme.html) for diagram, then its default theme style is set with its elements. Following are the available built-in-themes.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/theme
 

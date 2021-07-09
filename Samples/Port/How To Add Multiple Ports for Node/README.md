@@ -2,6 +2,8 @@
 
 This repository contains sample which shows how to add multiple ports to the Node in SfDiagram.
 
+The Multiple number of ports can be added to the node by using the [PortCollection](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.PortCollection.html) class in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+
 UG Link: https://help.syncfusion.com/wpf/diagram/port/port#node-port 
 
 ## Project pre-requisites
