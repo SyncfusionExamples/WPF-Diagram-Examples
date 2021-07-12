@@ -1,6 +1,8 @@
 # Node content sample
 
-This repository contains sample which shows how to add different UI elements, Images as content of the node in SfDiagram.
+This repository contains sample which shows how to add different UI elements, Images as content of the node in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+
+All UI elements can be used as the content of the node in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram). It can be achieved by using the ContentTemplate, Shape, and Content properties of the Node and NodeViewModel classes.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/node#visualize-a-node
 

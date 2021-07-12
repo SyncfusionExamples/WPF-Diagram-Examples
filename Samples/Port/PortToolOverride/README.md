@@ -1,6 +1,8 @@
 # Sample to override the default behaviour of the port using SetTool method
 
-This sample demonstrates how to override the default behaviour or action of the port using SetTool method in SfDiagram.
+This sample demonstrates how to override the default behaviour or action of the port using SetTool method in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+
+By default, click and drag action on port will draw a new connection. This default behavior can be modified at runtime by using the SetTool() method of [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/port/port
 
