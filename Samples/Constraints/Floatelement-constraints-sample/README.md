@@ -1,6 +1,8 @@
 # FloatElements Constraints sample
 This repository contains sample which illustrates how to drag node between multiple diagrams.
 
+Dragging the [Node](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.NodeViewModel.html) from one Diagram to another Diagram is possible by adding the [GraphConstraints.FloatElements](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.GraphConstraints.html) constraints to the [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram). 
+
 __*Documentation*__:https://help.syncfusion.com/wpf/diagram/constraints#graph-constraints
 
 ## Project pre-requisites
