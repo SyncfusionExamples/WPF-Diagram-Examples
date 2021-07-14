@@ -1,0 +1,263 @@
+﻿<Window x:Class="ConnectionValidation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConnectionValidation"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:controls="clr-namespace:Syncfusion.UI.Xaml.Diagram.Controls;assembly=Syncfusion.SfDiagram.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="825">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BindingStyle.xaml"/>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <sys:String x:Key="AndGate">M 207,171 L 135.7,170.99994 L 135.7,12.499996 L 207.46,12.49997 C 246.3576,12.499945 278.3,48.003958 278.3,91.749974 C 278.3,135.49599 246.3576,171 207,171 z</sys:String>
+
+            <syncfusion:NodeConstraints x:Key="disableConnect">Selectable, Draggable, Resizable, Rotatable, InheritPortVisibility</syncfusion:NodeConstraints>
+            <syncfusion:PortConstraints x:Key="enableConnect">InheritPortVisibility, Connectable</syncfusion:PortConstraints>
+            <syncfusion:PortConstraints x:Key="enableInConnect">InheritPortVisibility, InConnect</syncfusion:PortConstraints>
+            <syncfusion:PortConstraints x:Key="enableOutConnect">InheritPortVisibility, OutConnect</syncfusion:PortConstraints>
+
+
+            <Style TargetType="controls:RunTimeConnectionIndicator">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding AnimationEnabled}" Value="False">
+                        <Setter Property="Template" Value="{x:Null}"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <!--<syncfusion:NodeConstraints x:Key="disableConnect">Default</syncfusion:NodeConstraints>
+            <syncfusion:PortConstraints x:Key="enableConnect">Default</syncfusion:PortConstraints>
+            <syncfusion:PortConstraints x:Key="enableInConnect">Default</syncfusion:PortConstraints>
+            <syncfusion:PortConstraints x:Key="enableOutConnect">Default</syncfusion:PortConstraints>-->
+
+            <Style TargetType="syncfusion:Node" BasedOn="{StaticResource NodeBindingStyle}">
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Shape">
+                            <Setter Property="Stretch" Value="Fill"/>
+                            <Setter Property="Fill" Value="#5B9BD5"/>
+                            <Setter Property="Stroke" Value="#C8C8C8"/>
+                            <Setter Property="StrokeThickness" Value="1"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="syncfusion:Connector" BasedOn="{StaticResource ConnectorBindingStyle}">
+                <Setter Property="ConnectorGeometryStyle">
+                    <Setter.Value>
+                        <Style TargetType="Shape">
+                            <Setter Property="Stroke" Value="#5B9BD5"/>
+                            <Setter Property="StrokeThickness" Value="1"/>
+                            <Setter Property="StrokeDashArray" Value="1,0"/>
+                            <!--<Setter Property="StrokeEndLineCap" Value="Triangle"/>-->
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="TargetDecoratorStyle">
+                    <Setter.Value>
+                        <Style TargetType="Shape">
+                            <Setter Property="Stroke" Value="#5B9BD5"/>
+                            <Setter Property="Fill" Value="#5B9BD5"/>
+                            <Setter Property="StrokeThickness" Value="1"/>
+                            <Setter Property="StrokeDashArray" Value="1,0"/>
+                            <Setter Property="StrokeEndLineCap" Value="Triangle"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <!--<Style TargetType="syncfusion:NodePort" BasedOn="{StaticResource NodePortBindingStyle}"/>-->
+            <Style TargetType="syncfusion:AnnotationEditor" BasedOn="{StaticResource AnnotationEditorBindingStyle}"/>
+            <Style TargetType="syncfusion:SfDiagram" BasedOn="{StaticResource DiagramBindingStyle}">
+            </Style>
+            <Style TargetType="syncfusion:NodePort" BasedOn="{StaticResource NodePortBindingStyle}">
+                <Setter Property="Shape" Value="M0,0 L0,1 1,1 1,0z"/>
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Shape">
+                            <Setter Property="Stretch" Value="Fill"/>
+                            <Setter Property="Fill" Value="Gray"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.DataContext>
+        <local:DiagramVM AnimationEnabled="True"/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical">
+            <GroupBox Header="Validation">
+                <TextBlock Text="- You can connect between ports but not nodes.&#10;- Connection starts only from 'out' port and end at 'in' port.&#10;- You cannot have more than one connector connected to a port."/>
+            </GroupBox>
+            <GroupBox Header="Effects">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Conection Animation" Margin="0,0,10,0"/>
+                        <CheckBox IsChecked="{Binding AnimationEnabled, Mode=TwoWay}" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Show Port" Margin="0,0,10,0"/>
+                        <ComboBox Name="showPort" SelectionChanged="ShowPort_ChangedEvent" SelectedIndex="0">
+                            <ComboBoxItem>Always</ComboBoxItem>
+                            <ComboBoxItem>On Mouse Over</ComboBoxItem>
+                            <ComboBoxItem>For Valid Connection</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <GroupBox Header="Diagram with validation enabled" Grid.Row="1" Grid.Column="0">
+            <local:CustomDiagram PortVisibility="Visible" x:Name="diagram">
+                <syncfusion:SfDiagram.PageSettings>
+                    <syncfusion:PageSettings PageBorderBrush="Transparent"/>
+                </syncfusion:SfDiagram.PageSettings>
+                <syncfusion:SfDiagram.Nodes>
+                    <syncfusion:NodeCollection>
+                        <local:NodeVM Shape="{StaticResource AndGate}"
+                Constraints="{StaticResource disableConnect}"
+                OffsetX="100" OffsetY="100" 
+                UnitWidth="70" UnitHeight="50">
+                            <local:NodeVM.Ports>
+                                <syncfusion:PortCollection>
+                                    <local:PortVM NodeOffsetX="0" NodeOffsetY="0.2" Constraints="{StaticResource enableInConnect}" />
+                                    <local:PortVM NodeOffsetX="0" NodeOffsetY="0.8" Constraints="{StaticResource enableInConnect}"/>
+                                    <local:PortVM NodeOffsetX="1" NodeOffsetY="0.5" Constraints="{StaticResource enableOutConnect}"/>
+                                </syncfusion:PortCollection>
+                            </local:NodeVM.Ports>
+                            <local:NodeVM.Annotations>
+                                <syncfusion:AnnotationCollection>
+                                    <syncfusion:AnnotationEditorViewModel Offset="0.5, 0.5" Content="A"/>
+                                    <syncfusion:AnnotationEditorViewModel Offset="1,0.5" Content="A_Out" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5"/>
+                                </syncfusion:AnnotationCollection>
+                            </local:NodeVM.Annotations>
+                        </local:NodeVM>
+                        <local:NodeVM Shape="{StaticResource AndGate}"
+                                  OffsetX="100" OffsetY="200" 
+                                  Constraints="{StaticResource disableConnect}"
+                                  UnitWidth="70" UnitHeight="50">
+                            <local:NodeVM.Ports>
+                                <syncfusion:PortCollection>
+                                    <local:PortVM NodeOffsetY=".3" NodeOffsetX="0" Constraints="{StaticResource enableInConnect}"/>
+                                    <local:PortVM NodeOffsetY=".7" NodeOffsetX="0" Constraints="{StaticResource enableInConnect}"/>
+                                    <local:PortVM NodeOffsetX="1" NodeOffsetY="0.5" Constraints="{StaticResource enableOutConnect}"/>
+                                </syncfusion:PortCollection>
+                            </local:NodeVM.Ports>
+                            <local:NodeVM.Annotations>
+                                <syncfusion:AnnotationCollection>
+                                    <syncfusion:AnnotationEditorViewModel Offset="0.5, 0.5" Content="B"/>
+                                    <syncfusion:AnnotationEditorViewModel Offset="1,0.5" Content="B_Out" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5"/>
+                                </syncfusion:AnnotationCollection>
+                            </local:NodeVM.Annotations>
+                        </local:NodeVM>
+                        <local:NodeVM Shape="{StaticResource AndGate}" ID="portTail" 
+                                  OffsetX="250" OffsetY="150" 
+                                  Constraints="{StaticResource disableConnect}"
+                                  UnitWidth="70" UnitHeight="50">
+                            <local:NodeVM.Ports>
+                                <syncfusion:PortCollection>
+                                    <local:PortVM NodeOffsetY=".3" NodeOffsetX="0" Constraints="{StaticResource enableInConnect}"/>
+                                    <local:PortVM NodeOffsetY=".7" NodeOffsetX="0" Constraints="{StaticResource enableInConnect}"/>
+                                    <local:PortVM NodeOffsetX="1" NodeOffsetY=".5" Constraints="{StaticResource enableOutConnect}"/>
+                                </syncfusion:PortCollection>
+                            </local:NodeVM.Ports>
+                            <local:NodeVM.Annotations>
+                                <syncfusion:AnnotationCollection>
+                                    <syncfusion:AnnotationEditorViewModel Offset="0.5, 0.5" Content="C"/>
+                                    <syncfusion:AnnotationEditorViewModel Offset="0,0.2" Content="C_In1" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                                    <syncfusion:AnnotationEditorViewModel Offset="0,0.8" Content="C_In2" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                                </syncfusion:AnnotationCollection>
+                            </local:NodeVM.Annotations>
+                        </local:NodeVM>
+
+                    </syncfusion:NodeCollection>
+                </syncfusion:SfDiagram.Nodes>
+                <syncfusion:SfDiagram.Connectors>
+                    <syncfusion:ConnectorCollection>
+                    </syncfusion:ConnectorCollection>
+                </syncfusion:SfDiagram.Connectors>
+            </local:CustomDiagram>
+        </GroupBox>
+        <GroupBox Header="Diagram without validation" Grid.Row="1" Grid.Column="1">
+            <local:CustomDiagram PortVisibility="Visible" x:Name="diagram2">
+                <syncfusion:SfDiagram.PageSettings>
+                    <syncfusion:PageSettings PageBorderBrush="Transparent"/>
+                </syncfusion:SfDiagram.PageSettings>
+                <syncfusion:SfDiagram.Nodes>
+                    <syncfusion:NodeCollection>
+                        <local:NodeVM Shape="{StaticResource AndGate}"
+                OffsetX="100" OffsetY="100" 
+                UnitWidth="70" UnitHeight="50">
+                            <local:NodeVM.Ports>
+                                <syncfusion:PortCollection>
+                                    <local:PortVM NodeOffsetX="0" NodeOffsetY="0.2" MaxConnection="-1"/>
+                                    <local:PortVM NodeOffsetX="0" NodeOffsetY="0.8" MaxConnection="-1"/>
+                                    <local:PortVM NodeOffsetX="1" NodeOffsetY="0.5" MaxConnection="-1"/>
+                                </syncfusion:PortCollection>
+                            </local:NodeVM.Ports>
+                            <local:NodeVM.Annotations>
+                                <syncfusion:AnnotationCollection>
+                                    <syncfusion:AnnotationEditorViewModel Offset="0.5, 0.5" Content="A"/>
+                                    <syncfusion:AnnotationEditorViewModel Offset="1,0.5" Content="A_Out" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5"/>
+                                </syncfusion:AnnotationCollection>
+                            </local:NodeVM.Annotations>
+                        </local:NodeVM>
+                        <local:NodeVM Shape="{StaticResource AndGate}"
+                                  OffsetX="100" OffsetY="200" 
+                                  UnitWidth="70" UnitHeight="50">
+                            <local:NodeVM.Ports>
+                                <syncfusion:PortCollection>
+                                    <local:PortVM NodeOffsetY=".3" NodeOffsetX="0" MaxConnection="-1"/>
+                                    <local:PortVM NodeOffsetY=".7" NodeOffsetX="0" MaxConnection="-1"/>
+                                    <local:PortVM NodeOffsetX="1" NodeOffsetY="0.5" MaxConnection="-1"/>
+                                </syncfusion:PortCollection>
+                            </local:NodeVM.Ports>
+                            <local:NodeVM.Annotations>
+                                <syncfusion:AnnotationCollection>
+                                    <syncfusion:AnnotationEditorViewModel Offset="0.5, 0.5" Content="B"/>
+                                    <syncfusion:AnnotationEditorViewModel Offset="1,0.5" Content="B_Out" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5"/>
+                                </syncfusion:AnnotationCollection>
+                            </local:NodeVM.Annotations>
+                        </local:NodeVM>
+                        <local:NodeVM Shape="{StaticResource AndGate}" ID="portTail" 
+                                  OffsetX="250" OffsetY="150" 
+                                  UnitWidth="70" UnitHeight="50">
+                            <local:NodeVM.Ports>
+                                <syncfusion:PortCollection>
+                                    <local:PortVM NodeOffsetY=".3" NodeOffsetX="0" MaxConnection="-1"/>
+                                    <local:PortVM NodeOffsetY=".7" NodeOffsetX="0" MaxConnection="-1"/>
+                                    <local:PortVM NodeOffsetX="1" NodeOffsetY=".5" MaxConnection="-1"/>
+                                </syncfusion:PortCollection>
+                            </local:NodeVM.Ports>
+                            <local:NodeVM.Annotations>
+                                <syncfusion:AnnotationCollection>
+                                    <syncfusion:AnnotationEditorViewModel Offset="0.5, 0.5" Content="C"/>
+                                    <syncfusion:AnnotationEditorViewModel Offset="0,0.2" Content="C_In1" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                                    <syncfusion:AnnotationEditorViewModel Offset="0,0.8" Content="C_In2" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                                </syncfusion:AnnotationCollection>
+                            </local:NodeVM.Annotations>
+                        </local:NodeVM>
+
+                    </syncfusion:NodeCollection>
+                </syncfusion:SfDiagram.Nodes>
+                <syncfusion:SfDiagram.Connectors>
+                    <syncfusion:ConnectorCollection>
+                    </syncfusion:ConnectorCollection>
+                </syncfusion:SfDiagram.Connectors>
+            </local:CustomDiagram>
+        </GroupBox>
+    </Grid>
+</Window>

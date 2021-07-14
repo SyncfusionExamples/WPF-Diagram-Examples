@@ -1,6 +1,8 @@
 # Selector Constraints sample
 This repository contains sample which illustrates how to add or remove specific selector constraints.
 
+Selector visually represents the selected elements with certain editable thumbs such as rotator, resizer and quickcommands in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram). The visual representation of these thumbs can be controlled with SelectorConstraints.
+
 __*Documentation*__:https://help.syncfusion.com/wpf/diagram/constraints#selector-constraints
 
 ## Project pre-requisites
