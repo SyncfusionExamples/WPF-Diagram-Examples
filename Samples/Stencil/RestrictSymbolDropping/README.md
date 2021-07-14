@@ -2,6 +2,8 @@
 
 This repository contains sample which shows how to restrict the symbol dropping on the diagram page in Stencil.
 
+The symbols can be restricted from the symbol palate before dropping on the diagram page by using the [Cancel](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.ItemDropEventArgs~Cancel.html) argument of the [ItemDropEventArgs](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.ItemDropEventArgs_members.html) class and [ItemDropEvent](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.IGraphInfo~ItemDropEvent_EV.html) of [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) class.
+
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/stencil#how-to-restrict-node-dropped-on-diagram
 
 ## Project pre-requisites

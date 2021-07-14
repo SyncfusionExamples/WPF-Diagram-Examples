@@ -1,6 +1,8 @@
 # Restrict the child node dragging whereas allow group dragging sample
 
-This repository contains sample which shows how to restrict the child node dragging whereas allow group dragging in SfDiagram.
+This repository contains sample which shows how to restrict the child node dragging whereas allow group dragging in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+
+The [Groups](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.SfDiagram~Groups.html) and [Nodes](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.SfDiagram~Nodes.html) can be dragged on the [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) page by default. By using the Constraints property of Group and Node,  groups can be dragged whereas nodes that are child elements of a group could not be dragged.
 
 UG documentation: https://help.syncfusion.com/wpf/diagram/constraints#node-constraints
 

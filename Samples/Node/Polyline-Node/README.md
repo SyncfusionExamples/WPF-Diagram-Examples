@@ -1,5 +1,7 @@
 # Polyline Node creation sample
-This repository contains sample which shows how to create polyline node in SfDiagram.
+This repository contains sample which shows how to create polyline node in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+
+You can create unfilled polyline(i.e. Polyline Connector) by using the DrawingTool and DefaultConnectorType properties of [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
 
 ## Project pre-requisites
 To run this application, you need to have the below two in your system

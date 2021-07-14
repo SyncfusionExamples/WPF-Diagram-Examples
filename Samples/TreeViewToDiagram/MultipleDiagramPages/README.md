@@ -1,6 +1,8 @@
 # Multiple diagram pages sample
 
-This sample demonstrates how to add multiple diagram pages using SfDiagram control.
+This sample demonstrates how to add multiple diagram pages using [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) control.
+
+Multiple [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) pages can be added or removed using the TableControlExt control. When adding or deleting the diagram page, the title will be updated as tree view.
 
 ## Project pre-requisites
 

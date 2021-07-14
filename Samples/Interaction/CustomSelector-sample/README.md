@@ -1,5 +1,7 @@
 # CustomSelector sample
-This repository contains sample which shows how to customize the appearance of the selector in diagram.
+This repository contains sample which shows how to customize the appearance of the selector in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+
+[WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) has a predefined style for selector but you can customize the selector style by creating a new [Selector](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Diagram.Selector.html) with a custom style. This new custom selector will be returned by overriding the virtual [SfDiagram.GetSelectorForItemOverride](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.Diagram.SfDiagram.html#Syncfusion_UI_Xaml_Diagram_SfDiagram_GetSelectorForItemOverride_System_Object_) method.
 
 ## Project pre-requisites
 To run this application, you need to have the below two in your system

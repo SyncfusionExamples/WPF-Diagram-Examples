@@ -1,5 +1,9 @@
 # Contextmenu with submenu items sample
-This repository contains sample which shows how to add sub menuitems to the contextmenu of SfDiagram.
+This repository contains sample which shows how to add sub menuitems to the contextmenu of [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+
+[WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) provides clipboard options(cut,copy,paste and selectall) as in-built context menu items and allows you to define the custom menu items. The [DiagramMenu](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.Controls.DiagramMenu.html) and [DiagramMenuItem](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.Controls.DiagramMenuItem.html) are view models for ContextMenu and MenuItem respectively. The action for the DiagramMenuItem can be assigned with Command and CommandParameter property.
+
+[WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) supports adding custom context menu items in the already existing menu or create new menu with custom context menu items. We can add icon for the custom context menu items also.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/context-menu#menu-for-node-and-connector
 

@@ -2,6 +2,8 @@
 
 This sample demonstrates how to export the diagram page.
 
+[WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) does not have the built-in support to convert the diagram to PDF file, but it can be achieved by exporting the diagram as an XPS file and then, convert the exported XPS file to PDF using the [Syncfusion.XPS.XPSToPdfConverter](https://help.syncfusion.com/cr/file-formats/Syncfusion.Pdf.Base~Syncfusion.XPS.XPSToPdfConverter.html).
+
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/exporting
 
 ## Project pre-requisites

@@ -1,5 +1,7 @@
 # Customize ConnectionIndicatorStyle for node sample
-This repository contains sample which shows how to customize the connection indicator style for a node and a port in SfDiagram.
+This repository contains sample which shows how to customize the connection indicator style for a node and a port in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+
+The connection indicator style for the [node](https://help.syncfusion.com/cr/cref_files/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.NodeViewModel.html) and [port](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.NodePortViewModel.html) can be customized by [SfDiagram.ConnectionIndicatorStyle](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.DiagramViewModel~ConnectionIndicatorStyle.html) property of [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
 
 ## Project pre-requisites
 To run this application, you need to have the below two in your system
