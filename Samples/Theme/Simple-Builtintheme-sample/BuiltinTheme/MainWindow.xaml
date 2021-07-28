@@ -19,19 +19,21 @@
 
     <Grid>
         <!--Initialize Diagram-->
-        <Syncfusion:SfDiagram x:Name="diagramcontrol" PortVisibility="Visible">
+        <Syncfusion:SfDiagram x:Name="diagramcontrol">
+            <!--Specify the Office theme-->
             <Syncfusion:SfDiagram.Theme>
                 <Syncfusion:OfficeTheme />
             </Syncfusion:SfDiagram.Theme>
             <!--Initialize Node-->
             <Syncfusion:SfDiagram.Nodes>
                 <Syncfusion:NodeCollection>
-                    <!--Creating node for New idea -->
-                    <Syncfusion:NodeViewModel ID="NewIdea"
+                    <!--Creating start node with theme style id value as Variant1-->
+                    <Syncfusion:NodeViewModel ID="start"
                                               UnitWidth="150"
                                               UnitHeight="60"
                                               OffsetX="300"
                                               OffsetY="60"
+                                              ThemeStyleId="Variant1"
                                               Shape="{StaticResource Ellipse}">
                         <Syncfusion:NodeViewModel.Annotations>
                             <Syncfusion:AnnotationCollection>
@@ -44,12 +46,13 @@
                         </Syncfusion:NodeViewModel.Annotations>
                     </Syncfusion:NodeViewModel>
 
-                    <!--Creating node for meeting -->
-                    <Syncfusion:NodeViewModel ID="Meeting"
+                    <!--Creating process node with theme style id value as Variant2-->
+                    <Syncfusion:NodeViewModel ID="process"
                                               UnitWidth="150"
                                               UnitHeight="60"
                                               OffsetX="300"
                                               OffsetY="160"
+                                              ThemeStyleId="Variant2"
                                               Shape="{StaticResource Process}">
                         <Syncfusion:NodeViewModel.Annotations>
                             <Syncfusion:AnnotationCollection>
@@ -62,12 +65,13 @@
                         </Syncfusion:NodeViewModel.Annotations>
                     </Syncfusion:NodeViewModel>
 
-                    <!--Creating node for End -->
-                    <Syncfusion:NodeViewModel ID="End"
+                    <!--Creating process node with theme style id value as Variant3-->
+                    <Syncfusion:NodeViewModel ID="end"
                                               UnitWidth="120"
                                               UnitHeight="60"
                                               OffsetX="300"
                                               OffsetY="260"
+                                              ThemeStyleId="Variant3"
                                               Shape="{StaticResource Process}">
                         <Syncfusion:NodeViewModel.Annotations>
                             <Syncfusion:AnnotationCollection>
@@ -88,14 +92,17 @@
                 <Syncfusion:ConnectorCollection>
 
                     <!--Creating connection between New Idea and Meeting Node-->
-                    <Syncfusion:ConnectorViewModel x:Name="NewIdeaToMeeting"
-                                                   SourceNodeID="NewIdea"
-                                                   TargetNodeID="Meeting">
+                    <Syncfusion:ConnectorViewModel x:Name="StartToProcess"
+                                                   ThemeStyleId="Subtly,Accent1"
+                                                   SourceNodeID="start"
+                                                   TargetNodeID="process">
                     </Syncfusion:ConnectorViewModel>
 
                     <!--Creating connection between Meeting Node and Board Decision Node-->
-                    <Syncfusion:ConnectorViewModel SourceNodeID="Meeting"
-                                                   TargetNodeID="End">
+                    <Syncfusion:ConnectorViewModel x:Name="ProcessToEnd"
+                                                   SourceNodeID="process"
+                                                   ThemeStyleId="Subtly,Accent3"
+                                                   TargetNodeID="end">
                     </Syncfusion:ConnectorViewModel>
                 </Syncfusion:ConnectorCollection>
             </Syncfusion:SfDiagram.Connectors>
