@@ -15,3 +15,6 @@ To run this application, you need to have the below two in your system
 
 ## Deploying and running the sample
 * To debug the sample and then run it, press F5 or select Debug > Start Debugging. To run the sample without debugging, press Ctrl+F5 or selectDebug > Start Without Debugging.
+
+## Blog reference
+[Create a Feature-Rich WPF Diagramming App in 2 Minutes](https://www.syncfusion.com/blogs/post/create-a-feature-rich-wpf-diagramming-app-in-2-minutes.aspx)
