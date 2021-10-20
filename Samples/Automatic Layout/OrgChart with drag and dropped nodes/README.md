@@ -13,3 +13,5 @@ To run this application, you need to have the below two in your system
 
 ## Deploying and running the sample
 * To debug the sample and then run it, press F5 or select Debug > Start Debugging. To run the sample without debugging, press Ctrl+F5 or selectDebug > Start Without Debugging.
+
+KB article - [Organization chart with drag drop from stencil sample](https://www.syncfusion.com/kb/11401/how-to-create-parent-and-child-relationship-by-drag-and-drop-nodes-in-wpf-diagram-sfdiagram)
