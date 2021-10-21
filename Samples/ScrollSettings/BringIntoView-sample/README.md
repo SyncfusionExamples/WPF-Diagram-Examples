@@ -14,3 +14,5 @@ To run this application, you need to have the below two in your system
 
 ## Deploying and running the sample
 * To debug the sample and then run it, press F5 or select Debug > Start Debugging. To run the sample without debugging, press Ctrl+F5 or selectDebug > Start Without Debugging.
+
+KB article - [Bring into view and center sample](https://www.syncfusion.com/kb/11523/how-to-bring-the-specific-node-to-the-center-or-viewport-in-wpf-diagram-sfdiagram)
