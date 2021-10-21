@@ -20,3 +20,5 @@ To run this application, you need to have the below two in your system
 ## Deploying and running the sample
 
 * To debug the sample and then run it, press F5 or select Debug > Start Debugging. To run the sample without debugging, press Ctrl+F5 or selectDebug > Start Without Debugging.
+
+KB article - [Switch between tools at runtime through SetTool sample](https://www.syncfusion.com/kb/11530/how-to-switch-between-tools-at-runtime-through-the-settool-in-wpf-diagram-sfdiagram)
