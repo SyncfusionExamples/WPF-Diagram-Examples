@@ -14,3 +14,5 @@ To run this application, you need to have the below two in your system
 
 ## Deploying and running the sample
 * To debug the sample and then run it, press F5 or select Debug > Start Debugging. To run the sample without debugging, press Ctrl+F5 or selectDebug > Start Without Debugging.
+
+KB article - [Sample to get or set the segments programmatically](https://www.syncfusion.com/kb/11344/how-to-get-or-set-the-positions-of-the-segments-by-programmatically-in-wpf-diagram)
