@@ -15,3 +15,5 @@ To run this application, you need to have the below two in your system
 
 ## Deploying and running the sample
 * To debug the sample and then run it, press F5 or select Debug > Start Debugging. To run the sample without debugging, press Ctrl+F5 or selectDebug > Start Without Debugging.
+
+KB article - [Sample to override the default behaviour of the port using SetTool method](https://www.syncfusion.com/kb/9622/how-to-decide-whether-to-drag-or-draw-a-connection-on-port-at-runtime-in-the-wpf-diagram)

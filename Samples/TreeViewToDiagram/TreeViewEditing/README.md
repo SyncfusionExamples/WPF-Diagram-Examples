@@ -16,3 +16,5 @@ To run this application, you need to have the below two in your system
 ## Deploying and running the sample
 
 * To debug the sample and then run it, press F5 or select Debug > Start Debugging. To run the sample without debugging, press Ctrl+F5 or selectDebug > Start Without Debugging.
+
+KB article - [Treeview diagram with editing sample](https://www.syncfusion.com/kb/11491/how-to-create-treeview-and-diagram-with-editing-options-in-the-wpf-diagram-sfdiagram)
