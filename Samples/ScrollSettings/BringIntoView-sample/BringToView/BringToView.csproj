@@ -34,14 +34,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Syncfusion.Licensing, Version=18.1450.0.48, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Licensing.18.1.0.48\lib\net45\Syncfusion.Licensing.dll</HintPath>
+  <Reference Include="Syncfusion.Licensing">
     </Reference>
-    <Reference Include="Syncfusion.SfDiagram.WPF, Version=18.1450.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.SfDiagram.WPF.18.1.0.48\lib\net45\Syncfusion.SfDiagram.WPF.dll</HintPath>
+    <Reference Include="Syncfusion.SfDiagram.WPF">
     </Reference>
-    <Reference Include="Syncfusion.SfShared.WPF, Version=18.1450.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.SfShared.WPF.18.1.0.48\lib\net45\Syncfusion.SfShared.WPF.dll</HintPath>
+    <Reference Include="Syncfusion.Shared.WPF">
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

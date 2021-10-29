@@ -5,7 +5,7 @@
 // licensing@syncfusion.com. Any infringement will be prosecuted under
 // applicable laws. 
 #endregion
-using Syncfusion.Windows.Controls.Printing;
+using Syncfusion.Windows.Shared.Printing;
 using System;
 using System.Collections.Generic;
 using System.Linq;

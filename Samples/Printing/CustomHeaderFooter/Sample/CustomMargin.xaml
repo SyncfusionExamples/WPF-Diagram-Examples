@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GettingStarted_Print"
         mc:Ignorable="d" Name="CustomMarginwindow"
-        xmlns:resources="clr-namespace:Syncfusion.Windows.Controls.Resources;assembly=Syncfusion.SfShared.Wpf"
+        xmlns:shared="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF"
+    xmlns:sfsharedresource="clr-namespace:Syncfusion.Windows.Shared.Resources;assembly=Syncfusion.Shared.Wpf"  
         Background="White" WindowState="Normal" 
         WindowStartupLocation="CenterScreen" 
         ResizeMode="NoResize" ToolTipService.ShowOnDisabled="False" 
         AllowDrop="False"
         SizeToContent="WidthAndHeight" ShowInTaskbar="False">
     <Window.Resources>
-        <resources:ResourceWrapper x:Key="ResourceWrapperKey" />
+        <sfsharedresource:ResourceWrapper x:Key="ResourceWrapperKey" />
     </Window.Resources>
     <Window.Style>
         <Style TargetType="Window">

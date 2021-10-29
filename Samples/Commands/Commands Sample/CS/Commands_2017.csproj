@@ -42,10 +42,6 @@
       <Name>Syncfusion.SfDiagram.Wpf</Name>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Syncfusion.SfShared.WPF">
-      <Name>Syncfusion.SfShared.WPF</Name>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Syncfusion.SfSkinManager.WPF">
       <Name>Syncfusion.SfSkinManager.WPF</Name>
       <Private>True</Private>
@@ -58,9 +54,7 @@
       <Name>Syncfusion.Themes.MaterialLight.WPF</Name>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Syncfusion.Tools.WPF, Version=18.4460.0.30, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\18.4.0.30\Assemblies\4.6\Syncfusion.Tools.WPF.dll</HintPath>
+    <Reference Include="Syncfusion.Tools.WPF">
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

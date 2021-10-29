@@ -42,10 +42,6 @@
       <Name>Syncfusion.SfDiagram.WPF</Name>
       <Private>True</Private>
     </Reference>
-   <Reference Include="Syncfusion.SfShared.WPF">
-      <Name>Syncfusion.SfShared.WPF</Name>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Syncfusion.Shared.WPF">
       <Name>Syncfusion.Shared.WPF</Name>
       <Private>True</Private>

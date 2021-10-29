@@ -173,7 +173,7 @@ namespace UndoRedo_HistoryManager
         /// </summary>
         /// <param name="data">Undo data values.</param>
         /// <returns>Returns the undo data.</returns>
-        public override object Undo(object data)
+        public object Undo(object data)
         {
             return data;
         }
@@ -183,7 +183,7 @@ namespace UndoRedo_HistoryManager
         /// </summary>
         /// <param name="data">Redo data values.</param>
         /// <returns>Returns the undo data.</returns>
-        public override object Redo(object data)
+        public object Redo(object data)
         {
             return data;
         }

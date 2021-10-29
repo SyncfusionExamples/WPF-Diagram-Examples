@@ -36,6 +36,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Syncfusion.SfDiagram.WPF">
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -95,12 +97,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\Files\Sf Diagram sources\4.3.18\sfdiagram-xaml\WPF\SfDiagram.WPF\Src\Syncfusion.SfDiagram.WPF_2015.csproj">
-      <Project>{e18cfd68-5392-4aff-bf84-6c7ec1745ac0}</Project>
-      <Name>Syncfusion.SfDiagram.WPF_2015</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
