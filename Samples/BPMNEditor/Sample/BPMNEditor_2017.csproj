@@ -35,35 +35,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Syncfusion.Calculate.Base, Version=18.3460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Calculate.Base.18.3.0.38\lib\net46\Syncfusion.Calculate.Base.dll</HintPath>
+    <Reference Include="Syncfusion.Calculate.Base">
     </Reference>
-    <Reference Include="Syncfusion.Compression.Base, Version=18.3460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Compression.Base.18.3.0.38\lib\net46\Syncfusion.Compression.Base.dll</HintPath>
+    <Reference Include="Syncfusion.Compression.Base">
     </Reference>
-    <Reference Include="Syncfusion.Licensing, Version=18.3460.0.38, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Licensing.18.3.0.38\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    <Reference Include="Syncfusion.Licensing">
     </Reference>
-    <Reference Include="Syncfusion.Pdf.Base, Version=18.3460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Pdf.Wpf.18.3.0.38\lib\net46\Syncfusion.Pdf.Base.dll</HintPath>
+    <Reference Include="Syncfusion.Pdf.Base">
     </Reference>
-    <Reference Include="Syncfusion.PdfViewer.WPF, Version=18.3460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.PdfViewer.WPF.18.3.0.38\lib\net46\Syncfusion.PdfViewer.WPF.dll</HintPath>
+    <Reference Include="Syncfusion.PdfViewer.WPF">
     </Reference>
-    <Reference Include="Syncfusion.SfDiagram.WPF, Version=18.3460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.SfDiagram.WPF.18.3.0.38\lib\net46\Syncfusion.SfDiagram.WPF.dll</HintPath>
+    <Reference Include="Syncfusion.SfDiagram.WPF">
     </Reference>
-    <Reference Include="Syncfusion.SfShared.WPF, Version=18.3460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.SfShared.WPF.18.3.0.38\lib\net46\Syncfusion.SfShared.WPF.dll</HintPath>
+    <Reference Include="Syncfusion.SfSkinManager.WPF">
     </Reference>
-    <Reference Include="Syncfusion.SfSkinManager.WPF, Version=18.3460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.SfSkinManager.WPF.18.3.0.38\lib\net46\Syncfusion.SfSkinManager.WPF.dll</HintPath>
+    <Reference Include="Syncfusion.Shared.WPF">
     </Reference>
-    <Reference Include="Syncfusion.Shared.WPF, Version=18.3460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Shared.WPF.18.3.0.38\lib\net46\Syncfusion.Shared.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Themes.Office2019Colorful.WPF, Version=18.3460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>packages\Syncfusion.Themes.Office2019Colorful.WPF.18.3.0.38\lib\net46\Syncfusion.Themes.Office2019Colorful.WPF.dll</HintPath>
+    <Reference Include="Syncfusion.Themes.Office2019Colorful.WPF">
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

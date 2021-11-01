@@ -47,10 +47,6 @@
       <Name>Syncfusion.Shared.WPF</Name>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Syncfusion.SfShared.WPF">
-      <Name>Syncfusion.SfShared.WPF</Name>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Printing" />

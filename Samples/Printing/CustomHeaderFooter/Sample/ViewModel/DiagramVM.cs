@@ -8,7 +8,7 @@
 using GettingStarted_Print.Utility;
 using Microsoft.Win32;
 using Syncfusion.UI.Xaml.Diagram;
-using Syncfusion.Windows.Controls.Printing;
+using Syncfusion.Windows.Shared.Printing;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -860,19 +860,19 @@ namespace GettingStarted_Print.ViewModel
                 List<string> j = PageSizeOptions.Select(c => c.PageSizeName).ToList();
                 if (!(j.Contains("Ansi B")))
                 {
-                    PageSizeOptions.Add(new Syncfusion.Windows.Controls.Printing.PrintPageSize() { PageSizeName = "Ansi B", Size = new Size(1055, 1632) });
+                    PageSizeOptions.Add(new Syncfusion.Windows.Shared.Printing.PrintPageSize() { PageSizeName = "Ansi B", Size = new Size(1055, 1632) });
                 }
                 if (!(j.Contains("Ansi C")))
                 {
-                    PageSizeOptions.Add(new Syncfusion.Windows.Controls.Printing.PrintPageSize() { PageSizeName = "Ansi C", Size = new Size(1632, 2112) });
+                    PageSizeOptions.Add(new Syncfusion.Windows.Shared.Printing.PrintPageSize() { PageSizeName = "Ansi C", Size = new Size(1632, 2112) });
                 }
                 if (!(j.Contains("Ansi D")))
                 {
-                    PageSizeOptions.Add(new Syncfusion.Windows.Controls.Printing.PrintPageSize() { PageSizeName = "Ansi D", Size = new Size(2112, 3264) });
+                    PageSizeOptions.Add(new Syncfusion.Windows.Shared.Printing.PrintPageSize() { PageSizeName = "Ansi D", Size = new Size(2112, 3264) });
                 }
                 if (!(j.Contains("A0")))
                 {
-                    PageSizeOptions.Add(new Syncfusion.Windows.Controls.Printing.PrintPageSize() { PageSizeName = "A0", Size = new Size(3179, 4494) });
+                    PageSizeOptions.Add(new Syncfusion.Windows.Shared.Printing.PrintPageSize() { PageSizeName = "A0", Size = new Size(3179, 4494) });
                 }
             }
         }
