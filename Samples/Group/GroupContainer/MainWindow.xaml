@@ -1,0 +1,304 @@
+﻿<Window x:Class="ConnectorSegment.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConnectorSegment"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d" WindowState="Maximized"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:StencilViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--Style for group-->
+            <Style TargetType="Path" x:Key="GroupContainerStyle">
+                <Setter Property="Fill" Value="White"/>
+                <Setter Property="Stroke" Value="Black"/>
+                <Setter Property="Stretch" Value="Fill"/>
+                <Setter Property="StrokeDashArray" Value="5,1,5"/>
+            </Style>
+
+            <!--Style for Node-->
+            <Style TargetType="Syncfusion:Node">
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="#FF5B9BD5"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                            <Setter Property="Stroke" Value="#FF5B9BD5"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+            <!--Style for DockPort-->
+            <Style TargetType="Syncfusion:DockPort">
+                <Setter Property="ConnectorGeometryStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stroke" Value="Black"></Setter>
+                            <Setter Property="StrokeThickness" Value="5"></Setter>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--Style for Symbol-->
+            <Style TargetType="Syncfusion:Symbol">
+                <Setter Property="Width"
+                        Value="52" />
+                <Setter Property="Height"
+                        Value="52"/>
+                <Setter Property="Padding"
+                        Value="3" />
+                <Setter Property="BorderThickness"
+                        Value="1" />
+                <Setter Property="Background"
+                        Value="Transparent" />
+                <Setter Property="BorderBrush"
+                        Value="Transparent" />
+            </Style>
+
+            <!--Style for Connector-->
+            <Style TargetType="Syncfusion:Connector">
+                <Setter Property="ConnectorGeometryStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stroke" Value="#FF5B9BD5"></Setter>
+                            <Setter Property="StrokeThickness" Value="1"></Setter>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="TargetDecoratorStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="#FF5B9BD5"></Setter>
+                            <Setter Property="StrokeThickness" Value="1"></Setter>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--style for NodePort-->
+            <Style TargetType="Syncfusion:NodePort">
+                <Setter Property="Shape">
+                    <Setter.Value>
+                        <EllipseGeometry RadiusX="5" RadiusY="5"></EllipseGeometry>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Shape">
+                            <Setter Property="Stretch" Value="Fill"/>
+                            <Setter Property="Fill" Value="Red"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="Syncfusion:ConnectorPort">
+                <Setter Property="Shape">
+                    <Setter.Value>
+                        <EllipseGeometry RadiusX="5" RadiusY="5"></EllipseGeometry>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stretch" Value="Fill"/>
+                            <Setter Property="Fill" Value="Red"/>
+                            <Setter Property="Stroke" Value="Red"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <DataTemplate x:Key="symboltemplate">
+                <StackPanel>
+                    <Image Source="/Images/user_image.png"
+                           Width="55"
+                           Height="50" />
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate x:Key="Diamond">
+                <StackPanel>
+                    <Path Stretch="Fill" Width="45" Height="45"
+                          Data="M 397.784,287.875L 369.5,316.159L 341.216,287.875L 369.5,259.591L 397.784,287.875 Z"
+                          Fill="White"
+                          Stroke="Black"
+                          StrokeThickness="1" />
+                </StackPanel>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid x:Name="RootGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+
+        <local:CustomStencil x:Name="stencil" Title="Shapes"
+                            SymbolFilterDisplayMode="{Binding SymbolFilterDisplayMode}"
+                            DisplayMode="Expanded"
+                            SymbolsDisplayMode="NamesUnderIcons"
+                            Grid.Column="0" 
+                            Margin="5,5,0,5"
+                            SymbolFilters="{Binding Symbolfilters}"
+                            SelectedFilter="{Binding Selectedfilter}"
+                            ExpandMode="All">
+            
+            <Syncfusion:Stencil.SymbolSource>
+                <Syncfusion:SymbolCollection>
+                    <!--Define the DiagramElement- Group-->
+                    <Syncfusion:GroupViewModel Name="Group" Key="Groups">
+                        <!--Creates the Groupable Nodes-->
+                        <Syncfusion:GroupViewModel.Nodes>
+                            <Syncfusion:NodeCollection>
+                                <Syncfusion:NodeViewModel UnitHeight="70" ID="srcnode" OffsetX="0" OffsetY="300" 
+                                              UnitWidth="100"
+                                              Shape="{StaticResource Rectangle}">
+                                    <Syncfusion:NodeViewModel.Ports>
+                                        <Syncfusion:PortCollection>
+                                            <!--Initialization of NodePort-->
+                                            <Syncfusion:NodePortViewModel x:Name="port" PortVisibility="Visible" />
+                                        </Syncfusion:PortCollection>
+                                    </Syncfusion:NodeViewModel.Ports>
+                                </Syncfusion:NodeViewModel>
+                                <Syncfusion:NodeViewModel UnitHeight="70" 
+                                              ID="tarnode"
+                                              OffsetX="100"
+                                              OffsetY="500"
+                                              UnitWidth="100"
+                                              Shape="{StaticResource Rectangle}">
+                                </Syncfusion:NodeViewModel>
+                            </Syncfusion:NodeCollection>
+                        </Syncfusion:GroupViewModel.Nodes>
+                        <!--Creates the Groupable Connectors-->
+                        <Syncfusion:GroupViewModel.Connectors>
+                            <Syncfusion:ConnectorCollection>
+                                <Syncfusion:ConnectorViewModel SourceNodeID="srcnode" TargetNodeID="tarnode"/>
+                            </Syncfusion:ConnectorCollection>
+                        </Syncfusion:GroupViewModel.Connectors>
+                    </Syncfusion:GroupViewModel>
+
+                    <Syncfusion:ConnectorViewModel Name="Orthogonal" SourcePoint="0,0" TargetPoint="60,60" Key="Connectors" />
+                    <Syncfusion:ConnectorViewModel Name="Straight" SourcePoint="0,0" TargetPoint="60,60" Key="Connectors">
+                        <Syncfusion:ConnectorViewModel.Segments>
+                            <Syncfusion:ConnectorSegments>
+                                <Syncfusion:StraightSegment></Syncfusion:StraightSegment>
+                            </Syncfusion:ConnectorSegments>
+                        </Syncfusion:ConnectorViewModel.Segments>
+                    </Syncfusion:ConnectorViewModel>
+                    <Syncfusion:ConnectorViewModel Name="Cubic" SourcePoint="0,0" TargetPoint="60,60" Key="Connectors">
+                        <Syncfusion:ConnectorViewModel.Segments>
+                            <Syncfusion:ConnectorSegments>
+                                <Syncfusion:CubicCurveSegment></Syncfusion:CubicCurveSegment>
+                            </Syncfusion:ConnectorSegments>
+                        </Syncfusion:ConnectorViewModel.Segments>
+                    </Syncfusion:ConnectorViewModel>
+                    <Syncfusion:ConnectorViewModel Name="Quadratic" SourcePoint="0,0" TargetPoint="60,60" Key="Connectors">
+                        <Syncfusion:ConnectorViewModel.Segments>
+                            <Syncfusion:ConnectorSegments>
+                                <Syncfusion:QuadraticCurveSegment></Syncfusion:QuadraticCurveSegment>
+                            </Syncfusion:ConnectorSegments>
+                        </Syncfusion:ConnectorViewModel.Segments>
+                    </Syncfusion:ConnectorViewModel>
+                    <Syncfusion:SymbolViewModel Symbol="User" Key="UISymbols"
+                                                    SymbolTemplate="{StaticResource symboltemplate}" />
+                    <Syncfusion:SymbolViewModel Symbol="Diamond" Key="UISymbols"
+                                                    SymbolTemplate="{StaticResource Diamond}" />
+                </Syncfusion:SymbolCollection>
+            </Syncfusion:Stencil.SymbolSource>
+            <!--Initialize the stencil categories-->
+            <Syncfusion:Stencil.Categories>
+                <Syncfusion:StencilCategoryCollection>
+                    <!--Specify the basic shapes category with title and resource key-->
+                    <Syncfusion:StencilCategory Title="Basic Shapes" Keys="{StaticResource BasicShapes}"/>
+                    <Syncfusion:StencilCategory Title="UMLRelationship Shapes" Keys="{StaticResource UMLRelationship}"/>
+                    <Syncfusion:StencilCategory Title="Swimlane Shapes" Keys="{StaticResource SwimlaneShapes}"/>
+                    <Syncfusion:StencilCategory Title="BPMNEditor Shapes" Keys="{StaticResource BPMNEditorShapes}"/>
+                </Syncfusion:StencilCategoryCollection>
+            </Syncfusion:Stencil.Categories>
+            <Syncfusion:Stencil.SymbolGroups>
+                <Syncfusion:SymbolGroups>
+                    <!--Separate groups based on the key-->
+                    <Syncfusion:SymbolGroupProvider MappingName="Key"/>
+                </Syncfusion:SymbolGroups>
+            </Syncfusion:Stencil.SymbolGroups>
+        </local:CustomStencil>
+
+        <!--Initializes the SfDiagram-->
+        <Syncfusion:SfDiagram  Grid.Column="1" x:Name="diagram" PortVisibility="Visible" 
+                               Nodes="{Binding Nodes}" 
+                               Swimlanes="{Binding Swimlanes}"
+                               Connectors="{Binding Connectors}" Groups="{Binding Groups}" 
+                               >
+            <Syncfusion:SfDiagram.HorizontalRuler>
+                <Syncfusion:Ruler/>
+            </Syncfusion:SfDiagram.HorizontalRuler>
+            <Syncfusion:SfDiagram.VerticalRuler>
+                <Syncfusion:Ruler Orientation="Vertical"/>
+            </Syncfusion:SfDiagram.VerticalRuler>
+            <Syncfusion:SfDiagram.SnapSettings>
+                <Syncfusion:SnapSettings SnapConstraints="ShowLines"/>
+            </Syncfusion:SfDiagram.SnapSettings>
+        </Syncfusion:SfDiagram>
+
+        <StackPanel Grid.Column="2" Background="LightBlue" FocusManager.IsFocusScope="True" Focusable="True">
+            <TextBlock Height="30"/>
+            <Button x:Name="Group" Content="Group" Command="Syncfusion:DiagramCommands.Group"/>
+            <TextBlock Height="10"/>
+            <Button x:Name="UnGroup"  Content="UnGroup" Command="Syncfusion:DiagramCommands.UnGroup"/>
+            <TextBlock Height="10"/>
+            <CheckBox x:Name="IsContainer" Content="Is Container"  Checked="IsContainer_Checked" Unchecked="IsContainer_Unchecked"/>
+            <!--<TextBlock Height="30"/>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Height="5"/>
+                <TextBlock Text="Graph Constraints" FontWeight="Bold"></TextBlock>
+                <TextBlock Height="5"/>
+                <CheckBox x:Name="GraphRestrictConstraint" Content="Restrict object dragging at negative axis" IsChecked="False" Checked="GraphRestrictConstraint_Checked" Unchecked="GraphRestrictConstraint_Unchecked"></CheckBox>
+                <TextBlock Height="15"/>
+                
+                <TextBlock Text="Node Constraints" FontWeight="Bold"></TextBlock>
+                <TextBlock Height="5"/>
+                <CheckBox x:Name="InheritRestrictNodeDraggingConstraint" Content="Inherit Restrict node dragging at negativ axis" IsChecked="True" Checked="InheritRestrictNodeDraggingConstraint_Checked" Unchecked="InheritRestrictNodeDraggingConstraint_Unchecked"></CheckBox>
+                <TextBlock Height="5"/>
+                <CheckBox x:Name="RestrictNodeDraggingConstraint" Content="Restrict Node dragging at negativ axis" IsChecked="False" Checked="RestrictNodeDraggingConstraint_Checked" Unchecked="RestrictNodeDraggingConstraint_Unchecked" ></CheckBox>
+                <TextBlock Height="15"/>
+
+                <TextBlock Text="Connector Constraints" FontWeight="Bold"></TextBlock>
+                <TextBlock Height="5"/>
+                <CheckBox x:Name="ConnectorDraggable" Content="Draggable" IsChecked="False" Checked="ConnectorDraggable_Checked" Unchecked="ConnectorDraggable_Unchecked" ></CheckBox>
+                <TextBlock Height="5"/>
+                <CheckBox x:Name="InheritRestrictConnectorDragging" Content="Inherit Restrict connector dragging at negativ axis" IsChecked="True" Checked="InheritRestrictConnectorDragging_Checked" Unchecked="InheritRestrictConnectorDragging_Unchecked"/>
+                <TextBlock Height="5"/>
+                <CheckBox x:Name="RestrictConnectorDraggingConstraint" Content="Restrict connector dragging at negativ axis" IsChecked="False" Checked="RestrictConnectorDraggingConstraint_Checked" Unchecked="RestrictConnectorDraggingConstraint_Unchecked" ></CheckBox>
+                <TextBlock Height="15"/>
+              
+                
+                <TextBlock Text="Annotation Constraints" FontWeight="Bold"></TextBlock>
+                <TextBlock Height="5"/>
+                <CheckBox x:Name="dragLabel" Content="Select, Resize and Drag label" Checked="dragLabel_Checked"></CheckBox>
+                <TextBlock Height="15"/>
+                
+                <TextBlock Text="Stencil Constraints" FontWeight="Bold"></TextBlock>
+                <TextBlock Height="5"/>
+                <CheckBox x:Name="StencilShowPreview" Content="Show preview" IsChecked="False" Checked="StencilShowPreview_Checked" Unchecked="StencilShowPreview_Unchecked"/>
+                <TextBlock Height="15"/>
+                <TextBlock Text="Auto scroll options" FontWeight="Bold"/>
+                <TextBlock Height="5"/>
+                <CheckBox x:Name="dragLimit" Content="Drag limit" IsChecked="False" Checked="dragLimit_Checked" Unchecked="dragLimit_Unchecked" />
+
+            </StackPanel>-->
+        </StackPanel>
+    </Grid>
+</Window>
