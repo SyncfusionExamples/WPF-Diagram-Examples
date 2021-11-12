@@ -1,0 +1,227 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:UserInteraction_Stencil"            
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" 
+        x:Class="UserInteraction_Stencil.MainWindow"
+        xmlns:Stencil="clr-namespace:Syncfusion.UI.Xaml.Diagram.Stencil;assembly=Syncfusion.SfDiagram.Wpf"
+        xmlns:RulerControl="clr-namespace:Syncfusion.UI.Xaml.Diagram.Controls;assembly=Syncfusion.SfDiagram.Wpf"
+        Icon="App.ico"
+        Title="Stencil"
+        MinWidth="1024"
+        MinHeight="700"     
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:DiagramVM/>
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Dictionary which contains the inbuilt shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+                   
+            <!--Style for Node-->
+            <Style TargetType="Syncfusion:Node">
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style  TargetType="Path">
+                            <Setter Property="Fill" Value="CornflowerBlue"/>
+                            <Setter Property="Stroke" Value="CornflowerBlue"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="Syncfusion:NodePort">
+                <Setter Property="Shape" Value="{StaticResource Rectangle}"/>
+                <Setter Property="UnitWidth" Value="5"/>
+                <Setter Property="UnitHeight" Value="5"/>
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style  TargetType="Path">
+                            <Setter Property="Fill" Value="Black"/>
+                            <Setter Property="Stroke" Value="CornflowerBlue"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--Style for Symbol-->
+            <Style TargetType="Stencil:Symbol">
+                <Setter Property="Width" Value="50"/>
+                <Setter Property="Height" Value="50"/>
+                <Setter Property="Padding" Value="3" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="Margin" Value="4"></Setter>
+            </Style>
+
+            <Style TargetType="Syncfusion:Connector">
+                <Setter Property="ConnectorGeometryStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stroke" Value="#6BA5D7"/>
+                            <Setter Property="StrokeThickness" Value="1"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="TargetDecoratorStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="#6BA5D7"/>
+                            <Setter Property="StrokeThickness" Value="1"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!--Style for Symbol Group-->
+            <Style TargetType="Stencil:SymbolGroup">
+                <Setter Property="FontFamily" Value="Regular"/>
+                <Setter Property="Background" Value="#ffffff"/>
+                <Setter Property="Foreground" Value="#222222"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="HeaderTemplate">
+                    <Setter.Value>
+                        <DataTemplate>
+                            <Stencil:Header>
+                                <Stencil:Header.Template>
+                                    <ControlTemplate TargetType="Stencil:Header">
+                                        <Grid>
+                                            <Border x:Name="header" 
+                                                    Background="#f5f5f5" 
+                                                    BorderBrush="#dfdfdf" 
+                                                    BorderThickness="1">
+                                                <ContentPresenter Margin="10" Content="{Binding}"/>
+                                            </Border>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Stencil:Header.Template>
+                            </Stencil:Header>
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.8*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Shapes" 
+                       FontSize="17" 
+                       FontWeight="SemiBold" 
+                       Foreground="#2b579a" 
+                       HorizontalAlignment="Left" 
+                       Margin="10,5,0,5" 
+                       Grid.Row="0"/>
+            <Stencil:Stencil x:Name="stencil" 
+                             Grid.Column="0" 
+                             Grid.Row="1" 
+                             ExpandMode="All" 
+                             BorderBrush="#dfdfdf"
+                             BorderThickness="0,0,1,0">
+                <Stencil:Stencil.SymbolSource>
+                    <local:SymbolCollection>
+                        <!--BasicShapes-->
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Rectangle}" Key="Basic Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Ellipse}" Key="Basic Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Triangle}" Key="Basic Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Plus}" Key="Basic Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Star}" Key="Basic Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Pentagon}" Key="Basic Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Heptagon}" Key="Basic Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Octagon}" Key="Basic Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Trapezoid}" Key="Basic Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Decagon}" Key="Basic Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource RightTriangle}" Key="Basic Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Cylinder}" Key="Basic Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Diamond}" Key="Basic Shapes"/>
+
+                        <!--Flow Shapes-->
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Diamond}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Process}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Decision}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Document}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource PredefinedProcess}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Terminator}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource PaperTap}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource DirectData}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource SequentialData}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Sort}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource MultiDocument}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Collate}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource SummingJunction}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Or}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource InternalStorage}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource SequentialAccessStorage}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Annotation1}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Annotation2}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Display}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Delay}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource StoredData}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Data}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Extract}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Merge}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource OffPageReference}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource Card}" Key="Flow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource ManualOperation}" Key="Flow Shapes"/>
+
+                        <!--Arrow Shapes-->
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource CircularArrow}" Key="Arrow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource CurvedRightArrow}" Key="Arrow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource CurvedUpArrow}" Key="Arrow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource CurvedLeftArrow}" Key="Arrow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource CurvedDownArrow}" Key="Arrow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource JumpingRightArrow}" Key="Arrow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource JumpingLeftArrow}" Key="Arrow Shapes"/>
+                        <Syncfusion:NodeViewModel UnitHeight="60" UnitWidth="60" Shape="{StaticResource UTurnArrow}" Key="Arrow Shapes"/>
+
+                        <Syncfusion:ConnectorViewModel SourcePoint="10,10" TargetPoint="100,100" Key="Connectors"/>
+                    </local:SymbolCollection>
+                </Stencil:Stencil.SymbolSource>
+                <Stencil:Stencil.SymbolGroups>
+                    <Stencil:SymbolGroups>
+                        <!--Separate groups based on the key-->
+                        <Stencil:SymbolGroupProvider MappingName="Key"/>
+                    </Stencil:SymbolGroups>
+                </Stencil:Stencil.SymbolGroups>
+            </Stencil:Stencil>
+        </Grid>
+
+        <!--Initializes Diagram-->
+        <Syncfusion:SfDiagram x:Name="diagram" PortVisibility="Visible"
+                              Grid.Column="1"
+                              Nodes="{Binding Nodes}"
+                              Connectors="{Binding Connectors}"
+                              SymbolDroppingCommand="{Binding SymbolDroppingCommand}"
+                              DropCommand="{Binding DropCommand}">
+
+        </Syncfusion:SfDiagram>
+        <StackPanel Grid.Column="2">
+            
+            <CheckBox Margin="10,20,0,0" Content="Enable Connector splitting" x:Name="ConnectorSplitting" IsChecked="True" Checked="ConnectorSplitting_Checked" Unchecked="ConnectorSplitting_Unchecked"/>
+            <CheckBox Margin="10,20,0,2" Content="Enable Routing" x:Name="Routing" IsChecked="False" Checked="Routing_Checked" Unchecked="Routing_Unchecked"/>
+            <ComboBox x:Name="ConnectorType" Margin="0,20,0,2" Width="120" SelectedIndex="0" SelectionChanged="ConnectorType_SelectionChanged">
+                <ComboBoxItem>Orthogonal</ComboBoxItem>
+                <ComboBoxItem>Cubic Bezier</ComboBoxItem>
+                <ComboBoxItem>Qudratic Bezier</ComboBoxItem>
+                <ComboBoxItem>Line</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+    </Grid>
+</Window>
