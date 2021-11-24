@@ -32,9 +32,32 @@ namespace ConnectorSegment
 
 
             (diagram.Info as IGraphInfo).ItemSelectedEvent += MainWindow_ItemSelectedEvent;
-            NodeViewModel Node1 = CreateNode(750, 250, "Rectangle", "Shape1");
-            NodeViewModel Node2 = CreateNode(700, 400, "RoundedRectangle", "shape2");
+            (diagram.Info as IGraphInfo).ItemAdded += MainWindow_ItemAdded;
+            NodeViewModel Node1 = CreateNode(590, 120, "Rectangle", "Shape1");
+            NodeViewModel Node2 = CreateNode(550, 260, "RoundedRectangle", "shape2");
+            NodeViewModel Node3 = CreateNode(900, 500, "RoundedRectangle", "shape3");
             CreateGroup(Node1, Node2);
+
+            ContainerViewModel contaier1 = new ContainerViewModel()
+            {
+                UnitHeight = 300,
+                UnitWidth = 300,
+                OffsetX = 850,
+                OffsetY = 450,
+                Annotations = new AnnotationCollection()
+                {
+                    new AnnotationEditorViewModel()
+                    {
+                        Content = "Container",
+                    },
+                },
+                Shape = this.Resources["Rectangle"],
+                ShapeStyle = this.Resources["GroupContainerStyle"] as Style,
+                Nodes = new ObservableCollection<NodeViewModel>()
+                {
+                    Node3,
+                },
+            };
 
             BpmnNodeViewModel bpmnEvent = new BpmnNodeViewModel()
             {
@@ -59,7 +82,7 @@ namespace ConnectorSegment
                 UnitWidth = 300,
                 UnitHeight = 250,
                 Shape = this.Resources["Rectangle"],
-                ShapeStyle = this.Resources["GroupShapeStyle"] as Style,
+                //ShapeStyle = this.Resources["GroupShapeStyle"] as Style,
                 Annotations = new AnnotationCollection()
                 {
                     new AnnotationEditorViewModel()
@@ -74,6 +97,7 @@ namespace ConnectorSegment
             };
             // Add the group into the Group's collection.
             (diagram.Groups as GroupCollection).Add(bpmngroup);
+            (diagram.Groups as GroupCollection).Add(contaier1);
             //(diagram.Info as IGraphInfo).ItemDropEvent += MainWindow_ItemDropEvent;
 
             //diagram.PreviewSettings = new PreviewSettings()
@@ -87,6 +111,14 @@ namespace ConnectorSegment
             Groupshapestyle.Setters.Add(new Setter(Path.FillProperty, Brushes.White));
             Groupshapestyle.Setters.Add(new Setter(Path.StrokeDashArrayProperty, new DoubleCollection() { 5, 1, 5 }));
 
+        }
+
+        private void MainWindow_ItemAdded(object sender, ItemAddedEventArgs args)
+        {
+            if (args.Item is ContainerViewModel && args.ItemSource == ItemSource.ClipBoard)
+            {
+
+            }
         }
 
         private NodeViewModel CreateNode(double offsetx, double offsety, string shape, string content)
@@ -119,11 +151,11 @@ namespace ConnectorSegment
         {
             GroupViewModel group = new GroupViewModel()
             {
-                UnitHeight = 400,
-                UnitWidth = 400,
-                IsContainer = true,
-                OffsetX = 800,
-                OffsetY = 300,
+                //UnitHeight = 400,
+                //UnitWidth = 400,
+                //IsContainer = true,
+                OffsetX = 600,
+                OffsetY = 200,
                 Shape = App.Current.MainWindow.Resources["Rectangle"],
                 ShapeStyle = App.Current.MainWindow.Resources["GroupContainerStyle"] as Style,
                 Nodes = new NodeCollection()
@@ -154,20 +186,20 @@ namespace ConnectorSegment
         {
             if ((args as ItemSelectedEventArgs).Item is IGroup)
             {
-                if (((args as ItemSelectedEventArgs).Item as IGroup).IsContainer)
-                {
-                    //(this.SelectedItems as SelectorViewModel).SelectorConstraints = (this.SelectedItems as SelectorViewModel).SelectorConstraints.Remove(SelectorConstraints.Rotator);
-                    IsContainer.IsChecked = true;
-                }
-                else
-                {
-                    IsContainer.IsChecked = false;
-                }
+                //if (((args as ItemSelectedEventArgs).Item as IGroup).IsContainer)
+                //{
+                //    //(this.SelectedItems as SelectorViewModel).SelectorConstraints = (this.SelectedItems as SelectorViewModel).SelectorConstraints.Remove(SelectorConstraints.Rotator);
+                //    IsContainer.IsChecked = true;
+                //}
+                //else
+                //{
+                //    IsContainer.IsChecked = false;
+                //}
             }
-            else
-            {
-                IsContainer.IsChecked = false;
-            }
+            //else
+            //{
+            //    IsContainer.IsChecked = false;
+            //}
             //if (args.Item is NodeViewModel)
             //{
             //    //if ((args.Item as NodeViewModel).Constraints.Contains(NodeConstraints.InheritRestrictNegativeAxisDragDrop))
@@ -441,7 +473,7 @@ namespace ConnectorSegment
             {
                 foreach (GroupViewModel group in (diagram.SelectedItems as SelectorViewModel).Groups as IEnumerable<object>)
                 {
-                    group.IsContainer = true;
+                    //group.IsContainer = true;
                     group.Shape = App.Current.MainWindow.Resources["Rectangle"];
                     group.ShapeStyle = this.Groupshapestyle as Style;
                 }
@@ -454,7 +486,7 @@ namespace ConnectorSegment
             {
                 foreach (GroupViewModel group in (diagram.SelectedItems as SelectorViewModel).Groups as IEnumerable<object>)
                 {
-                    group.IsContainer = false;
+                    //group.IsContainer = false;
                 }
             }
         }
