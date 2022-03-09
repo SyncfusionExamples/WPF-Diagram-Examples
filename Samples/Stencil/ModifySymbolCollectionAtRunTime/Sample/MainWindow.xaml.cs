@@ -63,8 +63,6 @@ namespace StencilDiagramElements
                         (item as NodeViewModel).ContentTemplate = this.Resources["TriangleTextBelowImage"] as DataTemplate;
                     }
                 }
-
-                stencil.SymbolSource = new ObservableCollection<object>(stencil.SymbolSource as IEnumerable<object>);
             }
         }
 
@@ -86,8 +84,6 @@ namespace StencilDiagramElements
                         (item as NodeViewModel).ContentTemplate = this.Resources["TriangleTextBesideImage"] as DataTemplate;
                     }
                 }
-
-                stencil.SymbolSource = new ObservableCollection<object>(stencil.SymbolSource as IEnumerable<object>);
             }
         }
     }
