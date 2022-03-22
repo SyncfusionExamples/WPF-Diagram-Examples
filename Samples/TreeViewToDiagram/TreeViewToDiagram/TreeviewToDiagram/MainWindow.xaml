@@ -52,7 +52,12 @@
                 </TreeViewItem>
             </TreeView>
         </Grid>
-        <syncfusion:SfDiagram x:Name="diagram"  Grid.Column="1" DragEnterCommand="{Binding DragEnterCommand}">
+        <syncfusion:SfDiagram x:Name="diagram"  Grid.Column="1"
+                              HorizontalRuler="{Binding HorizontalRuler}"
+                              VerticalRuler="{Binding VerticalRuler}"
+                              SnapSettings="{Binding SnapSettings}"
+                              DragEnterCommand="{Binding DragEnterCommand}"
+                              DropCommand="{Binding DropCommand}">
             <syncfusion:SfDiagram.Nodes>
                 <syncfusion:NodeCollection></syncfusion:NodeCollection>
             </syncfusion:SfDiagram.Nodes>
