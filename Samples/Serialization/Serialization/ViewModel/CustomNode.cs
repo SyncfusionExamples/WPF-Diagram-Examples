@@ -13,45 +13,8 @@ namespace Serialization_WPF.ViewModel
     // No need to mention DataContract as this class is derived from SfDiagram's ViewModel
     public class CustomNode : NodeViewModel
     {
-        private string _mcustomshape;
-        private string _mcustomstyle;
         private NodeContent _mcustomcontent;
-
-        [DataMember]
-        public string CustomShape
-        {
-            get
-            {
-                return _mcustomshape;
-            }
-            set
-            {
-                if (_mcustomshape != value)
-                {
-                    _mcustomshape = value;
-                    Shape = Application.Current.Resources[_mcustomshape];
-                    OnPropertyChanged("CustomShape");
-                }
-            }
-        }
-
-        [DataMember]
-        public string CustomStyle
-        {
-            get
-            {
-                return _mcustomstyle;
-            }
-            set
-            {
-                if (_mcustomstyle != value)
-                {
-                    _mcustomstyle = value;
-                    ShapeStyle = App.Current.Resources[_mcustomstyle] as Style;
-                    OnPropertyChanged("CustomStyle");
-                }
-            }
-        }
+        private string _mcustomcontenttemplate;
 
         [DataMember]
         public NodeContent CustomContent
@@ -66,6 +29,24 @@ namespace Serialization_WPF.ViewModel
                 {
                     _mcustomcontent = value;
                     OnPropertyChanged("CustomContent");
+                }
+            }
+        }
+
+
+        [DataMember]
+        public string CustomContentTemplate
+        {
+            get
+            {
+                return _mcustomcontenttemplate;
+            }
+            set
+            {
+                if (_mcustomcontenttemplate != value)
+                {
+                    _mcustomcontenttemplate = value;
+                    OnPropertyChanged("CustomContentTemplate");
                 }
             }
         }

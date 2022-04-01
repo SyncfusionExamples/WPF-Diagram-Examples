@@ -51,12 +51,10 @@ namespace Serialization_WPF.ViewModel
                 OffsetY = 150,
                 UnitHeight = 100,
                 UnitWidth = 100,
-                ShapeStyle = App.Current.Resources["NodeStyle"] as Style,
-                Shape = App.Current.Resources["Rectangle"],
-                CustomShape = "Rectangle",
                 CustomContent = new NodeContent() { Content = "Node1" },
-                CustomStyle = "NodeStyle",
                 Content = new NodeContent() { Content = "Node1" },
+                CustomContentTemplate = "NodeTemplate",
+                ContentTemplate = App.Current.Resources["NodeTemplate"] as DataTemplate,
             };
 
             (Nodes as NodeCollection).Add(node1);
@@ -68,12 +66,10 @@ namespace Serialization_WPF.ViewModel
                 OffsetY = 300,
                 UnitHeight = 100,
                 UnitWidth = 100,
-                ShapeStyle = App.Current.Resources["NodeStyle"] as Style,
-                Shape = App.Current.Resources["Ellipse"],
-                CustomShape = "Ellipse",
                 CustomContent = new NodeContent() { Content = "Node2" },
-                CustomStyle = "NodeStyle",
                 Content = new NodeContent() { Content = "Node2" },
+                CustomContentTemplate = "NodeTemplate",
+                ContentTemplate = App.Current.Resources["NodeTemplate"] as DataTemplate,
             };
 
             (Nodes as NodeCollection).Add(node2);
@@ -119,7 +115,9 @@ namespace Serialization_WPF.ViewModel
             var args = obj as ItemAddedEventArgs;
             if (args.Item is CustomNode && args.ItemSource == ItemSource.Load)
             {
-                (args.Item as CustomNode).Content = (args.Item as CustomNode).CustomContent;
+                CustomNode node = args.Item as CustomNode;
+                node.Content = node.CustomContent;
+                node.ContentTemplate = App.Current.Resources[node.CustomContentTemplate] as DataTemplate;
             }
         }
     }
