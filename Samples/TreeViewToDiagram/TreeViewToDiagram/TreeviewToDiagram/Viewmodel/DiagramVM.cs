@@ -16,7 +16,17 @@ namespace ListBoxToDiagram.Viewmodel
     {       
         public DiagramVM()
         {
-            DragEnterCommand = new Command(OnDragEnter);            
+            this.HorizontalRuler = new Syncfusion.UI.Xaml.Diagram.Controls.Ruler();
+            this.VerticalRuler = new Syncfusion.UI.Xaml.Diagram.Controls.Ruler()
+            {
+                Orientation = Orientation.Vertical
+            };
+            this.SnapSettings = new SnapSettings()
+            {
+                SnapConstraints = SnapConstraints.All,
+            };
+            DragEnterCommand = new Command(OnDragEnter);
+            DropCommand = new Command(OnDropCommand);
         }
         private void OnDragEnter(object obj)
         {
@@ -33,6 +43,18 @@ namespace ListBoxToDiagram.Viewmodel
                     UnitWidth = 50,
                 };
             }
-        }       
+        }
+
+        //Method to execute DropCommand.
+        private void OnDropCommand(object obj)
+        {
+            if (obj is ItemDropEventArgs && (obj as ItemDropEventArgs).Source is INode)
+            {
+                INode item = (obj as ItemDropEventArgs).Source as INode;
+                //Getting position of dropped node.
+                double offsetX = item.OffsetX;
+                double offsetY = item.OffsetY;
+            }
+        }
     }
 }
