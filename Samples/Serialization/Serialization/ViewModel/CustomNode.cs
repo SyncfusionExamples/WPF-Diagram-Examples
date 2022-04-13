@@ -50,6 +50,20 @@ namespace Serialization_WPF.ViewModel
                 }
             }
         }
+
+        protected override void OnPropertyChanged(string name)
+        {
+            base.OnPropertyChanged(name);
+            switch (name)
+            {
+                case "CustomContent":
+                    this.Content = this.CustomContent;
+                    break;
+                case "CustomContentTemplate":
+                    this.ContentTemplate = App.Current.Resources[this.CustomContentTemplate] as DataTemplate;
+                    break;
+            }
+        }
     }
 
     // Custom Class for Content

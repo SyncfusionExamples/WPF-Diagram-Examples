@@ -31,9 +31,6 @@ namespace Serialization_WPF.ViewModel
 
         public DiagramVM()
         {
-            // Initialize ItemAdded command to add the content for loaded node
-            ItemAddedCommand = new Command(OnItemAdded);
-
             LoadCommand = new Command(OnLoad);
             SaveCommand = new Command(OnSave);
 
@@ -107,17 +104,6 @@ namespace Serialization_WPF.ViewModel
                 {
                     (Info as IGraphInfo).Load(myStream);
                 }
-            }
-        }
-
-        private void OnItemAdded(object obj)
-        {
-            var args = obj as ItemAddedEventArgs;
-            if (args.Item is CustomNode && args.ItemSource == ItemSource.Load)
-            {
-                CustomNode node = args.Item as CustomNode;
-                node.Content = node.CustomContent;
-                node.ContentTemplate = App.Current.Resources[node.CustomContentTemplate] as DataTemplate;
             }
         }
     }
