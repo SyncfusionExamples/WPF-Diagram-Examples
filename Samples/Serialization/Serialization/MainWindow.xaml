@@ -12,8 +12,7 @@
         <ViewModel:DiagramVM/>
     </Window.DataContext>
     <Grid>
-        <Syncfusion:SfDiagram ItemAddedCommand="{Binding ItemAddedCommand}"
-                              Nodes="{Binding Nodes}"
+        <Syncfusion:SfDiagram Nodes="{Binding Nodes}"
                               Connectors="{Binding Connectors}"
                               KnownTypes="{Binding KnownTypes}"/>
         <Button Content="Save" Height="40" Width="80" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding SaveCommand}"/>

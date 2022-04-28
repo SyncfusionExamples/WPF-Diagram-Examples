@@ -5,28 +5,10 @@
              xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary>
-
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-
-            <Style TargetType="Path" x:Key="NodeStyle">
-                <Setter Property="Fill" Value="CornflowerBlue"/>
-                <Setter Property="Stretch" Value="Fill"/>
-                <Setter Property="Stroke" Value="WhiteSmoke"/>
-                <Setter Property="StrokeThickness" Value="2"/>
-            </Style>
-
-            <Style TargetType="Syncfusion:Node">
-                <Setter Property="ContentTemplate">
-                    <Setter.Value>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Content}"/>
-                        </DataTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </ResourceDictionary>
+        <DataTemplate x:Key="NodeTemplate">
+            <Border Background="CornflowerBlue" BorderBrush="CornflowerBlue" BorderThickness="1">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" FontSize="12" FontWeight="Bold" Text="{Binding Content}"/>
+            </Border>
+        </DataTemplate>
     </Application.Resources>
 </Application>
