@@ -1,9 +1,9 @@
-﻿<Window x:Class="NodeCreation.MainWindow"
+﻿<Window x:Class="DeleteCommand.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:NodeCreation"
+        xmlns:local="clr-namespace:DeleteCommand"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -24,6 +24,27 @@
                 <Setter Property="Stroke"
                         Value="#FFEDF1F6" />
             </Style>
+
+            <!--Style for the Connector-->
+            <Style TargetType="syncfusion:Connector">
+                <Setter Property="ConnectorGeometryStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stroke" Value="#6BA5D7"/>
+                            <Setter Property="StrokeThickness" Value="1"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="TargetDecoratorStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="#6BA5D7"/>
+                            <Setter Property="StrokeThickness" Value="1"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
         </ResourceDictionary>
     </Window.Resources>
     <Window.DataContext>
@@ -101,11 +122,57 @@
                     </syncfusion:NodeViewModel>
                 </syncfusion:NodeCollection>
             </syncfusion:DiagramViewModel.Nodes>
+            <syncfusion:DiagramViewModel.Connectors>
+                <!--Initialize the connector Collection-->
+                <syncfusion:ConnectorCollection>
+                    <syncfusion:ConnectorViewModel ID="1to2" SourceNodeID="Node1" 
+                                                   TargetNodeID="Node2">
+                        <!--Initialize the annotations-->
+                        <syncfusion:ConnectorViewModel.Annotations>
+                            <!--Initialize the AnnotationCollection-->
+                            <syncfusion:AnnotationCollection>
+                                <!--Initialize the Annotation editor view model-->
+                                <syncfusion:AnnotationEditorViewModel Content="1 to 2" RotationReference="Page"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:ConnectorViewModel.Annotations>
+                    </syncfusion:ConnectorViewModel>
+                    <syncfusion:ConnectorViewModel ID="2to4" SourceNodeID="Node2" TargetNodeID="Node4">
+                        <!--Initialize the annotations-->
+                        <syncfusion:ConnectorViewModel.Annotations>
+                            <!--Initialize the AnnotationCollection-->
+                            <syncfusion:AnnotationCollection>
+                                <!--Initialize the Annotation editor view model-->
+                                <syncfusion:AnnotationEditorViewModel Content="2 to 4" RotationReference="Page"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:ConnectorViewModel.Annotations>
+                    </syncfusion:ConnectorViewModel>
+                    <syncfusion:ConnectorViewModel ID="4to3" SourceNodeID="Node4" TargetNodeID="Node3">
+                        <!--Initialize the annotations-->
+                        <syncfusion:ConnectorViewModel.Annotations>
+                            <!--Initialize the AnnotationCollection-->
+                            <syncfusion:AnnotationCollection>
+                                <!--Initialize the Annotation editor view model-->
+                                <syncfusion:AnnotationEditorViewModel Content="4 to 3" RotationReference="Page"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:ConnectorViewModel.Annotations>
+                    </syncfusion:ConnectorViewModel>
+                    <syncfusion:ConnectorViewModel ID="3to1" SourceNodeID="Node3" TargetNodeID="Node1">
+                        <!--Initialize the annotations-->
+                        <syncfusion:ConnectorViewModel.Annotations>
+                            <!--Initialize the AnnotationCollection-->
+                            <syncfusion:AnnotationCollection>
+                                <!--Initialize the Annotation editor view model-->
+                                <syncfusion:AnnotationEditorViewModel Content="3 to 1" RotationReference="Page"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:ConnectorViewModel.Annotations>
+                    </syncfusion:ConnectorViewModel>
+                </syncfusion:ConnectorCollection>
+            </syncfusion:DiagramViewModel.Connectors>
         </syncfusion:DiagramViewModel>
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
@@ -119,11 +186,22 @@
                     <ComboBoxItem Content="None"/>
                 </ComboBox>
             </StackPanel>
+            <StackPanel Margin="20,10,0,0" Orientation="Horizontal">
+                <TextBlock Text="Select Connectors: "/>
+                <ComboBox SelectionChanged="Connectors_SelectionChanged"  SelectedIndex="4" x:Name="Connectors" Width="100">
+                    <ComboBoxItem Content="1 to 2"/>
+                    <ComboBoxItem Content="2 to 4"/>
+                    <ComboBoxItem Content="4 to 3"/>
+                    <ComboBoxItem Content="3 to 1"/>
+                    <ComboBoxItem Content="None"/>
+                </ComboBox>
+            </StackPanel>
             <Button Margin="90,10,0,0" Height="24" x:Name="delete" Width="100" Content="Delete command" Click="delete_Click"/>
         </StackPanel>
         <!--Initialize the Sfdiagram-->
         <syncfusion:SfDiagram Grid.Column="1" x:Name="diagram"
-                              Nodes="{Binding Nodes}">
+                              Nodes="{Binding Nodes}"
+                              Connectors="{Binding Connectors}">
         </syncfusion:SfDiagram>
     </Grid>
 </Window>
