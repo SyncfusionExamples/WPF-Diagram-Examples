@@ -1,28 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.757
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32317.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stencil Drag Drop Template", "Stencil Drag Drop Template\Stencil Drag Drop Template.csproj", "{B72BB3A1-BA36-4D34-91B3-54012DB78FCC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stencil Drag Drop Template", "Stencil Drag Drop Template.csproj", "{B72BB3A1-BA36-4D34-91B3-54012DB78FCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-		Release-Xml|Any CPU = Release-Xml|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B72BB3A1-BA36-4D34-91B3-54012DB78FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B72BB3A1-BA36-4D34-91B3-54012DB78FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B72BB3A1-BA36-4D34-91B3-54012DB78FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B72BB3A1-BA36-4D34-91B3-54012DB78FCC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B72BB3A1-BA36-4D34-91B3-54012DB78FCC}.Release-Xml|Any CPU.ActiveCfg = Release|Any CPU
-		{B72BB3A1-BA36-4D34-91B3-54012DB78FCC}.Release-Xml|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BE9EDAB5-252C-4419-813B-8F971B9B1303}
+		SolutionGuid = {F1815384-A010-4DDA-9EBD-E4D5FC9093AF}
 	EndGlobalSection
 EndGlobal
