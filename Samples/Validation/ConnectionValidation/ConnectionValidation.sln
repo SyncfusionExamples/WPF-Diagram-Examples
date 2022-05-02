@@ -1,28 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectionValidation", "ConnectionValidation\ConnectionValidation.csproj", "{75E79AD8-AE5C-40A7-8D24-EE79892121B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectionValidation", "ConnectionValidation.csproj", "{75E79AD8-AE5C-40A7-8D24-EE79892121B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-		Release-Xml|Any CPU = Release-Xml|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{75E79AD8-AE5C-40A7-8D24-EE79892121B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{75E79AD8-AE5C-40A7-8D24-EE79892121B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75E79AD8-AE5C-40A7-8D24-EE79892121B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75E79AD8-AE5C-40A7-8D24-EE79892121B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{75E79AD8-AE5C-40A7-8D24-EE79892121B4}.Release-Xml|Any CPU.ActiveCfg = Release|Any CPU
-		{75E79AD8-AE5C-40A7-8D24-EE79892121B4}.Release-Xml|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C96A9A03-F473-4F56-96F4-06F4F2301046}
+		SolutionGuid = {00EC02D4-3B49-471E-869E-E0E77F218474}
 	EndGlobalSection
 EndGlobal
