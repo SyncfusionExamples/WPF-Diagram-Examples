@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectorSegment", "ConnectorSegment.csproj", "{86232460-D8D8-4F9F-AD8F-1756230D3DE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syncfusion.SfDiagram.WPF_2015", "..\..\..\Source\ConnectorEndThumbShiftDrag\WPF\SfDiagram.WPF\Src\Syncfusion.SfDiagram.WPF_2015.csproj", "{E18CFD68-5392-4AFF-BF84-6C7EC1745AC0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,12 +18,6 @@ Global
 		{86232460-D8D8-4F9F-AD8F-1756230D3DE7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{86232460-D8D8-4F9F-AD8F-1756230D3DE7}.Release-Xml|Any CPU.ActiveCfg = Release|Any CPU
 		{86232460-D8D8-4F9F-AD8F-1756230D3DE7}.Release-Xml|Any CPU.Build.0 = Release|Any CPU
-		{E18CFD68-5392-4AFF-BF84-6C7EC1745AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E18CFD68-5392-4AFF-BF84-6C7EC1745AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E18CFD68-5392-4AFF-BF84-6C7EC1745AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E18CFD68-5392-4AFF-BF84-6C7EC1745AC0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E18CFD68-5392-4AFF-BF84-6C7EC1745AC0}.Release-Xml|Any CPU.ActiveCfg = Release-Xml|Any CPU
-		{E18CFD68-5392-4AFF-BF84-6C7EC1745AC0}.Release-Xml|Any CPU.Build.0 = Release-Xml|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
