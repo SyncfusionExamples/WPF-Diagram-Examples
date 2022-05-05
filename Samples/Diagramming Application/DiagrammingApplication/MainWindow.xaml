@@ -15,19 +15,6 @@
                 <ResourceDictionary Source="/Syncfusion.SfDiagram.WPF;component/Resources/BasicShapes.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <Style TargetType="syncfusion:Node">
-                <Setter Property="ShapeStyle">
-                    <Setter.Value>
-                        <Style TargetType="Path">
-                            <Setter Property="Fill" Value="#FF5B9BD5 "/>
-                            <Setter Property="Stroke" Value="#FFC8C8C8 "/>
-                            <Setter Property="StrokeThickness" Value="1"/>
-                            <Setter Property="Stretch" Value="Fill"/>
-                        </Style>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-
             <Style TargetType="syncfusion:Symbol">
                 <Setter Property="Height" Value="55"/>
                 <Setter Property="Width" Value="55"/>
@@ -38,6 +25,10 @@
         </ResourceDictionary>
 
     </syncfusion:RibbonWindow.Resources>
+
+    <syncfusion:RibbonWindow.DataContext>
+        <viewmodel:CustomDiagramViewModel/>
+    </syncfusion:RibbonWindow.DataContext>
 
     <Grid>
 
@@ -90,10 +81,11 @@
                               Grid.Row="1"
                               DefaultConnectorType="Line"
                               Constraints="Default,Undoable,AutomaticPortCreation"
-                              Tool="MultipleSelect">
-            <syncfusion:SfDiagram.Theme>
-                <syncfusion:OfficeTheme/>
-            </syncfusion:SfDiagram.Theme>
+                              Tool="MultipleSelect"
+                              Theme="{Binding Theme}"
+                              Nodes="{Binding Nodes}"
+                              Connectors="{Binding Connectors}"
+                              Groups="{Binding Groups}">
             <!--To change the scroll settings of diagram page -->
             <syncfusion:SfDiagram.ScrollSettings>
                 <syncfusion:ScrollSettings ScrollLimit="Diagram"/>
@@ -116,19 +108,6 @@
             <syncfusion:SfDiagram.VerticalRuler>
                 <syncfusion:Ruler Orientation="Vertical"/>
             </syncfusion:SfDiagram.VerticalRuler>
-
-            <!--Initialize Node-->
-            <syncfusion:SfDiagram.Nodes>
-                <syncfusion:NodeCollection/>
-            </syncfusion:SfDiagram.Nodes>
-
-            <!--Initialize Connector-->
-            <syncfusion:SfDiagram.Connectors>
-                <syncfusion:ConnectorCollection/>
-            </syncfusion:SfDiagram.Connectors>
-            <syncfusion:SfDiagram.Groups>
-                <syncfusion:GroupCollection />
-            </syncfusion:SfDiagram.Groups>
         </syncfusion:SfDiagram>
     </Grid>
 </syncfusion:RibbonWindow>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Syncfusion.UI.Xaml.Diagram;
 using Syncfusion.UI.Xaml.Diagram.Controls;
 using Syncfusion.UI.Xaml.Diagram.Stencil;
+using Syncfusion.UI.Xaml.Diagram.Theming;
 
 namespace DiagrammingApplication.ViewModel
 {
@@ -19,7 +20,7 @@ namespace DiagrammingApplication.ViewModel
             SymbolFilterProvider flowshapes = new SymbolFilterProvider { Content = "Flow Shapes", SymbolFilter = Filter };
             SymbolFilterProvider dataflowshapes = new SymbolFilterProvider { Content = "DataFlow Shapes", SymbolFilter = Filter };
             SymbolFilterProvider arrowshapes = new SymbolFilterProvider { Content = "Arrow Shapes", SymbolFilter = Filter };
-
+            Theme = new OfficeTheme();
             this.Symbolfilters.Add(basicshapes);
             this.Symbolfilters.Add(flowshapes);
             this.symbolfilters.Add(dataflowshapes);
