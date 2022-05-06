@@ -25,10 +25,10 @@ namespace LogicCircuitSimulation
             diagram.Nodes = new ObservableCollection<BaseGateViewModel>();
             diagram.Connectors = new ObservableCollection<WireViewModel>();
 
-            diagram.DefaultConnectorType = ConnectorType.Orthogonal;
+            diagram.DefaultConnectorType = ConnectorType.CubicBezier;
 
             //Adding quick command to the nodes.
-            (diagram.SelectedItems as SelectorViewModel).SelectorConstraints = SelectorConstraints.Tooltip | SelectorConstraints.QuickCommands;
+            (diagram.SelectedItems as SelectorViewModel).SelectorConstraints = SelectorConstraints.Tooltip;
 
             //Adding known types to the diagram
             diagram.KnownTypes = () => new List<Type>()
