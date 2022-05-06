@@ -1,0 +1,274 @@
+﻿<Window x:Class="LogicCircuitSimulation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:viewModel="clr-namespace:LogicCircuitSimulation.ViewModel"
+        xmlns:model="clr-namespace:LogicCircuitSimulation.Model"
+        xmlns:local="clr-namespace:LogicCircuitSimulation"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:Stencil="clr-namespace:Syncfusion.UI.Xaml.Diagram.Stencil;assembly=Syncfusion.SfDiagram.Wpf" d:DataContext="{d:DesignInstance Type=viewModel:StencilVM}"
+
+        mc:Ignorable="d"
+        Title="MainWindow"
+        WindowState="Maximized"
+        Height="450"
+        Width="800">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Dictionary which contains the inbuilt shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--style for NodePort-->
+            <Style TargetType="Syncfusion:NodePort">
+                <Setter Property="UnitHeight" Value="10"/>
+                <Setter Property="UnitWidth" Value="10"/>
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stretch" Value="Fill"/>
+                            <Setter Property="Stroke" Value="Black"/>
+                            <Setter Property="Fill" Value="Black"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="PortsNodeShapeStyle" TargetType="Path">
+                <Setter Property="Stretch" Value="Fill"/>
+                <Setter Property="Stroke" Value="Black"/>
+                <Setter Property="StrokeThickness" Value="2"/>
+                <Setter Property="Fill" Value="Gray"/>
+            </Style>
+
+            <!--Style for Symbol-->
+            <Style TargetType="Stencil:Symbol">
+                <Setter Property="Width" Value="75"/>
+                <Setter Property="Height" Value="80"/>
+                <Setter Property="Padding" Value="3" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="Margin" Value="4"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="8*" />
+        </Grid.ColumnDefinitions>
+       
+        <Grid Background="White">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Shapes" FontSize="18" FontWeight="SemiBold" Foreground="#2b579a" HorizontalAlignment="Left" Margin="10,5,0,5" Grid.Row="0" />
+            <Stencil:Stencil x:Name="stencil" Grid.Column="0" Grid.Row="1"
+                             ShowDisplayModeToggleButton="False"
+                             SymbolsDisplayMode="NamesUnderIcons"
+                             ExpandMode="All"
+                             BorderBrush="#dfdfdf"
+                             BorderThickness="1" >
+                <Stencil:Stencil.SymbolSource>
+                    <Syncfusion:SymbolCollection>
+                        <!--Define the switch node into stencil-->
+                        <viewModel:InputViewModel Name="Switch"
+                                                  Key="Inputs/Outputs"
+                                                  UnitWidth="70.5"
+                                                  UnitHeight="52" HitPadding="50">
+                            <viewModel:InputViewModel.Annotations>
+                                <Syncfusion:AnnotationCollection>
+                                    <Syncfusion:AnnotationEditorViewModel Margin="-10,40,0,0"/>
+                                </Syncfusion:AnnotationCollection>
+                            </viewModel:InputViewModel.Annotations>
+                            <Syncfusion:NodeViewModel.Ports>
+                                <Syncfusion:PortCollection>
+                                    <local:CustomNodePort Constraints="OutConnect" Shape="{StaticResource Ellipse}" NodeOffsetX="0.9" NodeOffsetY="0.5"/>
+                                </Syncfusion:PortCollection>
+                            </Syncfusion:NodeViewModel.Ports>
+                        </viewModel:InputViewModel>
+
+                        <!--Define the bulb node into stencil-->
+                        <viewModel:OutputViewModel Name="Light Bulb"
+                                                   Key="Inputs/Outputs"
+                                                   UnitWidth="38"
+                                                   UnitHeight="83">
+                            <viewModel:OutputViewModel.Annotations>
+                                <Syncfusion:AnnotationCollection>
+                                    <Syncfusion:AnnotationEditorViewModel Margin="0,50,0,0"/>
+                                </Syncfusion:AnnotationCollection>
+                            </viewModel:OutputViewModel.Annotations>
+                            <Syncfusion:NodeViewModel.Ports>
+                                <Syncfusion:PortCollection>
+                                    <local:CustomNodePort Constraints="InConnect" Shape="{StaticResource Ellipse}" NodeOffsetX="0.5" NodeOffsetY="0.93"/>
+                                </Syncfusion:PortCollection>
+                            </Syncfusion:NodeViewModel.Ports>
+                        </viewModel:OutputViewModel>
+
+                        <!--Combobox input-->
+                        <viewModel:TemplatedNodeViewModel Name="Input"
+                                                  Key="Inputs/Outputs"
+                                                  UnitHeight="50"
+                                                  UnitWidth="120"
+                                                          ContentTemplateId="Input"
+                                                  ContentTemplate="{StaticResource Input}" HitPadding="50">
+                            <viewModel:TemplatedNodeViewModel.Annotations>
+                                <Syncfusion:AnnotationCollection>
+                                    <Syncfusion:AnnotationEditorViewModel Margin="-10,35,0,0"/>
+                                </Syncfusion:AnnotationCollection>
+                            </viewModel:TemplatedNodeViewModel.Annotations>
+                            <Syncfusion:NodeViewModel.Ports>
+                                <Syncfusion:PortCollection>
+                                    <local:CustomNodePort Constraints="OutConnect"
+                                                                  Shape="{StaticResource Ellipse}"
+                                                                  NodeOffsetX="0.875" NodeOffsetY="0.5"/>
+                                </Syncfusion:PortCollection>
+                            </Syncfusion:NodeViewModel.Ports>
+                            <viewModel:TemplatedNodeViewModel.CustomContent>
+                                <model:ComboBoxInputContent>
+                                    <model:ComboBoxInputContent.InputItemSource>
+                                        <sys:Int32>0</sys:Int32>
+                                        <sys:Int32>1</sys:Int32>
+                                    </model:ComboBoxInputContent.InputItemSource>
+                                </model:ComboBoxInputContent>
+                            </viewModel:TemplatedNodeViewModel.CustomContent>
+                        </viewModel:TemplatedNodeViewModel>
+
+                        <!--Define the Timer node into stencil-->
+                        <viewModel:TemplatedNodeViewModel Name="Timer"
+                                                   Key="Gates"
+                                                   UnitWidth="120"
+                                                          ContentTemplateId="Timer"
+                                                   UnitHeight="56" HitPadding="50"
+                                                   ContentTemplate="{StaticResource Timer}">
+                            <viewModel:TemplatedNodeViewModel.CustomContent>
+                                <model:TimerContent>
+                                    <model:TimerContent.TimerValue>
+                                        <sys:Int32>2000</sys:Int32>
+                                    </model:TimerContent.TimerValue>
+                                </model:TimerContent>
+                            </viewModel:TemplatedNodeViewModel.CustomContent>
+                            <viewModel:TemplatedNodeViewModel.Annotations>
+                                <Syncfusion:AnnotationCollection>
+                                    <Syncfusion:AnnotationEditorViewModel Margin="-10,30,0,0"/>
+                                </Syncfusion:AnnotationCollection>
+                            </viewModel:TemplatedNodeViewModel.Annotations>
+                            <Syncfusion:NodeViewModel.Ports>
+                                <Syncfusion:PortCollection>
+                                    <local:CustomNodePort Constraints="InConnect" PortVisibility="Visible" 
+                                                          Shape="{StaticResource Ellipse}" NodeOffsetX="0.13" NodeOffsetY="0.5"/>
+                                    <local:CustomNodePort Constraints="OutConnect" PortVisibility="Visible" 
+                                                          Shape="{StaticResource Ellipse}" NodeOffsetX="0.87" NodeOffsetY="0.5"/>
+                                </Syncfusion:PortCollection>
+                            </Syncfusion:NodeViewModel.Ports>
+                        </viewModel:TemplatedNodeViewModel>
+
+                        <!--Define the AND gate node into stencil-->
+                        <viewModel:AndGateViewModel Name="AND Gate"
+                                                    Key="Gates"
+                                                    UnitWidth="89"
+                                                    UnitHeight="32">
+                            <viewModel:AndGateViewModel.Annotations>
+                                <Syncfusion:AnnotationCollection>
+                                    <Syncfusion:AnnotationEditorViewModel Margin="-10,35,0,0"/>
+                                </Syncfusion:AnnotationCollection>
+                            </viewModel:AndGateViewModel.Annotations>
+                            <Syncfusion:NodeViewModel.Ports>
+                                <Syncfusion:PortCollection>
+                                    <local:CustomNodePort  Constraints="InConnect" Shape="{StaticResource Ellipse}" NodeOffsetX="0.07" NodeOffsetY="0.28"/>
+                                    <local:CustomNodePort Constraints="InConnect" Shape="{StaticResource Ellipse}" NodeOffsetX="0.07" NodeOffsetY="0.75"/>
+                                    <local:CustomNodePort Constraints="OutConnect" Shape="{StaticResource Ellipse}" NodeOffsetX="0.93" NodeOffsetY="0.49"/>
+                                </Syncfusion:PortCollection>
+                            </Syncfusion:NodeViewModel.Ports>
+                        </viewModel:AndGateViewModel>
+
+                        <!--Define the OR gate node into stencil-->
+                        <viewModel:OrGateViewModel Name="OR Gate"
+                                                    Key="Gates"
+                                                    UnitWidth="89"
+                                                    UnitHeight="32">
+                            <viewModel:OrGateViewModel.Annotations>
+                                <Syncfusion:AnnotationCollection>
+                                    <Syncfusion:AnnotationEditorViewModel Margin="-10,35,0,0"/>
+                                </Syncfusion:AnnotationCollection>
+                            </viewModel:OrGateViewModel.Annotations>
+                            <Syncfusion:NodeViewModel.Ports>
+                                <Syncfusion:PortCollection>
+                                    <local:CustomNodePort Constraints="InConnect" Shape="{StaticResource Ellipse}" NodeOffsetX="0.07" NodeOffsetY="0.28"/>
+                                    <local:CustomNodePort Constraints="InConnect" Shape="{StaticResource Ellipse}" NodeOffsetX="0.07" NodeOffsetY="0.75"/>
+                                    <local:CustomNodePort Constraints="OutConnect" Shape="{StaticResource Ellipse}" NodeOffsetX="0.93" NodeOffsetY="0.49"/>
+                                </Syncfusion:PortCollection>
+                            </Syncfusion:NodeViewModel.Ports>
+                        </viewModel:OrGateViewModel>
+
+                        <viewModel:PortsGateViewModel Key="Gates" x:Name="PortsNode"
+                            UnitHeight="100" UnitWidth="100" Shape="{StaticResource Rectangle}" ShapeStyle="{StaticResource PortsNodeShapeStyle}">
+                        </viewModel:PortsGateViewModel>
+                        
+                    </Syncfusion:SymbolCollection>
+                </Stencil:Stencil.SymbolSource>
+
+                <Stencil:Stencil.SymbolGroups>
+                    <Stencil:SymbolGroups>
+                        <!--Separate groups based on the key-->
+                        <Stencil:SymbolGroupProvider MappingName="Key" />
+                    </Stencil:SymbolGroups>
+                </Stencil:Stencil.SymbolGroups>
+            </Stencil:Stencil>
+        </Grid>
+
+        <!--Initializes Diagram-->
+        <local:CustomDiagram x:Name="diagram" Grid.Column="1"  DefaultConnectorType="Orthogonal" PortVisibility="Visible">
+            <Syncfusion:SfDiagram.SnapSettings>
+                <Syncfusion:SnapSettings SnapConstraints="All"/>
+            </Syncfusion:SfDiagram.SnapSettings>
+            <Syncfusion:SfDiagram.HorizontalRuler>
+                <Syncfusion:Ruler Orientation="Horizontal"/>
+            </Syncfusion:SfDiagram.HorizontalRuler>
+            <Syncfusion:SfDiagram.VerticalRuler>
+                <Syncfusion:Ruler Orientation="Vertical"/>
+            </Syncfusion:SfDiagram.VerticalRuler>
+        </local:CustomDiagram>
+        
+        <Button x:Name="LoadButton" Content="Load" Click="LoadButton_Click" Margin="103,0,51,0" VerticalAlignment="Top">
+        </Button>
+        <Button x:Name="SaveButton" Content="Save" Click="SaveButton_Click" Margin="154,0,0,0" VerticalAlignment="Top">
+        </Button>
+
+        <!--Input grid panel to assign number of input pins and output pins.-->
+        <Grid x:Name="InputBox" Visibility="Collapsed" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Grid Background="Black" Opacity="0.5"/>
+            <Border
+                MinWidth="250"
+                Background="Orange" 
+                BorderBrush="Black" 
+                BorderThickness="1" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center">
+                <StackPanel>
+                    <TextBlock Margin="5" Text="Input Box:" FontWeight="Bold" FontFamily="Cambria" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Input count:"/>
+                        <TextBox x:Name="inputPortCount" Width="50" />
+                    </StackPanel>
+                    <StackPanel Margin="0,0,10,0" Orientation="Horizontal">
+                        <TextBlock Text="Output count:"/>
+                        <TextBox x:Name="outputPortCount" Width="50" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="YesButton" Margin="5" Content="Yes" Click="YesButton_Click" Background="{x:Null}" />
+                        <Button x:Name="NoButton" Margin="5" Content="No" Click="NoButton_Click" Background="{x:Null}" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

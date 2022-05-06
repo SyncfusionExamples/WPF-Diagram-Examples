@@ -1,0 +1,116 @@
+﻿<Application x:Class="LogicCircuitSimulation.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:LogicCircuitSimulation"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+<!--Wire Style-->
+        <Style TargetType="Path" x:Key="DefaultConnectorStyle">
+            <Setter Property="Stroke" Value="Black"></Setter>
+            <Setter Property="StrokeThickness" Value="1"></Setter>
+        </Style>
+        <Style TargetType="Path" x:Key="ActiveConnectorStyle">
+            <Setter Property="Stroke" Value="DodgerBlue"></Setter>
+            <Setter Property="StrokeThickness" Value="3"></Setter>
+        </Style>
+
+<!--Light Bulb-->
+        <DataTemplate x:Key="LightBulbOff">
+            <Grid x:Name="Light_Bulb_Large" HorizontalAlignment="Left" Height="83.101" VerticalAlignment="Top" Width="38">
+                <Path Data="M729.25,151.0391C729.25,140.4171,720.051,131.9451,709.185,133.1541C700.745,134.0941,694.013,141.0451,693.313,149.5081C692.746,156.3731,696.036,162.5131,701.25,166.0041L701.25,177.0391C701.25,182.5621,705.728,187.0391,711.25,187.0391C716.772,187.0391,721.25,182.5621,721.25,177.0391L721.25,166.0041C726.073,162.7741,729.25,157.2791,729.25,151.0391z" Fill="White" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Margin="0,0,0,27.101"/>
+                <Path Data="F1M712.1006,186.1401L710.3996,186.1401C705.8986,186.1401,702.2496,182.4921,702.2496,177.9911L702.2496,174.1401L720.2496,174.1401L720.2496,177.9911C720.2496,182.4921,716.6016,186.1401,712.1006,186.1401" Fill="Black" Height="12" Stretch="Fill" Margin="10,0,10,29" VerticalAlignment="Bottom"/>
+                <Path Data="M711.25,186.1401L711.25,203.1401" Height="19" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Margin="18,0,18,11" VerticalAlignment="Bottom"/>
+                <Path Data="M711.25,214.6401C707.937,214.6401,705.25,211.9541,705.25,208.6401C705.25,205.3271,707.937,202.6401,711.25,202.6401C714.563,202.6401,717.25,205.3271,717.25,208.6401C717.25,211.9541,714.563,214.6401,711.25,214.6401z" Fill="Black" Height="13" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Margin="12.5,0" VerticalAlignment="Bottom"/>
+                <Path Data="M702.1719,152.3384C702.1719,152.3384,704.7499,159.6404,708.0139,152.3384C708.0139,152.3384,710.7499,159.6404,714.1099,152.3384C714.1099,152.3384,716.7499,159.6404,719.9499,152.3384" Height="4.245" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="Black" StrokeThickness="1" StrokeLineJoin="Round" Margin="9.422,19.799,9.8,0" VerticalAlignment="Top"/>
+                <Path Data="M719.9502,152.6714L715.7442,174.6404L706.2522,174.5134L702.1722,152.6714" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="Black" StrokeThickness="1" StrokeLineJoin="Round" Margin="9.422,20.132,9.8,40"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="LightBulbOn">
+            <Grid x:Name="Light_Bulb_Large" HorizontalAlignment="Left" Height="83.101" VerticalAlignment="Top" Width="38">
+                <Path Data="M729.25,151.0391C729.25,140.4171,720.051,131.9451,709.185,133.1541C700.745,134.0941,694.013,141.0451,693.313,149.5081C692.746,156.3731,696.036,162.5131,701.25,166.0041L701.25,177.0391C701.25,182.5621,705.728,187.0391,711.25,187.0391C716.772,187.0391,721.25,182.5621,721.25,177.0391L721.25,166.0041C726.073,162.7741,729.25,157.2791,729.25,151.0391z"
+                          Fill="DodgerBlue" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Margin="0,0,0,27.101"/>
+                <Path Data="F1M712.1006,186.1401L710.3996,186.1401C705.8986,186.1401,702.2496,182.4921,702.2496,177.9911L702.2496,174.1401L720.2496,174.1401L720.2496,177.9911C720.2496,182.4921,716.6016,186.1401,712.1006,186.1401" Fill="Black" Height="12" Stretch="Fill" Margin="10,0,10,29" VerticalAlignment="Bottom"/>
+                <Path Data="M711.25,186.1401L711.25,203.1401" Height="19" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Margin="18,0,18,11" VerticalAlignment="Bottom"/>
+                <Path Data="M711.25,214.6401C707.937,214.6401,705.25,211.9541,705.25,208.6401C705.25,205.3271,707.937,202.6401,711.25,202.6401C714.563,202.6401,717.25,205.3271,717.25,208.6401C717.25,211.9541,714.563,214.6401,711.25,214.6401z" Fill="White" Height="13" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Margin="12.5,0" VerticalAlignment="Bottom"/>
+                <Path Data="M702.1719,152.3384C702.1719,152.3384,704.7499,159.6404,708.0139,152.3384C708.0139,152.3384,710.7499,159.6404,714.1099,152.3384C714.1099,152.3384,716.7499,159.6404,719.9499,152.3384" Height="4.245" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="Black" StrokeThickness="1" StrokeLineJoin="Round" Margin="9.422,19.799,9.8,0" VerticalAlignment="Top"/>
+                <Path Data="M719.9502,152.6714L715.7442,174.6404L706.2522,174.5134L702.1722,152.6714" StrokeStartLineCap="Round" Stretch="Fill" StrokeEndLineCap="Round" Stroke="Black" StrokeThickness="1" StrokeLineJoin="Round" Margin="9.422,20.132,9.8,40"/>
+            </Grid>
+        </DataTemplate>
+
+<!--Toggle Switch-->
+        <DataTemplate x:Key="ToggleSwitchOff">
+            <Grid x:Name="Big_switch_icon" HorizontalAlignment="Left" Height="52" VerticalAlignment="Top" Width="70.5">
+                <Path Data="M148,190L108,190L108,140L148,140z" Fill="White" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Margin="0,0,28.5,0"/>
+                <Path Data="M141.5,183.5L113.5,183.5L113.5,147.5L141.5,147.5z" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="29" HorizontalAlignment="Left" Margin="6,8,0,7"/>
+                <Path Data="M137.5645,165.5L117.4355,165.5L115.5005,153.5L128.1915,153.5L139.5005,153.5L137.5645,165.5z" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeLineJoin="Round" Width="25" HorizontalAlignment="Left" Margin="8.001,14,0,25"/>
+                <Path Data="M139.5,153.5L127.362,153.5L115.5,153.5L116.5,150.5L138.5,150.5L139.5,153.5z" Height="4" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeLineJoin="Round" Width="25" HorizontalAlignment="Left" Margin="8,11,0,0" VerticalAlignment="Top"/>
+                <Path Data="M117.5,165.5L137.5,165.5L137.5,180.5L117.5,180.5z" Height="16" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="21" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom"/>
+                <Path Data="M147,165L164,165" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="19" HorizontalAlignment="Right" Margin="0,25,12.5,25"/>
+                <Path Data="M177,165.25C177,168.702,174.202,171.5,170.75,171.5C167.298,171.5,164.5,168.702,164.5,165.25C164.5,161.798,167.298,159,170.75,159C174.202,159,177,161.798,177,165.25z" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" Fill="Black" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="13.5" HorizontalAlignment="Right" Margin="0,19.5,0,19"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="ToggleSwitchOn">
+            <Grid x:Name="Big_switch_icon" HorizontalAlignment="Left" Height="52" VerticalAlignment="Top" Width="70.5">
+                <Path Data="M148,190L108,190L108,140L148,140z" Fill="White" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Margin="0,0,28.5,0"/>
+                <Path Data="M141.5,183.5L113.5,183.5L113.5,147.5L141.5,147.5z"  StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="29" HorizontalAlignment="Left" Margin="6,8,0,7"/>
+                <Path Data="M137.5645,165.5L117.4355,165.5L115.5005,153.5L128.1915,153.5L139.5005,153.5L137.5645,165.5z" Fill="DodgerBlue" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeLineJoin="Round" Width="25" HorizontalAlignment="Left" Margin="8.001,14,0,25"/>
+                <Path Data="M139.5,153.5L127.362,153.5L115.5,153.5L116.5,150.5L138.5,150.5L139.5,153.5z" Fill="DodgerBlue" Height="4" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeLineJoin="Round" Width="25" HorizontalAlignment="Left" Margin="8,11,0,0" VerticalAlignment="Top"/>
+                <Path Data="M117.5,165.5L137.5,165.5L137.5,180.5L117.5,180.5z" Height="16" Fill="DodgerBlue" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="21" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom"/>
+                <Path Data="M147,165L164,165" StrokeStartLineCap="Flat"  Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="19" HorizontalAlignment="Right" Margin="0,25,12.5,25"/>
+                <Path Data="M177,165.25C177,168.702,174.202,171.5,170.75,171.5C167.298,171.5,164.5,168.702,164.5,165.25C164.5,161.798,167.298,159,170.75,159C174.202,159,177,161.798,177,165.25z" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black"
+                           StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="13.5" HorizontalAlignment="Right" Margin="0,19.5,0,19"/>
+            </Grid>
+        </DataTemplate>
+
+<!--AND Gate-->
+        <DataTemplate x:Key="AndLogicGate">
+            <Grid x:Name="And_Gate_Large" HorizontalAlignment="Right" Height="32" VerticalAlignment="Top" Width="89">
+                <Path Data="M1189.25,186.1401L1189.25,156.1401L1204.25,156.1401C1212.534,156.1401,1219.25,162.8561,1219.25,171.1401L1219.25,171.1401C1219.25,179.4251,1212.534,186.1401,1204.25,186.1401L1189.25,186.1401z" Fill="White" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Margin="28,0,29,0"/>
+                <Path Data="M1172.25,164.1401L1189.25,164.1401" Height="2" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="19" HorizontalAlignment="Left" Margin="11,8,0,0" VerticalAlignment="Top"/>
+                <Path Data="M1218.25,171.1401L1237.25,171.1401" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="21" HorizontalAlignment="Right" Margin="0,15,11,15"/>
+                <Path Data="M1160.75,164.1401C1160.75,160.8271,1163.437,158.1401,1166.75,158.1401C1170.063,158.1401,1172.75,160.8271,1172.75,164.1401C1172.75,167.4541,1170.063,170.1401,1166.75,170.1401C1163.437,170.1401,1160.75,167.4541,1160.75,164.1401z" Fill="Black" Height="13" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="13" HorizontalAlignment="Left" Margin="0,2.5,0,0" VerticalAlignment="Top"/>
+                <Path Data="M1172.25,179.1401L1189.25,179.1401" Height="2" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="19" HorizontalAlignment="Left" Margin="11,0,0,7" VerticalAlignment="Bottom"/>
+                <Path Data="M1160.75,179.1401C1160.75,175.8271,1163.437,173.1401,1166.75,173.1401C1170.063,173.1401,1172.75,175.8271,1172.75,179.1401C1172.75,182.4541,1170.063,185.1401,1166.75,185.1401C1163.437,185.1401,1160.75,182.4541,1160.75,179.1401z" Fill="Black" Height="13" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="13" HorizontalAlignment="Left" Margin="0,0,0,1.5" VerticalAlignment="Bottom"/>
+                <Path Data="M1236.75,171.1401C1236.75,167.8271,1239.437,165.1401,1242.75,165.1401C1246.063,165.1401,1248.75,167.8271,1248.75,171.1401C1248.75,174.4541,1246.063,177.1401,1242.75,177.1401C1239.437,177.1401,1236.75,174.4541,1236.75,171.1401z" Fill="Black" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="13" HorizontalAlignment="Right" Margin="0,9.5"/>
+            </Grid>
+        </DataTemplate>
+
+<!--OR Gate-->
+        <DataTemplate x:Key="OrLogicGate">
+            <Grid x:Name="Or_gate_Large" HorizontalAlignment="Right" Height="32.025" VerticalAlignment="Top" Width="89">
+                <Path Data="M1419.8779,185.1831L1422.1319,178.4201C1423.9139,173.0731,1423.9139,167.2921,1422.1319,161.9461L1419.8779,155.1831L1430.1859,155.1581C1435.4589,155.1441,1440.6189,156.7741,1444.8789,159.8851C1448.8469,162.7821,1452.8779,166.6061,1452.8779,170.1831C1452.8779,174.2281,1448.8389,178.0261,1444.8679,180.7831C1440.7409,183.6471,1435.8219,185.1441,1430.7989,185.1561L1419.8779,185.1831z" Fill="White" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Margin="26,0,28,0"/>
+                <Path Data="M1405.25,163.1401L1422.25,163.1401" Height="2" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="19" HorizontalAlignment="Left" Margin="11.372,7.982,0,0" VerticalAlignment="Top"/>
+                <Path Data="M1453.25,170.1401L1470.25,170.1401" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="19" HorizontalAlignment="Right" Margin="0,14.982,10.628,15.043"/>
+                <Path Data="M1393.3779,163.1831C1393.3779,159.8691,1396.0639,157.1831,1399.3779,157.1831C1402.6909,157.1831,1405.3779,159.8691,1405.3779,163.1831C1405.3779,166.4961,1402.6909,169.1831,1399.3779,169.1831C1396.0639,169.1831,1393.3779,166.4961,1393.3779,163.1831z" Fill="Black" Height="13" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="13" HorizontalAlignment="Left" Margin="0,2.525,0,0" VerticalAlignment="Top"/>
+                <Path Data="M1405.25,178.1401L1422.25,178.1401" Height="2" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="2" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="19" HorizontalAlignment="Left" Margin="11.372,0,0,7.043" VerticalAlignment="Bottom"/>
+                <Path Data="M1393.3779,178.1831C1393.3779,174.8691,1396.0639,172.1831,1399.3779,172.1831C1402.6909,172.1831,1405.3779,174.8691,1405.3779,178.1831C1405.3779,181.4961,1402.6909,184.1831,1399.3779,184.1831C1396.0639,184.1831,1393.3779,181.4961,1393.3779,178.1831z" Fill="Black" Height="13" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="13" HorizontalAlignment="Left" Margin="0,0,0,1.5" VerticalAlignment="Bottom"/>
+                <Path Data="M1469.3779,170.1831C1469.3779,166.8691,1472.0639,164.1831,1475.3779,164.1831C1478.6909,164.1831,1481.3779,166.8691,1481.3779,170.1831C1481.3779,173.4961,1478.6909,176.1831,1475.3779,176.1831C1472.0639,176.1831,1469.3779,173.4961,1469.3779,170.1831z" Fill="Black" StrokeStartLineCap="Flat" Stretch="Fill" StrokeEndLineCap="Flat" Stroke="Black" StrokeThickness="1" StrokeMiterLimit="10" StrokeLineJoin="Miter" Width="13" HorizontalAlignment="Right" Margin="0,9.525,0,9.5"/>
+            </Grid>
+        </DataTemplate>
+
+        <!--Timer node-->
+        <DataTemplate x:Key="Timer">
+            <Grid Background="White">
+            <StackPanel Height="36" Orientation="Horizontal" Width="100">
+                <Ellipse Width="10" Height="10" Fill="Black" Stroke="Black"/>
+                <TextBox BorderBrush="Black" Text="{Binding TimerValue, Mode=TwoWay}" MouseLeftButtonDown="TextBox_MouseLeftButtonDown" MouseMove="TextBox_MouseMove" MouseLeftButtonUp="TextBox_MouseLeftButtonUp" IsReadOnly="False" Width="80" Height="36" MaxLines="1" MaxLength="5" AcceptsReturn="False" AcceptsTab="False"/>
+                <Ellipse Width="10" Height="10" Fill="Black" Stroke="Black"/>
+            </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+
+        <!--Data template for combobox input node-->
+        <DataTemplate x:Key="Input">
+            <Grid Background="White">
+                <StackPanel Height="30" Width="100" Orientation="Horizontal">
+                    <ComboBox ItemsSource="{Binding InputItemSource}"  Height="30" Width="90" SelectedItem="{Binding InputSelectedItem, Mode=TwoWay}"></ComboBox>
+                    <Ellipse Width="10" Height="10" Fill="Black" Stroke="Black"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        
+
+    </Application.Resources>
+</Application>
