@@ -27,13 +27,15 @@ namespace Swimlane.ViewModel
             };
 
             SelectedItems = new SelectorViewModel();
+            //Adding ItemAdded and NodeChanged commands to diagram.
             ItemAddedCommand = new DelegateCommand(OnItemAdded);
+            NodeChangedCommand = new DelegateCommand(OnNodeChangedCommand);
             HorizontalRuler = new Ruler() { Orientation = Orientation.Horizontal };
             VerticalRuler = new Ruler() { Orientation = Orientation.Vertical };
             InitializeDiagram();
-            NodeChangedCommand = new DelegateCommand(OnNodeChangedCommand);
         }
 
+        //Method to execute ItemAddedCommand.
         private void OnItemAdded(object obj)
         {
             var args = obj as ItemAddedEventArgs;
@@ -41,6 +43,7 @@ namespace Swimlane.ViewModel
             {
                 if(args.Item != null && args.Item is CustomNodeVM)
                 {
+                    //Setting Node’s parent lane bounds region value to BoundaryConstraint property.
                     (args.Item as CustomNodeVM).ParentLane = args.OriginalSource as LaneViewModel;
                 }
             }
@@ -97,11 +100,15 @@ namespace Swimlane.ViewModel
     }
 
     /// <summary>
-    /// Represents a class to add custom proerties to add parent lane property to the node.
+    /// Represents a class to add custom properties to add parent lane property to the node.
     /// </summary>
     public class CustomNodeVM : NodeViewModel
     {
         private LaneViewModel parentLane = null;
+
+        /// <summary>
+        /// Gets or sets the Parent lane of the Node.
+        /// </summary>
         public LaneViewModel ParentLane
         {
             get
