@@ -1,0 +1,45 @@
+﻿<Window x:Class="SelectedItems_SfDiagram.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:SelectedItems_SfDiagram"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BindingStyle.xaml" />
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--To apply Style for NodeViewModel-->
+            <Style TargetType="syncfusion:Node">
+                <Setter Property="Shape" Value="{StaticResource Rectangle}"/>
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="DarkCyan"/>
+                            <Setter Property="Stroke" Value="Black"/>
+                            <Setter Property="StrokeThickness" Value="2"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.DataContext>
+        <local:CustomVM></local:CustomVM>
+    </Window.DataContext>
+
+    <Grid>
+        <!--Initialize the SfDiagram and binding custom view model SelectedItems property to SfDiagram's SelectedItems-->
+        <syncfusion:SfDiagram SelectedItems="{Binding SelectedItems}">
+            <syncfusion:SfDiagram.Nodes>
+                <syncfusion:NodeCollection>
+                    <syncfusion:NodeViewModel UnitHeight="50" UnitWidth="50" OffsetX="100" OffsetY="100"/>
+                </syncfusion:NodeCollection>
+            </syncfusion:SfDiagram.Nodes>
+        </syncfusion:SfDiagram>
+    </Grid>
+</Window>
