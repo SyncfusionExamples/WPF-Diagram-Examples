@@ -1,0 +1,74 @@
+﻿<Window x:Class="SimplePortCreation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimplePortCreation"
+        mc:Ignorable="d"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--Style for Node-->
+            <Style TargetType="Syncfusion:Node">
+                <Setter Property="Shape" Value="{StaticResource Rectangle}"/>
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="#FF5B9BD5" />
+                            <Setter Property="Stretch" Value="Fill" />
+                            <Setter Property="Stroke" Value="#FFEDF1F6" />
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <!--Binding TooTtip property to ToolTipContent custom property-->
+                <Setter Property="ToolTip" Value="{Binding ToolTipContent}"/>
+            </Style>
+
+            <!--style for NodePort-->
+            <Style TargetType="Syncfusion:NodePort">
+                <Setter Property="Shape" Value="{StaticResource FivePointStar}"/>
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stretch"
+                                Value="Fill" />
+                            <Setter Property="Fill"
+                                Value="Yellow" />
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <!--Binding TooTtip property to ToolTipContent custom property-->
+                <Setter Property="ToolTip" Value="{Binding ToolTipContent}"/>
+            </Style>
+
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <!--Initialize the SfDiagram-->
+        <Syncfusion:SfDiagram PortVisibility="Visible">
+            <Syncfusion:SfDiagram.Nodes>
+                <Syncfusion:NodeCollection>
+                    <!--Initialization of the Custom Node and adding tool tip content to the node.-->
+                    <local:CustomNodeVM UnitHeight="100"
+                                        UnitWidth="100"
+                                        OffsetX="400"
+                                        OffsetY="300"
+                                        ToolTipContent="It is a Rectangle shaped Node.">
+                        <!--Initialization of PortCollection-->
+                        <Syncfusion:NodeViewModel.Ports>
+                            <Syncfusion:PortCollection>
+                                <!--Initialization of custom NodePort and adding tool tip content to the node port.-->
+                                <local:CustomNodePortVM x:Name="port" ToolTipContent="It is a star shaped NodePort."/>
+                            </Syncfusion:PortCollection>
+                        </Syncfusion:NodeViewModel.Ports>
+                    </local:CustomNodeVM>
+                </Syncfusion:NodeCollection>
+            </Syncfusion:SfDiagram.Nodes>
+        </Syncfusion:SfDiagram>
+    </Grid>
+</Window>
