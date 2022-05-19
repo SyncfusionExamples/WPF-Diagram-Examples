@@ -52,7 +52,7 @@
         <syncfusion:DockingManager x:Name="dockingManager">
             <ContentControl x:Name="TreeView" syncfusion:DockingManager.DesiredWidthInDockedMode="250" syncfusion:DockingManager.Header="SfTreeView">
                 <ContentControl.Content>
-                    <syncfusion:SfTreeView x:Name="sftreeview" AllowDragging="True" ItemDragStarting="Sftreeview_ItemDragStarting">
+                    <syncfusion:SfTreeView x:Name="sftreeview" AllowDragging="True">
                         <syncfusion:SfTreeView.Nodes>
                             <Engine:TreeViewNode Content="Level 1" IsExpanded="True">
                                 <Engine:TreeViewNode.ChildNodes>

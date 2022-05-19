@@ -35,23 +35,43 @@ namespace Different_Objects_from_SfTreeView_To_Diagram
 
             ContentControl DiagramControl = new ContentControl();
 
+            //Creating SfDiagram instance with nods and connectors collection.
             SfDiagram diagram = new SfDiagram()
             {
                 Nodes = new NodeCollection(),
                 Connectors = new ConnectorCollection(),
             };
 
+            //Adding DragEnter event.
             (diagram.Info as IGraphInfo).DragEnter += MainWindow_DragEnter;
+
+            //Adding ItemDrop event.
+            (diagram.Info as IGraphInfo).ItemDropEvent += MainWindow_ItemDropEvent;
 
             DiagramControl.Content = diagram;
 
             DockingManager.SetHeader(DiagramControl, "Diagram Control");
             DockingManager.SetState(DiagramControl, DockState.Document);
-            
+
             dockingManager.Children.Add(DiagramControl);
 
+            //Adding ItemDragStarting event. 
+            sftreeview.ItemDragStarting += Sftreeview_ItemDragStarting;
         }
 
+        //Method to execute ItemDropEvent.
+        private void MainWindow_ItemDropEvent(object sender, ItemDropEventArgs args)
+        {
+            if (args.Source is INode)
+            {
+                INode item = args.Source as INode;
+                //Getting position of dropped node.
+                double offsetX = item.OffsetX;
+                double offsetY = item.OffsetY;
+            }
+        }
+
+        //Method to execute ItemDragStarting event.
         private void Sftreeview_ItemDragStarting(object sender, TreeViewItemDragStartingEventArgs e)
         {
             DragObject<TreeViewNode> dataObject = new DragObject<TreeViewNode>(e.DraggingNodes.First() as TreeViewNode);
@@ -61,7 +81,7 @@ namespace Different_Objects_from_SfTreeView_To_Diagram
             e.Cancel = true;
         }
 
-       
+        //Method to execute DragEnter event.
         private void MainWindow_DragEnter(object sender, ItemDropEventArgs args)
         {
             // args.Source have the data which is dragged for drop.
@@ -69,8 +89,8 @@ namespace Different_Objects_from_SfTreeView_To_Diagram
             {
                 object dataObject = (args.Source as DataObject).GetData(typeof(DragObject<TreeViewNode>));
                 TreeViewNode treeViewItem = (dataObject as DragObject<TreeViewNode>).Source;
-                // Based on the TreeView Item you can add different types of Node.              
 
+                // Based on the TreeView Item you can add different types of Node.              
                 if (treeViewItem.Level.ToString() == "0")
                 {
                     args.Source = new NodeViewModel()
@@ -111,6 +131,3 @@ namespace Different_Objects_from_SfTreeView_To_Diagram
         }
     }
 }
-
-
-
