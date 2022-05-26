@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NodeCreation.Properties
+namespace ShowSelectedItemsPreview.Properties
 {
 
 

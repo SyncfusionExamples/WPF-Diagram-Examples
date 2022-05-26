@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NodeCreation
+namespace ShowSelectedItemsPreview
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
