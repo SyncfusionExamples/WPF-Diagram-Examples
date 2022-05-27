@@ -1,0 +1,348 @@
+﻿<Window x:Class="Class_Diagram.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-CarNospace:Class_Diagram"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:Stencil="clr-namespace:Syncfusion.UI.Xaml.Diagram.Stencil;assembly=Syncfusion.SfDiagram.Wpf"
+        xmlns:ViewModel="clr-namespace:Class_Diagram.ViewModel"
+        mc:Ignorable="d"
+        Title="UML Diagram" WindowState="Maximized">
+    <Window.Resources>
+        <Style TargetType="Syncfusion:Symbol" BasedOn="{StaticResource SyncfusionSymbolStyle}">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="100" />
+        </Style>
+    </Window.Resources>
+    <Window.DataContext>
+        <ViewModel:DiagramVM/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Syncfusion:SfDiagramRibbon Grid.Row="0" DataContext="{Binding ElementName=Diagram}"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Background="White">
+                
+                <!--Adding stencil into window-->
+                <Stencil:Stencil x:Name="stencil" Title="Shapes"
+                             Grid.Column="0" 
+                             SymbolFilterDisplayMode="List"                                 
+                             SymbolsDisplayMode="NamesUnderIcons"
+                             ExpandMode="ZeroOrMore"
+                             SymbolFilters="{Binding Symbolfilters}"
+                             SelectedFilter="{Binding Selectedfilter}">
+                    <Stencil:Stencil.Resources>
+                        <Style TargetType="Syncfusion:Node">
+                            <Setter Property="ShapeStyle">
+                                <Setter.Value>
+                                    <Style TargetType="Path">
+                                        <Setter Property="Fill" Value="#6BA5D7"/>
+                                        <Setter Property="Stretch" Value="Fill"/>
+                                        <Setter Property="Stroke" Value="White"/>
+                                    </Style>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Stencil:Stencil.Resources>
+                    <Stencil:Stencil.DataContext>
+                        <ViewModel:StencilVM/>
+                    </Stencil:Stencil.DataContext>
+
+                    <Stencil:Stencil.SymbolSource>
+                        <!--Define the SymbolCollection-->
+                        <Syncfusion:SymbolCollection>
+                            <!--Creates theUML class name Node-->
+                            <Syncfusion:GroupViewModel Key="UML Class" Name="Class">
+                                <!--Creates the Groupable Nodes-->
+                                <Syncfusion:GroupViewModel.Nodes>
+                                    <Syncfusion:NodeCollection>
+                                        <Syncfusion:NodeViewModel UnitHeight="40"
+                                                              OffsetX="500"
+                                                              OffsetY="200"
+                                                              UnitWidth="150"
+                                                              Shape="{StaticResource Rectangle}">
+                                            <!--Initialize the annotations-->
+                                            <Syncfusion:NodeViewModel.Annotations>
+                                                <!--Initialize the AnnotationCollection-->
+                                                <Syncfusion:AnnotationCollection>
+                                                    <!--Initialize the Annotation editor view model-->
+                                                    <Syncfusion:AnnotationEditorViewModel Content="Class Name"/>
+                                                </Syncfusion:AnnotationCollection>
+                                            </Syncfusion:NodeViewModel.Annotations>
+                                        </Syncfusion:NodeViewModel>
+                                        <Syncfusion:NodeViewModel UnitHeight="20"
+                                                              OffsetX="500"
+                                                              OffsetY="230"
+                                                              UnitWidth="150"
+                                                              Shape="{StaticResource Rectangle}">
+                                            <!--Initialize the annotations-->
+                                            <Syncfusion:NodeViewModel.Annotations>
+                                                <!--Initialize the AnnotationCollection-->
+                                                <Syncfusion:AnnotationCollection>
+                                                    <!--Initialize the Annotation editor view model-->
+                                                    <Syncfusion:AnnotationEditorViewModel Content="-memberName"/>
+                                                </Syncfusion:AnnotationCollection>
+                                            </Syncfusion:NodeViewModel.Annotations>
+                                        </Syncfusion:NodeViewModel>
+
+                                        <Syncfusion:NodeViewModel UnitHeight="20"
+                                                              OffsetX="500"
+                                                              OffsetY="250"
+                                                              UnitWidth="150"
+                                                              Shape="{StaticResource Rectangle}">
+                                            <!--Initialize the annotations-->
+                                            <Syncfusion:NodeViewModel.Annotations>
+                                                <!--Initialize the AnnotationCollection-->
+                                                <Syncfusion:AnnotationCollection>
+                                                    <!--Initialize the Annotation editor view model-->
+                                                    <Syncfusion:AnnotationEditorViewModel Content="-memberName"/>
+                                                </Syncfusion:AnnotationCollection>
+                                            </Syncfusion:NodeViewModel.Annotations>
+                                        </Syncfusion:NodeViewModel>
+                                    </Syncfusion:NodeCollection>
+                                </Syncfusion:GroupViewModel.Nodes>
+                            </Syncfusion:GroupViewModel>
+
+                            <!--Creates the UML Interface Node-->
+                            <Syncfusion:GroupViewModel Key="UML Class" Name="Interface">
+                                <!--Creates the Groupable Nodes-->
+                                <Syncfusion:GroupViewModel.Nodes>
+                                    <Syncfusion:NodeCollection>
+                                        <Syncfusion:NodeViewModel UnitHeight="40"
+                                                              OffsetX="500"
+                                                              OffsetY="200"
+                                                              UnitWidth="150"
+                                                              Shape="{StaticResource Rectangle}">
+                                            <!--Initialize the annotations-->
+                                            <Syncfusion:NodeViewModel.Annotations>
+                                                <!--Initialize the AnnotationCollection-->
+                                                <Syncfusion:AnnotationCollection>
+                                                    <!--Initialize the Annotation editor view model-->
+                                                    <Syncfusion:AnnotationEditorViewModel Content="Interface Name"/>
+                                                </Syncfusion:AnnotationCollection>
+                                            </Syncfusion:NodeViewModel.Annotations>
+                                        </Syncfusion:NodeViewModel>
+                                        <Syncfusion:NodeViewModel UnitHeight="20"
+                                                              OffsetX="500"
+                                                              OffsetY="230"
+                                                              UnitWidth="150"
+                                                              Shape="{StaticResource Rectangle}">
+                                            <!--Initialize the annotations-->
+                                            <Syncfusion:NodeViewModel.Annotations>
+                                                <!--Initialize the AnnotationCollection-->
+                                                <Syncfusion:AnnotationCollection>
+                                                    <!--Initialize the Annotation editor view model-->
+                                                    <Syncfusion:AnnotationEditorViewModel Content="-memberName"/>
+                                                </Syncfusion:AnnotationCollection>
+                                            </Syncfusion:NodeViewModel.Annotations>
+                                        </Syncfusion:NodeViewModel>
+                                        <Syncfusion:NodeViewModel ID="carInfo"
+                                                              UnitHeight="20"
+                                                              OffsetX="500"
+                                                              OffsetY="250"
+                                                              UnitWidth="150"
+                                                              Shape="{StaticResource Rectangle}">
+                                            <!--Initialize the annotations-->
+                                            <Syncfusion:NodeViewModel.Annotations>
+                                                <!--Initialize the AnnotationCollection-->
+                                                <Syncfusion:AnnotationCollection>
+                                                    <!--Initialize the Annotation editor view model-->
+                                                    <Syncfusion:AnnotationEditorViewModel Content="-memberName"/>
+                                                </Syncfusion:AnnotationCollection>
+                                            </Syncfusion:NodeViewModel.Annotations>
+                                        </Syncfusion:NodeViewModel>
+                                    </Syncfusion:NodeCollection>
+                                </Syncfusion:GroupViewModel.Nodes>
+                            </Syncfusion:GroupViewModel>
+
+                            <!--Creates the UML enumaration Node-->
+                            <Syncfusion:GroupViewModel Key="UML Class" Name="Enumuration">
+                                <!--Creates the Groupable Nodes-->
+                                <Syncfusion:GroupViewModel.Nodes>
+                                    <Syncfusion:NodeCollection>
+                                        <Syncfusion:NodeViewModel UnitHeight="40"
+                                                              OffsetX="500"
+                                                              OffsetY="200"
+                                                              UnitWidth="150"
+                                                              Shape="{StaticResource Rectangle}">
+                                            <!--Initialize the annotations-->
+                                            <Syncfusion:NodeViewModel.Annotations>
+                                                <!--Initialize the AnnotationCollection-->
+                                                <Syncfusion:AnnotationCollection>
+                                                    <!--Initialize the Annotation editor view model-->
+                                                    <Syncfusion:AnnotationEditorViewModel Content="Enum Name"/>
+                                                </Syncfusion:AnnotationCollection>
+                                            </Syncfusion:NodeViewModel.Annotations>
+                                        </Syncfusion:NodeViewModel>
+                                        <Syncfusion:NodeViewModel UnitHeight="20"
+                                                              OffsetX="500"
+                                                              OffsetY="230"
+                                                              UnitWidth="150"
+                                                              Shape="{StaticResource Rectangle}">
+                                            <!--Initialize the annotations-->
+                                            <Syncfusion:NodeViewModel.Annotations>
+                                                <!--Initialize the AnnotationCollection-->
+                                                <Syncfusion:AnnotationCollection>
+                                                    <!--Initialize the Annotation editor view model-->
+                                                    <Syncfusion:AnnotationEditorViewModel Content="-memberName"/>
+                                                </Syncfusion:AnnotationCollection>
+                                            </Syncfusion:NodeViewModel.Annotations>
+                                        </Syncfusion:NodeViewModel>
+                                        <Syncfusion:NodeViewModel ID="carInfo"
+                                                              UnitHeight="20"
+                                                              OffsetX="500"
+                                                              OffsetY="250"
+                                                              UnitWidth="150"
+                                                              Shape="{StaticResource Rectangle}">
+                                            <!--Initialize the annotations-->
+                                            <Syncfusion:NodeViewModel.Annotations>
+                                                <!--Initialize the AnnotationCollection-->
+                                                <Syncfusion:AnnotationCollection>
+                                                    <!--Initialize the Annotation editor view model-->
+                                                    <Syncfusion:AnnotationEditorViewModel Content="-memberName"/>
+                                                </Syncfusion:AnnotationCollection>
+                                            </Syncfusion:NodeViewModel.Annotations>
+                                        </Syncfusion:NodeViewModel>
+                                    </Syncfusion:NodeCollection>
+                                </Syncfusion:GroupViewModel.Nodes>
+                            </Syncfusion:GroupViewModel>
+
+                            <!--Creates the UML separation Node-->
+                            <Syncfusion:NodeViewModel Name="Member" Key="UML Class"
+                                                              UnitHeight="20"
+                                                              OffsetX="500"
+                                                              OffsetY="200"
+                                                              UnitWidth="150"
+                                                              Shape="{StaticResource Rectangle}">
+                                <!--Initialize the annotations-->
+                                <Syncfusion:NodeViewModel.Annotations>
+                                    <!--Initialize the AnnotationCollection-->
+                                    <Syncfusion:AnnotationCollection>
+                                        <!--Initialize the Annotation editor view model-->
+                                        <Syncfusion:AnnotationEditorViewModel Content="-member"/>
+                                    </Syncfusion:AnnotationCollection>
+                                </Syncfusion:NodeViewModel.Annotations>
+                            </Syncfusion:NodeViewModel>
+
+                            <!--Creates the UML Note Node-->
+                            <Syncfusion:NodeViewModel Name="Note" Key="UML Class"
+                                                              UnitHeight="40"
+                                                              OffsetX="500"
+                                                              OffsetY="200"
+                                                              UnitWidth="150"
+                                                              Shape="{StaticResource Note}">
+                            </Syncfusion:NodeViewModel>
+
+
+                            <!--Creates the UML inherit Node-->
+                            <Syncfusion:ConnectorViewModel Name="Inheritance" Key="UML Class" 
+                                                           SourcePoint="0,0" 
+                                                           TargetPoint="70,70" 
+                                                           ConnectorGeometryStyle="{StaticResource ConnectorGeometryPathStyle}"
+                                                           TargetDecorator="{StaticResource ClosedSharp}"
+                                                           TargetDecoratorStyle="{StaticResource DecoratorHollowStyle}">
+                            </Syncfusion:ConnectorViewModel>
+
+
+                            <!--Creates the UML interface realization  Node-->
+                            <Syncfusion:ConnectorViewModel Name="Interface Realization" Key="UML Class" 
+                                                           SourcePoint="0,0" 
+                                                           TargetPoint="70,70" 
+                                                           ConnectorGeometryStyle="{StaticResource ConnectorGeometryStrokeDaskPathStyle}"
+                                                           TargetDecorator="{StaticResource ClosedSharp}"
+                                                           TargetDecoratorStyle="{StaticResource DecoratorHollowStyle}">
+                            </Syncfusion:ConnectorViewModel>
+                            
+                            <!--Creates the UML Association-->
+                            <Syncfusion:ConnectorViewModel Name="Association" Key="UML Class" 
+                                                           SourcePoint="0,0" 
+                                                           TargetPoint="70,70" 
+                                                           ConnectorGeometryStyle="{StaticResource ConnectorGeometryPathStyle}"
+                                                           TargetDecorator="">
+                            </Syncfusion:ConnectorViewModel>
+
+                            <!--Creates the UML directed Association-->
+                            <Syncfusion:ConnectorViewModel Name="Directed Association" Key="UML Class" 
+                                                           SourcePoint="0,0" 
+                                                           TargetPoint="70,70" 
+                                                           ConnectorGeometryStyle="{StaticResource ConnectorGeometryPathStyle}"
+                                                           TargetDecorator="{StaticResource OpenSharp}"
+                                                           TargetDecoratorStyle="{StaticResource DecoratorHollowStyle}">
+                            </Syncfusion:ConnectorViewModel>
+
+                            <!--Creates the UML aggregation Association-->
+                            <Syncfusion:ConnectorViewModel Name="Aggregation" Key="UML Class" 
+                                                           SourcePoint="0,0" 
+                                                           TargetPoint="70,70" 
+                                                           ConnectorGeometryStyle="{StaticResource ConnectorGeometryPathStyle}"
+                                                           SourceDecorator="{StaticResource Diamond}"
+                                                           SourceDecoratorStyle="{StaticResource DecoratorHollowStyle}"
+                                                           TargetDecorator="">
+                            </Syncfusion:ConnectorViewModel>
+
+                            <!--Creates the UML depedency -->
+                            <Syncfusion:ConnectorViewModel Name="Depedency" Key="UML Class" 
+                                                           SourcePoint="0,0" 
+                                                           TargetPoint="70,70" 
+                                                           ConnectorGeometryStyle="{StaticResource ConnectorGeometryStrokeDaskPathStyle}"
+                                                           TargetDecorator="{StaticResource OpenSharp}"
+                                                           TargetDecoratorStyle="{StaticResource DecoratorHollowStyle}">
+                            </Syncfusion:ConnectorViewModel>
+
+                            <!--Creates the UML composition -->
+                            <Syncfusion:ConnectorViewModel Name="Composition" Key="UML Class" 
+                                                           SourcePoint="0,0" 
+                                                           TargetPoint="70,70" 
+                                                           ConnectorGeometryStyle="{StaticResource ConnectorGeometryPathStyle}"
+                                                           SourceDecorator="{StaticResource Diamond}"
+                                                           SourceDecoratorStyle="{StaticResource DecoratorFillStyle}"
+                                                           TargetDecorator="">
+                            </Syncfusion:ConnectorViewModel>
+
+                        </Syncfusion:SymbolCollection>
+                    </Stencil:Stencil.SymbolSource>
+                    <Syncfusion:Stencil.Categories>
+                        <Syncfusion:StencilCategoryCollection>
+                            <!--Specify the basic shapes category with title and resource key-->
+                            <Syncfusion:StencilCategory Title="DataFlow Shapes" Keys="{StaticResource DataFlowShapes}"/>
+                            <Syncfusion:StencilCategory Title="UMLActivity Shapes" Keys="{StaticResource UMLActivity}"/>
+                            <Syncfusion:StencilCategory Title="UMLUseCase Shapes" Keys="{StaticResource UMLUseCase}"/>
+                            <Syncfusion:StencilCategory Title="UMLRelationship Shapes" Keys="{StaticResource UMLRelationship}"/>
+                        </Syncfusion:StencilCategoryCollection>
+                    </Syncfusion:Stencil.Categories>
+                    <Stencil:Stencil.SymbolGroups>
+                        <Stencil:SymbolGroups>
+                            <!--Separate groups based on the key-->
+                            <Stencil:SymbolGroupProvider MappingName="Key" />
+                        </Stencil:SymbolGroups>
+                    </Stencil:Stencil.SymbolGroups>
+                </Stencil:Stencil>
+            </Grid>
+            <Syncfusion:SfDiagram Grid.Column="1" x:Name="Diagram" 
+                                  DefaultConnectorType="{Binding DefaultConnectorType}"
+                                  ItemAddedCommand="{Binding ItemAddedCommand}"
+                                  NodeChangedCommand="{Binding NodeChangedCommand}"
+                                  SelectorChangedCommand="{Binding SelectorChangedCommand}"
+                                  ItemDeletingCommand="{Binding ItemDeletingCommand}"
+                                  SelectedItems="{Binding SelectedItems}"
+                                  DropCommand="{Binding DropCommand}"
+                                  Nodes="{Binding Nodes}"
+                                  Groups="{Binding Groups}"
+                                  Connectors="{Binding Connectors}"
+                                  HorizontalRuler="{Binding HorizontalRuler}"
+                                  VerticalRuler="{Binding VerticalRuler}"
+                                  Theme="{Binding Theme}"
+                                  SnapSettings="{Binding SnapSettings}"/>
+        </Grid>
+       
+    </Grid>
+</Window>
