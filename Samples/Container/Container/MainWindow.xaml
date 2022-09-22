@@ -14,6 +14,22 @@
     </Window.DataContext>
     <Window.Resources>
 
+<Style TargetType="syncfusion:ContainerHeader">
+    <Setter Property="ShapeStyle">
+        <Setter.Value>
+            <Style TargetType="Path">
+                <Setter Property="Fill" Value="CornflowerBlue"/>
+                <Setter Property="Stretch" Value="Fill"/>
+                <Setter Property="Data">
+                    <Setter.Value>
+                        <RectangleGeometry Rect="10,10,10,10"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Setter.Value>
+    </Setter>
+</Style>
+
         <DataTemplate x:Key="TitleTemplate">
             <TextBlock x:Name="HeaderText" Text="{Binding}" FontSize="15" FontWeight="SemiBold"  Foreground="#2b579a" >
             </TextBlock>

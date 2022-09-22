@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Container.ViewModel
 {
@@ -28,10 +29,10 @@ namespace Container.ViewModel
 
             Theme = new SimpleTheme();
 
-            NodeViewModel Node6 = CreateNode(650, 150, "Rectangle", "Process");
-            NodeViewModel Node7 = CreateNode(850, 150, "Rectangle", "Process");
+            NodeViewModel Node6 = CreateNode(400, 300, "Rectangle", "Process");
+            NodeViewModel Node7 = CreateNode(600, 300, "Rectangle", "Process");
 
-            CreateContainer(Node6, Node7, "Container", 340, 100, 750, 150);
+            CreateContainer(Node6, Node7, "Container", 500, 300, 500, 300);
 
             //Initialize the item adde command to container style.
             ItemAddedCommand = new DelegateCommand(OnItemAddedCommandExecute);
@@ -73,11 +74,15 @@ namespace Container.ViewModel
                     node1,
                     node2
                 },
-                Annotations = new AnnotationCollection()
+                Header = new ContainerHeaderViewModel()
                 {
-                    new AnnotationEditorViewModel()
+                    UnitHeight = 40,
+                    Annotation = new AnnotationEditorViewModel()
                     {
-                        Content = content,
+                        Content = "Container Title",
+                        FontSize = 18,
+                        FontWeight = FontWeights.Bold,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#343434"))
                     },
                 },
             };
