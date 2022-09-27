@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31727.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainerExpandCollapse", "ContainerExpandCollapse.csproj", "{F0E1D463-A4B1-4BAA-A485-F43D3AE24AB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0E1D463-A4B1-4BAA-A485-F43D3AE24AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0E1D463-A4B1-4BAA-A485-F43D3AE24AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0E1D463-A4B1-4BAA-A485-F43D3AE24AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0E1D463-A4B1-4BAA-A485-F43D3AE24AB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E352E1D-D8FF-4BF6-8F68-9C93D6CDC917}
+	EndGlobalSection
+EndGlobal
