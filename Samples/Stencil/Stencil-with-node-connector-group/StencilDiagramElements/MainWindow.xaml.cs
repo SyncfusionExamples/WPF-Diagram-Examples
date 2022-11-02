@@ -26,10 +26,4 @@ namespace StencilDiagramElements
             InitializeComponent();
         }
     }
-
-    //Collection of Symbols
-    public class SymbolCollection : ObservableCollection<object>
-    {
-
-    }
 }

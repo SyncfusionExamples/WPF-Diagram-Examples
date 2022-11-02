@@ -158,7 +158,7 @@
                              BorderBrush="#dfdfdf"
                              BorderThickness="1">
                 <Stencil:Stencil.SymbolSource>
-                    <local:SymbolCollection>
+                    <Syncfusion:SymbolCollection>
                         <!--Define the DiagramElement- Node-->
                         <Syncfusion:NodeViewModel x:Name="node"
                                                   Key="Nodes"
@@ -201,8 +201,7 @@
                                 </Syncfusion:ConnectorCollection>
                             </Syncfusion:GroupViewModel.Connectors>
                         </Syncfusion:GroupViewModel>
-
-                    </local:SymbolCollection>
+                    </Syncfusion:SymbolCollection>
                 </Stencil:Stencil.SymbolSource>
                 <Stencil:Stencil.SymbolGroups>
                     <Stencil:SymbolGroups>

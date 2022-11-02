@@ -143,8 +143,6 @@
                                Text="User" />
                 </StackPanel>
             </DataTemplate>
-
-
         </ResourceDictionary>
     </Window.Resources>
 
@@ -173,13 +171,13 @@
                              BorderBrush="#dfdfdf"
                              BorderThickness="1">
                 <Stencil:Stencil.SymbolSource>
-                    <local:SymbolCollection>
+                    <Syncfusion:SymbolCollection>
                         <Syncfusion:SymbolViewModel Symbol="User" Key="Image"
                                                     SymbolTemplate="{StaticResource symboltemplate}" />
                         <Syncfusion:SymbolViewModel Symbol="Diamond" Key="Template"
                                                     SymbolTemplate="{StaticResource Diamond}" />
 
-                    </local:SymbolCollection>
+                    </Syncfusion:SymbolCollection>
                 </Stencil:Stencil.SymbolSource>
                 <Stencil:Stencil.SymbolGroups>
                     <Stencil:SymbolGroups>
