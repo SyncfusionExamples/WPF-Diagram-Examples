@@ -1,0 +1,69 @@
+﻿<Window x:Class="HiddenExport.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:HiddenExport"
+        mc:Ignorable="d" WindowState="Maximized"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="ShapeStyle" TargetType="Path">
+                <Setter Property="Fill" Value="#FF5B9BD5"/>
+                <Setter Property="Stretch" Value="Fill"/>
+                <Setter Property="Stroke" Value="#FFEDF1F6"/>
+            </Style>
+
+            <DataTemplate x:Key="ContentTemplateforNode">
+                <Border Width="50" Height="40" BorderThickness="1" Background="CornflowerBlue" 
+                    CornerRadius="6" BorderBrush="#5e5e5e" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="{Binding Name}"/>
+                </Border>
+            </DataTemplate>
+
+            <!--Style for Node-->
+            <Style TargetType="syncfusion:Node">
+                <Setter Property="ContentTemplate" Value="{StaticResource ContentTemplateforNode}"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid x:Name="HiddenPane" Grid.Row="0">
+            <!--Created a diagram control 100 x 100 with Virtualize constraints for faster loading-->
+            <syncfusion:SfDiagram x:Name="diagram" Width="100" Height="100" Constraints="Default,Virtualize,Outline">
+                <syncfusion:SfDiagram.Nodes>
+                    <syncfusion:NodeCollection/>
+                </syncfusion:SfDiagram.Nodes>
+                <syncfusion:SfDiagram.Connectors>
+                    <syncfusion:ConnectorCollection/>
+                </syncfusion:SfDiagram.Connectors>
+            </syncfusion:SfDiagram>
+        </Grid>
+        <Grid x:Name="VisiableArea" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Horizontal" Background="LightSteelBlue">
+                    <TextBlock Text="Choose a DataSource" Margin="5,10"/>
+                    <ComboBox x:Name="cmbDataSource" Margin="5,0" Height="30" Width="150" SelectionChanged="cmbDataSource_SelectionChanged">
+                        <ComboBoxItem>DataSource 1</ComboBoxItem>
+                        <ComboBoxItem>DataSource 2</ComboBoxItem>
+                    </ComboBox>
+                    <Button Margin="20,0" Height="30" Width="100" Content="Export as PNG" Click="Button_Click"/>
+                    <TextBlock x:Name="outputAddress" Margin="5, 10"/>
+                </StackPanel>
+            </Grid>
+            
+            <Grid Grid.Row="1">
+                <TextBlock Text="Add a sample Textblock to show that anything can be added here and diagram will be in the hidden state alone." HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
