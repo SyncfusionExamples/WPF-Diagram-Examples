@@ -69,7 +69,7 @@ namespace ContextMenuIcon
                     Stretch= Stretch.Fill,
                 }
             };
-            SampleDiagram.Menu.MenuItems.Add(boldmenu);
+            //SampleDiagram.Menu.MenuItems.Add(boldmenu);
 
         }
     }
