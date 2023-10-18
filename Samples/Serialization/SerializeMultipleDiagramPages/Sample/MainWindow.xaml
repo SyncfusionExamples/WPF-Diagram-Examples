@@ -1,0 +1,77 @@
+﻿<Window x:Class="SerializeMultipleDiagramPages.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SerializeMultipleDiagramPages"
+        mc:Ignorable="d"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        WindowState="Maximized"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <ResourceDictionary>
+            <!--Resource Dictionary which contains predefined shapes for Node-->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--Style for Nodes-->
+            <Style TargetType="syncfusion:Node">
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="#6BA5D7"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                            <Setter Property="Stroke" Value="White"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <syncfusion:TabControlExt x:Name="tab" Grid.Column="0"/>
+
+        <Grid Grid.Column="1">
+            <StackPanel>
+                <Button x:Name="newPage" Height="20" Width="100" Content="Add Page" Click="newPage_Click" Margin="10"/>
+                <Button x:Name="removePage" Height="20" Width="100" Content="Remove Page" Click="removePage_Click" Margin="10"/>
+                <Button x:Name="save" Height="20" Width="100" Content="Save" Click="save_Click" Margin="10"/>
+                <Button x:Name="load" Height="20" Width="100" Content="Load" Click="load_Click" Margin="10"/>
+                <Button x:Name="savePackage" Height="20" Width="100" Content="Save as package" Click="savePackage_Click" Margin="10"/>
+                <Button x:Name="loadPackage" Height="20" Width="100" Content="Load Package" Click="loadPackage_Click" Margin="10"/>
+
+                <syncfusion:Stencil Grid.Column="0"
+                                        ShowDisplayModeToggleButton="False"
+                                        ShowSearchTextBox="False"
+                                        SymbolsDisplayMode="NamesUnderIcons">
+                    <syncfusion:Stencil.SymbolSource>
+                        <syncfusion:SymbolCollection>
+                            <syncfusion:NodeViewModel Key="Node"
+                                                               Name="Rectangle"
+                                                               Shape="{StaticResource Rectangle}"
+                                                               UnitHeight="70"
+                                                               UnitWidth="100" />
+                            <syncfusion:NodeViewModel Key="Node"
+                                                              Name="Ellipse"
+                                                              UnitHeight="70"
+                                                              Shape="{StaticResource Ellipse}"
+                                                              UnitWidth="100"/>
+                        </syncfusion:SymbolCollection>
+                    </syncfusion:Stencil.SymbolSource>
+                    <syncfusion:Stencil.SymbolGroups>
+                        <syncfusion:SymbolGroups>
+                            <syncfusion:SymbolGroupProvider MappingName="Key" />
+                        </syncfusion:SymbolGroups>
+                    </syncfusion:Stencil.SymbolGroups>
+                </syncfusion:Stencil>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
