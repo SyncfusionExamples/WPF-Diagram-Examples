@@ -6,31 +6,45 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BindingStyle.xaml" />
                 <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
+            <!--Data template for button node-->
             <DataTemplate x:Key="custombuttontemplate">
                 <Border Background="Transparent" BorderBrush="Gray" BorderThickness="0.5" >
                     <Button Content="{Binding Text}"  IsHitTestVisible="{Binding IsHitTestVisible}"></Button>
                 </Border>
             </DataTemplate>
+
+            <!--Data template for combo box node-->
             <DataTemplate x:Key="customcomboboxtemplate">
-                <ComboBox x:Name="cboBox1" ItemsSource="{Binding Items}" IsHitTestVisible="{Binding IsHitTestVisible}"  SelectedIndex="0"  DisplayMemberPath="Name" MinWidth="120">
-                </ComboBox>
+                <Border Background="Transparent" BorderBrush="Gray" Width="110" Height="60" BorderThickness="0.5" >
+                    <ComboBox x:Name="cboBox1" ItemsSource="{Binding Items}" IsHitTestVisible="{Binding IsHitTestVisible}"  SelectedIndex="0"  DisplayMemberPath="Name" Width="100" Height="50">
+                    </ComboBox>
+                </Border>
             </DataTemplate>
-            <DataTemplate x:Key="customDataGridtemplate">
-                <DataGrid ItemsSource="{Binding Employees}" IsHitTestVisible="{Binding IsHitTestVisible}" />
-            </DataTemplate>
+
+            <!--Data template for text box node-->
             <DataTemplate x:Key="customTextBoxtemplate">
-                <TextBox Text="{Binding Text}" IsHitTestVisible="{Binding IsHitTestVisible}"></TextBox>
+                <Border Background="Transparent" BorderBrush="Gray" BorderThickness="0.5" >
+                    <TextBox Text="{Binding Text}" IsHitTestVisible="{Binding IsHitTestVisible}"></TextBox>
+                </Border>
             </DataTemplate>
+
+            <!--Data template for text block node-->
             <DataTemplate x:Key="customtextBlocktemplate">
-                <TextBlock Text="{Binding Text}" IsHitTestVisible="{Binding IsHitTestVisible}" Background="LightGray"></TextBlock>
+                <Border Background="Transparent" BorderBrush="Gray" BorderThickness="0.5" >
+                    <TextBlock Text="{Binding Text}" IsHitTestVisible="{Binding IsHitTestVisible}" Background="LightGray"></TextBlock>
+                </Border>
             </DataTemplate>
+
+            <!--Data template for ellipse node-->
             <DataTemplate x:Key="customEllipsetemplate">
-                <Ellipse   Stretch="Fill" Fill="Gray"></Ellipse>
+                <Border Background="Transparent" BorderBrush="Transparent" BorderThickness="0.5" >
+                    <Ellipse Stretch="Fill" Fill="Gray"></Ellipse>
+                </Border>
             </DataTemplate>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
