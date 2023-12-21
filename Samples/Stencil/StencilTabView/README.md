@@ -1,7 +1,8 @@
-# Flip command sample
-This sample demonstrate the usage of Flip commands in SfDiagam control.
+# Stencil with DiagramElements sample
+This repository contains sample which shows the tab view of the stencil.
 
-__*Documentation*__: https://help.syncfusion.com/wpf/diagram/commands/flip
+__*Documentation*__: https://help.syncfusion.com/wpf/diagram/stencil/symbolgroup/appearance
+
 ## Project pre-requisites
 To run this application, you need to have the below two in your system
 
