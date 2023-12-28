@@ -7,7 +7,7 @@
         xmlns:stencil="clr-namespace:Syncfusion.UI.Xaml.Diagram.Stencil;assembly=Syncfusion.SfDiagram.Wpf"
         xmlns:local="clr-namespace:Xaml_Designer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="UsersControlsInStencil" Height="350" Width="525">
     <Window.Resources>
 
         <Style TargetType="Path"  x:Key="shapestyle">
@@ -17,15 +17,6 @@
             <Setter Property="StrokeThickness" Value="2"/>
         </Style>
 
-        <Style TargetType="syncfusion:Node" BasedOn="{StaticResource NodeBindingStyle}">
-            <Setter Property="Background" Value="Transparent"/>
-        </Style>
-        <Style TargetType="syncfusion:Connector" BasedOn="{StaticResource ConnectorBindingStyle}">
-
-        </Style>
-        <Style TargetType="syncfusion:AnnotationEditor" BasedOn="{StaticResource AnnotationEditorBindingStyle}">
-
-        </Style>
         <Style TargetType="stencil:Symbol">
             <Setter Property="Width" Value="50" />
             <Setter Property="Height" Value="50" />
@@ -96,12 +87,22 @@
                 </stencil:Stencil.SelectedFilter>
                 <stencil:Stencil.SymbolSource>
                     <local:SymbolCollection>
-                        <local:CustomNode ContenTempName="custombuttontemplate"  UnitHeight="50"   Key="Controls" UnitWidth="70" ContentTemplate="{StaticResource custombuttontemplate}">
+                        <!--Button node-->
+                        <local:CustomNode ContentTemplatKey="custombuttontemplate"  UnitHeight="50" 
+                                          Key="Controls" UnitWidth="70"
+                                          ContentTemplate="{StaticResource custombuttontemplate}">
                             <local:CustomNode.Content>
-                                <local:CustomButton Text="Button" ></local:CustomButton>
+                                <local:NodeContent Text="Button" ></local:NodeContent>
                             </local:CustomNode.Content>
+                            <local:CustomNode.CustomContent>
+                                <local:NodeContent Text="Button" ></local:NodeContent>
+                            </local:CustomNode.CustomContent>
                         </local:CustomNode>
-                        <local:CustomNode ContenTempName="customcomboboxtemplate" UnitHeight="50"   Key="Controls" UnitWidth="100" ContentTemplate="{StaticResource customcomboboxtemplate}">
+
+                        <!--Combobox node-->
+                        <local:CustomNode ContentTemplatKey="customcomboboxtemplate" UnitHeight="60" 
+                                      Key="Controls" UnitWidth="110"
+                                      ContentTemplate="{StaticResource customcomboboxtemplate}">
                             <local:CustomNode.Content>
                                 <local:CustomComboBox>
                                     <local:CustomComboBox.Items>
@@ -109,37 +110,43 @@
                                             <local:Person Name="combobox1"></local:Person>
                                             <local:Person Name="combobox2"></local:Person>
                                         </local:ComboboxItems>
-
                                     </local:CustomComboBox.Items>
                                 </local:CustomComboBox>
                             </local:CustomNode.Content>
+                            <local:CustomNode.CustomComboBoxContent>
+                                <local:CustomComboBox>
+                                    <local:CustomComboBox.Items>
+                                        <local:ComboboxItems>
+                                            <local:Person Name="combobox1"></local:Person>
+                                            <local:Person Name="combobox2"></local:Person>
+                                        </local:ComboboxItems>
+                                    </local:CustomComboBox.Items>
+                                </local:CustomComboBox>
+                            </local:CustomNode.CustomComboBoxContent>
                         </local:CustomNode>
-                        <local:CustomNode ContenTempName="customDataGridtemplate"  UnitHeight="70"   Key="Controls" UnitWidth="200" ContentTemplate="{StaticResource customDataGridtemplate}">
+
+                        <!--TextBox node-->
+                        <local:CustomNode ContentTemplatKey="customTextBoxtemplate"  UnitHeight="50"   Key="Controls" UnitWidth="70" ContentTemplate="{StaticResource customTextBoxtemplate}">
                             <local:CustomNode.Content>
-                                <local:CustomDataGrid >
-                                    <local:CustomDataGrid.Employees>
-                                        <local:EmployeeCollection>
-                                            <local:Employee Id="1" Name="Emp1" PhoneNumber="123456"></local:Employee>
-                                            <local:Employee Id="2" Name="Emp2" PhoneNumber="123456"></local:Employee>
-                                        </local:EmployeeCollection>
-                                    </local:CustomDataGrid.Employees>
-                                </local:CustomDataGrid>
+                                <local:NodeContent Text="TextBox"></local:NodeContent>
                             </local:CustomNode.Content>
+                            <local:CustomNode.CustomContent>
+                                <local:NodeContent Text="TextBox"></local:NodeContent>
+                            </local:CustomNode.CustomContent>
                         </local:CustomNode>
-                        <local:CustomNode ContenTempName="customTextBoxtemplate"  UnitHeight="50"   Key="Controls" UnitWidth="70" ContentTemplate="{StaticResource customTextBoxtemplate}">
+
+                        <!--TextBlock node-->
+                        <local:CustomNode ContentTemplatKey="customtextBlocktemplate"  UnitHeight="50"   Key="Controls" UnitWidth="70" ContentTemplate="{StaticResource customtextBlocktemplate}">
                             <local:CustomNode.Content>
-                                <local:CustomTextBox Text="TextBox"></local:CustomTextBox>
+                                <local:NodeContent Text="textBlock"></local:NodeContent>
                             </local:CustomNode.Content>
+                            <local:CustomNode.CustomContent>
+                                <local:NodeContent Text="textBlock"></local:NodeContent>
+                            </local:CustomNode.CustomContent>
                         </local:CustomNode>
-                        <local:CustomNode ContenTempName="customtextBlocktemplate"  UnitHeight="50"   Key="Controls" UnitWidth="70" ContentTemplate="{StaticResource customtextBlocktemplate}">
-                            <local:CustomNode.Content>
-                                <local:CustomTextBlock Text="textBlock"></local:CustomTextBlock>
-                            </local:CustomNode.Content>
-                        </local:CustomNode>
-                        <local:CustomNode ContenTempName="customEllipsetemplate"  UnitHeight="50"   Key="Controls" UnitWidth="70" ContentTemplate="{StaticResource customEllipsetemplate}">
-                            <local:CustomNode.Content>
-                                <local:CustomEllipse Text="Ellipse"></local:CustomEllipse>
-                            </local:CustomNode.Content>
+
+                        <!--Ellipse node-->
+                        <local:CustomNode ContentTemplatKey="customEllipsetemplate"  UnitHeight="50"   Key="Controls" UnitWidth="70" ContentTemplate="{StaticResource customEllipsetemplate}">
                         </local:CustomNode>
                     </local:SymbolCollection>
                 </stencil:Stencil.SymbolSource>
@@ -156,7 +163,6 @@
             <!--Initializes Connector-->
             <syncfusion:SfDiagram.Connectors>
                 <syncfusion:ConnectorCollection>
-
                 </syncfusion:ConnectorCollection>
             </syncfusion:SfDiagram.Connectors>
             <syncfusion:SfDiagram.Groups>

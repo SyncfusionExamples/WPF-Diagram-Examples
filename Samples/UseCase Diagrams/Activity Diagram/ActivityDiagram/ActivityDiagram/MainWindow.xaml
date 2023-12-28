@@ -1,0 +1,110 @@
+﻿<Window x:Class="ActivityDiagram.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ActivityDiagram"
+        xmlns:RulerControl="clr-namespace:Syncfusion.UI.Xaml.Diagram.Controls;assembly=Syncfusion.SfDiagram.Wpf"
+        xmlns:Stencil="clr-namespace:Syncfusion.UI.Xaml.Diagram.Stencil;assembly=Syncfusion.SfDiagram.Wpf"
+        xmlns:viewmodel="clr-namespace:ActivityDiagram.ViewModel"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" 
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!--<Style TargetType="Syncfusion:Node">
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="White"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                            <Setter Property="Stroke" Value="Black"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>-->
+          
+           
+            <!--Style for the Connector-->
+            <Style TargetType="Syncfusion:Connector">
+                <Setter Property="ConnectorGeometryStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stroke" Value="Black"></Setter>
+                            <Setter Property="StrokeThickness" Value="1"></Setter>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="TargetDecoratorStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="Black"></Setter>
+                            <Setter Property="StrokeThickness" Value="1"></Setter>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
+  
+    </Window.Resources>
+    <Window.DataContext>
+        <!--<Syncfusion:DiagramViewModel>-->
+            <viewmodel:ActivityDiagramViewmodel/>
+            
+           
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="8*"/>
+        </Grid.ColumnDefinitions>
+
+        <Syncfusion:Stencil x:Name="stencil"
+                            Width="250"
+                            Margin="-1"                            
+                            Grid.Column="0" 
+                            ShowSearchTextBox="False"
+                            SymbolFilterDisplayMode="ComboBox"
+                            Title="Shapes"
+                            ExpandMode="OneOrMore">
+            <Syncfusion:Stencil.Categories>
+                <Syncfusion:StencilCategoryCollection>
+
+                    <Stencil:StencilCategory Title="UML Activity Shapes" Keys="{StaticResource UMLActivity}"></Stencil:StencilCategory>
+                </Syncfusion:StencilCategoryCollection>
+            </Syncfusion:Stencil.Categories>
+            <Syncfusion:Stencil.SymbolGroups>
+                <Syncfusion:SymbolGroups>
+                    <!--Separate groups based on the key-->
+                    <Syncfusion:SymbolGroupProvider MappingName="Key"/>
+                </Syncfusion:SymbolGroups>
+            </Syncfusion:Stencil.SymbolGroups>
+            </Syncfusion:Stencil>
+        <!--</Grid>-->
+
+        <!--Initializes Diagram-->
+        <Syncfusion:SfDiagram x:Name="Diagram"  
+                              Grid.Column="1"
+                              Nodes="{Binding Nodes}"
+                              Connectors="{Binding Connectors}"
+                              Groups="{Binding Groups}"
+                              Swimlanes="{Binding Swimlanes}"
+                               ViewPortChangedCommand="{Binding ViewPortChangedCommand}">
+            <Syncfusion:SfDiagram.HorizontalRuler>
+                <Syncfusion:Ruler Orientation="Horizontal"/>
+            </Syncfusion:SfDiagram.HorizontalRuler>
+
+            <Syncfusion:SfDiagram.VerticalRuler>
+                <Syncfusion:Ruler Orientation="Vertical"/>
+            </Syncfusion:SfDiagram.VerticalRuler>
+            <Syncfusion:SfDiagram.Theme>
+                <Syncfusion:OfficeTheme/>
+            </Syncfusion:SfDiagram.Theme>
+        </Syncfusion:SfDiagram>
+
+    </Grid>
+</Window>

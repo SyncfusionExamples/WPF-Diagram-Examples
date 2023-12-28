@@ -1,7 +1,9 @@
-# Flip command sample
-This sample demonstrate the usage of Flip commands in SfDiagam control.
+# UML Activity diagram sample
 
-__*Documentation*__: https://help.syncfusion.com/wpf/diagram/commands/flip
+This sample demonstrates how to to create interactive UML UseCase diagram with our built-in UML shapes, Nodes, Containers and the various interactions to position the UML UseCase Diagram nodes in the diagram surface.
+
+__*Documentation*__: https://help.syncfusion.com/wpf/diagram/umldiagramshapes#umlusecase
+
 ## Project pre-requisites
 To run this application, you need to have the below two in your system
 

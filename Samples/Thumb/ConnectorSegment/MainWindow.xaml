@@ -17,12 +17,14 @@
                 <Setter Property="Fill" Value="Black"/>
                 <Setter Property="Stroke" Value="Yellow"/>
                 <Setter Property="StrokeThickness" Value="1"/>
+                <Setter Property="Stretch" Value="Fill"/>
             </Style>
 
             <Style TargetType="Path" x:Key="EndThumbStyle">
                 <Setter Property = "Fill" Value="SkyBlue"/>
                 <Setter Property = "Stroke" Value="DarkBlue"/>
                 <Setter Property = "StrokeThickness" Value="1"/>
+                <Setter Property="Stretch" Value="Fill"/>
             </Style>
 
             <Style TargetType="Syncfusion:DiagramThumb">

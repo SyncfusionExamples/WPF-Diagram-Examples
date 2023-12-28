@@ -33,6 +33,19 @@
                     <Syncfusion:NodeViewModel OffsetX = "300" OffsetY = "100" UnitHeight = "100" UnitWidth = "100" Shape ="{StaticResource RightTriangle}"/>
                 </Syncfusion:NodeCollection>
             </Syncfusion:SfDiagram.Nodes>
+            <Syncfusion:SfDiagram.Groups>
+                <Syncfusion:GroupCollection>
+                    <Syncfusion:GroupViewModel>
+                        <Syncfusion:GroupViewModel.Nodes>
+                            <Syncfusion:NodeCollection>
+                                <Syncfusion:NodeViewModel OffsetX = "300" OffsetY = "400" UnitHeight = "120" UnitWidth = "120" Shape ="{StaticResource RightTriangle}"/>
+                                <Syncfusion:NodeViewModel OffsetX = "500" OffsetY = "400" UnitHeight = "120" UnitWidth = "120" RotateAngle="180" Shape ="{StaticResource Triangle}">
+                                </Syncfusion:NodeViewModel>
+                            </Syncfusion:NodeCollection>
+                        </Syncfusion:GroupViewModel.Nodes>
+                    </Syncfusion:GroupViewModel>
+                </Syncfusion:GroupCollection>
+            </Syncfusion:SfDiagram.Groups>
         </Syncfusion:SfDiagram>
         <StackPanel Grid.Column="1" Orientation="Vertical">
             <Button Height="50" Content="Flip" Name="Flip" Command="{Binding Flip}"/>
