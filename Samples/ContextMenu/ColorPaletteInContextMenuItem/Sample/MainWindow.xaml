@@ -1,0 +1,33 @@
+﻿<Window x:Class="ColorPaletteInContextMenuItem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:ColorPaletteInContextMenuItem" >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Basic shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <Style TargetType="Path" x:Key="NodeStyle">
+                <Setter Property="Stretch" Value="Fill"></Setter>
+                <Setter Property="Fill" Value="CornflowerBlue"></Setter>
+            </Style>
+        </ResourceDictionary>
+
+    </Window.Resources>
+
+    <Grid>
+        <!--initialize the Diagram-->
+        <syncfusion:SfDiagram x:Name="Diagram">
+            <syncfusion:SfDiagram.Nodes>
+                <syncfusion:NodeCollection></syncfusion:NodeCollection>
+         </syncfusion:SfDiagram.Nodes>
+            <syncfusion:SfDiagram.Connectors>
+                <syncfusion:ConnectorCollection></syncfusion:ConnectorCollection>
+            </syncfusion:SfDiagram.Connectors>
+        </syncfusion:SfDiagram>  
+    </Grid>
+</Window>
