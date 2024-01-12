@@ -37,7 +37,7 @@ namespace Simple_SfDiagram_WPF
 
             // Approach 1
             // Set a image for a diagram background.
-            Diagram.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Asset/Lock.png", UriKind.RelativeOrAbsolute)));
+            Diagram.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/Asset/Museum.png", UriKind.RelativeOrAbsolute)));
 
             // Set a transparent color for the page background. Default Value is White.
             Diagram.PageSettings = new PageSettings()
