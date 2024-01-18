@@ -1,8 +1,10 @@
 ﻿using Syncfusion.UI.Xaml.Diagram;
 using Syncfusion.UI.Xaml.Diagram.Controls;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace TextBoxSubMenuItem
 {
@@ -27,40 +29,46 @@ namespace TextBoxSubMenuItem
         /// </summary>
         private void Addsubmenu()
         {
-            IGraphInfo diagramInfo = (Diagram.Info as IGraphInfo);
-
             //Initialize the new custom Menu item
             var TextBoxMenuItem = new DiagramMenuItem()
             {
                 Content = "TextBox Menu Items",
             };
 
-            //Initializing TextBoxes
-            TextBox textBox1 = new TextBox() { Text = "1" };
-            TextBox textBox2 = new TextBox() { Text = "2" };
+            //Initializing TextBoxe
+            TextBox textBox = new TextBox() { Text = "One" };
+            //Adding TextChanged event
+            textBox.TextChanged += textBox_TextChanged;
 
-            //Intialize the sub-menu items.
-            var TextBoxSubMenuItem1 = new DiagramMenuItem()
+            //Initialize the sub-menu items.
+            var TextBoxSubMenuItem = new DiagramMenuItem()
             {
                 //setting menu item content as text box
-                Content = textBox1
+                Content = textBox
             };
-
-            var TextBoxSubMenuItem2 = new DiagramMenuItem()
-            {
-                Content = textBox2
-            };
-
+            
             //Adding textbox menu item into diagram default menus.
             Diagram.Menu.MenuItems.Add(TextBoxMenuItem);
             //Initialize the menu items collection to the Textbox menu item
             TextBoxMenuItem.Items = new ObservableCollection<DiagramMenuItem>();
             //Adding SubMenu items to the collection of TextBoxMenuItem.
-            TextBoxMenuItem.Items.Add(TextBoxSubMenuItem1);
-            TextBoxMenuItem.Items.Add(TextBoxSubMenuItem2);
+            TextBoxMenuItem.Items.Add(TextBoxSubMenuItem);
         }
 
+        //Text box text changed event.
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            foreach (NodeViewModel node in (Diagram.SelectedItems as SelectorViewModel).Nodes as IEnumerable<object>)
+            {
+                foreach (IAnnotation annotation in node.Annotations as ObservableCollection<IAnnotation>)
+                {
+                    //Setting text box text value to the selected node annotation's content.
+                    annotation.Content = (e.Source as TextBox).Text;
+                }
+            }
+        }
 
+        //Method to create node
         private void Createnode()
         {
             //Initialize the node 
@@ -74,7 +82,9 @@ namespace TextBoxSubMenuItem
                 {
                     new AnnotationEditorViewModel()
                     {
-                        Content ="Node",
+                        Content ="One",
+                        FontWeight = FontWeights.Bold,
+                        Foreground = new SolidColorBrush(Colors.White),
                     }
                  },
             };
