@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectorPadding", "ConnectorPadding\ConnectorPadding.csproj", "{9EDD18AE-C11A-467B-91B3-124B2D92FBFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EDD18AE-C11A-467B-91B3-124B2D92FBFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EDD18AE-C11A-467B-91B3-124B2D92FBFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EDD18AE-C11A-467B-91B3-124B2D92FBFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EDD18AE-C11A-467B-91B3-124B2D92FBFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBD1EDFC-27EC-4A51-A04A-1B40609234D5}
+	EndGlobalSection
+EndGlobal

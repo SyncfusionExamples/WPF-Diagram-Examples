@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="AnnotationVisibility.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AnnotationVisibility"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Syncfusion="using:Syncfusion.UI.Xaml.Diagram"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+
+        <!--Style for Shape of the Node-->
+            <Style TargetType="Syncfusion:Node">
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="#FF5B9BD5"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                            <Setter Property="Stroke" Value="#FFEDF1F6 "/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+                
+         <!--View Template for Annotation-->
+        <DataTemplate x:Key="viewTemplate">
+            <TextBlock Text="{Binding Path=Content, Mode=TwoWay}" 
+                           Visibility="{Binding Path=Visibility, Mode=TwoWay}"
+                           FontSize="14" 
+                           FontFamily="TimesNewRomen"  
+                           FontWeight="Bold" 
+                           Foreground="Black"/>
+        </DataTemplate>
+                
+    </Page.Resources>
+
+    <Grid>
+        <Syncfusion:SfDiagram x:Name="Diagram" 
+                  Nodes="{Binding Nodes}"
+                  Connectors="{Binding Connectors}"
+                  Groups="{Binding Groups}">
+        </Syncfusion:SfDiagram>
+
+    </Grid>
+</Page>
