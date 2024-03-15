@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeactivateZoom", "DeactivateZoom\DeactivateZoom.csproj", "{2CB9EA5F-DD6E-4D9F-92F8-BA90C401DA65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CB9EA5F-DD6E-4D9F-92F8-BA90C401DA65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB9EA5F-DD6E-4D9F-92F8-BA90C401DA65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CB9EA5F-DD6E-4D9F-92F8-BA90C401DA65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CB9EA5F-DD6E-4D9F-92F8-BA90C401DA65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8803E55C-8343-412E-9406-ED959BE1E91B}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,142 @@
+﻿<Window x:Class="DeactivateZoom.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeactivateZoom"
+        mc:Ignorable="d"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:Stencil="clr-namespace:Syncfusion.UI.Xaml.Diagram.Stencil;assembly=Syncfusion.SfDiagram.Wpf"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Window.DataContext>
+        <syncfusion:DiagramViewModel>
+            <syncfusion:DiagramViewModel.Nodes>
+                <syncfusion:NodeCollection/>
+            </syncfusion:DiagramViewModel.Nodes>
+
+            <syncfusion:DiagramViewModel.Groups>
+                <syncfusion:GroupCollection/>
+            </syncfusion:DiagramViewModel.Groups>
+            
+            <syncfusion:DiagramViewModel.Connectors>
+                <syncfusion:ConnectorCollection/>
+            </syncfusion:DiagramViewModel.Connectors>
+        </syncfusion:DiagramViewModel>
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Dictionary which contains the inbuilt shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--Style for Node-->
+            <Style TargetType="syncfusion:Node">
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="CornflowerBlue"/>
+                            <Setter Property="Stroke" Value="#727272"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.2*"/>
+            <ColumnDefinition Width="8*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Shapes" 
+                    FontSize="17" 
+                    FontWeight="SemiBold" 
+                    Foreground="#2b579a" 
+                    HorizontalAlignment="Left" 
+                    Margin="10,5,0,5" 
+                    Grid.Row="0"/>
+            <syncfusion:Stencil x:Name="stencil" Grid.Column="0" SymbolGroupDisplayMode="Accordion" ExpandMode="All"    Grid.Row="1">
+               
+                <Stencil:Stencil.SymbolSource>
+                    <syncfusion:SymbolCollection>
+                        <syncfusion:NodeViewModel x:Name="node" 
+                                      Key="Nodes"
+                                      UnitHeight="70"
+                                      UnitWidth="100"
+                                      OffsetX="100"
+                                      OffsetY="100"
+                                      Shape="{StaticResource Rectangle}">
+                        </syncfusion:NodeViewModel>
+
+
+
+                        <syncfusion:ConnectorViewModel x:Name="connector"  SourcePoint="100,100"
+                                           Key="Connectors"
+                                           TargetPoint="200,200" />
+
+
+                        <syncfusion:GroupViewModel Key="Groups">
+                            <syncfusion:GroupViewModel.Nodes>
+                                <syncfusion:NodeCollection>
+                                    <syncfusion:NodeViewModel UnitHeight="70"
+                                                  ID="srcnode"
+                                                  OffsetX="0"
+                                                  OffsetY="300"
+                                                  UnitWidth="100"
+                                                  Shape="{StaticResource Rectangle}">
+                                    </syncfusion:NodeViewModel>
+                                    <syncfusion:NodeViewModel UnitHeight="70"
+                                                  ID="tarnode"
+                                                  OffsetX="100"
+                                                  OffsetY="500"
+                                                  UnitWidth="100"
+                                                  Shape="{StaticResource Rectangle}">
+                                    </syncfusion:NodeViewModel>
+                                </syncfusion:NodeCollection>
+                            </syncfusion:GroupViewModel.Nodes>
+                            <syncfusion:GroupViewModel.Connectors>
+                                <syncfusion:ConnectorCollection>
+                                    <syncfusion:ConnectorViewModel  SourceNodeID="srcnode"
+                                                       TargetNodeID="tarnode" />
+                                </syncfusion:ConnectorCollection>
+                            </syncfusion:GroupViewModel.Connectors>
+                        </syncfusion:GroupViewModel>
+                       
+
+                    </syncfusion:SymbolCollection>
+                </Stencil:Stencil.SymbolSource>
+                <Stencil:Stencil.SymbolGroups>
+                    <Stencil:SymbolGroups>
+
+                        <Stencil:SymbolGroupProvider MappingName="Key" />
+                    </Stencil:SymbolGroups>
+                </Stencil:Stencil.SymbolGroups>
+
+            </syncfusion:Stencil>
+        </Grid>
+
+        <!--Initializes Diagram-->
+        <local:CustomDiagram x:Name="diagram" 
+                           Grid.Column="1"
+                           Nodes="{Binding Nodes}"
+                           Connectors="{Binding Connectors}"
+                           Groups="{Binding Groups}">
+            <local:CustomDiagram.HorizontalRuler>
+                <syncfusion:Ruler/>
+            </local:CustomDiagram.HorizontalRuler>
+            <local:CustomDiagram.VerticalRuler>
+                <syncfusion:Ruler Orientation="Vertical"/>
+            </local:CustomDiagram.VerticalRuler>
+            
+        </local:CustomDiagram>
+    </Grid>
+</Window>
