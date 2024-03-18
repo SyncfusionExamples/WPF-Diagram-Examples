@@ -130,4 +130,7 @@ This repository contains the samples that demonstrate the functionalities of Dia
  <tr>
   <td><a href="Samples/RubberBandZoom">Swimlane</a></td>
  </tr>
+ <tr>
+  <td><a href="Samples/Panning">Swimlane</a></td>
+ </tr>
 </table>
