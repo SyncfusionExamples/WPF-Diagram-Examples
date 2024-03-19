@@ -27,8 +27,20 @@ namespace MouseMiddleButton
         {
             InitializeComponent();
             diagram.PreviewMouseMove += Diagram_PreviewMouseMove;
+            diagram.PreviewMouseWheel += Diagram_PreviewMouseWheel;
+            diagram.PreviewMouseDown += Diagram_PreviewMouseDown;
         }
 
+        private void Diagram_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //Getting mouse initial location when middle button pressed down.
+            InitialLocation = e.GetPosition(diagram.Page);
+            //Disabling intelli mouse wheel action when pressing middle button.
+            if (e.MiddleButton == MouseButtonState.Pressed)
+            {
+                e.Handled = true;
+            }
+        }
         private void Diagram_PreviewMouseMove(object sender, MouseEventArgs e)
         {
             //Getting current mouse point position of diagram..
@@ -38,7 +50,6 @@ namespace MouseMiddleButton
             Point panDelta = new Point(currentMousePoint.X - InitialLocation.X, currentMousePoint.Y - InitialLocation.Y);
 
             if (e.MiddleButton == MouseButtonState.Pressed)
-
             {
 
                 //Disabling intelli mouse wheel action when pressing middle button.
@@ -64,6 +75,26 @@ namespace MouseMiddleButton
                 (diagram.Info as IGraphInfo).Commands.Zoom.Execute(new ZoomPositionParameter() { ZoomCommand = ZoomCommand.Pan, PanDelta = panDelta });
 
             }
+        }
+        private void Diagram_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            ScrollSettings scrollSettings = diagram.ScrollSettings;
+            //to skip the zooming operation when control+mouse scroll is used
+            if (Keyboard.Modifiers == ModifierKeys.Control || scrollSettings == null || scrollSettings.ScrollInfo == null)
+                return;
+            //current mouse position 
+            double focusX = e.GetPosition(diagram.Page).X;
+            double focusY = e.GetPosition(diagram.Page).Y;
+            ZoomCommand zoomCommand = e.Delta > 0 ? ZoomCommand.ZoomIn : ZoomCommand.ZoomOut;
+            (diagram.Info as IGraphInfo).Commands.Zoom.Execute(new ZoomPositionParameter
+            {
+                ZoomCommand = zoomCommand,
+                ZoomFactor = 0.2,
+                //to zoom the page with currnet mouse position as a center
+                FocusPoint = new Point(focusX, focusY),
+            });
+            //Disabling the zooming action when pressing control and mouse wheel.
+            e.Handled = true;
         }
     }
 }

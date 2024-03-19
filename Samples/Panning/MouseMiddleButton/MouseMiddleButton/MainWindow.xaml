@@ -39,6 +39,12 @@
                                 UnitHeight="80" UnitWidth="120"/>
                 </syncfusion:NodeCollection>
             </syncfusion:SfDiagram.Nodes>
+            <syncfusion:SfDiagram.HorizontalRuler>
+                <syncfusion:Ruler/>
+            </syncfusion:SfDiagram.HorizontalRuler>
+            <syncfusion:SfDiagram.VerticalRuler>
+                <syncfusion:Ruler Orientation="Vertical"/>
+            </syncfusion:SfDiagram.VerticalRuler>
         </syncfusion:SfDiagram>
     </Grid>
 </Window>
