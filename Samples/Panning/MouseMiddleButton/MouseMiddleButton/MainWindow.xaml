@@ -1,0 +1,50 @@
+﻿<Window x:Class="MouseMiddleButton.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MouseMiddleButton"
+        xmlns:syncfusion ="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        
+        
+        
+        <Style TargetType="syncfusion:Node">
+            <Setter Property="ShapeStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="#FF5B9BD5"/>
+                        <Setter Property="Stretch" Value="Fill"/>
+                        <Setter Property="Stroke" Value="#FFEDF1F6"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <syncfusion:SfDiagram x:Name="diagram">
+            <syncfusion:SfDiagram.Nodes>
+                <!--Initialize the NodeCollection-->
+                <syncfusion:NodeCollection>
+                    <!--Initialize the Node-->
+                    <syncfusion:NodeViewModel ID="Begin" OffsetX="300" OffsetY="60" 
+                                Shape="{StaticResource Rectangle}" 
+                                UnitHeight="80" UnitWidth="120"/>
+                </syncfusion:NodeCollection>
+            </syncfusion:SfDiagram.Nodes>
+            <syncfusion:SfDiagram.HorizontalRuler>
+                <syncfusion:Ruler/>
+            </syncfusion:SfDiagram.HorizontalRuler>
+            <syncfusion:SfDiagram.VerticalRuler>
+                <syncfusion:Ruler Orientation="Vertical"/>
+            </syncfusion:SfDiagram.VerticalRuler>
+        </syncfusion:SfDiagram>
+    </Grid>
+</Window>

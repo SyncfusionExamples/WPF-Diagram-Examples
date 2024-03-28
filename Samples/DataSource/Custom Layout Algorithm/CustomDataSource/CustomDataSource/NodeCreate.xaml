@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="CustomDataSource.NodeCreate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CustomDataSource"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Canvas Margin="0,-5,0,0">
+            <Grid x:Name="ellipsesPanel"/>
+        </Canvas>
+
+        <Grid Margin="0">
+            <Border x:Name="contentHost" BorderBrush="Gray" BorderThickness="2" CornerRadius="20"  Height="40"
+                 MinWidth="250" Background="White" TextElement.Foreground="Gray" Padding="0" Margin="0,0,0,0">
+                <ContentControl Content="{Binding Path=Name}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </Border>
+        </Grid>
+        <Canvas Margin="0,0,0,0">
+            <Grid x:Name="mainEllipsePanel">
+                <Ellipse x:Name="mainEllipse" Fill="#545454" Width="50" Height="50" HorizontalAlignment="Left" />
+                <TextBlock Text="{Binding Path=Text}" Foreground="White" TextAlignment="Center" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+            </Grid>
+        </Canvas>
+    </Grid>
+</UserControl>
