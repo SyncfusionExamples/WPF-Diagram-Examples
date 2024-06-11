@@ -6,44 +6,45 @@
         xmlns:local="clr-namespace:StencilCategorySample"
         mc:Ignorable="d"
         xmlns:RulerControl="clr-namespace:Syncfusion.UI.Xaml.Diagram.Controls;assembly=Syncfusion.SfDiagram.Wpf"
-        xmlns:Stencil="clr-namespace:Syncfusion.UI.Xaml.Diagram.Stencil;assembly=Syncfusion.SfDiagram.Wpf"
-        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" 
+        xmlns:stencil="clr-namespace:Syncfusion.UI.Xaml.Diagram.Stencil;assembly=Syncfusion.SfDiagram.Wpf"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
         Title="MainWindow" Height="450" Width="800">
     <Window.DataContext>
-        <Syncfusion:DiagramViewModel>
+        <syncfusion:DiagramViewModel>
             <!--To Represent HorizontalRuler,VerticalRuler-->
-            <Syncfusion:DiagramViewModel.HorizontalRuler>
+            <syncfusion:DiagramViewModel.HorizontalRuler>
                 <RulerControl:Ruler Orientation="Horizontal"/>
-            </Syncfusion:DiagramViewModel.HorizontalRuler>
+            </syncfusion:DiagramViewModel.HorizontalRuler>
 
-            <Syncfusion:DiagramViewModel.VerticalRuler>
+            <syncfusion:DiagramViewModel.VerticalRuler>
                 <RulerControl:Ruler Orientation="Vertical"/>
-            </Syncfusion:DiagramViewModel.VerticalRuler>
+            </syncfusion:DiagramViewModel.VerticalRuler>
 
             <!--SnapConstraints used to Control the Visibility of Gridlines and enable/disable Snapping.-->
-            <Syncfusion:DiagramViewModel.SnapSettings>
-                <Syncfusion:SnapSettings SnapConstraints="All" SnapToObject="All"/>
-            </Syncfusion:DiagramViewModel.SnapSettings>
+            <syncfusion:DiagramViewModel.SnapSettings>
+                <syncfusion:SnapSettings SnapConstraints="All" SnapToObject="All"/>
+            </syncfusion:DiagramViewModel.SnapSettings>
 
             <!--Initializes PageSettings-->
-            <Syncfusion:DiagramViewModel.PageSettings>
-                <Syncfusion:PageSettings PageBorderBrush="Transparent"/>
-            </Syncfusion:DiagramViewModel.PageSettings>
+            <syncfusion:DiagramViewModel.PageSettings>
+                <syncfusion:PageSettings PageBorderBrush="Transparent"/>
+            </syncfusion:DiagramViewModel.PageSettings>
 
             <!--Initializes Node-->
-            <Syncfusion:DiagramViewModel.Nodes>
-                <Syncfusion:NodeCollection/>
-            </Syncfusion:DiagramViewModel.Nodes>
+            <syncfusion:DiagramViewModel.Nodes>
+                <syncfusion:NodeCollection/>
+            </syncfusion:DiagramViewModel.Nodes>
 
-            <Syncfusion:DiagramViewModel.Groups>
-                <Syncfusion:GroupCollection/>
-            </Syncfusion:DiagramViewModel.Groups>
+            <syncfusion:DiagramViewModel.Groups>
+                <syncfusion:GroupCollection/>
+            </syncfusion:DiagramViewModel.Groups>
 
             <!--Initializes Connector-->
-            <Syncfusion:DiagramViewModel.Connectors>
-                <Syncfusion:ConnectorCollection/>
-            </Syncfusion:DiagramViewModel.Connectors>
-        </Syncfusion:DiagramViewModel>
+            <syncfusion:DiagramViewModel.Connectors>
+                <syncfusion:ConnectorCollection/>
+            </syncfusion:DiagramViewModel.Connectors>
+            
+        </syncfusion:DiagramViewModel>
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -63,71 +64,26 @@
                        HorizontalAlignment="Left" 
                        Margin="10,5,0,5" 
                        Grid.Row="0"/>
-            <local:StencilViewModel x:Name="stencil" Grid.Column="0" Grid.Row="1">
-                <Stencil:Stencil.Categories>
-                    <Stencil:StencilCategoryCollection>
+            <local:StencilViewModel x:Name="stencil" Grid.Column="0" Grid.Row="1" GroupMappingKey="Key">
+                <stencil:Stencil.Categories>
+                    <stencil:StencilCategoryCollection>
                         <!--Specify the shapes category with title and resource key-->
-                        <Stencil:StencilCategory Title="Basic Shapes" Keys="{StaticResource BasicShapes}"></Stencil:StencilCategory>
-                        <Stencil:StencilCategory Title="Flow Shapes" Keys="{StaticResource FlowShapes}"></Stencil:StencilCategory>
-                        <Stencil:StencilCategory Title="Arrow Shapes" Keys="{StaticResource ArrowShapes}"></Stencil:StencilCategory>
-                        <Stencil:StencilCategory Title="Data Flow Shapes" Keys="{StaticResource DataFlowShapes}"></Stencil:StencilCategory>
-                        <Stencil:StencilCategory Title="UML Activity Shapes" Keys="{StaticResource UMLActivity}"></Stencil:StencilCategory>
-                        <Stencil:StencilCategory Title="UML Use Case" Keys="{StaticResource UMLUseCase}"></Stencil:StencilCategory>
-                        <Stencil:StencilCategory Title="UML RelationShip" Keys="{StaticResource UMLRelationship}"></Stencil:StencilCategory>
-                        <Stencil:StencilCategory Title="Electrical Shapes" Keys="{StaticResource ElectricalShapes}"></Stencil:StencilCategory>
-                        <Stencil:StencilCategory Title="Custom shapes" Keys="{StaticResource customShapeCollection}"></Stencil:StencilCategory>
-                    </Stencil:StencilCategoryCollection>
-                </Stencil:Stencil.Categories>
-                <Stencil:Stencil.SymbolSource>
-                    <local:SymbolCollection>
-                        <Syncfusion:GroupViewModel Key="Groups">
-                            <Syncfusion:GroupViewModel.Nodes>
-                                <Syncfusion:NodeCollection>
-                                    <!--Define the Node-->
-                                    <Syncfusion:NodeViewModel UnitHeight="60"  OffsetX="150" OffsetY="150" UnitWidth="60" Shape="{StaticResource Rectangle}" ShapeStyle="{StaticResource NodeStyle}" />
-                                </Syncfusion:NodeCollection>
-                            </Syncfusion:GroupViewModel.Nodes>
-                            <Syncfusion:GroupViewModel.Connectors>
-                                <Syncfusion:ConnectorCollection>
-                                    <Syncfusion:ConnectorViewModel SourcePoint="100,100" TargetPoint="200,200" Key="Groups"/>
-                                </Syncfusion:ConnectorCollection>
-                            </Syncfusion:GroupViewModel.Connectors>
-                        </Syncfusion:GroupViewModel>
-                        <Syncfusion:GroupViewModel Key="Groups">
-                            <Syncfusion:GroupViewModel.Nodes>
-                                <Syncfusion:NodeCollection>
-                                    <!--Define the Node-->
-                                    <Syncfusion:NodeViewModel UnitHeight="60"  OffsetX="0" OffsetY="0" UnitWidth="60" Shape="{StaticResource Rectangle}" ShapeStyle="{StaticResource NodeStyle}" />
-                                </Syncfusion:NodeCollection>
-                            </Syncfusion:GroupViewModel.Nodes>
-                            <Syncfusion:GroupViewModel.Connectors>
-                                <Syncfusion:ConnectorCollection>
-                                    <Syncfusion:ConnectorViewModel SourcePoint="50,100" TargetPoint="100,200" Key="Groups"/>
-                                </Syncfusion:ConnectorCollection>
-                            </Syncfusion:GroupViewModel.Connectors>
-                        </Syncfusion:GroupViewModel>
-                        <!--define the connector-->
-                        <Syncfusion:ConnectorViewModel SourcePoint="100,100" TargetPoint="200,200" Key="Connectors">
-                            <Syncfusion:ConnectorViewModel.Segments>
-                                <Syncfusion:ConnectorSegments>
-                                    <Syncfusion:CubicCurveSegment></Syncfusion:CubicCurveSegment>
-                                </Syncfusion:ConnectorSegments>
-                            </Syncfusion:ConnectorViewModel.Segments>
-                        </Syncfusion:ConnectorViewModel>
-                        <Syncfusion:ConnectorViewModel SourcePoint="100,100" TargetPoint="200,200" Key="Connectors"/>
-                    </local:SymbolCollection>
-                </Stencil:Stencil.SymbolSource>
-                <Stencil:Stencil.SymbolGroups>
-                    <Stencil:SymbolGroups>
-                        <!--Separate groups based on the key-->
-                        <Stencil:SymbolGroupProvider MappingName="Key"/>
-                    </Stencil:SymbolGroups>
-                </Stencil:Stencil.SymbolGroups>
+                        <stencil:StencilCategory Title="Basic Shapes" Keys="{StaticResource BasicShapes}"></stencil:StencilCategory>
+                        <stencil:StencilCategory Title="Flow Shapes" Keys="{StaticResource FlowShapes}"></stencil:StencilCategory>
+                        <stencil:StencilCategory Title="Arrow Shapes" Keys="{StaticResource ArrowShapes}"></stencil:StencilCategory>
+                        <stencil:StencilCategory Title="Data Flow Shapes" Keys="{StaticResource DataFlowShapes}"></stencil:StencilCategory>
+                        <stencil:StencilCategory Title="UML Activity Shapes" Keys="{StaticResource UMLActivity}"></stencil:StencilCategory>
+                        <stencil:StencilCategory Title="UML Use Case" Keys="{StaticResource UMLUseCase}"></stencil:StencilCategory>
+                        <stencil:StencilCategory Title="UML RelationShip" Keys="{StaticResource UMLRelationship}"></stencil:StencilCategory>
+                        <stencil:StencilCategory Title="Electrical Shapes" Keys="{StaticResource ElectricalShapes}"></stencil:StencilCategory>
+                        <stencil:StencilCategory Title="Custom shapes" Keys="{StaticResource customShapeCollection}"></stencil:StencilCategory>
+                    </stencil:StencilCategoryCollection>
+                </stencil:Stencil.Categories>
             </local:StencilViewModel>
         </Grid>
 
         <!--Initializes Diagram-->
-        <Syncfusion:SfDiagram x:Name="diagram" 
+        <syncfusion:SfDiagram x:Name="diagram" 
                               Grid.Column="1"
                               Nodes="{Binding Nodes}"
                               Connectors="{Binding Connectors}"
@@ -136,6 +92,6 @@
                               SnapSettings="{Binding SnapSettings}"
                               HorizontalRuler="{Binding HorizontalRuler}"
                               VerticalRuler="{Binding VerticalRuler}">
-        </Syncfusion:SfDiagram>
+        </syncfusion:SfDiagram>
     </Grid>
 </Window>
