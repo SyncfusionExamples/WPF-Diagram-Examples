@@ -70,6 +70,8 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+
+            <!--Style for Connector-->
             <Style TargetType="syncfusion:Connector">
                 <Setter Property="ConnectorGeometryStyle">
                     <Setter.Value>
@@ -79,6 +81,7 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            
             <!--Style for Symbol-->
             <Style TargetType="stencil:Symbol">
                 <Setter Property="Width"
@@ -130,6 +133,10 @@
                 </Setter>
             </Style>
 
+            <DataTemplate x:Key="TitleTemplate">
+                <TextBlock x:Name="HeaderText" Text="{Binding}" FontSize="15" FontWeight="SemiBold"  Foreground="#2b579a" />
+            </DataTemplate>
+
         </ResourceDictionary>
     </Window.Resources>
 
@@ -158,7 +165,8 @@
                              ExpandMode="ZeroOrMore"
                              BorderBrush="#dfdfdf"
                              BorderThickness="1"
-                             GroupMappingName="Key">
+                             GroupMappingName="Key"
+                             TitleTemplate="{StaticResource TitleTemplate}">
                 <stencil:Stencil.SymbolSource>
                     <syncfusion:SymbolCollection>
                         <!--Define the DiagramElement- Node-->
@@ -244,5 +252,6 @@
         </syncfusion:SfDiagram>
     </Grid>
 </Window>
-    
+
+
 
