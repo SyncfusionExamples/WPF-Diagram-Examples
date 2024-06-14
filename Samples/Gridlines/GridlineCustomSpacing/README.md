@@ -1,4 +1,4 @@
-# Gridlines sample
+# Gridlines Custom Space sample
 
 This sample demonstrates customizing the space between gridlines.
 

@@ -1,4 +1,4 @@
-# Gridlines sample
+# Gridlines Custom Appearance sample
 
 This sample demonstrates customizing the appearance of gridlines in diagram.
 
