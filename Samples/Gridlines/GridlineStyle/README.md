@@ -1,6 +1,6 @@
 # Gridlines sample
 
-This sample demonstrates gridlines creation and customization of diagram.
+This sample demonstrates customizing the appearance of gridlines in diagram.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/gridlines
 
