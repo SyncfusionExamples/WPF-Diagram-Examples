@@ -25,6 +25,9 @@ namespace RotateCommand
         public MainWindow()
         {
             InitializeComponent();
+            SelectorViewModel svm = (diagramcontrol.SelectedItems as SelectorViewModel);
+            svm.SelectorConstraints = svm.SelectorConstraints & ~SelectorConstraints.QuickCommands;
+
         }
     }
 }
