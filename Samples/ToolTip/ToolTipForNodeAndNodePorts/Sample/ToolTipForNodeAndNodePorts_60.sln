@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolTipForNodeAndNodePorts_60", "ToolTipForNodeAndNodePorts_60.csproj", "{D9C5EF37-7E25-4A82-8C8C-739D3484B31B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9C5EF37-7E25-4A82-8C8C-739D3484B31B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C5EF37-7E25-4A82-8C8C-739D3484B31B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9C5EF37-7E25-4A82-8C8C-739D3484B31B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C5EF37-7E25-4A82-8C8C-739D3484B31B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {969F155E-C0C9-41A0-9B1F-E23C5E94D7C6}
+	EndGlobalSection
+EndGlobal

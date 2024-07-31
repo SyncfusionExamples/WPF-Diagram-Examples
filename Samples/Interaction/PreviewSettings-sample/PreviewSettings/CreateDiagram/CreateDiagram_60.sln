@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateDiagram_60", "CreateDiagram_60.csproj", "{95D25995-30C1-48AF-A558-9265655B2999}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95D25995-30C1-48AF-A558-9265655B2999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95D25995-30C1-48AF-A558-9265655B2999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95D25995-30C1-48AF-A558-9265655B2999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95D25995-30C1-48AF-A558-9265655B2999}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F96B8DC-60E3-4BE5-9FE4-C2A9A9891B0C}
+	EndGlobalSection
+EndGlobal

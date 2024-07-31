@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GridlinesCustomSpace_60", "GridlinesCustomSpace_60.csproj", "{FF05E41C-6D42-4A52-BCDB-E68A7373EC00}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF05E41C-6D42-4A52-BCDB-E68A7373EC00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF05E41C-6D42-4A52-BCDB-E68A7373EC00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF05E41C-6D42-4A52-BCDB-E68A7373EC00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF05E41C-6D42-4A52-BCDB-E68A7373EC00}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {697B5CCF-4F57-4ECF-BAFA-4A6DBA1D7FBD}
+	EndGlobalSection
+EndGlobal

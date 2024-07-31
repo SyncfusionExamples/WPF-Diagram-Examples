@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alignment Commands_80", "Alignment Commands_80.csproj", "{E8A5AE0A-6947-443C-A4F3-6C2D18B4AB02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8A5AE0A-6947-443C-A4F3-6C2D18B4AB02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A5AE0A-6947-443C-A4F3-6C2D18B4AB02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A5AE0A-6947-443C-A4F3-6C2D18B4AB02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A5AE0A-6947-443C-A4F3-6C2D18B4AB02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82274D50-C1B1-4DAE-AB5A-F136C34D2617}
+	EndGlobalSection
+EndGlobal

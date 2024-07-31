@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwimlaneCreation_60", "SwimlaneCreation_60.csproj", "{1BD488B9-FEE8-4979-AD87-5E0ACD3198AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BD488B9-FEE8-4979-AD87-5E0ACD3198AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD488B9-FEE8-4979-AD87-5E0ACD3198AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD488B9-FEE8-4979-AD87-5E0ACD3198AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD488B9-FEE8-4979-AD87-5E0ACD3198AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F938AEB-873D-41F8-80A7-8E2B882E1AF9}
+	EndGlobalSection
+EndGlobal

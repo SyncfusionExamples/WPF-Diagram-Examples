@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SymbolFilters_80", "SymbolFilters_80.csproj", "{F5AA19F0-DFFB-47AA-A09F-B5EA76DBC085}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5AA19F0-DFFB-47AA-A09F-B5EA76DBC085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5AA19F0-DFFB-47AA-A09F-B5EA76DBC085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5AA19F0-DFFB-47AA-A09F-B5EA76DBC085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5AA19F0-DFFB-47AA-A09F-B5EA76DBC085}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C6BB981-AA6F-4488-BE00-CD5143396CFD}
+	EndGlobalSection
+EndGlobal

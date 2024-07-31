@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagramRibbon_462", "DiagramRibbon_462.csproj", "{C2B7D61C-5415-4B9B-AFC8-280E0C6089DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2B7D61C-5415-4B9B-AFC8-280E0C6089DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2B7D61C-5415-4B9B-AFC8-280E0C6089DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2B7D61C-5415-4B9B-AFC8-280E0C6089DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2B7D61C-5415-4B9B-AFC8-280E0C6089DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B6C4566A-6139-4808-B852-9D094DE7B4CB}
+	EndGlobalSection
+EndGlobal

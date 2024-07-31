@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateConnector_60", "CreateConnector_60.csproj", "{1F246491-2F5B-4A05-9D08-FD20D0A15BB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F246491-2F5B-4A05-9D08-FD20D0A15BB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F246491-2F5B-4A05-9D08-FD20D0A15BB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F246491-2F5B-4A05-9D08-FD20D0A15BB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F246491-2F5B-4A05-9D08-FD20D0A15BB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1E6EB1F-F7E1-4097-B062-732CEA3B2A85}
+	EndGlobalSection
+EndGlobal

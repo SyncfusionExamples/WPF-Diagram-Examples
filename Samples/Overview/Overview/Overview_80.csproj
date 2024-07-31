@@ -1,0 +1,131 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <EnableDefaultEmbeddedResourceItems>False</EnableDefaultEmbeddedResourceItems>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyName>Overview</AssemblyName>
+    <RootNamespace>Overview</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;NET50</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;NET50</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Xml|AnyCPU'">
+    <DefineConstants>TRACE;NET50</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <Compile Remove="obj_45\**" />
+    <Compile Remove="obj_462\**" />
+    <Compile Remove="obj_50\**" />
+    <Compile Remove="obj_60\**" />
+    <Compile Remove="obj_70\**" />
+    <Compile Remove="obj_80\**" />
+    <Compile Remove="obj_90\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <EmbeddedResource Remove="obj_45\**" />
+    <EmbeddedResource Remove="obj_462\**" />
+    <EmbeddedResource Remove="obj_50\**" />
+    <EmbeddedResource Remove="obj_60\**" />
+    <EmbeddedResource Remove="obj_70\**" />
+    <EmbeddedResource Remove="obj_80\**" />
+    <EmbeddedResource Remove="obj_90\**" />
+    <None Remove="obj\**" />
+    <None Remove="obj_45\**" />
+    <None Remove="obj_462\**" />
+    <None Remove="obj_50\**" />
+    <None Remove="obj_60\**" />
+    <None Remove="obj_70\**" />
+    <None Remove="obj_80\**" />
+    <None Remove="obj_90\**" />
+    <Page Remove="obj\**" />
+    <Page Remove="obj_45\**" />
+    <Page Remove="obj_462\**" />
+    <Page Remove="obj_50\**" />
+    <Page Remove="obj_60\**" />
+    <None Remove="obj_70\**" />
+    <None Remove="obj_80\**" />
+    <None Remove="obj_90\**" />
+
+    <None Remove="Properties\Settings.settings" />
+    <None Include="Properties\Settings.settings" />
+    <None Remove="App.config" />
+    <None Include="App.config" />
+    <None Remove="Assets\baby.jpg" />
+    <Resource Include="Assets\baby.jpg" />
+    <None Remove="Assets\baby.png" />
+    <Resource Include="Assets\baby.png" />
+    <None Remove="Assets\cards_03.png" />
+    <Resource Include="Assets\cards_03.png" />
+    <None Remove="Assets\cards_05.png" />
+    <Resource Include="Assets\cards_05.png" />
+    <None Remove="Assets\cards_07.png" />
+    <Resource Include="Assets\cards_07.png" />
+    <None Remove="Assets\cards_09.png" />
+    <Resource Include="Assets\cards_09.png" />
+    <None Remove="Assets\cards_100.png" />
+    <Resource Include="Assets\cards_100.png" />
+    <None Remove="Assets\cards_101.png" />
+    <Resource Include="Assets\cards_101.png" />
+    <None Remove="Assets\cards_102.png" />
+    <Resource Include="Assets\cards_102.png" />
+    <None Remove="Assets\cards_103.png" />
+    <Resource Include="Assets\cards_103.png" />
+    <None Remove="Assets\cards_104.png" />
+    <Resource Include="Assets\cards_104.png" />
+    <None Remove="Assets\cards_105.png" />
+    <Resource Include="Assets\cards_105.png" />
+    <None Remove="Assets\cards_106.png" />
+    <Resource Include="Assets\cards_106.png" />
+    <None Remove="Assets\cards_107.png" />
+    <Resource Include="Assets\cards_107.png" />
+    <None Remove="Assets\cards_108.png" />
+    <Resource Include="Assets\cards_108.png" />
+    <None Remove="Assets\cards_109.png" />
+    <Resource Include="Assets\cards_109.png" />
+    <None Remove="Assets\cards_11.png" />
+    <Resource Include="Assets\cards_11.png" />
+    <None Remove="Assets\cards_14.png" />
+    <Resource Include="Assets\cards_14.png" />
+    <None Remove="Assets\cards_16.png" />
+    <Resource Include="Assets\cards_16.png" />
+    <None Remove="Assets\cards_18.png" />
+    <Resource Include="Assets\cards_18.png" />
+    <None Remove="Assets\cards_20.png" />
+    <Resource Include="Assets\cards_20.png" />
+    <None Remove="Assets\cards_23.png" />
+    <Resource Include="Assets\cards_23.png" />
+    <None Remove="Assets\cards_25.png" />
+    <Resource Include="Assets\cards_25.png" />
+    <None Remove="Assets\diagram.png" />
+    <Resource Include="Assets\diagram.png" />
+    <None Remove="Assets\image43.png" />
+    <Resource Include="Assets\image43.png" />
+    <None Remove="Assets\Logo.png" />
+    <Resource Include="Assets\Logo.png" />
+    <None Remove="Assets\SmallLogo.png" />
+    <Resource Include="Assets\SmallLogo.png" />
+    <None Remove="Assets\SplashScreen.png" />
+    <Resource Include="Assets\SplashScreen.png" />
+    <None Remove="Assets\StoreLogo.png" />
+    <Resource Include="Assets\StoreLogo.png" />
+    <None Remove="App.ico" />
+    <Resource Include="App.ico" />
+    <ApplicationDefinition Include="App.xaml" />
+    <Compile Include="App.xaml.cs" />
+    <Compile Include="MainWindow.xaml.cs" />
+    <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="*" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+</Project>

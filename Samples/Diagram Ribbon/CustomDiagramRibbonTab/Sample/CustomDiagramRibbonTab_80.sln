@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomDiagramRibbonTab_80", "CustomDiagramRibbonTab_80.csproj", "{ACDCBF3E-65AF-4B18-B433-D7660FA22AEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACDCBF3E-65AF-4B18-B433-D7660FA22AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACDCBF3E-65AF-4B18-B433-D7660FA22AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACDCBF3E-65AF-4B18-B433-D7660FA22AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACDCBF3E-65AF-4B18-B433-D7660FA22AEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7303D0A6-923F-4F00-AD51-9E4318B44E21}
+	EndGlobalSection
+EndGlobal

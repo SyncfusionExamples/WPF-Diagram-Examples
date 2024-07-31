@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestrictConnectorSourceTargetChangedFromNativeNode_60", "RestrictConnectorSourceTargetChangedFromNativeNode_60.csproj", "{A71DB9C6-B532-427A-9CBA-9D6AC20485B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A71DB9C6-B532-427A-9CBA-9D6AC20485B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A71DB9C6-B532-427A-9CBA-9D6AC20485B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A71DB9C6-B532-427A-9CBA-9D6AC20485B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A71DB9C6-B532-427A-9CBA-9D6AC20485B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61A84461-F37B-4D71-94D3-29400F1C01D8}
+	EndGlobalSection
+EndGlobal

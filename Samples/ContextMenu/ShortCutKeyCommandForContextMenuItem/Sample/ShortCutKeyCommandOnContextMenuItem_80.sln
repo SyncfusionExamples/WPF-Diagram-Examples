@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShortCutKeyCommandOnContextMenuItem_80", "ShortCutKeyCommandOnContextMenuItem_80.csproj", "{6B1ED1A6-DB49-4F9B-B7C5-4DE279AD3D87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B1ED1A6-DB49-4F9B-B7C5-4DE279AD3D87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B1ED1A6-DB49-4F9B-B7C5-4DE279AD3D87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B1ED1A6-DB49-4F9B-B7C5-4DE279AD3D87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B1ED1A6-DB49-4F9B-B7C5-4DE279AD3D87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C4F53CC6-8DAA-4E12-BB97-371C5CDB86D4}
+	EndGlobalSection
+EndGlobal

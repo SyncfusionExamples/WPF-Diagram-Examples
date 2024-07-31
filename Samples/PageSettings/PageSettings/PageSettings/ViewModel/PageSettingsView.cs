@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PageSettingsSample
 {
-    public class PageSettingsViewModel : PageSettings
+    public class PageSettingsViewModel : Syncfusion.UI.Xaml.Diagram.PageSettings
     {
 
     }
