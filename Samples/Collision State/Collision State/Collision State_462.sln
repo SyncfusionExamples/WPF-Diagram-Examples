@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collision State_462", "Collision State_462.csproj", "{029E7CD8-E4F1-44E9-9DF2-ED8D3206E2A6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{029E7CD8-E4F1-44E9-9DF2-ED8D3206E2A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{029E7CD8-E4F1-44E9-9DF2-ED8D3206E2A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{029E7CD8-E4F1-44E9-9DF2-ED8D3206E2A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{029E7CD8-E4F1-44E9-9DF2-ED8D3206E2A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D10E612B-956E-4D22-BF66-2F32E6A8D7E6}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuiltinTheme_462", "BuiltinTheme_462.csproj", "{AEBD3758-DC5E-4345-AE46-E04DAE3706EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEBD3758-DC5E-4345-AE46-E04DAE3706EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEBD3758-DC5E-4345-AE46-E04DAE3706EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEBD3758-DC5E-4345-AE46-E04DAE3706EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEBD3758-DC5E-4345-AE46-E04DAE3706EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7DB6BAF9-BAD8-4FDF-AC17-709EA25F282A}
+	EndGlobalSection
+EndGlobal

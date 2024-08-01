@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnappingForNode_60", "SnappingForNode_60.csproj", "{B54D8834-5946-4B63-817E-79C7C072656B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B54D8834-5946-4B63-817E-79C7C072656B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B54D8834-5946-4B63-817E-79C7C072656B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B54D8834-5946-4B63-817E-79C7C072656B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B54D8834-5946-4B63-817E-79C7C072656B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80347145-63B6-4EEF-B3A2-CB7E79A496D9}
+	EndGlobalSection
+EndGlobal

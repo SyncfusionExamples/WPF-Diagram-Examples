@@ -1,0 +1,188 @@
+
+/Samples/Animation/Animation/Animation/.vs
+/Samples/Animation/Animation/.vs
+/Samples/Annotations/Annotations/.vs
+/Samples/Annotations/AnnotationVisibilityUWP/AnnotationVisibility/AnnotationVisibility/.vs
+/Samples/Annotations/AnnotationVisibilityWPF/AnnotationVisibility/.vs
+/Samples/Annotations/MultipleAnnotation/.vs
+/Samples/Automatic Layout/Custom Layout/wpf-diagram-custom-layout-master/SfDiagramWithMSAGL/.vs
+/Samples/Automatic Layout/DataSource-as-NodeViewModel/HierarchicalTree/.vs
+/Samples/Automatic Layout/Expand Collapse in MultiParent Layout/Expand Collapse in MultiParent Layout/.vs
+/Samples/Automatic Layout/Flowchart Layout/Flowchart Layout/.vs
+/Samples/Automatic Layout/Hierarchical Tree/Hierarchical Tree/.vs
+/Samples/Automatic Layout/LayoutWithOutDataSource/LayoutWithoutDataSource/.vs
+/Samples/Automatic Layout/Mindmap Layout - Custom appearance/CS/.vs
+/Samples/Automatic Layout/Mindmap Layout - Drag and  drop/CS/.vs
+/Samples/Automatic Layout/Mindmap Layout - Expand and Collapse children/CS/.vs
+/Samples/Automatic Layout/Mindmap Layout/CS/.vs
+/Samples/Automatic Layout/Organization Chart/Organization Chart/.vs
+/Samples/Automatic Layout/OrgChart with drag and dropped nodes/OrgChart with drag and dropped nodes/.vs
+/Samples/Automatic Layout/Radial Tree/Radial Tree/.vs
+/Samples/Automation/DiagramApplication/.vs
+/Samples/Automation/DiagramApplicationTest/.vs
+/Samples/BPMNEditor/Sample/.vs
+/Samples/Collision State/Collision State/.vs
+/Samples/Commands/Alignment Commands/Alignment Commands/.vs
+/Samples/Commands/Clipboard commands/Clipboard commands/.vs
+/Samples/Commands/Commands Sample/CS/.vs
+/Samples/Commands/CustomCommand/CustomCommand/.vs
+/Samples/Commands/Delete Command/.vs
+/Samples/Commands/Expand and Collapse command/Expand and Collapse Command/.vs
+/Samples/Commands/Fit to page command/Fit to page command/.vs
+/Samples/Commands/Flip Command/Flip Command/.vs
+/Samples/Commands/Grouping Commands/Grouping Commands/.vs
+/Samples/Commands/Nudge Commands/Nudge Commands/.vs
+/Samples/Commands/Rotate Command/RotateCommand/.vs
+/Samples/Commands/SelectToolCommand/SelectToolCommand/.vs
+/Samples/Commands/Sizing Commands/Sizing Commands/.vs
+/Samples/Commands/Spacing Commands/Spacing Commands/.vs
+/Samples/Commands/Undo Redo/Undo Redo/.vs
+/Samples/Commands/Z-Order Commands/Z-Order Commands/.vs
+/Samples/Commands/Zoom Command/Zoom Command/.vs
+/Samples/Connector/Appearance/Appearance/.vs
+/Samples/Connector/Connector Interactions/Connector Interactions/.vs
+/Samples/Connector/Connector Padding/ConnectorPadding/ConnectorPadding/.vs
+/Samples/Connector/ConnectorsEndThumbDragging/ConnectorSegment/.vs
+/Samples/Connector/Create Connector/Create Connector/.vs
+/Samples/Connector/Drawing Tools/Drawing Tools/.vs
+/Samples/Connector/GetOrSetSegmentsProgrammatically/Sample/.vs
+/Samples/Connector/RestrictConnectorSourceTargetChangedFromNativeNode/Sample/.vs
+/Samples/Connector/Segments/Segments/.vs
+/Samples/Connector/SplitAndJoinConnectorTestBedSample/.vs
+/Samples/Connector/Straight Segment/Straight Segment/.vs
+/Samples/Connector/UpdateAverageLength/UpdateAverageLength/UpdateAverageLength/.vs
+/Samples/Constraints/Annotation-constraints-sample/Annotationconstraints/.vs
+/Samples/Constraints/Constraints-Node-Connector-Graph/ConstraintsDemo/.vs
+/Samples/Constraints/Floatelement-constraints-sample/FloatElementsSample/FloatElementsSample/.vs
+/Samples/Constraints/Port-Constraints-sample/Portconstraints/.vs
+/Samples/Constraints/Selector-constraints-sample/Selectorconstraints/.vs
+/Samples/Container/Container/.vs
+/Samples/Container/ContainerExpandCollapse/.vs
+/Samples/Container/RestrictNodeFromContainer/RestrictNodeFromContainer/RestrictNodeFromContainer/.vs
+/Samples/ContextMenu/ColorPaletteInContextMenuItem/Sample/.vs
+/Samples/ContextMenu/ContextMenu-Icon-Customization/ContextMenuIcon/.vs
+/Samples/ContextMenu/Custom-ContextMenu-sasmple/CustomContextMenu/.vs
+/Samples/ContextMenu/Custom-menu-with-submenu-sasmple/Context Menu/.vs
+/Samples/ContextMenu/ShortCutKeyCommandForContextMenuItem/Sample/.vs
+/Samples/ContextMenu/Textbox As SubMenuItem/Sample/.vs
+/Samples/CreateDiagram/CreateDiagram/.vs
+/Samples/DataSource/Custom Layout Algorithm/CustomDataSource/CustomDataSource/.vs
+/Samples/DataSource/Flowchart Layout/Flowchart Layout/.vs
+/Samples/DataSource/Multi Parent/Multi Parent/.vs
+/Samples/Diagram Ribbon/CustomDiagramRibbonTab/Sample/.vs
+/Samples/Diagram Ribbon/DiagramRibbon/Sample/.vs
+/Samples/Diagramming Application/DiagrammingApplication/.vs
+/Samples/DrawingTools/Drawing Tools/.vs
+/Samples/Exporting/Exporting/Exporting/.vs
+/Samples/Exporting/HiddenExporting/Sample/.vs
+/Samples/GettingStarted/Simple-FlowChart-Creation/FlowchartCreation/.vs
+/Samples/GettingStarted/Simple-OrganizationLayout-Creation/Orgchartcreation/.vs
+/Samples/GettingStarted/StencilCreation/.vs
+/Samples/GettingStarted/StencilCreation/StencilCreation/.vs
+/Samples/GettingStarted/Template Studio Sample/SfDiagram Template Studio Sample/.vs
+/Samples/Gridlines/GridlineCustomSpacing/GridlinesCustomSpace/GridlinesCustomSpace/.vs
+/Samples/Gridlines/GridlineStyle/GridlinesCustomStyle/GridlinesCustomStyle/.vs
+/Samples/Group/GroupContainer/.vs
+/Samples/Group/GroupScenario/.vs
+/Samples/HistoryManager/CustomHistoryManger/HistoryManager/.vs
+/Samples/HistoryManager/HistoryManagerDemoSample/Sample/.vs
+/Samples/HistoryManager/HistoryManagerStackView/Sample/.vs
+/Samples/Interaction/CustomQuickCommand/CustomQuickCommand/.vs
+/Samples/Interaction/CustomSelector-sample/CustomSelector/CustomSelector/.vs
+/Samples/Interaction/DragSelectedItemsWIthMousePointAndPasteItOnMouse/Sample/.vs
+/Samples/Interaction/IndicatorStyle-sample/IndicatorStyleSample/.vs
+/Samples/Interaction/KeyboardShortcuts-sample/KeyboardShortcut/.vs
+/Samples/Interaction/NodeConnectorVisibility/Sample/.vs
+/Samples/Interaction/ObjectsDraggingPositiveSide/Sample/.vs
+/Samples/Interaction/PreviewSettings-sample/PreviewSettings/CreateDiagram/.vs
+/Samples/Interaction/Selectionmode-sample/Selectionmode/.vs
+/Samples/Localization/Localization/.vs
+/Samples/LogicCircuit/LogicCircuitSimulation/Sample/.vs
+/Samples/Node/ConnectionIndicatorStyle/ConnectionIndicatorStyle/.vs
+/Samples/Node/GroupDragRestrictNodeDrag/Sample/.vs
+/Samples/Node/ImageAnnotation/.vs
+/Samples/Node/Node-with-CustomShapes/NodeWithCustomShapes/.vs
+/Samples/Node/Node-with-properties/NodeProperties/.vs
+/Samples/Node/NodeContentSample/Sample/.vs
+/Samples/Node/NodeStyleBasedOnKey/StencilDiagramElements/.vs
+/Samples/Node/NodestylewithTemplateSelector/Sample/.vs
+/Samples/Node/NodeZindex/ZindexUpdate/.vs
+/Samples/Node/Polyline-Node/PolylineNode/.vs
+/Samples/Node/Port-Node/PortNode/.vs
+/Samples/Node/Sample-for-GetNode/NodeConnectorSample/NodeConnectorSample/.vs
+/Samples/Node/Sample-for-GetNode/NodeConnectorSample/.vs
+/Samples/Node/Sample-for-NodeCreation/NodeCreation/.vs
+/Samples/Node/Sample-for-NodeCreation/NodeCreation/.vs
+/Samples/Overview/Overview/.vs
+/Samples/PageBreaks/PageBreaksSample/PageBreaksSample/.vs
+/Samples/PageSettings/ImageBackground/Sample/.vs
+/Samples/PageSettings/PageSettings/PageSettings/.vs
+/Samples/Panning/MouseMiddleButton/MouseMiddleButton/.vs
+/Samples/Port/AutomaticPortCreation-through-settool/PortCreation_Settool/.vs
+/Samples/Port/AutomaticPortCreation/AutoPortCreation/.vs
+/Samples/Port/How to achieve ZoomInZoomOut functionality in Ports/Sample/.vs
+/Samples/Port/How To Add Multiple Ports for Node/Sample/.vs
+/Samples/Port/Port-Customization/PortsDemo/.vs
+/Samples/Port/PortToolOverride/Sample/.vs
+/Samples/Port/Simple-PortCreation/SimplePortCreation/.vs
+/Samples/Printing/CustomHeaderFooter/Sample/.vs
+/Samples/Printing/Printing/CS/.vs
+/Samples/QuickCommand/How to hide specific quick command/Sample/.vs
+/Samples/QuickCommand/how-to-create-a-quick-command-in-diagram/User_Handle/.vs
+/Samples/RubberBandZoom/DeactivateRubberBandZoom/DeactivateZoom/.vs
+/Samples/Rulers/Rulers/.vs
+/Samples/ScrollSettings/BringIntoView-sample/BringToView/.vs
+/Samples/ScrollSettings/Scroll-Limit-sample/ScrollSettings/.vs
+/Samples/ScrollSettings/ScrollSettings-sample/ScrollSettings/.vs
+/Samples/Selection/BindingSelectedItemViewToViewModel/Sample/.vs
+/Samples/Selection/Selection_Override/Selection_Override/.vs
+/Samples/Selection/Selector/Selector/.vs
+/Samples/Serialization/Serialization/Sample/.vs
+/Samples/Serialization/SerializeMultipleDiagramPages/Sample/.vs
+/Samples/SfTreeView To Diagram/Sample/.vs
+/Samples/Shapes/Shapes/.vs
+/Samples/Snapping/Snapping/.vs
+/Samples/Snapping/SnappingLineForNodeOnly/SnappingForNode/SnappingForNode/.vs
+/Samples/Stencil/Load_Symbol/LastSymbolLoaded/.vs
+/Samples/Stencil/Load_Symbol/LoadSymbol/LoadSymbol/.vs
+/Samples/Stencil/ModifySymbolCollectionAtRunTime/Sample/.vs
+/Samples/Stencil/PreviewEffectWithoutDragTheSymbol/PreviewEffectWithOutDrag/PreviewEffectWithOutDrag/.vs
+/Samples/Stencil/RestrictSymbolDropping/Sample/.vs
+/Samples/Stencil/Stencil Drag Drop Template/.vs
+/Samples/Stencil/Stencil-with-node-connector-group/StencilDiagramElements/.vs
+/Samples/Stencil/Stencil-with-symbols/StencilSymbolViewModel/.vs
+/Samples/Stencil/Stencil_ListView/Stencil_ListView/.vs
+/Samples/Stencil/StencilCategory/StencilCategory/.vs
+/Samples/Stencil/StencilContextMenu/.vs
+/Samples/Stencil/StencilCustomCommands/StencilCustomCommand/StencilCustomCommand/.vs
+/Samples/Stencil/StencilTabView/StencilTab/.vs
+/Samples/Stencil/SymbolFilters-sample/SymbolFilters/.vs
+/Samples/Stencil/SymbolGroupViewModel/BasicSymbolGroupViewModel/Sample/.vs
+/Samples/Stencil/SymbolGroupViewModel/SymbolGroupsWithContextMenu/Sample/.vs
+/Samples/Stencil/UserControlsInStencil/Sample/.vs
+/Samples/Swimlane/RestrictNodeDraggingFromNativeLane/.vs
+/Samples/Swimlane/Swimlane-Sample/Sample/.vs
+/Samples/Swimlane/Swimlane_Add_Remove_Lane/Sample/.vs
+/Samples/Swimlane/Swimlane_Add_Remove_Phase/Sample/.vs
+/Samples/Swimlane/Swimlane_Header/Sample/.vs
+/Samples/Swimlane/Swimlane_Lane_Children/Sample/.vs
+/Samples/Swimlane/SwimlaneCreation/Sample/.vs
+/Samples/Theme/Simple-Builtintheme-sample/BuiltinTheme/.vs
+/Samples/Theme/ThemeStyle/CS/.vs
+/Samples/Thumb/ConnectorSegment/.vs
+/Samples/Tools/SetCursorSample/SetCursorSample/.vs
+/Samples/Tools/SetToolSample/SetToolSample/.vs
+/Samples/Tools/Switch-between-tools/ToolSelection/.vs
+/Samples/ToolTip/ToolTipForNodeAndNodePorts/Sample/.vs
+/Samples/TreeViewToDiagram/DifferentObjectsfromSfTreeViewToDiagram/Sample/.vs
+/Samples/TreeViewToDiagram/MultipleDiagramPages/Sample/.vs
+/Samples/TreeViewToDiagram/TreeViewEditing/Sample/.vs
+/Samples/TreeViewToDiagram/TreeViewToDiagram/TreeviewToDiagram/.vs
+/Samples/UseCase Diagrams/Activity Diagram/ActivityDiagram/ActivityDiagram/.vs
+/Samples/UseCase Diagrams/State Diagram/StateDiagram/StateDiagram/.vs
+/Samples/UseCase Diagrams/UseCase Diagram/UseCaseDiagram/UseCaseDiagram/.vs
+/Samples/Usecase samples/DiagramWithPropertyGrid/Sample/.vs
+/Samples/Usecase samples/FlowchartCreator/.vs
+/Samples/Usecase samples/UML Class Diagram/Sample/.vs
+/Samples/Validation/ConnectionValidation/.vs
+/Samples/Virtualization/Virtualization/.vs

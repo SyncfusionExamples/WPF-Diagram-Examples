@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Z-Order Commands_80", "Z-Order Commands_80.csproj", "{103DA353-EA68-4FE3-985C-491D24DD0899}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{103DA353-EA68-4FE3-985C-491D24DD0899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{103DA353-EA68-4FE3-985C-491D24DD0899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{103DA353-EA68-4FE3-985C-491D24DD0899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{103DA353-EA68-4FE3-985C-491D24DD0899}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1BF3A69-0948-47EB-88C3-B9369D34117F}
+	EndGlobalSection
+EndGlobal

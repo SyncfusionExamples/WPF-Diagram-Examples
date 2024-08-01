@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StencilCategorySample_462", "StencilCategorySample_462.csproj", "{0224C9AF-997B-4B46-8776-7FF389303621}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0224C9AF-997B-4B46-8776-7FF389303621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0224C9AF-997B-4B46-8776-7FF389303621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0224C9AF-997B-4B46-8776-7FF389303621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0224C9AF-997B-4B46-8776-7FF389303621}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E47A752C-AB2B-4A14-8980-A79465642421}
+	EndGlobalSection
+EndGlobal

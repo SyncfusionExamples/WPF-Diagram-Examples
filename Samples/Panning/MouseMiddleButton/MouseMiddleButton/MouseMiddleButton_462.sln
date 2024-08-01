@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseMiddleButton_462", "MouseMiddleButton_462.csproj", "{CFF327B6-3997-41FB-831F-D6621EBDAE9D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFF327B6-3997-41FB-831F-D6621EBDAE9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFF327B6-3997-41FB-831F-D6621EBDAE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFF327B6-3997-41FB-831F-D6621EBDAE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFF327B6-3997-41FB-831F-D6621EBDAE9D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6BA3CC9-69DC-46CE-B544-B8E4C46E713A}
+	EndGlobalSection
+EndGlobal

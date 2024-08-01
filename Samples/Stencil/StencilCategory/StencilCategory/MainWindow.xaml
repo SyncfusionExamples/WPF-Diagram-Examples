@@ -64,7 +64,7 @@
                        HorizontalAlignment="Left" 
                        Margin="10,5,0,5" 
                        Grid.Row="0"/>
-            <local:StencilViewModel x:Name="stencil" Grid.Column="0" Grid.Row="1" GroupMappingKey="Key">
+            <local:StencilViewModel x:Name="stencil" Grid.Column="0" Grid.Row="1" GroupMappingName="Key">
                 <stencil:Stencil.Categories>
                     <stencil:StencilCategoryCollection>
                         <!--Specify the shapes category with title and resource key-->

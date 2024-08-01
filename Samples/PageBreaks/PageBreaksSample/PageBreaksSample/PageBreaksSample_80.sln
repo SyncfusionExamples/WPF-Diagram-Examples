@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PageBreaksSample_80", "PageBreaksSample_80.csproj", "{2080AD7C-851F-4E7B-A295-418B641A3575}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2080AD7C-851F-4E7B-A295-418B641A3575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2080AD7C-851F-4E7B-A295-418B641A3575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2080AD7C-851F-4E7B-A295-418B641A3575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2080AD7C-851F-4E7B-A295-418B641A3575}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E32052C-5E32-431D-873F-4338505205A8}
+	EndGlobalSection
+EndGlobal

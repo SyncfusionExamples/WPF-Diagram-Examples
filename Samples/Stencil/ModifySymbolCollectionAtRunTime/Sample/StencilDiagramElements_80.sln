@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StencilDiagramElements_80", "StencilDiagramElements_80.csproj", "{89F291F3-7190-4FA5-AD6F-D38B79D443C4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89F291F3-7190-4FA5-AD6F-D38B79D443C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89F291F3-7190-4FA5-AD6F-D38B79D443C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89F291F3-7190-4FA5-AD6F-D38B79D443C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89F291F3-7190-4FA5-AD6F-D38B79D443C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {478BE02A-0DF2-4868-9BBC-305EA84F36FC}
+	EndGlobalSection
+EndGlobal

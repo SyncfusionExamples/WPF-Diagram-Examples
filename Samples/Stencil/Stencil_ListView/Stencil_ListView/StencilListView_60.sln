@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StencilListView_60", "StencilListView_60.csproj", "{75675FA0-D644-4CFB-AB44-125B2E2A2134}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75675FA0-D644-4CFB-AB44-125B2E2A2134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75675FA0-D644-4CFB-AB44-125B2E2A2134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75675FA0-D644-4CFB-AB44-125B2E2A2134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75675FA0-D644-4CFB-AB44-125B2E2A2134}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8AE07EEC-8A51-41EA-83F5-D4FA78EB5F78}
+	EndGlobalSection
+EndGlobal

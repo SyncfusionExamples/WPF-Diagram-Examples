@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple SfDiagram WPF_462", "Simple SfDiagram WPF_462.csproj", "{DC32EFA8-4F9D-4DE4-9EF7-06E866146986}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC32EFA8-4F9D-4DE4-9EF7-06E866146986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC32EFA8-4F9D-4DE4-9EF7-06E866146986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC32EFA8-4F9D-4DE4-9EF7-06E866146986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC32EFA8-4F9D-4DE4-9EF7-06E866146986}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91601915-6129-42CD-936F-B31293EFD0B1}
+	EndGlobalSection
+EndGlobal

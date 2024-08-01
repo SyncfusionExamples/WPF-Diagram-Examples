@@ -1,0 +1,218 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <EnableDefaultEmbeddedResourceItems>False</EnableDefaultEmbeddedResourceItems>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyName>SfDiagramWithMSAGL</AssemblyName>
+    <RootNamespace>SfDiagramWithMSAGL</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;NET50</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;NET50</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Xml|AnyCPU'">
+    <DefineConstants>TRACE;NET50</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <Compile Remove="obj_45\**" />
+    <Compile Remove="obj_462\**" />
+    <Compile Remove="obj_50\**" />
+    <Compile Remove="obj_60\**" />
+    <Compile Remove="obj_70\**" />
+    <Compile Remove="obj_80\**" />
+    <Compile Remove="obj_90\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <EmbeddedResource Remove="obj_45\**" />
+    <EmbeddedResource Remove="obj_462\**" />
+    <EmbeddedResource Remove="obj_50\**" />
+    <EmbeddedResource Remove="obj_60\**" />
+    <EmbeddedResource Remove="obj_70\**" />
+    <EmbeddedResource Remove="obj_80\**" />
+    <EmbeddedResource Remove="obj_90\**" />
+    <None Remove="obj\**" />
+    <None Remove="obj_45\**" />
+    <None Remove="obj_462\**" />
+    <None Remove="obj_50\**" />
+    <None Remove="obj_60\**" />
+    <None Remove="obj_70\**" />
+    <None Remove="obj_80\**" />
+    <None Remove="obj_90\**" />
+    <Page Remove="obj\**" />
+    <Page Remove="obj_45\**" />
+    <Page Remove="obj_462\**" />
+    <Page Remove="obj_50\**" />
+    <Page Remove="obj_60\**" />
+    <None Remove="obj_70\**" />
+    <None Remove="obj_80\**" />
+    <None Remove="obj_90\**" />
+    <None Remove="Graph\Tree1.graphml.Graph" />
+    <None Include="Graph\Tree1.graphml.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\MDS1.graphml.Graph" />
+    <None Include="Graph\MDS1.graphml.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Tree2.graphml.Graph" />
+    <None Include="Graph\Tree2.graphml.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Tree3.graphml.Graph" />
+    <None Include="Graph\Tree3.graphml.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\MDS2.graphml.Graph" />
+    <None Include="Graph\MDS2.graphml.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\MDS3.graphml.Graph" />
+    <None Include="Graph\MDS3.graphml.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\MDS4.graphml.Graph" />
+    <None Include="Graph\MDS4.graphml.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\MDS5.graphml.Graph" />
+    <None Include="Graph\MDS5.graphml.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Abstract.msagl.geom.Graph" />
+    <None Include="Graph\Abstract.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\B466.msagl.geom.Graph" />
+    <None Include="Graph\B466.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Baseball.msagl.geom.Graph" />
+    <None Include="Graph\Baseball.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Bug1.msagl.geom.Graph" />
+    <None Include="Graph\Bug1.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Channel.msagl.geom.Graph" />
+    <None Include="Graph\Channel.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Complex.msagl.geom.Graph" />
+    <None Include="Graph\Complex.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\LargeForm1.msagl.geom.Graph" />
+    <None Include="Graph\LargeForm1.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Large_1138bus.msagl.geom.Graph" />
+    <None Include="Graph\Large_1138bus.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Graph0.msagl.geom.Graph" />
+    <None Include="Graph\Graph0.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Graph1.Graph" />
+    <None Include="Graph\Graph1.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Graph10_25.msagl.geom.Graph" />
+    <None Include="Graph\Graph10_25.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Graph2.Graph" />
+    <None Include="Graph\Graph2.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Graph3.Graph" />
+    <None Include="Graph\Graph3.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Graph4.Graph" />
+    <None Include="Graph\Graph4.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Graph5.Graph" />
+    <None Include="Graph\Graph5.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Graph6.Graph" />
+    <None Include="Graph\Graph6.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\GraphModelGrouped.msagl.geom.Graph" />
+    <None Include="Graph\GraphModelGrouped.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\GraphWithBug.msagl.geom.Graph" />
+    <None Include="Graph\GraphWithBug.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\GraphWithGroups.msagl.geom.Graph" />
+    <None Include="Graph\GraphWithGroups.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\ComplexK20.msagl.geom.Graph" />
+    <None Include="Graph\ComplexK20.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Nodes50.msagl.geom.Graph" />
+    <None Include="Graph\Nodes50.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Prob0.msagl.geom.Graph" />
+    <None Include="Graph\Prob0.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\RoutingRegressionBug20110127.msagl.geom.Graph" />
+    <None Include="Graph\RoutingRegressionBug20110127.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\LayoutOfADisconnectedGraphWithSugiyama.msagl.geom.Graph" />
+    <None Include="Graph\LayoutOfADisconnectedGraphWithSugiyama.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\Test.Graph" />
+    <None Include="Graph\Test.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Remove="Graph\SimpleOverlappedObstacle.msagl.geom.Graph" />
+    <None Include="Graph\SimpleOverlappedObstacle.msagl.geom.Graph">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+
+    <None Remove="Properties\Settings.settings" />
+    <None Include="Properties\Settings.settings" />
+    <None Remove="App.config" />
+    <None Include="App.config" />
+    <ApplicationDefinition Include="App.xaml" />
+    <Compile Include="App.xaml.cs" />
+    <Compile Include="MainWindow.xaml.cs" />
+    <Compile Include="Utility\DelegateCommand.cs" />
+    <Compile Include="Utility\GraphFile.cs" />
+    <Compile Include="Utility\MSAGLLayout.cs" />
+    <Compile Include="ViewModel\DiagramVM.cs" />
+    <Compile Include="View\DiagramView.xaml.cs" />
+    <PackageReference Include="Microsoft.Msagl" Version="*"/>
+    <PackageReference Include="Syncfusion.Licensing" Version="*"/>
+    <PackageReference Include="Syncfusion.PropertyGrid.WPF" Version="*"/>
+    <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="*"/>
+    <PackageReference Include="Syncfusion.SfInput.WPF" Version="*"/>
+    <PackageReference Include="Syncfusion.Shared.WPF" Version="*"/>
+    <PackageReference Include="Syncfusion.Tools.WPF" Version="*"/>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DiagramView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+</Project>
