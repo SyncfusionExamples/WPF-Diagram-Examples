@@ -95,12 +95,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Syncfusion.Licensing" Version="*"/>
     <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="*"/>
     <PackageReference Include="Syncfusion.Shared.WPF" Version="*"/>
-  </ItemGroup>
-    
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
