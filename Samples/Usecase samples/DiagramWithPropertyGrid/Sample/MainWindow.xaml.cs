@@ -25,8 +25,6 @@ namespace tesing_node
     /// </summary>
     public partial class MainWindow : Window
     {
-        public DelegateCommand GetDrawTypeCommand { get; private set; }
-
         public MainWindow()
         {
             InitializeComponent();
