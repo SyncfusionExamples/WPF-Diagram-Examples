@@ -1,5 +1,6 @@
 ﻿using Syncfusion.UI.Xaml.Diagram;
 using Syncfusion.UI.Xaml.Diagram.Controls;
+using Syncfusion.Windows.Shared;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,11 +24,11 @@ namespace tesing_node
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    { 
+    {
         public MainWindow()
         {
             InitializeComponent();
-            ObservableCollection<NodeViewModel>  nodes = new ObservableCollection<NodeViewModel>();
+            ObservableCollection<CustomNodeViewModel> nodes = new ObservableCollection<CustomNodeViewModel>();
             AnnotationEditorViewModel a2 = new AnnotationEditorViewModel()
             {
                 Content = "hi",
@@ -36,13 +37,15 @@ namespace tesing_node
                 Constraints = AnnotationConstraints.Default,
             };
             ObservableCollection<ConnectorViewModel> connectors = new ObservableCollection<ConnectorViewModel>();
-            NodeViewModel n2 = new NodeViewModel()
+            CustomNodeViewModel n2 = new CustomNodeViewModel()
             {
                 UnitWidth = 100,
                 UnitHeight = 100,
                 OffsetX = 100,
                 OffsetY = 100,
                 Shape = new RectangleGeometry() { Rect = new Rect(0, 0, 10, 10) },
+                FillColor = new SolidColorBrush(Colors.SkyBlue),
+                StrokeColor = new SolidColorBrush(Colors.Green),
                 Annotations = new ObservableCollection<IAnnotation>()
                 {
                     a2,
@@ -55,22 +58,24 @@ namespace tesing_node
                 UnitWidth = 60,
                 Constraints = AnnotationConstraints.Default,
             };
-            NodeViewModel n3 = new NodeViewModel()
+            CustomNodeViewModel n3 = new CustomNodeViewModel()
             {
                 UnitWidth = 100,
                 UnitHeight = 100,
                 OffsetX = 300,
                 OffsetY = 300,
+                FillColor = new SolidColorBrush(Colors.SkyBlue),
+                StrokeColor = new SolidColorBrush(Colors.Green),
                 Shape = new RectangleGeometry() { Rect = new Rect(0, 0, 10, 10) },
                 Annotations = new ObservableCollection<IAnnotation>()
                 {
-                    a3,      
+                    a3,
                 },
             };
             ConnectorViewModel c1 = new ConnectorViewModel()
             {
                 SourceNode = n2,
-                TargetNode = n3,    
+                TargetNode = n3,
             };
             nodes.Add(n2);
             nodes.Add(n3);
@@ -79,6 +84,16 @@ namespace tesing_node
             diag.Connectors = connectors;
             (diag.Info as IGraphInfo).ItemSelectedEvent += MainWindow_ItemSelectedEvent;
             (diag.Info as IGraphInfo).AnnotationChanged += MainWindow_AnnotationChanged;
+            (diag.Info as IGraphInfo).ItemAdded += MainWindow_ItemAdded;
+        }
+
+        private void MainWindow_ItemAdded(object sender, ItemAddedEventArgs args)
+        {
+            if (args.Item is CustomNodeViewModel)
+            {
+                (args.Item as CustomNodeViewModel).FillColor = new SolidColorBrush(Colors.Red);
+                (args.Item as CustomNodeViewModel).StrokeColor = new SolidColorBrush(Colors.Black);
+            }
         }
 
         private void MainWindow_AnnotationChanged(object sender, ChangeEventArgs<object, AnnotationChangedEventArgs> args)
@@ -88,7 +103,7 @@ namespace tesing_node
                 propertyGrid1.SelectedObject = args.Item;
             }
         }
-        
+
         void MainWindow_ItemSelectedEvent(object sender, DiagramEventArgs args)
         {
             if (args.Item is INode)
@@ -98,6 +113,59 @@ namespace tesing_node
             else if (args.Item is IConnector)
             {
                 propertyGrid1.SelectedObject = args.Item;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (diag.Tool == Tool.MultipleSelect)
+            {
+                diag.Tool |= Tool.DrawOnce;
+            }
+            diag.DefaultConnectorType = ConnectorType.Line;
+            diag.DrawingTool = DrawingTool.Rectangle;
+
+        }
+
+
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (diag.Tool == Tool.MultipleSelect)
+            {
+                diag.Tool |= Tool.DrawOnce;
+            }
+            diag.DefaultConnectorType = ConnectorType.Line;
+            diag.DrawingTool = DrawingTool.Connector;
+        }
+    }
+
+    public class CustomNodeViewModel : NodeViewModel
+    {
+        private Brush fill;
+
+        private Brush stroke;
+
+
+        // Fill property
+        public Brush FillColor
+        {
+            get { return fill; }
+            set
+            {
+                fill = value;
+                OnPropertyChanged("FillColor");
+            }
+        }
+
+        // Stroke property
+        public Brush StrokeColor
+        {
+            get { return stroke; }
+            set
+            {
+                stroke = value;
+                OnPropertyChanged("StrokeColor");
             }
         }
     }
