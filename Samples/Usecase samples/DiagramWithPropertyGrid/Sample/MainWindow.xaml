@@ -11,20 +11,20 @@
         <Style TargetType="syncfusion:AnnotationEditor">
             <Setter Property="Background" Value="AliceBlue"/>
         </Style>
-        
+
         <Style  TargetType="syncfusion:Node">
             <Setter Property="ShapeStyle">
                 <Setter.Value>
                     <Style TargetType="Path">
-                        <Setter Property="Fill" Value="SkyBlue"/>
+                        <Setter Property="Fill" Value="{Binding Path=FillColor, Mode=TwoWay}"/>
                         <Setter Property="Stretch" Value="Fill"/>
-                        <Setter Property="Stroke" Value="Yellow"/>
+                        <Setter Property="Stroke" Value="{Binding  Path=StrokeColor, Mode=TwoWay}"/>
                         <Setter Property="StrokeThickness" Value="1"/>
                     </Style>
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <Style TargetType="Shape" x:Key="shape">
             <Setter Property="Stroke" Value="Black"/>
             <Setter Property="StrokeThickness" Value="1"/>
@@ -71,5 +71,7 @@
         <syncfusion:PropertyGrid Grid.Column="1" x:Name="propertyGrid1" Height="600" Width="300"></syncfusion:PropertyGrid>
         <syncfusion:SfDiagram Grid.Column="0" Width="600" x:Name="diag">
         </syncfusion:SfDiagram>
+        <Button Content="Draw Node" HorizontalAlignment="Left" Margin="113,10,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="Draw Connector" HorizontalAlignment="Left" Margin="222,8,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
     </Grid>
 </Window>
