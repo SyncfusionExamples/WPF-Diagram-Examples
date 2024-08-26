@@ -62,7 +62,6 @@
     <Compile Include="MainWindow.xaml.cs" />
     <PackageReference Include="Syncfusion.PropertyGrid.WPF" Version="*" />
     <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="*" />
-    <PackageReference Include="Syncfusion.Themes.Office2019Colorful.WPF" Version="*" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainWindow.xaml">
