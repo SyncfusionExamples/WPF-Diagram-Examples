@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{54461AB7-22F0-4D1A-8C38-073EF7FF5238}</ProjectGuid>
+    <ProjectGuid>{8F66C1B9-1D24-48F9-A329-F764443394FF}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ExitAnnotationEditingOnEnterKeyPressed</RootNamespace>
-    <AssemblyName>ExitAnnotationEditingOnEnterKeyPressed</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <RootNamespace>StraightSegment</RootNamespace>
+    <AssemblyName>StraightSegment</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,14 +36,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Syncfusion.Licensing, Version=25.1462.40.0, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Syncfusion.Licensing.25.1.40\lib\net462\Syncfusion.Licensing.dll</HintPath>
+    <Reference Include="Syncfusion.Licensing, Version=27.1400.37.0, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\27.1.37\precompiledassemblies\4.0\Syncfusion.Licensing.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.SfDiagram.WPF, Version=25.1462.40.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>..\packages\Syncfusion.SfDiagram.WPF.25.1.40\lib\net462\Syncfusion.SfDiagram.WPF.dll</HintPath>
+    <Reference Include="Syncfusion.SfDiagram.WPF, Version=27.1400.37.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\27.1.37\precompiledassemblies\4.0\Syncfusion.SfDiagram.WPF.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.Shared.WPF, Version=25.1462.40.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <HintPath>..\packages\Syncfusion.Shared.WPF.25.1.40\lib\net462\Syncfusion.Shared.WPF.dll</HintPath>
+    <Reference Include="Syncfusion.Shared.WPF, Version=27.1400.37.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\27.1.37\precompiledassemblies\4.0\Syncfusion.Shared.WPF.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
