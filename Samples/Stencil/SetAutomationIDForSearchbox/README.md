@@ -1,5 +1,5 @@
 # Preserving node template while drag and drop
-This repository contains sample which shows how to set the Autoamtion Id for the search box.
+This repository contains sample which shows how to set the Automation Id for the search box.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/stencil
 
