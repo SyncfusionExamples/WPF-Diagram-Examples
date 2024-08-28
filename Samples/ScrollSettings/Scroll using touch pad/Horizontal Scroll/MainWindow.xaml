@@ -1,0 +1,36 @@
+﻿<Window x:Class="StraightSegmentSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StraightSegmentSample"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
+    <Grid>
+        <syncfusion:SfDiagram x:Name="Diagram">
+            <syncfusion:SfDiagram.Theme>
+                <syncfusion:OfficeTheme/>
+            </syncfusion:SfDiagram.Theme>
+            <syncfusion:SfDiagram.Nodes>
+                <syncfusion:NodeCollection>
+                    <syncfusion:NodeViewModel UnitHeight="100" UnitWidth="100" OffsetX="200" OffsetY="200">
+                        <syncfusion:NodeViewModel.Shape>
+                            <RectangleGeometry Rect="10,10,10,10"/>
+                        </syncfusion:NodeViewModel.Shape>
+                    </syncfusion:NodeViewModel>
+                    <syncfusion:NodeViewModel UnitHeight="100" UnitWidth="100" OffsetX="1200" OffsetY="1200">
+                        <syncfusion:NodeViewModel.Shape>
+                            <RectangleGeometry Rect="10,10,10,10"/>
+                        </syncfusion:NodeViewModel.Shape>
+                    </syncfusion:NodeViewModel>
+                    <syncfusion:NodeViewModel UnitHeight="100" UnitWidth="100" OffsetX="2000" OffsetY="2000">
+                        <syncfusion:NodeViewModel.Shape>
+                            <RectangleGeometry Rect="10,10,10,10"/>
+                        </syncfusion:NodeViewModel.Shape>
+                    </syncfusion:NodeViewModel>
+                </syncfusion:NodeCollection>
+            </syncfusion:SfDiagram.Nodes>
+        </syncfusion:SfDiagram>
+    </Grid>
+</Window> 
