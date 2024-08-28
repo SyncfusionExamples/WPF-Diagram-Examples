@@ -53,7 +53,6 @@
     <None Remove="obj_80\**" />
     <None Remove="obj_90\**" />
     <None Remove="packages.config" />
-    <None Include="packages.config" />
     <None Remove="Properties\Settings.settings" />
     <None Include="Properties\Settings.settings" />
     <None Remove="App.config" />
@@ -95,19 +94,11 @@
     <ApplicationDefinition Include="App.xaml" />
     <Compile Include="App.xaml.cs" />
     <Compile Include="MainWindow.xaml.cs" />
+    <PackageReference Include="Syncfusion.Licensing" Version="*" />
+    <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="*" />
+    <PackageReference Include="Syncfusion.Shared.WPF" Version="*" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Syncfusion.Licensing">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\27.1.37\precompiledassemblies\net6.0\Syncfusion.Licensing.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.SfDiagram.WPF">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\27.1.37\precompiledassemblies\net6.0\Syncfusion.SfDiagram.WPF.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Shared.WPF">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\WPF\27.1.37\precompiledassemblies\net6.0\Syncfusion.Shared.WPF.dll</HintPath>
-    </Reference>
   </ItemGroup>
 </Project>
