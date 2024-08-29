@@ -1,0 +1,53 @@
+﻿<Window x:Class="Test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:Test"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+   <Window.Resources>
+      <ResourceDictionary>
+         <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+         </ResourceDictionary.MergedDictionaries>
+         <!--Shape style for Node-->
+         <Style x:Key="ShapeStyle" TargetType="Path">
+            <Setter Property="Fill" Value="#FF5B9BD5"/>
+            <Setter Property="Stretch" Value="Fill"/>
+            <Setter Property="Stroke" Value="#FFEDF1F6"/>
+         </Style>
+
+      </ResourceDictionary>
+   </Window.Resources>
+
+   <Grid>
+
+        <local:CustomDiagram x:Name="Diagram" >
+         <syncfusion:SfDiagram.Nodes>
+            <syncfusion:NodeCollection>
+               <!-- Add five rectangular nodes -->
+               <syncfusion:NodeViewModel ID = "Op1" Content = "OP1" UnitHeight="100" UnitWidth="100" OffsetX="100" OffsetY="100" Shape="{StaticResource Rectangle}"  ShapeStyle="{StaticResource ShapeStyle}"/>
+               <syncfusion:NodeViewModel ID = "Op2" Content = "OP2" UnitHeight="100" UnitWidth="100" OffsetX="250" OffsetY="100" Shape="{StaticResource Rectangle}"  ShapeStyle="{StaticResource ShapeStyle}"/>
+               <syncfusion:NodeViewModel ID = "Op3" Content = "OP3" UnitHeight="100" UnitWidth="100" OffsetX="400" OffsetY="100" Shape="{StaticResource Rectangle}"  ShapeStyle="{StaticResource ShapeStyle}"/>
+               <syncfusion:NodeViewModel ID = "Op4" Content = "OP4" UnitHeight="100" UnitWidth="100" OffsetX="100" OffsetY="240" Shape="{StaticResource Rectangle}"  ShapeStyle="{StaticResource ShapeStyle}"/>
+               <syncfusion:NodeViewModel ID = "Op5" Content = "OP5" UnitHeight="100" UnitWidth="100" OffsetX="250" OffsetY="240" Shape="{StaticResource Rectangle}"  ShapeStyle="{StaticResource ShapeStyle}"/>
+               <syncfusion:NodeViewModel ID = "Op6" Content = "OP6" UnitHeight="100" UnitWidth="100" OffsetX="400" OffsetY="240" Shape="{StaticResource Rectangle}"  ShapeStyle="{StaticResource ShapeStyle}"/>
+            </syncfusion:NodeCollection>
+         </syncfusion:SfDiagram.Nodes>
+         <syncfusion:SfDiagram.Connectors>
+            <syncfusion:ConnectorCollection>
+               <!--Establish connection between the nodes-->
+               <syncfusion:ConnectorViewModel SourceNodeID="Op1" TargetNodeID="Op2"/>
+               <syncfusion:ConnectorViewModel SourceNodeID="Op2" TargetNodeID="Op3"/>
+               <syncfusion:ConnectorViewModel SourceNodeID="Op3" TargetNodeID="Op4"/>
+               <syncfusion:ConnectorViewModel SourceNodeID="Op4" TargetNodeID="Op5"/>
+               <syncfusion:ConnectorViewModel SourceNodeID="Op5" TargetNodeID="Op6"/>
+            </syncfusion:ConnectorCollection>
+         </syncfusion:SfDiagram.Connectors>
+      </local:CustomDiagram>
+        
+    </Grid>
+</Window>
