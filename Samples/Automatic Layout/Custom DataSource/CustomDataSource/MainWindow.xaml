@@ -1,0 +1,83 @@
+﻿<Window x:Class="CustomDataSource.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomDataSource"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key="RoundedNodeContentTemplate">
+                <Border Width="230" Height="100" Background ="Transparent" 
+         BorderBrush="Transparent">
+                    <Grid>
+                        <!--Outer circle-->
+                        <Ellipse HorizontalAlignment="Left" Width="100" Height="100" Fill="LightCyan" Stroke="Blue"/>
+                        <Grid Margin="30,0,0,0"  Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Background="LightCyan">
+                            <!--Rounded rectangle by seting corner redious to the border-->
+                            <Border CornerRadius="20,15,15,20" Background="Blue"
+                         BorderBrush="Green" BorderThickness="2" HorizontalAlignment="Center" 
+                         VerticalAlignment="Center" Grid.Column="1" Width="200" Height="40">
+                                <!--Text to display inside the rounded rectangle-->
+                                <TextBlock Text="{Binding Path=Name}" Margin="20,0,0,0" FontStyle="Italic" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                        <!--Inner circle with text-->
+                        <Ellipse Width="40" Height="40" Margin="-130,0,0,0" Fill="Black" Stroke="Black" />
+                        <!--Text to display inside the inner circle-->
+                        <TextBlock Text="1" Margin="-130,0,0,0" FontSize="15" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+
+            <DataTemplate x:Key="newCretedNode">
+
+                <local:NodeCreate DataContext="{Binding}"/>
+            </DataTemplate>
+
+            <DataTemplate x:Key="EllipseNodeContentTemplate">
+                <Border Width="40" Height="40" Background ="Transparent" 
+                BorderBrush="Transparent">
+                    <Grid>
+                        <!--Inner circle with text-->
+                        <Ellipse Width="40" Height="40" Fill="Black" Stroke="Black" />
+                        <!--Text to display inside the inner circle-->
+                        <TextBlock Text="{Binding Path=Name}" FontSize="15" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+            <Style TargetType="syncfusion:Connector">
+                <Setter Property="ConnectorGeometryStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stroke" Value="Gray"/>
+                            <Setter Property="StrokeThickness" Value="1"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="TargetDecoratorStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="Gray"/>
+                            <Setter Property="StrokeThickness" Value="1"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+           
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <local:CustomDiagram x:Name="diagram" Loaded="diagram_Loaded" DefaultConnectorType="Line"
+                              Nodes="{Binding Nodes}"
+                              Connectors="{Binding Connectors}">
+        </local:CustomDiagram>
+
+    </Grid>
+</Window>
