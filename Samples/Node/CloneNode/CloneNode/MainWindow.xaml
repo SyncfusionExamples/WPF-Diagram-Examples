@@ -1,0 +1,98 @@
+﻿<Window x:Class="NodeCreation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NodeCreation"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <!--Resource Dictionary which contains predefined shapes for Node-->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!--Shape style for Node-->
+            <Style x:Key="ShapeStyle"
+                   TargetType="Path">
+                <Setter Property="Fill"
+                        Value="#FF5B9BD5" />
+                <Setter Property="Stretch"
+                        Value="Fill" />
+                <Setter Property="Stroke"
+                        Value="#FFEDF1F6" />
+            </Style>
+
+
+            <!--style for NodePort-->
+            <Style TargetType="syncfusion:NodePort">
+                <Setter Property="Shape">
+                    <Setter.Value>
+                        <RectangleGeometry Rect="0,0,10,10"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stretch" Value="Fill"/>
+                            <Setter Property="Fill" Value="#FF808081"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.DataContext>
+        <syncfusion:DiagramViewModel>
+            <syncfusion:DiagramViewModel.Nodes>
+                <!--Initialize the NodeCollection-->
+                <syncfusion:NodeCollection>
+                    <!--Initialize the Node-->
+                    <local:CustomNodeViewModel ID="Begin"
+                                              OffsetX="300"
+                                              OffsetY="260"
+                                              Shape="{StaticResource Ellipse}"
+                                              ShapeStyle="{StaticResource ShapeStyle}"
+                                              UnitHeight="100"
+                                              UnitWidth="100" >
+                        <!--Initialization of PortCollection-->
+                        <syncfusion:NodeViewModel.Ports>
+                            <syncfusion:PortCollection>
+                                <!--Initialization of NodePort-->
+                                <syncfusion:NodePortViewModel x:Name="port" NodeOffsetX="0.5" NodeOffsetY="0"/>
+                            </syncfusion:PortCollection>
+                        </syncfusion:NodeViewModel.Ports>
+                        <!--Initialize the annotations-->
+                        <syncfusion:NodeViewModel.Annotations>
+                            <!--Initialize the AnnotationCollection-->
+                            <syncfusion:AnnotationCollection>
+                                <!--Initialize the Annotation editor view model-->
+                                <syncfusion:AnnotationEditorViewModel Content="Annotation"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+                </syncfusion:NodeCollection>
+            </syncfusion:DiagramViewModel.Nodes>
+            <syncfusion:DiagramViewModel.Connectors>
+                <syncfusion:ConnectorCollection/>
+            </syncfusion:DiagramViewModel.Connectors>
+        </syncfusion:DiagramViewModel>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0">
+            <Button Width="50" Height="30" x:Name="clone" Content="Clone" Click="clone_Click"></Button>
+        </Border>
+        <!--Initialize the Sfdiagram-->
+        <syncfusion:SfDiagram x:Name="diagram" Grid.Column="1" PortVisibility="Visible" DefaultConnectorType="Line"
+                              Nodes="{Binding Nodes}"
+                              Connectors="{Binding Connectors}">
+        </syncfusion:SfDiagram>
+    </Grid>
+</Window>

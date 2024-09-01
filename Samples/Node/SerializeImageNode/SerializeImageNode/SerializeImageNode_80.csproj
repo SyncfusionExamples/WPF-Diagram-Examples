@@ -1,0 +1,212 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <EnableDefaultEmbeddedResourceItems>False</EnableDefaultEmbeddedResourceItems>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyName>SyncFusionDiagramTest</AssemblyName>
+    <RootNamespace>SyncFusionDiagramTest</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;NET50</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;NET50</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Xml|AnyCPU'">
+    <DefineConstants>TRACE;NET50</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <Compile Remove="obj_45\**" />
+    <Compile Remove="obj_462\**" />
+    <Compile Remove="obj_50\**" />
+    <Compile Remove="obj_60\**" />
+    <Compile Remove="obj_70\**" />
+    <Compile Remove="obj_80\**" />
+    <Compile Remove="obj_90\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <EmbeddedResource Remove="obj_45\**" />
+    <EmbeddedResource Remove="obj_462\**" />
+    <EmbeddedResource Remove="obj_50\**" />
+    <EmbeddedResource Remove="obj_60\**" />
+    <EmbeddedResource Remove="obj_70\**" />
+    <EmbeddedResource Remove="obj_80\**" />
+    <EmbeddedResource Remove="obj_90\**" />
+    <None Remove="obj\**" />
+    <None Remove="obj_45\**" />
+    <None Remove="obj_462\**" />
+    <None Remove="obj_50\**" />
+    <None Remove="obj_60\**" />
+    <None Remove="obj_70\**" />
+    <None Remove="obj_80\**" />
+    <None Remove="obj_90\**" />
+    <Page Remove="obj\**" />
+    <Page Remove="obj_45\**" />
+    <Page Remove="obj_462\**" />
+    <Page Remove="obj_50\**" />
+    <Page Remove="obj_60\**" />
+    <None Remove="obj_70\**" />
+    <None Remove="obj_80\**" />
+    <None Remove="obj_90\**" />
+    <None Remove="packages.config" />
+    <None Remove="Properties\Settings.settings" />
+    <None Include="Properties\Settings.settings" />
+    <None Remove="App.config" />
+    <None Include="App.config" />
+    <None Remove="EC_Nodes\Images\component-1-fill.png" />
+    <Resource Include="EC_Nodes\Images\component-1-fill.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <None Remove="EC_Nodes\svg\AcidCleaningTank.svg" />
+    <Content Include="EC_Nodes\svg\AcidCleaningTank.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\AcidDispensingPump.svg" />
+    <Content Include="EC_Nodes\svg\AcidDispensingPump.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\AcidStorageTank.svg" />
+    <Content Include="EC_Nodes\svg\AcidStorageTank.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\AutomaticStrainer.svg" />
+    <Content Include="EC_Nodes\svg\AutomaticStrainer.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\bgLayout.svg" />
+    <Content Include="EC_Nodes\svg\bgLayout.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\boosterPump.svg" />
+    <Content Include="EC_Nodes\svg\boosterPump.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\boosterPumpArrow.svg" />
+    <Content Include="EC_Nodes\svg\boosterPumpArrow.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\dot.svg" />
+    <Content Include="EC_Nodes\svg\dot.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\dot2.svg" />
+    <Content Include="EC_Nodes\svg\dot2.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\ec_component_11.svg" />
+    <Content Include="EC_Nodes\svg\ec_component_11.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\ec_component_20.svg" />
+    <Content Include="EC_Nodes\svg\ec_component_20.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\ec_component_21.svg" />
+    <Content Include="EC_Nodes\svg\ec_component_21.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\ec_component_22.svg" />
+    <Content Include="EC_Nodes\svg\ec_component_22.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\FumeScrubber.svg" />
+    <Content Include="EC_Nodes\svg\FumeScrubber.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\HydrogenDilutionFan.svg" />
+    <Content Include="EC_Nodes\svg\HydrogenDilutionFan.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\HypochloriteGenerator.svg" />
+    <Content Include="EC_Nodes\svg\HypochloriteGenerator.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\HypochloriteStorageTank_Corn.svg" />
+    <Content Include="EC_Nodes\svg\HypochloriteStorageTank_Corn.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\HypochloriteStorageTank_Flat.svg" />
+    <Content Include="EC_Nodes\svg\HypochloriteStorageTank_Flat.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\NaOHDosingPumpForNeutralization.svg" />
+    <Content Include="EC_Nodes\svg\NaOHDosingPumpForNeutralization.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\NaOHDosingTank.svg" />
+    <Content Include="EC_Nodes\svg\NaOHDosingTank.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\NeutralizationPond.svg" />
+    <Content Include="EC_Nodes\svg\NeutralizationPond.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\NeutralizationTransferPump.svg" />
+    <Content Include="EC_Nodes\svg\NeutralizationTransferPump.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\SafetyShowerEyeWasher.svg" />
+    <Content Include="EC_Nodes\svg\SafetyShowerEyeWasher.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\SealingWaterBoosterPump.svg" />
+    <Content Include="EC_Nodes\svg\SealingWaterBoosterPump.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="EC_Nodes\svg\StartTitle.svg" />
+    <Content Include="EC_Nodes\svg\StartTitle.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="projectgenerator\ProjectGeneratorApp\.vs\ProjectGeneratorApp\FileContentIndex\4df393ac-58c3-4752-bb1c-09e63fa4f323.vsidx" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\.vs\ProjectGeneratorApp\FileContentIndex\760a406c-00da-467e-997c-5c7736e3088d.vsidx" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\.vs\ProjectGeneratorApp\FileContentIndex\f94d452f-e221-4222-9f9c-b37ea2faa2f5.vsidx" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\.vs\ProjectGeneratorApp\v17\.suo" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\bin\Debug\DocCoreProjTemplate.xml" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\bin\Debug\ExcludeProject.xml" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\bin\Debug\ProjectGeneratorApp.exe" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\bin\Debug\ProjectGeneratorApp.exe.config" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\bin\Debug\ProjectGeneratorApp.pdb" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\bin\Debug\ProjectorGeneratorLibrary.dll" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\bin\Debug\ProjectorGeneratorLibrary.pdb" />
+    <Compile Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\.NETFramework,Version=v4.7.AssemblyAttributes.cs" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\ProjectGeneratorApp.csproj.AssemblyReference.cache" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\ProjectGeneratorApp.csproj.CopyComplete" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\ProjectGeneratorApp.csproj.CoreCompileInputs.cache" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\ProjectGeneratorApp.csproj.FileListAbsolute.txt" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\ProjectGeneratorApp.exe" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\ProjectGeneratorApp.pdb" />
+    <Compile Remove="projectgenerator\ProjectGeneratorApp\Properties\AssemblyInfo.cs" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\App.config" />
+    <Compile Remove="projectgenerator\ProjectGeneratorApp\Program.cs" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\bin\Debug\DocCoreProjTemplate.xml" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\bin\Debug\ExcludeProject.xml" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\bin\Debug\ProjectorGeneratorLibrary.dll" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\bin\Debug\ProjectorGeneratorLibrary.pdb" />
+    <Compile Remove="projectgenerator\ProjectorGeneratorLibrary\obj\Debug\.NETFramework,Version=v4.7.AssemblyAttributes.cs" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\obj\Debug\ProjectorGeneratorLibrary.csproj.AssemblyReference.cache" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\obj\Debug\ProjectorGeneratorLibrary.csproj.CoreCompileInputs.cache" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\obj\Debug\ProjectorGeneratorLibrary.csproj.FileListAbsolute.txt" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\obj\Debug\ProjectorGeneratorLibrary.dll" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\obj\Debug\ProjectorGeneratorLibrary.pdb" />
+    <Compile Remove="projectgenerator\ProjectorGeneratorLibrary\Properties\AssemblyInfo.cs" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\DocCoreProjTemplate.xml" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\ExcludeProject.xml" />
+    <Compile Remove="projectgenerator\ProjectorGeneratorLibrary\ProjectGenerator.cs" />
+    <ApplicationDefinition Include="App.xaml" />
+    <Compile Include="App.xaml.cs" />
+    <Compile Include="MainWindow.xaml.cs" />
+	<PackageReference Include="Syncfusion.Licensing" Version="*" />
+    <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="*" />
+    <PackageReference Include="Syncfusion.Shared.WPF" Version="*" />
+	<PackageReference Include="DotNetProjects.SVGImage" Version="*" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+</Project>
