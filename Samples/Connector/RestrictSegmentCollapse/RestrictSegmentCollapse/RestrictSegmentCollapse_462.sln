@@ -1,8 +1,9 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.31410.414
+VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimumSegmentLength_60", "MinimumSegmentLength_60.csproj", "{8F66C1B9-1D24-48F9-A329-F764443394FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestrictSegmentCollapse_462", "RestrictSegmentCollapse_462.csproj", "{8F66C1B9-1D24-48F9-A329-F764443394FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {49C8B6F3-8BAE-4E55-8381-AD8162B97D75}
+		SolutionGuid = {02F3EBEC-3714-4978-9261-D94015371571}
 	EndGlobalSection
 EndGlobal
