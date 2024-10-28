@@ -1,0 +1,174 @@
+﻿<Window x:Class="PortsSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PortsSample"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Dictionary which contains the inbuilt shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            
+
+            <Style TargetType="Path" x:Key="RedStyle">
+                <Setter Property="Fill" Value="Red"/>
+                <Setter Property="Stretch" Value="Fill"/>
+            </Style>
+
+            <Style TargetType="Path" x:Key="GreenStyle">
+                <Setter Property="Fill" Value="DarkGreen"/>
+                <Setter Property="Stretch" Value="Fill"/>
+            </Style>
+
+            <Style TargetType="Path" x:Key="BlueStyle">
+                <Setter Property="Fill" Value="DeepSkyBlue"/>
+                <Setter Property="Stretch" Value="Fill"/>
+            </Style>
+
+            <Style TargetType="Path" x:Key="BlackStyle">
+                <Setter Property="Fill" Value="Black"/>
+                <Setter Property="Stretch" Value="Fill"/>
+            </Style>
+
+          
+
+            <Style TargetType="Path" x:Key="BlueTargetStyle">
+                <Setter Property="Fill" Value="DeepSkyBlue"/>
+                <Setter Property="StrokeThickness" Value="1"/>
+            </Style>
+
+            <Style TargetType="Path" x:Key="BlackTargetStyle">
+                <Setter Property="Fill" Value="Black"/>
+                <Setter Property="StrokeThickness" Value="1"/>
+            </Style>
+
+            <Style TargetType="Path" x:Key="LightRedTargetStyle">
+                <Setter Property="Fill" Value="Red"/>
+                <Setter Property="StrokeThickness" Value="1"/>
+            </Style>
+
+            <Style TargetType="syncfusion:Node">
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="#FF5B9BD5"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                            <Setter Property="Stroke" Value="#FFEDF1F6 "/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+            
+            
+            <Style TargetType="syncfusion:RunTimeConnectionIndicator">
+                <Setter Property="Width" Value="100" />
+                <Setter Property="Height" Value="100" />
+                <Style.Triggers>
+                    <Trigger Property="PortHoverEffect" Value="Ripple">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="syncfusion:RunTimeConnectionIndicator">
+                                    <Grid>
+                                        <Viewbox x:Name="PART_Ripple" Width="55" Height="55" Visibility="Visible">
+                                            <Grid x:Name="LayoutRoot">
+                                                <Path x:Name="_4" Data="F1M30,15C30,23.284,23.284,30,15,30C6.716,30,0,23.284,0,15C0,6.716,6.716,0,15,0C23.284,0,30,6.716,30,15" 
+                       Fill="Red" Height="30" Opacity="0.25" Stretch="Fill" Width="30" 
+                       HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                                                    <Path.RenderTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform/>
+                                                            <SkewTransform/>
+                                                            <RotateTransform/>
+                                                            <TranslateTransform/>
+                                                        </TransformGroup>
+                                                    </Path.RenderTransform>
+                                                </Path>
+                                            </Grid>
+                                        </Viewbox>
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="connectionIndication">
+                                                <VisualState x:Name="Connecting">
+                                                    <Storyboard RepeatBehavior="Forever">
+                                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="_4">
+                                                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="0"/>
+                                                        </DoubleAnimationUsingKeyFrames>
+                                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="_4">
+                                                            <EasingDoubleKeyFrame KeyTime="0" Value="-0.333"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-0.5"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-0.667"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-0.834"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-1.001"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="-1.201"/>
+                                                        </DoubleAnimationUsingKeyFrames>
+                                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="_4">
+                                                            <EasingDoubleKeyFrame KeyTime="0" Value="0.333"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.5"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.667"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.834"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1.01"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="1.201"/>
+                                                        </DoubleAnimationUsingKeyFrames>
+                                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="_4">
+                                                            <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="0"/>
+                                                        </DoubleAnimationUsingKeyFrames>
+                                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="_4">
+                                                            <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.80"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.60"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.40"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0.20"/>
+                                                            <EasingDoubleKeyFrame KeyTime="0:0:1.0" Value="0"/>
+                                                        </DoubleAnimationUsingKeyFrames>
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Normal">
+                                                    <Storyboard />
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    
+    <Grid>
+        <local:CustomDiagram x:Name="diagram" PortHoverEffect="Ripple" >
+            <syncfusion:SfDiagram.Nodes>
+                <syncfusion:NodeCollection>
+                    
+                </syncfusion:NodeCollection>
+            </syncfusion:SfDiagram.Nodes>
+
+            <syncfusion:SfDiagram.Connectors>
+                <syncfusion:ConnectorCollection>
+                    
+                </syncfusion:ConnectorCollection>
+            </syncfusion:SfDiagram.Connectors>
+        </local:CustomDiagram>
+        
+    </Grid>
+</Window>

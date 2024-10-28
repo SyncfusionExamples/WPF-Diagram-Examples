@@ -1,0 +1,90 @@
+﻿<Window x:Class="Getting_Started.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Getting_Started"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:Viewmodel="clr-namespace:Getting_Started.ViewModel"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Icon="App.ico"
+        Title="Getting Started"
+        Height="700"
+        Width="1000" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <Viewmodel:SfHeatMapViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <syncfusion:ColorMappingCollection x:Key="ColorMapping1">
+                <syncfusion:ColorMapping Color="#8ec8f8" Value="0" Label="0" />
+                <syncfusion:ColorMapping Color="Blue" Value="50" Label="50" />
+                <syncfusion:ColorMapping Color="#0d47a1" Value="100" Label="100" />
+            </syncfusion:ColorMappingCollection>
+
+            <syncfusion:ColorMappingCollection x:Key="ColorMapping2">
+                <syncfusion:ColorMapping Color="Yellow" Value="0" />
+                <syncfusion:ColorMapping Color="Orange" Value="50"  />
+                <syncfusion:ColorMapping Color="Red" Value="100" />
+            </syncfusion:ColorMappingCollection>
+
+            <ToolTip x:Key="celltip" Background="White" Content="{Binding}" FontSize="10" Foreground="#4f4f4f" Opacity=".9">
+                <ToolTip.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding RowHeader.Value}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding ColumnHeader.Value}" />
+                                <TextBlock Text=" : " />
+                                <TextBlock Text="{Binding Value}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ToolTip.ContentTemplate>
+            </ToolTip>
+
+            <Style TargetType="syncfusion:HeatMapCell">
+                <Setter Property="ToolTip" Value="{StaticResource celltip}" />
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <DataTemplate x:Key="ComboBoxItemTemplate">
+                <TextBlock Text="{Binding Path=Value}" />
+            </DataTemplate>
+
+            <local:ObjectToStringConverter x:Key="ObjectToStringConverter" />
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
+            
+            <Button Width="76" Height="24" Content="Color change" Margin="10,0,0,0" Click="Button_Click_1"/>
+            
+        </StackPanel>
+        <syncfusion:SfHeatMap 
+                              Grid.Row="1"
+                              x:Name="heatmap"
+                              HorizontalAlignment="Center"
+                              ColorMappingCollection="{StaticResource ColorMapping1}"
+                              ItemsMapping="{Binding ItemsMapping}"
+                              ItemsSource="{Binding ItemSource}" 
+                              SelectedItem="{Binding SelectedItem, Mode=TwoWay}"/>
+        <syncfusion:SfHeatMapLegend x:Name="Legend"
+                                Grid.Row="2" LegendMode="List"
+                                Width="300"
+                                Margin="10,30,10,10"
+                                ColorMappingCollection="{StaticResource ColorMapping1}" />
+    </Grid>
+</Window>

@@ -1,0 +1,23 @@
+﻿<Window x:Class="Simple_SfDiagram_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Simple_SfDiagram_WPF"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowState="Maximized">
+    <Grid>
+        <syncfusion:SfDiagram x:Name="Diagram">
+            <syncfusion:SfDiagram.HorizontalRuler>
+                <syncfusion:Ruler Orientation="Horizontal"/>
+            </syncfusion:SfDiagram.HorizontalRuler>
+            <syncfusion:SfDiagram.VerticalRuler>
+                <syncfusion:Ruler Orientation="Vertical"/>
+            </syncfusion:SfDiagram.VerticalRuler>
+            <syncfusion:SfDiagram.Theme>
+                <syncfusion:SimpleTheme/>
+            </syncfusion:SfDiagram.Theme>
+        </syncfusion:SfDiagram>
+    </Grid>    
+</Window>
