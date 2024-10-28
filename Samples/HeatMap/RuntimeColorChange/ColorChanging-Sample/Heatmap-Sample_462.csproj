@@ -102,7 +102,6 @@
     <None Include="App.config" />
 	 <PackageReference Include="Syncfusion.Licensing" Version="*" />
     <PackageReference Include="Syncfusion.SfHeatMap.WPF" Version="*" />
-    <PackageReference Include="Syncfusion.Shared.WPF" Version="*" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App.ico" />

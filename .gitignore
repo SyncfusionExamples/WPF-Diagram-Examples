@@ -186,3 +186,6 @@
 /Samples/Usecase samples/UML Class Diagram/Sample/.vs
 /Samples/Validation/ConnectionValidation/.vs
 /Samples/Virtualization/Virtualization/.vs
+/Samples/HeatMap/RuntimeColorChange/ColorChanging-Sample/.vs
+/Samples/HeatMap/RuntimeColorChange/ColorChanging-Sample/bin
+/Samples/HeatMap/RuntimeColorChange/ColorChanging-Sample/obj
