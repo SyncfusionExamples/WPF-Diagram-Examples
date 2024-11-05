@@ -37,7 +37,10 @@ namespace StencilSymbolViewModel
             {
                 (args.Item as NodeViewModel).UnitHeight = 80;
                 (args.Item as NodeViewModel).UnitWidth = 80;
-                (args.Item as NodeViewModel).ContentTemplate = this.Resources[(args.Item as CustomNodeVM).ContentName] as DataTemplate;
+                if ((args.Item as CustomNodeVM).ContentTemplateKey != "")
+                {
+                    (args.Item as NodeViewModel).ContentTemplate = this.Resources[(args.Item as CustomNodeVM).ContentTemplateKey] as DataTemplate;
+                }
             }
         }
     }
@@ -49,7 +52,7 @@ namespace StencilSymbolViewModel
     {
         private bool isSymbolEnabled = false;
 
-        private string contentname = string.Empty;
+        private string contenttemplatekey = string.Empty;
         /// <summary>
         /// Gets or sets value that indicating whether the symbol can be enabled or disbaled.
         /// </summary>
@@ -74,18 +77,18 @@ namespace StencilSymbolViewModel
         /// Gets or Sets the Key value for the ContentTemplate
         /// </summary>
         [DataMember]
-        public string ContentName
+        public string ContentTemplateKey
         {
             get 
             { 
-                return contentname; 
+                return contenttemplatekey; 
             }
             set
             {
-                if (contentname != value)
+                if (contenttemplatekey != value)
                 {
-                    contentname = value;
-                    OnPropertyChanged("Contentname");
+                    contenttemplatekey = value;
+                    OnPropertyChanged("ContentTemplateKey");
                 }
 
             }

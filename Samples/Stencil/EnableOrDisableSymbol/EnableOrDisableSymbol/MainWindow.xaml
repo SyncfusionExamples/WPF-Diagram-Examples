@@ -142,9 +142,9 @@
                              BorderThickness="1">
                 <Stencil:Stencil.SymbolSource>
                     <Syncfusion:SymbolCollection>
-                        <local:CustomNodeVM Name="Profile" Key="Profile" IsSymbolEnabled="True" ContentName="user1"
+                        <local:CustomNodeVM Name="Profile" Key="Profile" IsSymbolEnabled="True" ContentTemplateKey="user1"
                                                     ContentTemplate="{StaticResource user1}" />
-                        <local:CustomNodeVM   Name="Profile" Key="Profile" IsSymbolEnabled="False" ContentName="user2"
+                        <local:CustomNodeVM   Name="Profile" Key="Profile" IsSymbolEnabled="False" ContentTemplateKey="user2"
                                                     ContentTemplate="{StaticResource user2}" />
 
                     </Syncfusion:SymbolCollection>
