@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -36,7 +37,7 @@ namespace StencilSymbolViewModel
             {
                 (args.Item as NodeViewModel).UnitHeight = 80;
                 (args.Item as NodeViewModel).UnitWidth = 80;
-                (args.Item as NodeViewModel).ContentTemplate = this.Resources["user1"] as DataTemplate;
+                (args.Item as NodeViewModel).ContentTemplate = this.Resources[(args.Item as CustomNodeVM).ContentName] as DataTemplate;
             }
         }
     }
@@ -44,9 +45,11 @@ namespace StencilSymbolViewModel
     /// <summary>
     /// Represents a custom class to enable or disable the symbol 
     /// </summary>
-    public class CustomSymbolVM: NodeViewModel
+    public class CustomNodeVM: NodeViewModel
     {
         private bool isSymbolEnabled = false;
+
+        private string contentname = string.Empty;
         /// <summary>
         /// Gets or sets value that indicating whether the symbol can be enabled or disbaled.
         /// </summary>
@@ -64,6 +67,27 @@ namespace StencilSymbolViewModel
                     isSymbolEnabled = value;
                     OnPropertyChanged("IsSymbolEnabled");
                 }
+            }
+        }
+
+        /// <summary>
+        /// Gets or Sets the Key value for the ContentTemplate
+        /// </summary>
+        [DataMember]
+        public string ContentName
+        {
+            get 
+            { 
+                return contentname; 
+            }
+            set
+            {
+                if (contentname != value)
+                {
+                    contentname = value;
+                    OnPropertyChanged("Contentname");
+                }
+
             }
         }
     }
