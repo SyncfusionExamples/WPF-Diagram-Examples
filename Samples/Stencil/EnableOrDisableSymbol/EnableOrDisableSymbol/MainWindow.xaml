@@ -134,7 +134,7 @@
                        HorizontalAlignment="Left"
                        Margin="10,5,0,5"
                        Grid.Row="0" />
-            <Stencil:Stencil x:Name="stencil"
+            <Stencil:Stencil x:Name="stencil" GroupMappingName="Key"
                              Grid.Column="0"
                              Grid.Row="1"
                              ExpandMode="ZeroOrMore"
@@ -149,12 +149,7 @@
 
                     </Syncfusion:SymbolCollection>
                 </Stencil:Stencil.SymbolSource>
-                <Stencil:Stencil.SymbolGroups>
-                    <Stencil:SymbolGroups>
-                        <!--Separate groups based on the key-->
-                        <Stencil:SymbolGroupProvider MappingName="Key" />
-                    </Stencil:SymbolGroups>
-                </Stencil:Stencil.SymbolGroups>
+                
             </Stencil:Stencil>
         </Grid>
 

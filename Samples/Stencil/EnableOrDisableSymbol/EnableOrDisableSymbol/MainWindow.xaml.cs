@@ -37,7 +37,7 @@ namespace StencilSymbolViewModel
             {
                 (args.Item as NodeViewModel).UnitHeight = 80;
                 (args.Item as NodeViewModel).UnitWidth = 80;
-                if ((args.Item as CustomNodeVM).ContentTemplateKey != "")
+                if ((args.Item as CustomNodeVM).ContentTemplateKey != string.Empty)
                 {
                     (args.Item as NodeViewModel).ContentTemplate = this.Resources[(args.Item as CustomNodeVM).ContentTemplateKey] as DataTemplate;
                 }
