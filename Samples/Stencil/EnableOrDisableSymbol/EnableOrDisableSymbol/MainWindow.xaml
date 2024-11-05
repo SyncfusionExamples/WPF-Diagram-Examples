@@ -171,10 +171,10 @@
                              BorderThickness="1">
                 <Stencil:Stencil.SymbolSource>
                     <Syncfusion:SymbolCollection>
-                        <local:CustomSymbolVM Symbol="Profile" Key="Profile" IsSymbolEnabled="True"
-                                                    SymbolTemplate="{StaticResource user1}" />
-                        <local:CustomSymbolVM x:Name="symbol"  Symbol="Profile" Key="Profile" IsSymbolEnabled="False"
-                                                    SymbolTemplate="{StaticResource user2}" />
+                        <local:CustomSymbolVM Name="Profile" Key="Profile" IsSymbolEnabled="True"
+                                                    ContentTemplate="{StaticResource user1}" />
+                        <local:CustomSymbolVM   Name="Profile" Key="Profile" IsSymbolEnabled="False"
+                                                    ContentTemplate="{StaticResource user2}" />
 
                     </Syncfusion:SymbolCollection>
                 </Stencil:Stencil.SymbolSource>
