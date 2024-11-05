@@ -12,35 +12,6 @@
         Title="MainWindow"
         Height="450"
         Width="800">
-    <Window.DataContext>
-        <Syncfusion:DiagramViewModel>
-            <!--To Represent HorizontalRuler,VerticalRuler-->
-            <Syncfusion:DiagramViewModel.HorizontalRuler>
-                <RulerControl:Ruler Orientation="Horizontal" />
-            </Syncfusion:DiagramViewModel.HorizontalRuler>
-
-            <Syncfusion:DiagramViewModel.VerticalRuler>
-                <RulerControl:Ruler Orientation="Vertical" />
-            </Syncfusion:DiagramViewModel.VerticalRuler>
-
-            <!--SnapConstraints used to Control the Visibility of Gridlines and enable/disable Snapping.-->
-            <Syncfusion:DiagramViewModel.SnapSettings>
-                <Syncfusion:SnapSettings SnapConstraints="All"
-                                         SnapToObject="All" />
-            </Syncfusion:DiagramViewModel.SnapSettings>
-
-            <!--Initializes PageSettings-->
-            <Syncfusion:DiagramViewModel.PageSettings>
-                <diagramcontrol:PageSettings PageBorderBrush="Transparent" />
-            </Syncfusion:DiagramViewModel.PageSettings>
-
-            <!--Initializes Node-->
-            <Syncfusion:DiagramViewModel.Nodes>
-                <Syncfusion:NodeCollection />
-            </Syncfusion:DiagramViewModel.Nodes>
-        
-        </Syncfusion:DiagramViewModel>
-    </Window.DataContext>
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -163,7 +134,7 @@
                        HorizontalAlignment="Left"
                        Margin="10,5,0,5"
                        Grid.Row="0" />
-            <Stencil:Stencil x:Name="stencil"
+            <Stencil:Stencil x:Name="stencil" GroupMappingName="Key"
                              Grid.Column="0"
                              Grid.Row="1"
                              ExpandMode="ZeroOrMore"
@@ -171,31 +142,43 @@
                              BorderThickness="1">
                 <Stencil:Stencil.SymbolSource>
                     <Syncfusion:SymbolCollection>
-                        <local:CustomSymbolVM Symbol="Profile" Key="Profile" IsSymbolEnabled="True"
-                                                    SymbolTemplate="{StaticResource user1}" />
-                        <local:CustomSymbolVM x:Name="symbol"  Symbol="Profile" Key="Profile" IsSymbolEnabled="False"
-                                                    SymbolTemplate="{StaticResource user2}" />
+                        <local:CustomNodeVM Name="Profile" Key="Profile" IsSymbolEnabled="True" ContentTemplateKey="user1"
+                                                    ContentTemplate="{StaticResource user1}" />
+                        <local:CustomNodeVM   Name="Profile" Key="Profile" IsSymbolEnabled="False" ContentTemplateKey="user2"
+                                                    ContentTemplate="{StaticResource user2}" />
 
                     </Syncfusion:SymbolCollection>
                 </Stencil:Stencil.SymbolSource>
-                <Stencil:Stencil.SymbolGroups>
-                    <Stencil:SymbolGroups>
-                        <!--Separate groups based on the key-->
-                        <Stencil:SymbolGroupProvider MappingName="Key" />
-                    </Stencil:SymbolGroups>
-                </Stencil:Stencil.SymbolGroups>
+                
             </Stencil:Stencil>
         </Grid>
 
         <!--Initializes Diagram-->
         <Syncfusion:SfDiagram x:Name="diagram"
-                              Grid.Column="1"
-                              Nodes="{Binding Nodes}"                              
-                              PageSettings="{Binding PageSettings}"
-                              SnapSettings="{Binding SnapSettings}"
-                              HorizontalRuler="{Binding HorizontalRuler}"
-                              VerticalRuler="{Binding VerticalRuler}">
+                              Grid.Column="1">
+            <Syncfusion:SfDiagram.HorizontalRuler>
+                <RulerControl:Ruler Orientation="Horizontal" />
+            </Syncfusion:SfDiagram.HorizontalRuler>
 
+            <Syncfusion:SfDiagram.VerticalRuler>
+                <RulerControl:Ruler Orientation="Vertical" />
+            </Syncfusion:SfDiagram.VerticalRuler>
+
+            <!--SnapConstraints used to Control the Visibility of Gridlines and enable/disable Snapping.-->
+            <Syncfusion:SfDiagram.SnapSettings>
+                <Syncfusion:SnapSettings SnapConstraints="All"
+                             SnapToObject="All" />
+            </Syncfusion:SfDiagram.SnapSettings>
+
+            <!--Initializes PageSettings-->
+            <Syncfusion:SfDiagram.PageSettings>
+                <diagramcontrol:PageSettings PageBorderBrush="Transparent" />
+            </Syncfusion:SfDiagram.PageSettings>
+
+            <!--Initializes Node-->
+            <Syncfusion:SfDiagram.Nodes>
+                <Syncfusion:NodeCollection />
+            </Syncfusion:SfDiagram.Nodes>
         </Syncfusion:SfDiagram>
         
     </Grid>
