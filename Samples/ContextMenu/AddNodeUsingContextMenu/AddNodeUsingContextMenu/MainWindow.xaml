@@ -1,0 +1,118 @@
+﻿<Window xmlns:sf="http://schemas.syncfusion.com/wpf"  x:Class="AddNodesInContainerHoldingShiftKey.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AddNodesInContainerHoldingShiftKey"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <!--Style for node-->
+            <Style TargetType="sf:Node">
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="SlateBlue"/>
+                            <Setter Property="Stroke" Value="#727272"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <!--Style for Connector-->
+            <Style TargetType="sf:Connector">
+                <Setter Property="ConnectorGeometryStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stroke" Value="SlateBlue"/>
+                            <Setter Property="StrokeThickness" Value="1"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="TargetDecoratorStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="SlateBlue"/>
+                            <Setter Property="StrokeThickness" Value="1"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Stencil-->
+        <sf:Stencil x:Name="stencil" Title="Shapes"
+                            DisplayMode="Expanded"
+                            ShowSearchTextBox="False"
+                            SymbolsDisplayMode="IconsOnly"
+                            Margin="5,5,0,5"
+                            ExpandMode="ZeroOrMore"
+                            Grid.Column="0" Grid.Row="1">
+            <sf:Stencil.SymbolSource>
+                <sf:SymbolCollection>
+                    <!--Define the DiagramElement- Group-->
+                    <sf:ContainerViewModel UnitHeight="100" UnitWidth="400" OffsetX="200" OffsetY="300" Name="Container" Key="Container" 
+                                                   Shape="{StaticResource Rectangle}">
+                    </sf:ContainerViewModel>
+                </sf:SymbolCollection>
+            </sf:Stencil.SymbolSource>
+            <sf:Stencil.Categories>
+                <sf:StencilCategoryCollection>
+                    <sf:StencilCategory Title="Basic Shapes" Keys="{StaticResource BasicShapes}"/>
+                </sf:StencilCategoryCollection>
+            </sf:Stencil.Categories>
+
+            <sf:Stencil.SymbolGroups>
+                <sf:SymbolGroups>
+                    <!--Separate groups based on the key-->
+                    <sf:SymbolGroupProvider MappingName = "Key" />
+                </sf:SymbolGroups>
+            </sf:Stencil.SymbolGroups>
+
+        </sf:Stencil>
+
+        <!--Diagram-->
+        <sf:SfDiagram x:Name="Diagram" Grid.Column="2" Grid.Row="1">
+
+            <sf:SfDiagram.Nodes>
+                <sf:NodeCollection/>
+            </sf:SfDiagram.Nodes>
+
+            <sf:SfDiagram.Connectors>
+                <sf:ConnectorCollection/>
+            </sf:SfDiagram.Connectors>
+
+            <sf:SfDiagram.Groups>
+                <sf:GroupCollection>
+                    <sf:ContainerViewModel UnitHeight="300" UnitWidth="500" 
+                                           OffsetX="500" OffsetY="250"/>
+                </sf:GroupCollection>
+            </sf:SfDiagram.Groups>
+
+            <sf:SfDiagram.HorizontalRuler>
+                <sf:Ruler/>
+            </sf:SfDiagram.HorizontalRuler>
+
+            <sf:SfDiagram.VerticalRuler>
+                <sf:Ruler Orientation="Vertical"/>
+            </sf:SfDiagram.VerticalRuler>
+        </sf:SfDiagram>
+    </Grid>
+
+</Window>
