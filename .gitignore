@@ -189,3 +189,15 @@
 /Samples/HeatMap/RuntimeColorChange/ColorChanging-Sample/.vs
 /Samples/HeatMap/RuntimeColorChange/ColorChanging-Sample/bin
 /Samples/HeatMap/RuntimeColorChange/ColorChanging-Sample/obj
+/Samples/ContextMenu/AddNodeUsingContextMenu/AddNodeUsingContextMenu/.vs
+/Samples/ContextMenu/AddNodeUsingContextMenu/AddNodeUsingContextMenu/bin
+/Samples/ContextMenu/AddNodeUsingContextMenu/AddNodeUsingContextMenu/obj
+/Samples/Exporting/CustomizeExport/CustomizeExport/.vs
+/Samples/Exporting/CustomizeExport/CustomizeExport/bin
+/Samples/Exporting/CustomizeExport/CustomizeExport/obj
+/Samples/Interaction/MultipleQuickCommands/MultipleQuickCommands/.vs
+/Samples/Interaction/MultipleQuickCommands/MultipleQuickCommands/bin
+/Samples/Interaction/MultipleQuickCommands/MultipleQuickCommands/obj
+/Samples/RubberBandZoom/RubberBandZoom/RubberbandZoom/.vs
+/Samples/RubberBandZoom/RubberBandZoom/RubberbandZoom/bin
+/Samples/RubberBandZoom/RubberBandZoom/RubberbandZoom/obj
