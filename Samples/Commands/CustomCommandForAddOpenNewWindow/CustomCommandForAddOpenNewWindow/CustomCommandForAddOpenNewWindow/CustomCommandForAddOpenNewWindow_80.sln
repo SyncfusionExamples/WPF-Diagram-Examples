@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35209.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomCommandForAddOpenNewWindow_80", "CustomCommandForAddOpenNewWindow_80.csproj", "{5D47282A-720F-4CC3-B716-EC3264EA39EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D47282A-720F-4CC3-B716-EC3264EA39EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D47282A-720F-4CC3-B716-EC3264EA39EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D47282A-720F-4CC3-B716-EC3264EA39EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D47282A-720F-4CC3-B716-EC3264EA39EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFE98264-6656-473B-90AD-5243F208CB99}
+	EndGlobalSection
+EndGlobal
