@@ -1,6 +1,6 @@
 # Annotation Visibility sample
 
-This sample demonstrates how to highlight a node when an annotation is selected, and vice versa.
+This sample demonstrates how to highlight a node when  selecting an annotation, and vice versa.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/annotation/defineannotation
 
