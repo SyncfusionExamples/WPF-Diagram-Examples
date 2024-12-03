@@ -1,5 +1,5 @@
 # Diagram control examples
-**Essential Diagram WPF** is a powerful, extensible, and feature-rich library for visualizing, creating, and editing interactive diagrams. It supports creating flowcharts, organizational charts, mind maps, floor plans, UML diagrams, and BPMN charts either through code or a visual interface.
+**Essential&reg; Diagram WPF** is a powerful, extensible, and feature-rich library for visualizing, creating, and editing interactive diagrams. It supports creating flowcharts, organizational charts, mind maps, floor plans, UML diagrams, and BPMN charts either through code or a visual interface.
 
 ![Diagram - Overview](https://help.syncfusion.com/wpf/diagram/overview_images/wpf-diagram-overview.png)
 
