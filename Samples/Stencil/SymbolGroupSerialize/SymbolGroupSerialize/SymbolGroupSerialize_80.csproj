@@ -61,5 +61,11 @@
     <ApplicationDefinition Include="App.xaml" />
     <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="*" />
     <Compile Include="App.xaml.cs" />
+    <Compile Include="MainWindow.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 </Project>
