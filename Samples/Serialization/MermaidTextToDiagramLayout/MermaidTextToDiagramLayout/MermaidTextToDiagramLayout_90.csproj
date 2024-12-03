@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>true</UseWPF>
     <EnableDefaultEmbeddedResourceItems>False</EnableDefaultEmbeddedResourceItems>
@@ -52,6 +52,7 @@
     <None Remove="obj_70\**" />
     <None Remove="obj_80\**" />
     <None Remove="obj_90\**" />
+    <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="*" />
     <None Remove="Properties\Settings.settings" />
     <None Include="Properties\Settings.settings" />
     <None Remove="App.config" />
@@ -61,7 +62,6 @@
     <Compile Include="MainWindow.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="*" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
