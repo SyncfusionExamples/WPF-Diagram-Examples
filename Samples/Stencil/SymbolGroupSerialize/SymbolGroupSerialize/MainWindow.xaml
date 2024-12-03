@@ -53,60 +53,15 @@
 
                 <stencil:Stencil.SymbolSource>
                     <syncfusion:SymbolCollection>
-                        <syncfusion:SymbolViewModel Key="Symbols" >
-                            <syncfusion:SymbolViewModel.Symbol>
-                                <syncfusion:NodeViewModel UnitHeight="100" UnitWidth="100" Shape="{StaticResource Ellipse}"  ShapeStyle="{StaticResource NodeStyle}" />
-                            </syncfusion:SymbolViewModel.Symbol>
-                        </syncfusion:SymbolViewModel>
-
-                        <syncfusion:SymbolViewModel Key="Symbols">
-                            <syncfusion:SymbolViewModel.Symbol>
-                                <syncfusion:GroupViewModel>
-                                    <syncfusion:GroupViewModel.Nodes>
-                                        <syncfusion:NodeCollection>
-                                            <syncfusion:NodeViewModel ID="srcnode"
-                                                  UnitHeight="70"
-                                                  UnitWidth="100"
-                                                  OffsetX="0"
-                                                  OffsetY="300"
-                                                  Shape="{StaticResource Rectangle}" ShapeStyle="{StaticResource NodeStyle}" >
-                                            </syncfusion:NodeViewModel>
-                                            <syncfusion:NodeViewModel ID="tarnode"
-                                                  UnitHeight="70"
-                                                  OffsetX="100"
-                                                  OffsetY="500"
-                                                  UnitWidth="100"
-                                                  Shape="{StaticResource Rectangle}" ShapeStyle="{StaticResource NodeStyle}" >
-                                            </syncfusion:NodeViewModel>
-                                        </syncfusion:NodeCollection>
-                                    </syncfusion:GroupViewModel.Nodes>
-                                    <syncfusion:GroupViewModel.Connectors>
-                                        <syncfusion:ConnectorCollection>
-                                            <syncfusion:ConnectorViewModel SourceNodeID="srcnode"
-                                                       TargetNodeID="tarnode" />
-                                        </syncfusion:ConnectorCollection>
-                                    </syncfusion:GroupViewModel.Connectors>
-                                </syncfusion:GroupViewModel>
-                            </syncfusion:SymbolViewModel.Symbol>
-                        </syncfusion:SymbolViewModel>
-
-                        <syncfusion:SymbolViewModel Key="Symbols">
-                            <syncfusion:SymbolViewModel.Symbol>
-                                <syncfusion:ConnectorViewModel SourcePoint="100,100" TargetPoint="200,200"/>
-                            </syncfusion:SymbolViewModel.Symbol>
-                        </syncfusion:SymbolViewModel>
-
-                        <syncfusion:SymbolViewModel Symbol="User" Key="Image"
-                                        SymbolTemplate="{StaticResource symboltemplate}" />
-
+                        <syncfusion:NodeViewModel UnitHeight="100" UnitWidth="100" Shape="{StaticResource Ellipse}"  ShapeStyle="{StaticResource NodeStyle}" Key="Node"/>
                     </syncfusion:SymbolCollection>
                 </stencil:Stencil.SymbolSource>
 
                 <syncfusion:Stencil.SymbolGroups>
                     <syncfusion:SymbolGroups>
                         <syncfusion:SymbolGroupViewModel Name="Basic Shapes" CategorySource="{StaticResource BasicShapes}"/>
+                        <syncfusion:SymbolGroupViewModel Name="Flow Shapes" CategorySource="{StaticResource FlowShapes}"/>
                         <syncfusion:SymbolGroupViewModel Name="BPMNEditor Shapes" CategorySource="{StaticResource BPMNEditorShapes}"/>
-                        <syncfusion:SymbolGroupViewModel Name="Custom Shapes" CategorySource="{StaticResource customShapeCollection}"/>
                     </syncfusion:SymbolGroups>
                 </syncfusion:Stencil.SymbolGroups>
             </syncfusion:Stencil>
