@@ -59,6 +59,7 @@
     <None Remove="User.jpg" />
     <Resource Include="User.jpg" />
     <ApplicationDefinition Include="App.xaml" />
+    <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="*" />
     <Compile Include="App.xaml.cs" />
   </ItemGroup>
 </Project>
