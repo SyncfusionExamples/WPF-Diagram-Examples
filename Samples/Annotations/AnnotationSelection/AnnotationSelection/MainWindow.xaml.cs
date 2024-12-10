@@ -42,7 +42,7 @@ namespace AnnotationSelection_462
 
             AnnotationEditorViewModel anno = new AnnotationEditorViewModel();
             anno.Content = "Node Annotation";
-            anno.Constraints = AnnotationConstraints.Default & ~AnnotationConstraints.InheritSelectable | AnnotationConstraints.Selectable;
+            anno.Constraints = AnnotationConstraints.Selectable | AnnotationConstraints.Resizable | AnnotationConstraints.Editable | AnnotationConstraints.Rotatable;
 
             (node.Annotations as AnnotationCollection).Add(anno);
 
@@ -53,7 +53,7 @@ namespace AnnotationSelection_462
 
             AnnotationEditorViewModel anno1 = new AnnotationEditorViewModel();
             anno1.Content = "Connector Annotation";
-            anno1.Constraints = AnnotationConstraints.Default & ~AnnotationConstraints.InheritSelectable | AnnotationConstraints.Selectable;
+            anno1.Constraints = AnnotationConstraints.Selectable | AnnotationConstraints.Resizable | AnnotationConstraints.Editable | AnnotationConstraints.Rotatable;
 
             (connector.Annotations as AnnotationCollection).Add(anno1);
 
@@ -63,8 +63,30 @@ namespace AnnotationSelection_462
             (Diagram.Info as IGraphInfo).ItemSelectedEvent += MainWindow_ItemSelectedEvent;
             (Diagram.Info as IGraphInfo).ItemUnSelectedEvent += MainWindow_ItemUnSelectedEvent;
             (Diagram.Info as IGraphInfo).ItemSelectingEvent += MainWindow_ItemSelectingEvent;
-            (Diagram.Info as IGraphInfo).ItemUnSelectingEvent += MainWindow_ItemUnSelectingEvent; ;
+            (Diagram.Info as IGraphInfo).ItemUnSelectingEvent += MainWindow_ItemUnSelectingEvent;
+            (Diagram.Info as IGraphInfo).AnnotationChanged += MainWindow_AnnotationChanged;
 
+        }
+
+        private void MainWindow_AnnotationChanged(object sender, ChangeEventArgs<object, AnnotationChangedEventArgs> args)
+        {
+            //When annotation is resized
+            if (args.NewValue.AnnotationInteractionState == AnnotationInteractionState.Resized)
+            {
+                TextBlock.Text += "\n" + "Annotation has been resized!";
+            }
+
+            //When annotation is resized
+            if (args.NewValue.AnnotationInteractionState == AnnotationInteractionState.Rotated)
+            {
+                TextBlock.Text += "\n" +"Annotation has been rotated!";
+            }
+
+            //When annotation is resized
+            if (args.NewValue.AnnotationInteractionState == AnnotationInteractionState.Edited) 
+            {
+                TextBlock.Text += "\n" +"Annotation has been edited!";
+            }
         }
 
         private void MainWindow_ItemUnSelectingEvent(object sender, DiagramPreviewEventArgs args)
