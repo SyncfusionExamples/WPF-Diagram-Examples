@@ -17,9 +17,8 @@
                 <Setter Property="ShapeStyle">
                     <Setter.Value>
                         <Style TargetType="Path">
-                            <Setter Property="Fill" Value="#FF5B9BD5"/>
+                            <Setter Property="Fill" Value="CornflowerBlue"/>
                             <Setter Property="Stretch" Value="Fill"/>
-                            <Setter Property="Stroke" Value="#FFEDF1F6"/>
                         </Style>
                     </Setter.Value>
                 </Setter>
@@ -55,7 +54,7 @@
              GroupMappingName="Key">
             <syncfusion:Stencil.SymbolGroups>
                 <syncfusion:SymbolGroups>
-                    <syncfusion:SymbolGroupViewModel Name="Basic Shapes" CategorySource="{StaticResource BasicShapes}">
+                    <syncfusion:SymbolGroupViewModel Name="Symbols">
                         <syncfusion:SymbolGroupViewModel.Symbols>
                             <syncfusion:SymbolCollection>
                                 <syncfusion:NodeViewModel Name="Object" 
@@ -66,6 +65,19 @@
                                                           UnitHeight="50"
                                                           UnitWidth="50"
                                                           Shape="{StaticResource User}"/>
+                                <syncfusion:NodeViewModel Name="Amplifier"
+                                                          UnitHeight="50"
+                                                          UnitWidth="50"
+                                                          Shape="{StaticResource  Amplifier}"/>
+
+                                <syncfusion:NodeViewModel Name="CircularArrow"
+                                                          UnitHeight="50"
+                                                          UnitWidth="50"
+                                                          Shape="{StaticResource CircularArrow}"/>
+                                <syncfusion:NodeViewModel Name="Data1"
+                                                          UnitHeight="50"
+                                                          UnitWidth="50"
+                                                          Shape="{StaticResource Data1}"/>
                             </syncfusion:SymbolCollection>
                         </syncfusion:SymbolGroupViewModel.Symbols>
                     </syncfusion:SymbolGroupViewModel>
