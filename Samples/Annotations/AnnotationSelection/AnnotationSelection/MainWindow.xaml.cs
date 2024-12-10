@@ -62,7 +62,41 @@ namespace AnnotationSelection_462
 
             (Diagram.Info as IGraphInfo).ItemSelectedEvent += MainWindow_ItemSelectedEvent;
             (Diagram.Info as IGraphInfo).ItemUnSelectedEvent += MainWindow_ItemUnSelectedEvent;
+            (Diagram.Info as IGraphInfo).ItemSelectingEvent += MainWindow_ItemSelectingEvent;
+            (Diagram.Info as IGraphInfo).ItemUnSelectingEvent += MainWindow_ItemUnSelectingEvent; ;
 
+        }
+
+        private void MainWindow_ItemUnSelectingEvent(object sender, DiagramPreviewEventArgs args)
+        {
+            if (args.Item is IAnnotation)
+            {
+                TextBlock.Text += "\n" + "Annotation unselecting";
+            }
+            else if (args.Item is INode)
+            {
+                TextBlock.Text += "\n" + "Node unselecting";
+            }
+            else if (args.Item is IConnector)
+            {
+                TextBlock.Text += "\n" + "Connector unselecting";
+            }
+        }
+
+        private void MainWindow_ItemSelectingEvent(object sender, DiagramPreviewEventArgs args)
+        {
+            if (args.Item is IAnnotation)
+            {
+                TextBlock.Text += "\n" + "Annotation Selecting";
+            }
+            else if (args.Item is INode)
+            {
+                TextBlock.Text += "\n" + "Node Selecting";
+            }
+            else if (args.Item is IConnector)
+            {
+                TextBlock.Text += "\n" + "Connector Selecting";
+            }
         }
 
         private void MainWindow_ItemUnSelectedEvent(object sender, DiagramEventArgs args)
