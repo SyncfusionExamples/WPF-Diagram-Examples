@@ -48,7 +48,7 @@
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2.8*"/>
+            <ColumnDefinition Width="4.8*"/>
             <ColumnDefinition Width="8*"/>
         </Grid.ColumnDefinitions>
 
@@ -65,20 +65,13 @@
                        Margin="10,5,0,5" 
                        Grid.Row="0"/>
             <local:StencilViewModel x:Name="stencil" Grid.Column="0" Grid.Row="1" GroupMappingName="Key">
-                <stencil:Stencil.Categories>
-                    <stencil:StencilCategoryCollection>
-                        <!--Specify the shapes category with title and resource key-->
-                        <stencil:StencilCategory Title="Basic Shapes" Keys="{StaticResource BasicShapes}"></stencil:StencilCategory>
-                        <stencil:StencilCategory Title="Flow Shapes" Keys="{StaticResource FlowShapes}"></stencil:StencilCategory>
-                        <stencil:StencilCategory Title="Arrow Shapes" Keys="{StaticResource ArrowShapes}"></stencil:StencilCategory>
-                        <stencil:StencilCategory Title="Data Flow Shapes" Keys="{StaticResource DataFlowShapes}"></stencil:StencilCategory>
-                        <stencil:StencilCategory Title="UML Activity Shapes" Keys="{StaticResource UMLActivity}"></stencil:StencilCategory>
-                        <stencil:StencilCategory Title="UML Use Case" Keys="{StaticResource UMLUseCase}"></stencil:StencilCategory>
-                        <stencil:StencilCategory Title="UML RelationShip" Keys="{StaticResource UMLRelationship}"></stencil:StencilCategory>
-                        <stencil:StencilCategory Title="Electrical Shapes" Keys="{StaticResource ElectricalShapes}"></stencil:StencilCategory>
-                        <stencil:StencilCategory Title="Custom shapes" Keys="{StaticResource customShapeCollection}"></stencil:StencilCategory>
-                    </stencil:StencilCategoryCollection>
-                </stencil:Stencil.Categories>
+                <stencil:Stencil.SymbolGroups>
+                    <syncfusion:SymbolGroups>
+                        <syncfusion:SymbolGroupViewModel Name="Basic Shapes" CategorySource="{StaticResource BasicShapes}"/>
+                        <syncfusion:SymbolGroupViewModel Name="BPMNEditor Shapes" CategorySource="{StaticResource BPMNEditorShapes}"/>
+                        <syncfusion:SymbolGroupViewModel Name="Custom Shapes" CategorySource="{StaticResource customShapeCollection}"/>
+                    </syncfusion:SymbolGroups>
+                </stencil:Stencil.SymbolGroups>
             </local:StencilViewModel>
         </Grid>
 
