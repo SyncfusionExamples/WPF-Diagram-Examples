@@ -1,0 +1,187 @@
+﻿<Window x:Class="Simple_SfDiagram_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Simple_SfDiagram_WPF"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" xmlns:Syncfusion="clr-namespace:Syncfusion.UI.Xaml.Diagram;assembly=Syncfusion.SfDiagram.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <!--Resource Dictionary which contains predefined shapes for Node-->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!--Shape style for Node-->
+            <Style x:Key="ShapeStyle"
+                   TargetType="Path">
+                <Setter Property="Fill"
+                        Value="#FF5B9BD5" />
+                <Setter Property="Stretch"
+                        Value="Fill" />
+                <Setter Property="Stroke"
+                        Value="#FFEDF1F6" />
+            </Style>
+            <Style TargetType="syncfusion:Connector">
+                <Setter Property="ConnectorGeometryStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stroke" Value="#6BA5D7"/>
+                            <Setter Property="StrokeThickness" Value="1"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="TargetDecoratorStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="#6BA5D7"/>
+                            <Setter Property="StrokeThickness" Value="1"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <local:ViewModel x:Name="Diagram" PortVisibility="Visible">
+            <syncfusion:SfDiagram.HorizontalRuler>
+                <syncfusion:Ruler/>
+            </syncfusion:SfDiagram.HorizontalRuler>
+            <syncfusion:SfDiagram.VerticalRuler>
+                <syncfusion:Ruler Orientation="Vertical"/>
+            </syncfusion:SfDiagram.VerticalRuler>
+            <syncfusion:SfDiagram.Nodes>
+
+                <syncfusion:NodeCollection>
+
+                    <syncfusion:NodeViewModel x:Name="nodes" OffsetX="300" OffsetY="60"   
+                                Shape="{StaticResource Rectangle}" 
+                                ShapeStyle="{StaticResource ShapeStyle}"
+                                UnitHeight="100" UnitWidth="120">
+                        <syncfusion:NodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Node"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:NodeViewModel.Annotations>
+
+                    </syncfusion:NodeViewModel>
+                    <syncfusion:BpmnNodeViewModel UnitHeight="70" UnitWidth="100" OffsetX="100" OffsetY="100" Type="Event" EventType="Start">
+                        <syncfusion:BpmnNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="BPMN Node"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:BpmnNodeViewModel.Annotations>
+
+                    </syncfusion:BpmnNodeViewModel>
+                </syncfusion:NodeCollection>
+            </syncfusion:SfDiagram.Nodes>
+            <syncfusion:SfDiagram.Groups>
+
+                <syncfusion:GroupCollection>
+
+                    <syncfusion:BpmnGroupViewModel OffsetX="60" OffsetY="300" UnitHeight="300" UnitWidth="250" >
+                        <syncfusion:BpmnGroupViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="BPMNGroup"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:BpmnGroupViewModel.Annotations>
+                    </syncfusion:BpmnGroupViewModel>
+                </syncfusion:GroupCollection>
+            </syncfusion:SfDiagram.Groups>
+
+
+            <syncfusion:SfDiagram.Connectors>
+                <syncfusion:ConnectorCollection>
+                    <syncfusion:ConnectorViewModel x:Name="Connector" Constraints="Default,Draggable" 
+                                           SourcePoint="500,100" 
+                                           TargetPoint="600,200">
+                        <syncfusion:ConnectorViewModel.Segments>
+                            <syncfusion:ConnectorSegments>
+                                <syncfusion:StraightSegment/>
+                            </syncfusion:ConnectorSegments>
+                        </syncfusion:ConnectorViewModel.Segments>
+                        <syncfusion:ConnectorViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="StraightConnector"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:ConnectorViewModel.Annotations>
+                    </syncfusion:ConnectorViewModel>
+
+
+
+                    <syncfusion:ConnectorViewModel x:Name="Connector1" Constraints="Default,Draggable" 
+                                           SourcePoint="450,300" 
+                                           TargetPoint="750,150">
+                        <syncfusion:ConnectorViewModel.Segments>
+                            <syncfusion:ConnectorSegments>
+                                <syncfusion:OrthogonalSegment/>
+                            </syncfusion:ConnectorSegments>
+                        </syncfusion:ConnectorViewModel.Segments>
+                        <syncfusion:ConnectorViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="OrthogonalConnector"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:ConnectorViewModel.Annotations>
+                    </syncfusion:ConnectorViewModel>
+
+
+
+
+                    <syncfusion:ConnectorViewModel SourcePoint="900,100" TargetPoint="1000,200"  Constraints="Default,Draggable">
+                        <syncfusion:ConnectorViewModel.Segments>
+                            <syncfusion:ConnectorSegments>
+                                <syncfusion:CubicCurveSegment/>
+                            </syncfusion:ConnectorSegments>
+                        </syncfusion:ConnectorViewModel.Segments>
+                        <syncfusion:ConnectorViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="CubicConnector"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:ConnectorViewModel.Annotations>
+                    </syncfusion:ConnectorViewModel>
+
+
+
+                    <syncfusion:ConnectorViewModel SourcePoint="400,50" TargetPoint="500,50"  Constraints="Default,Draggable">
+                        <syncfusion:ConnectorViewModel.Segments>
+                            <syncfusion:ConnectorSegments>
+                                <syncfusion:ArcSegment/>
+                            </syncfusion:ConnectorSegments>
+                        </syncfusion:ConnectorViewModel.Segments>
+                        <syncfusion:ConnectorViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="ArcConnector"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:ConnectorViewModel.Annotations>
+                    </syncfusion:ConnectorViewModel>
+
+
+
+                    <syncfusion:ConnectorViewModel SourcePoint="1000,100" TargetPoint="1100,200"  Constraints="Default,Draggable">
+                        <syncfusion:ConnectorViewModel.Segments>
+                            <syncfusion:ConnectorSegments>
+                                <syncfusion:QuadraticCurveSegment/>
+                            </syncfusion:ConnectorSegments>
+                        </syncfusion:ConnectorViewModel.Segments>
+                        <syncfusion:ConnectorViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content=":QuadraticConnector"/>
+                            </syncfusion:AnnotationCollection>
+                        </syncfusion:ConnectorViewModel.Annotations>
+                    </syncfusion:ConnectorViewModel>
+                </syncfusion:ConnectorCollection>
+            </syncfusion:SfDiagram.Connectors>
+
+            <syncfusion:SfDiagram.Swimlanes>
+                <syncfusion:SwimlaneCollection>
+                    <syncfusion:SwimlaneViewModel OffsetX="300" OffsetY="650"  
+                UnitHeight="120" UnitWidth="450"/>
+                </syncfusion:SwimlaneCollection>
+            </syncfusion:SfDiagram.Swimlanes>
+
+
+
+        </local:ViewModel>
+    </Grid>
+</Window>
