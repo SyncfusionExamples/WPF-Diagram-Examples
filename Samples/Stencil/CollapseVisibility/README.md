@@ -1,6 +1,6 @@
 # Collapse visibility sample
 
-This repository contains sample which shows how to manage the visibility of the node when it is drop over the another node
+This repository contains sample which shows how to manage the visibility of the node when it is drag and drop over the another node
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/stencil#preserving-node-template-while-drag-and-drop
 
