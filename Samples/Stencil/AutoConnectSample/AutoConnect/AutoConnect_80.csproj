@@ -1,0 +1,119 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <EnableDefaultEmbeddedResourceItems>False</EnableDefaultEmbeddedResourceItems>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyName>AutoConnect</AssemblyName>
+    <RootNamespace>AutoConnect</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;NET50</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;NET50</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Xml|AnyCPU'">
+    <DefineConstants>TRACE;NET50</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <Compile Remove="obj_45\**" />
+    <Compile Remove="obj_462\**" />
+    <Compile Remove="obj_50\**" />
+    <Compile Remove="obj_60\**" />
+    <Compile Remove="obj_70\**" />
+    <Compile Remove="obj_80\**" />
+    <Compile Remove="obj_90\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <EmbeddedResource Remove="obj_45\**" />
+    <EmbeddedResource Remove="obj_462\**" />
+    <EmbeddedResource Remove="obj_50\**" />
+    <EmbeddedResource Remove="obj_60\**" />
+    <EmbeddedResource Remove="obj_70\**" />
+    <EmbeddedResource Remove="obj_80\**" />
+    <EmbeddedResource Remove="obj_90\**" />
+    <None Remove="obj\**" />
+    <None Remove="obj_45\**" />
+    <None Remove="obj_462\**" />
+    <None Remove="obj_50\**" />
+    <None Remove="obj_60\**" />
+    <None Remove="obj_70\**" />
+    <None Remove="obj_80\**" />
+    <None Remove="obj_90\**" />
+    <Page Remove="obj\**" />
+    <Page Remove="obj_45\**" />
+    <Page Remove="obj_462\**" />
+    <Page Remove="obj_50\**" />
+    <Page Remove="obj_60\**" />
+    <None Remove="obj_70\**" />
+    <None Remove="obj_80\**" />
+    <None Remove="obj_90\**" />
+    <None Remove="packages.config" />
+    <None Remove="Properties\Settings.settings" />
+    <None Include="Properties\Settings.settings" />
+    <None Remove="App.config" />
+    <None Include="App.config" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\.vs\ProjectGeneratorApp\FileContentIndex\77753333-a586-4a69-a38d-ca09116a7918.vsidx" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\.vs\ProjectGeneratorApp\FileContentIndex\c426c7d6-ce53-4bbc-8275-ea4356fdf61d.vsidx" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\.vs\ProjectGeneratorApp\FileContentIndex\f4e7fd7b-4f6e-4875-b511-da1d9b9a2fbb.vsidx" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\.vs\ProjectGeneratorApp\v17\.suo" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\.vs\ProjectGeneratorApp\v17\DocumentLayout.backup.json" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\.vs\ProjectGeneratorApp\v17\DocumentLayout.json" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\bin\Debug\DocCoreProjTemplate.xml" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\bin\Debug\ExcludeProject.xml" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\bin\Debug\ProjectGeneratorApp.exe" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\bin\Debug\ProjectGeneratorApp.exe.config" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\bin\Debug\ProjectGeneratorApp.pdb" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\bin\Debug\ProjectorGeneratorLibrary.dll" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\bin\Debug\ProjectorGeneratorLibrary.pdb" />
+    <Compile Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\.NETFramework,Version=v4.7.AssemblyAttributes.cs" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\ProjectG.60F4F1BA.Up2Date" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\ProjectGeneratorApp.csproj.AssemblyReference.cache" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\ProjectGeneratorApp.csproj.CoreCompileInputs.cache" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\ProjectGeneratorApp.csproj.FileListAbsolute.txt" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\ProjectGeneratorApp.exe" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\obj\Debug\ProjectGeneratorApp.pdb" />
+    <Compile Remove="projectgenerator\ProjectGeneratorApp\Properties\AssemblyInfo.cs" />
+    <None Remove="projectgenerator\ProjectGeneratorApp\App.config" />
+    <Compile Remove="projectgenerator\ProjectGeneratorApp\Program.cs" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\bin\Debug\DocCoreProjTemplate.xml" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\bin\Debug\ExcludeProject.xml" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\bin\Debug\ProjectorGeneratorLibrary.dll" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\bin\Debug\ProjectorGeneratorLibrary.pdb" />
+    <Compile Remove="projectgenerator\ProjectorGeneratorLibrary\obj\Debug\.NETFramework,Version=v4.7.AssemblyAttributes.cs" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\obj\Debug\ProjectorGeneratorLibrary.csproj.AssemblyReference.cache" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\obj\Debug\ProjectorGeneratorLibrary.csproj.CoreCompileInputs.cache" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\obj\Debug\ProjectorGeneratorLibrary.csproj.FileListAbsolute.txt" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\obj\Debug\ProjectorGeneratorLibrary.dll" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\obj\Debug\ProjectorGeneratorLibrary.pdb" />
+    <Compile Remove="projectgenerator\ProjectorGeneratorLibrary\Properties\AssemblyInfo.cs" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\DocCoreProjTemplate.xml" />
+    <None Remove="projectgenerator\ProjectorGeneratorLibrary\ExcludeProject.xml" />
+    <Compile Remove="projectgenerator\ProjectorGeneratorLibrary\ProjectGenerator.cs" />
+    <ApplicationDefinition Include="App.xaml" />
+    <Compile Include="App.xaml.cs" />
+    <Compile Include="MainWindow.xaml.cs" />
+    <Compile Include="ShapePanel.xaml.cs" />
+    <Compile Include="StencilViewModel.cs" />
+	<PackageReference Include="Syncfusion.Licensing" Version="*" />
+    <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="*" />
+    <PackageReference Include="Syncfusion.Shared.WPF" Version="*" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuickCommandTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShapePanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+</Project>
