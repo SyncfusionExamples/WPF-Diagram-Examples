@@ -1,0 +1,166 @@
+﻿<Window x:Class="StencilDiagramElements.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StencilDiagramElements"
+        mc:Ignorable="d"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:Stencil="clr-namespace:Syncfusion.UI.Xaml.Diagram.Stencil;assembly=Syncfusion.SfDiagram.Wpf"
+        xmlns:RulerControl="clr-namespace:Syncfusion.UI.Xaml.Diagram.Controls;assembly=Syncfusion.SfDiagram.Wpf"
+        xmlns:diagramcontrol="clr-namespace:Syncfusion.UI.Xaml.Diagram;assembly=Syncfusion.SfDiagram.WPF"
+        Title="MainWindow" WindowState="Maximized"
+        Height="450"
+        Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Dictionary which contains the inbuilt shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="Syncfusion:Node">
+                <Setter Property="Visibility" Value="{Binding NodeVisibility, Mode=TwoWay}"/>
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Fill" Value="LightGreen" />
+                            <Setter Property="Stroke" Value="Black"/>
+                            <Setter Property="StrokeThickness" Value="2"/>
+                            <Setter Property="Stretch" Value="Fill" />
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="Syncfusion:Connector">
+                <Setter Property="ConnectorGeometryStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stroke" Value="#FF5B9BD5"/>
+                            <Setter Property="StrokeThickness" Value="2"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="Syncfusion:DockPort">
+                <Setter Property="ConnectorGeometryStyle">
+                    <Setter.Value>
+                        <Style TargetType="Path">
+                            <Setter Property="Stroke" Value="Black"></Setter>
+                            <Setter Property="StrokeThickness" Value="2"></Setter>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="Shape" x:Key="Nodedropindicator">
+                <Setter Property="StrokeThickness" Value="4"/>
+                <Setter Property="Stroke" Value="Orange"/>
+            </Style>
+
+            <Style TargetType="Shape" x:Key="Connectordropindicator">
+                <Setter Property="StrokeThickness" Value="2"/>
+                <Setter Property="Stroke" Value="Blue"/>
+            </Style>
+
+            <DataTemplate x:Key="EquipmentTemplate">
+                <StackPanel Orientation="Vertical">
+                    <Rectangle Stretch="Fill" Height="40" Width="80" Fill="#606060" />
+                    <TextBlock Margin="0,3,0,0" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding}" />
+                </StackPanel>
+            </DataTemplate>
+
+            <Style TargetType="Syncfusion:Symbol">
+                <Setter Property="Width" Value="80" />
+                <Setter Property="Height" Value="68" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="Margin" Value="2"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.DataContext>
+        <Syncfusion:DiagramViewModel NodeDropIndicatorStyle="{StaticResource Nodedropindicator}"
+                                     ConnectionIndicatorStyle="{StaticResource Connectordropindicator}">
+            <!--To Represent HorizontalRuler,VerticalRuler-->
+            <Syncfusion:DiagramViewModel.HorizontalRuler>
+                <RulerControl:Ruler Orientation="Horizontal" />
+            </Syncfusion:DiagramViewModel.HorizontalRuler>
+
+            <Syncfusion:DiagramViewModel.VerticalRuler>
+                <RulerControl:Ruler Orientation="Vertical" />
+            </Syncfusion:DiagramViewModel.VerticalRuler>
+
+            <!--SnapConstraints used to Control the Visibility of Gridlines and enable/disable Snapping.-->
+            <Syncfusion:DiagramViewModel.SnapSettings>
+                <Syncfusion:SnapSettings SnapConstraints="None"/>
+            </Syncfusion:DiagramViewModel.SnapSettings>
+
+            <!--Initializes PageSettings-->
+            <Syncfusion:DiagramViewModel.PageSettings>
+                <diagramcontrol:PageSettings PageBorderBrush="Transparent" />
+            </Syncfusion:DiagramViewModel.PageSettings>
+
+            <!--Initializes Node-->
+            <Syncfusion:DiagramViewModel.Nodes>
+                <local:CustomNodeCollection />
+            </Syncfusion:DiagramViewModel.Nodes>
+
+            <!--Initializes Connector-->
+            <Syncfusion:DiagramViewModel.Connectors>
+                <local:CustomConnectorCollection />
+            </Syncfusion:DiagramViewModel.Connectors>
+
+            <!--Initializes Group-->
+            <Syncfusion:DiagramViewModel.Groups>
+                <Syncfusion:GroupCollection />
+            </Syncfusion:DiagramViewModel.Groups>
+        </Syncfusion:DiagramViewModel>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="185"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="400"/>
+            </Grid.RowDefinitions>
+            <Syncfusion:Stencil Grid.Row="0" x:Name="stencil" 
+                            Constraints="Default,ShowPreview"
+                            SymbolFilterDisplayMode="ComboBox"
+                            ShowSearchTextBox="False" ShowDisplayModeToggleButton="False">
+                <Syncfusion:Stencil.SymbolSource>
+                    <Syncfusion:SymbolCollection>
+                        <Syncfusion:SymbolViewModel Symbol="SwitchBoard" SymbolTemplate="{StaticResource EquipmentTemplate}" Key="Equipment"/>
+                        <Syncfusion:SymbolViewModel Symbol="PanelBoard" SymbolTemplate="{StaticResource EquipmentTemplate}" Key="Equipment"/>
+                    </Syncfusion:SymbolCollection>
+                </Syncfusion:Stencil.SymbolSource>
+                <Syncfusion:Stencil.SymbolGroups>
+                    <Syncfusion:SymbolGroups>
+                        <Syncfusion:SymbolGroupProvider MappingName="Key"/>
+                    </Syncfusion:SymbolGroups>
+                </Syncfusion:Stencil.SymbolGroups>
+            </Syncfusion:Stencil>
+            <StackPanel Grid.Row="1" Orientation="Vertical">
+              
+            </StackPanel>
+        </Grid>
+        
+        
+        <Syncfusion:SfDiagram x:Name="diagram" Grid.Column="1" Constraints="Default,Routing"
+                              Nodes="{Binding Nodes}"
+                              Connectors="{Binding Connectors}"
+                              Groups="{Binding Groups}"
+                              PageSettings="{Binding PageSettings}"
+                              SnapSettings="{Binding SnapSettings}"
+                              HorizontalRuler="{Binding HorizontalRuler}"
+                              VerticalRuler="{Binding VerticalRuler}"
+                              NodeDropIndicatorStyle="{Binding NodeDropIndicatorStyle}"
+                              ConnectorDropIndicatorStyle="{Binding ConnectorDropIndicatorStyle}">
+        </Syncfusion:SfDiagram>
+    </Grid>
+</Window>
