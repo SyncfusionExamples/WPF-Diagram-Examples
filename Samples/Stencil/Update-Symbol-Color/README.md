@@ -2,7 +2,7 @@
 
 This sample demonstrate Hhw to change the color of a node in the stencil and diagram while loading a saved file
 
-__*Documentation*__: https://help.syncfusion.com/wpf/diagram/serialization
+__*Documentation*__: https://help.syncfusion.com/wpf/diagram/stencil/stencil
 ## Project pre-requisites
 To run this application, you need to have the below two in your system
 
