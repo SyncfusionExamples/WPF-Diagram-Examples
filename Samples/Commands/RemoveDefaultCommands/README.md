@@ -1,4 +1,4 @@
-# Custom command sample
+# RemoveDefaultCommands sample
 This sample demonstrate how to remove the default commands from the diagram commands.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/commands#custom-command
