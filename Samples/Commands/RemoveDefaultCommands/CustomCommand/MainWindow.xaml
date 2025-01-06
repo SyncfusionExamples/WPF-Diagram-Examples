@@ -1,0 +1,76 @@
+﻿<Window x:Class="CustomCommand.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomCommand"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+      
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="MainWindow" Height="350" Width="525">
+    
+    <Window.Resources>
+        <!--Style for Node-->
+        <Style TargetType="syncfusion:Node">
+            <Setter Property="Shape" Value="{StaticResource Rectangle}"/>
+            <Setter Property="ShapeStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="#6BA5D7"/>
+                        <Setter Property="Stretch" Value="Fill"/>
+                        <Setter Property="Stroke" Value="White"/>
+                        <Setter Property="StrokeThickness" Value="1"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!--Style for Connector-->
+        <Style TargetType="syncfusion:Connector">
+            <Setter Property="ConnectorGeometryStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Stroke" Value="#FF5B9BD5" />
+                        <Setter Property="StrokeThickness" Value="1" />
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="TargetDecoratorStyle" >
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="#6BA5D7" />
+                        <Setter Property="Stroke" Value="#6BA5D7" />
+                        <Setter Property="StrokeThickness" Value="1" />
+                        <Setter Property="Width" Value="10" />
+                        <Setter Property="Height" Value="10" />
+                        <Setter Property="Stretch" Value="Fill" />
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+     
+    </Window.Resources>
+    
+    <Grid>
+        <!--Initialize the Diagram-->
+        <syncfusion:SfDiagram x:Name="diagram" PortVisibility="Visible" >
+            <!--Initialize the Node collection-->
+            <syncfusion:SfDiagram.Nodes>
+                <syncfusion:NodeCollection>
+                    <!--Initialize the Node-->
+                    <syncfusion:NodeViewModel ID="node1" UnitHeight="50" UnitWidth="100" OffsetX="200" OffsetY="200"/>
+                    <!--Initialize the Node-->
+                    <syncfusion:NodeViewModel ID="node2" UnitHeight="50" UnitWidth="100" OffsetX="400" OffsetY="200"/>
+                </syncfusion:NodeCollection>
+            </syncfusion:SfDiagram.Nodes>
+            <!--Initialize the Connector collection-->
+            <syncfusion:SfDiagram.Connectors>
+                <syncfusion:ConnectorCollection>
+                    <!--Initialize the Connector-->
+                    <syncfusion:ConnectorViewModel SourceNodeID="node1" TargetNodeID="node2"/>
+                </syncfusion:ConnectorCollection>
+            </syncfusion:SfDiagram.Connectors>
+        </syncfusion:SfDiagram>
+    </Grid>
+</Window>
