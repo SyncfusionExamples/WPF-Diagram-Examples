@@ -1,0 +1,199 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:UserInteraction_Stencil"            
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
+        x:Class="UserInteraction_Stencil.MainWindow"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:viewmodel="clr-namespace:UserInteraction_Stencil.Viewmodel"
+        xmlns:Stencil="clr-namespace:Syncfusion.UI.Xaml.Diagram.Stencil;assembly=Syncfusion.SfDiagram.Wpf"
+        xmlns:RulerControl="clr-namespace:Syncfusion.UI.Xaml.Diagram.Controls;assembly=Syncfusion.SfDiagram.Wpf"
+        xmlns:diagram="clr-namespace:Syncfusion.UI.Xaml.Diagram;assembly=Syncfusion.SfDiagram.Wpf"
+        Icon="App.ico"
+        Title="Stencil"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <viewmodel:StencilViewModel>
+            <!--To Represent HorizontalRuler,VerticalRuler-->
+            <viewmodel:StencilViewModel.HorizontalRuler>
+                <RulerControl:Ruler Orientation="Horizontal"/>
+            </viewmodel:StencilViewModel.HorizontalRuler>
+
+            <viewmodel:StencilViewModel.VerticalRuler>
+                <RulerControl:Ruler Orientation="Vertical"/>
+            </viewmodel:StencilViewModel.VerticalRuler>
+
+            <!--Initializes PageSettings-->
+            <viewmodel:StencilViewModel.PageSettings>
+                <syncfusion:PageSettings PageBorderBrush="Transparent"/>
+            </viewmodel:StencilViewModel.PageSettings>
+
+            <!--Initializes Node-->
+            <viewmodel:StencilViewModel.Nodes>
+                <syncfusion:NodeCollection/>
+            </viewmodel:StencilViewModel.Nodes>
+
+            <!--Initializes Connector-->
+            <viewmodel:StencilViewModel.Connectors>
+                <syncfusion:ConnectorCollection/>
+            </viewmodel:StencilViewModel.Connectors>
+
+            <!--Initializes Group-->
+            <viewmodel:StencilViewModel.Groups>
+                <syncfusion:GroupCollection/>
+            </viewmodel:StencilViewModel.Groups>
+
+        </viewmodel:StencilViewModel>
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--Initialize Shapes-->
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/BasicShapes.xaml" />
+                <ResourceDictionary Source="/Syncfusion.SfDiagram.Wpf;component/Resources/Bindingstyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <local:EnumDisplayNameConverter x:Key="EnumDisplayNameConverter"/>
+            <!--Style for Node-->
+            <Style TargetType="syncfusion:Node">
+                <Setter Property="ShapeStyle">
+                    <Setter.Value>
+                        <Style  TargetType="Path">
+                            <Setter Property="Fill" Value="#FF5B9BD5"/>
+                            <Setter Property="Stroke" Value="#FFC8C8C8"/>
+                            <Setter Property="Stretch" Value="Fill"/>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <DataTemplate x:Key="TitleTemplate">
+                <TextBlock x:Name="HeaderText" Text="{Binding}" FontSize="15" FontWeight="SemiBold" Padding="0,0,0,8">
+                </TextBlock>
+            </DataTemplate>
+            <ObjectDataProvider x:Key="DisplayMode" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="diagram:DisplayMode"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+            <ObjectDataProvider x:Key="SymbolGroupDisplayMode" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="diagram:SymbolGroupDisplayMode"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+            <ObjectDataProvider x:Key="SymbolsDisplayMode" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="diagram:SymbolsDisplayMode"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+            <ObjectDataProvider x:Key="SymbolSelectionMode" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="diagram:SymbolSelectionMode"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <syncfusion:Stencil x:Name="stencil" Width="250" Title="Shapes" TitleTemplate="{StaticResource TitleTemplate}"
+                            SymbolGroupDisplayMode="{Binding SymbolGroupDisplayMode, Mode=TwoWay}"
+                            SymbolSelectionMode="{Binding SymbolSelectionMode, Mode=TwoWay}"
+                            DisplayMode="{Binding DisplayMode, Mode=TwoWay}"
+                            ShowSearchTextBox="{Binding ShowSearchTextBox}"
+                            ShowDisplayModeToggleButton="{Binding ShowDisplayModeToggleButton}"
+                            SymbolsDisplayMode="{Binding SymbolsDisplayMode,Mode=TwoWay}"
+                            Grid.Column="0" 
+                            Grid.Row="1" 
+                            Margin="5,5,0,5"
+                            Constraints="{Binding StencilConstraints}"
+                            ExpandMode="One" GroupMappingName="Key">
+            <!--Initialize the stencil categories-->
+            <syncfusion:Stencil.SymbolGroups>
+                <syncfusion:SymbolGroups>
+                    <!--Specify the basic shapes category with title and resource key-->
+                    <syncfusion:SymbolGroupViewModel Name="Basic Shapes" CategorySource="{StaticResource BasicShapes}"/>
+                    <syncfusion:SymbolGroupViewModel Name="Flow Shapes" CategorySource="{StaticResource FlowShapes}"/>
+                    <syncfusion:SymbolGroupViewModel Name="Arrow Shapes" CategorySource="{StaticResource ArrowShapes}"/>
+                    <syncfusion:SymbolGroupViewModel Name="DataFlow Shapes" CategorySource="{StaticResource DataFlowShapes}"/>
+                </syncfusion:SymbolGroups>
+            </syncfusion:Stencil.SymbolGroups>
+        </syncfusion:Stencil>
+
+        <!--Initializes Diagram-->
+        <syncfusion:SfDiagram x:Name="diagram" 
+                              Grid.Column="1"
+                              Margin="0,5,5,5"
+                              Nodes="{Binding Nodes}"
+                              Connectors="{Binding Connectors}"
+                              Swimlanes="{Binding Swimlanes}"
+                              Groups="{Binding Groups}"
+                              PageSettings="{Binding PageSettings}"
+                              HorizontalRuler="{Binding HorizontalRuler}"
+                              VerticalRuler="{Binding VerticalRuler}">
+            <!--SnapConstraints used to Control the Visibility of Gridlines and enable/disable Snapping.-->
+            <syncfusion:SfDiagram.SnapSettings>
+                <syncfusion:SnapSettings SnapConstraints="All" SnapToObject="All"/>
+            </syncfusion:SfDiagram.SnapSettings>
+        </syncfusion:SfDiagram>
+
+        <StackPanel Grid.Column="2" Margin="0,20,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="165"/>
+                    <ColumnDefinition Width="132"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Label   Grid.Row="0" Grid.Column="0" FontFamily="Segoe UI" FontWeight="Normal" FontSize="12px" Content="Display Mode"/>
+                <Label   Grid.Row="1" Grid.Column="0" FontFamily="Segoe UI" FontWeight="Normal" FontSize="12px" Content="Symbol Group Display Mode"/>
+                <Label   Grid.Row="2" Grid.Column="0" FontFamily="Segoe UI" FontWeight="Normal" FontSize="12px" Content="Symbol Display Mode"/>
+                <Label   Grid.Row="3" Grid.Column="0" FontFamily="Segeo UI" FontWeight="Normal" FontSize="12px" Content="Symbol Selection Mode"/>
+
+                <ComboBox Height="22px"  x:Name="DisplayMode"   Margin="0,-15,0,0"  Grid.Row="0" Grid.Column="1" 
+                  ItemsSource="{Binding Source={StaticResource DisplayMode}}" SelectedItem="{Binding DisplayMode,Mode=TwoWay}" >
+                </ComboBox>
+                <ComboBox Height="22px"    Margin="0,-15,0,0"  Grid.Row="1" Grid.Column="1" 
+                   ItemsSource="{Binding Source={StaticResource SymbolGroupDisplayMode}}" SelectedItem="{Binding SymbolGroupDisplayMode}">
+                </ComboBox>
+                <ComboBox Height="22px" Margin="0,-15,0,0" Grid.Row="2" Grid.Column="1" 
+                 SelectedItem="0" SelectionChanged="ComboBox_SelectionChanged" >
+                    <ComboBoxItem Content="Icons Only" IsSelected="True" />
+                    <ComboBoxItem Content="Names Under Icons"/>
+                </ComboBox>
+                <ComboBox Height="22px"  Margin="0,-15,0,0" Grid.Row="3" Grid.Column="1"
+                  ItemsSource="{Binding Source={StaticResource SymbolSelectionMode}}" SelectedItem="{Binding SymbolSelectionMode}"/>
+            </Grid>
+            <CheckBox Margin="0,10,0,10" IsChecked="{Binding ShowSearchTextBox, Mode=TwoWay}" Content="Show Search TextBox"></CheckBox>
+            <CheckBox x:Name="showGridlines" Margin="0,10,0,10"  
+              IsChecked="{Binding ShowDisplayModeToggleButton, Mode=TwoWay}" 
+              Content="Show Display Mode Toggle Button"  >
+            </CheckBox>
+            <CheckBox Margin="0,10,0,10" IsChecked="{Binding ShowPreview,Mode=TwoWay}" Content="Show Preview">
+                <CheckBox.ToolTip>
+                    <ToolTip Placement="Bottom" Content="While dragging symbol to the diagram preview of the dragged item will be shown instead of the original dragged item."/>
+                </CheckBox.ToolTip>
+            </CheckBox>
+            <CheckBox Margin="0,10,0,0" IsChecked="{Binding EnableReorder,Mode=TwoWay}" Content="Enable Symbol Reorder">
+                <CheckBox.ToolTip>
+                    <ToolTip Placement="Bottom" Content="You can rearrange the symbols within it's symbol group."/>
+                </CheckBox.ToolTip>
+            </CheckBox>
+
+            <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Height="40" Click="Save_Click" Width="120" Margin="0,20,0,0"/>
+
+            <CheckBox x:Name="LoadSettings" Content="Load Settings" IsChecked="False" HorizontalAlignment="Left" Height="20" Width="120" Margin="0,20,0,0"/>
+
+            <Button x:Name="Load" Content="Load" HorizontalAlignment="Left" Height="40" Click="Load_Click" Width="120" Margin="0,10,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
