@@ -19,7 +19,7 @@ namespace UserInteraction_Stencil
     {
         public App()
         {
-            SyncfusionLicenseProvider.RegisterLicense("MDAxQDMyMzkyZTMwMmUzMDNiMzIzOTNiUXJPMzJyL0pwYzYyUjlINTVPZHVaVkVLYnE1dVZhcUlzM2FtMEY4MENuND0=");
+           // SyncfusionLicenseProvider.RegisterLicense("");
         }
 
         /// <summary>
@@ -27,24 +27,24 @@ namespace UserInteraction_Stencil
         /// </summary>
         /// <param name="fileName">File name of the syncfusion license key</param>
         /// <returns></returns>
-        public static string FindLicenseKey()
-        {
-            int levelsToCheck = 12;
-            string filePath = @"Common\SyncfusionLicense.txt";
+        //public static string FindLicenseKey()
+        //{
+        //    int levelsToCheck = 12;
+        //    string filePath = @"Common\SyncfusionLicense.txt";
 
-            string rootPath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().CodeBase.Replace(@"file:///", ""));
+        //    string rootPath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().CodeBase.Replace(@"file:///", ""));
 
-            for (int n = 0; n < levelsToCheck; n++)
-            {
-                string fileDataPath = System.IO.Path.Combine(rootPath, filePath);
-                if (System.IO.File.Exists(fileDataPath))
-                    return File.ReadAllText(fileDataPath, Encoding.UTF8);
-                DirectoryInfo rootDirectory = Directory.GetParent(rootPath);
-                if (rootDirectory == null)
-                    break;
-                rootPath = rootDirectory.FullName;
-            }
-            return string.Empty;
-        }
+        //    for (int n = 0; n < levelsToCheck; n++)
+        //    {
+        //        string fileDataPath = System.IO.Path.Combine(rootPath, filePath);
+        //        if (System.IO.File.Exists(fileDataPath))
+        //            return File.ReadAllText(fileDataPath, Encoding.UTF8);
+        //        DirectoryInfo rootDirectory = Directory.GetParent(rootPath);
+        //        if (rootDirectory == null)
+        //            break;
+        //        rootPath = rootDirectory.FullName;
+        //    }
+        //    return string.Empty;
+        //}
     }
 }
