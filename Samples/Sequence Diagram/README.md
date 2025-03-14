@@ -1,4 +1,4 @@
-# Custom Data Source Sample
+# Sequence Diagram Sample
 This sample demonstrate How to create a Sequence Diagram using UMLSequenceDiagramModel.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/uml_sequence_diagram#Sequence-Diagram.md
