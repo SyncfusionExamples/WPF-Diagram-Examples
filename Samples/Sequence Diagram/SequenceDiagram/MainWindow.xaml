@@ -1,0 +1,193 @@
+﻿<Window x:Class="SequenceDiagram.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SequenceDiagram"
+        mc:Ignorable="d" xmlns:syncfusion="http://schemas.syncfusion.com/wpf" xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="Sequence Diagram" Height="450" Width="800" WindowState="Maximized">
+    <Grid x:Name="grid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- SfDiagram control to render the diagram -->
+        <syncfusion:SfDiagram x:Name="Diagram" Grid.Column="0">
+            <syncfusion:SfDiagram.Model>
+                <syncfusion:UMLSequenceDiagramModel SpaceBetweenParticipants="300">
+
+                    <!-- Define Participants -->
+                    <syncfusion:UMLSequenceDiagramModel.Participants>
+                        <syncfusion:ParticipantCollection>
+                            <!-- Customer initiates the order -->
+                            <syncfusion:UMLSequenceParticipant ID="Customer" Content="Customer" IsActor="True" />
+
+                            <!-- Order Processing System -->
+                            <syncfusion:UMLSequenceParticipant ID="OrderSystem" Content="Order System" IsActor="False" />
+
+                            <!-- Payment Gateway -->
+                            <syncfusion:UMLSequenceParticipant ID="PaymentGateway" Content="Payment Gateway" IsActor="False" />
+                        </syncfusion:ParticipantCollection>
+                    </syncfusion:UMLSequenceDiagramModel.Participants>
+
+                    <!-- Define Messages -->
+                    <syncfusion:UMLSequenceDiagramModel.Messages>
+                        <syncfusion:MessageCollection>
+                            <!-- Customer places an order -->
+                            <syncfusion:UMLSequenceMessage ID="MSG1" 
+                                        Content="Place Order" 
+                                        FromParticipantID="Customer" 
+                                        ToParticipantID="OrderSystem" 
+                                        Type="Synchronous" />
+
+                            <!-- System checks if the item is in stock -->
+                            <syncfusion:UMLSequenceMessage ID="MSG2" 
+                                        Content="Check Stock Availability" 
+                                        FromParticipantID="OrderSystem" 
+                                        ToParticipantID="OrderSystem" 
+                                        Type="Synchronous" />
+
+                            <!-- System confirms stock is available -->
+                            <syncfusion:UMLSequenceMessage ID="MSG3" 
+                                        Content="Stock Available" 
+                                        FromParticipantID="OrderSystem" 
+                                        ToParticipantID="Customer" 
+                                        Type="Reply" />
+
+                            <!-- System requests payment processing -->
+                            <syncfusion:UMLSequenceMessage ID="MSG4" 
+                                        Content="Process Payment" 
+                                        FromParticipantID="OrderSystem" 
+                                        ToParticipantID="PaymentGateway" 
+                                        Type="Synchronous" />
+
+                            <!-- Payment success message -->
+                            <syncfusion:UMLSequenceMessage ID="MSG5" 
+                                        Content="Payment Successful" 
+                                        FromParticipantID="PaymentGateway" 
+                                        ToParticipantID="OrderSystem" 
+                                        Type="Reply" />
+
+                            <!-- System confirms order processing -->
+                            <syncfusion:UMLSequenceMessage ID="MSG6" 
+                                        Content="Order Confirmed and Shipped" 
+                                        FromParticipantID="OrderSystem" 
+                                        ToParticipantID="Customer" 
+                                        Type="Reply" />
+
+                            <!-- Payment failure message -->
+                            <syncfusion:UMLSequenceMessage ID="MSG7" 
+                                        Content="Payment Failed" 
+                                        FromParticipantID="PaymentGateway" 
+                                        ToParticipantID="OrderSystem" 
+                                        Type="Reply" />
+
+                            <!-- Retry payment message -->
+                            <syncfusion:UMLSequenceMessage ID="MSG8" 
+                                        Content="Retry Payment" 
+                                        FromParticipantID="OrderSystem" 
+                                        ToParticipantID="Customer" 
+                                        Type="Reply" />
+
+                        </syncfusion:MessageCollection>
+                    </syncfusion:UMLSequenceDiagramModel.Messages>
+
+                    <!-- Define Fragments -->
+                    <syncfusion:UMLSequenceDiagramModel.Fragments>
+                        <syncfusion:FragmentCollection>
+                            <!-- Loop Fragment: Retry payment attempts -->
+                            <syncfusion:UMLSequenceFragment ID="Frag3" Type="Loop">
+                                <syncfusion:UMLSequenceFragment.Conditions>
+                                    <syncfusion:ConditionCollection>
+                                        <syncfusion:UMLSequenceFragmentCondition Content="[while attempts less than 3]">
+                                            <!--Nested Fragments Inside Loop Fragment-->
+                                            <syncfusion:UMLSequenceFragmentCondition.Fragments>
+                                                <syncfusion:FragmentCollection>
+                                                    <!-- Optional Fragment: Only executes if item is in stock -->
+                                                    <syncfusion:UMLSequenceFragment ID="Frag1" Type="Optional">
+                                                        <syncfusion:UMLSequenceFragment.Conditions>
+                                                            <syncfusion:ConditionCollection>
+                                                                <syncfusion:UMLSequenceFragmentCondition Content="[if item is in stock">
+                                                                    <syncfusion:UMLSequenceFragmentCondition.MessageIds>
+                                                                        <syncfusion:MessageIdCollection>
+                                                                            <sys:String>MSG4</sys:String>
+                                                                        </syncfusion:MessageIdCollection>
+                                                                    </syncfusion:UMLSequenceFragmentCondition.MessageIds>
+                                                                </syncfusion:UMLSequenceFragmentCondition>
+                                                            </syncfusion:ConditionCollection>
+                                                        </syncfusion:UMLSequenceFragment.Conditions>
+                                                    </syncfusion:UMLSequenceFragment>
+
+                                                    <!-- Alternative Fragment: Payment success or failure -->
+                                                    <syncfusion:UMLSequenceFragment ID="Frag2" Type="Alternative">
+                                                        <syncfusion:UMLSequenceFragment.Conditions>
+                                                            <syncfusion:ConditionCollection>
+                                                                <!-- If payment is successful -->
+                                                                <syncfusion:UMLSequenceFragmentCondition Content="[if payment is successful]">
+                                                                    <syncfusion:UMLSequenceFragmentCondition.MessageIds>
+                                                                        <syncfusion:MessageIdCollection>
+                                                                            <sys:String>MSG5</sys:String>
+                                                                            <sys:String>MSG6</sys:String>
+                                                                        </syncfusion:MessageIdCollection>
+                                                                    </syncfusion:UMLSequenceFragmentCondition.MessageIds>
+                                                                </syncfusion:UMLSequenceFragmentCondition>
+
+                                                                <!-- If payment fails -->
+                                                                <syncfusion:UMLSequenceFragmentCondition Content="[if payment fails]">
+                                                                    <syncfusion:UMLSequenceFragmentCondition.MessageIds>
+                                                                        <syncfusion:MessageIdCollection>
+                                                                            <sys:String>MSG7</sys:String>
+                                                                            <sys:String>MSG8</sys:String>
+                                                                        </syncfusion:MessageIdCollection>
+                                                                    </syncfusion:UMLSequenceFragmentCondition.MessageIds>
+                                                                </syncfusion:UMLSequenceFragmentCondition>
+                                                            </syncfusion:ConditionCollection>
+                                                        </syncfusion:UMLSequenceFragment.Conditions>
+                                                    </syncfusion:UMLSequenceFragment>
+                                                </syncfusion:FragmentCollection>
+                                            </syncfusion:UMLSequenceFragmentCondition.Fragments>
+                                        </syncfusion:UMLSequenceFragmentCondition>
+                                    </syncfusion:ConditionCollection>
+                                </syncfusion:UMLSequenceFragment.Conditions>
+                            </syncfusion:UMLSequenceFragment>
+
+
+
+                        </syncfusion:FragmentCollection>
+                    </syncfusion:UMLSequenceDiagramModel.Fragments>
+
+                </syncfusion:UMLSequenceDiagramModel>
+            </syncfusion:SfDiagram.Model>
+        </syncfusion:SfDiagram>
+
+        <StackPanel Grid.Column="1" Orientation="Vertical" Background="Beige">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Mermaid Text" Grid.Row="0" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="16"/>
+
+                <TextBox x:Name="MermaidTextBox" Grid.Row="1" TextWrapping="Wrap"
+                     BorderThickness="0" AcceptsReturn="True" Background="Beige"
+                     MaxHeight="600" Height="500"
+                     FontFamily="Consolas" 
+                     VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Padding="10"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
+
+                    <Button x:Name="SaveDiagramFromMermaid" Content="Save Diagram As Mermaid" Width="190" 
+                                        Padding="10, 9" Click="SaveDiagramFromMermaid_Click" Foreground="#FF004C99" VerticalAlignment="Bottom"
+                                        HorizontalAlignment="Stretch" Background="SkyBlue" BorderThickness="0" FontWeight="SemiBold"/>
+
+                    <Button x:Name="LoadDiagramFromMermaid" Content="Load Diagram From Mermaid" Width="190" Margin="5 0 0 0"
+                                        Padding="10, 9" Click="LoadDiagramFromMermaid_Click" Foreground="#FF004C99" VerticalAlignment="Bottom"
+                                        HorizontalAlignment="Stretch" Background="SkyBlue" BorderThickness="0" FontWeight="SemiBold"/>
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
