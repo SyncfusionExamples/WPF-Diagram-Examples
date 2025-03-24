@@ -1,0 +1,22 @@
+﻿<Window xmlns:syncfusion="http://schemas.syncfusion.com/wpf"  x:Class="RestrictChildDraggingInGroup.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RestrictChildDraggingInGroup"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
+    <Window.Resources>
+        <Style x:Key="parentStyle" TargetType="Path">
+            <Setter Property="Fill" Value="DodgerBlue"/>
+            <Setter Property="Stretch" Value="Fill"/>
+        </Style>
+        <Style x:Key="childStyle" TargetType="Path">
+            <Setter Property="Fill" Value="Blue"/>
+            <Setter Property="Stretch" Value="Fill"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <local:CustomDiagram x:Name="Diagram"/>
+    </Grid>
+</Window>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35818.85 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestrictChildDraggingInGroup_80", "RestrictChildDraggingInGroup_80.csproj", "{93983183-D1B9-05D6-77DD-875BCA9BD30F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93983183-D1B9-05D6-77DD-875BCA9BD30F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93983183-D1B9-05D6-77DD-875BCA9BD30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93983183-D1B9-05D6-77DD-875BCA9BD30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93983183-D1B9-05D6-77DD-875BCA9BD30F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B898576-775B-4C9C-8C87-300153644B49}
+	EndGlobalSection
+EndGlobal
