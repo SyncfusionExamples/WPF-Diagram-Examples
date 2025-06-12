@@ -268,6 +268,8 @@ namespace HistoryManagerDemoSample
         }
 
         public UndoRedoState State { get; set; }
+        public bool FillColorChanged { get;  set; }
+       
 
         protected override void OnPropertyChanged(string name)
         {
@@ -297,7 +299,23 @@ namespace HistoryManagerDemoSample
                             this.HistoryManager.LogData(this, data);
                         }
 
+
+                        if (node.FillColor != (SolidColorBrush)new BrushConverter().ConvertFromString("White"))
+                        {
+                            FillColorChanged = true;
+                        }
                         node.FillColor = selectedFillBrush;
+                        if (FillColorChanged)
+                        {
+                            HistoryEntry historyEntry = new HistoryEntry();
+                            historyEntry.Mode = EntryMode.External;
+                            historyEntry.Action = HistoryAction.CustomAction;
+                            historyEntry.GroupId = Guid.NewGuid();
+                            historyEntry.UndoElements.Add(selectedFillBrush);
+                            HistoryManager.UndoStack.Push(historyEntry);
+                            OnHistoryChanged(obj);
+                            FillColorChanged = false;
+                        }
                     }
 
                     if (canLogData && !isGroupAction)
@@ -362,13 +380,52 @@ namespace HistoryManagerDemoSample
                         }
 
                         if (updateFontFamily)
-                            annotation.FontFamily = selectedFontFamily;
+                        {
+                            if (annotation.FontFamily == null || !annotation.FontFamily.Equals(selectedFontFamily))
+                            {
+                                annotation.FontFamily = selectedFontFamily;
+                                HistoryEntry historyEntry = new HistoryEntry();
+                                historyEntry.Mode = EntryMode.External;
+                                historyEntry.Action = HistoryAction.CustomAction;
+                                historyEntry.GroupId = Guid.NewGuid();
+                                historyEntry.UndoElements.Add(annotation.FontFamily);
+                                HistoryManager.UndoStack.Push(historyEntry);
+                                OnHistoryChanged(obj);
+                            }
+                            
+                        }
 
                         if (updateFontSize)
-                            annotation.FontSize = selectedFontSize;
+                        {
+                            if (!annotation.FontSize.Equals(selectedFontSize))
+                            {
+                                annotation.FontSize = selectedFontSize;
+                                HistoryEntry historyEntry = new HistoryEntry();
+                                historyEntry.Mode = EntryMode.External;
+                                historyEntry.Action = HistoryAction.CustomAction;
+                                historyEntry.GroupId = Guid.NewGuid();
+                                historyEntry.UndoElements.Add(annotation.FontSize);
+                                HistoryManager.UndoStack.Push(historyEntry);
+                                OnHistoryChanged(obj);
+                            }
+                        }
 
                         if (updateFontColor)
-                            annotation.Foreground = selectedFontBrush;
+                        {
+                            
+                            if (annotation.Foreground == null || !annotation.Foreground.Equals(selectedFontBrush))
+                            {
+                                annotation.Foreground = selectedFontBrush;
+                                    HistoryEntry historyEntry = new HistoryEntry();
+                                historyEntry.Mode = EntryMode.External;
+                                historyEntry.Action = HistoryAction.CustomAction;
+                                historyEntry.GroupId = Guid.NewGuid();
+                                    historyEntry.UndoElements.Add(annotation.Foreground);
+                                    HistoryManager.UndoStack.Push(historyEntry);
+                                    OnHistoryChanged(obj);
+;
+                            }
+                        }
                     }
                 }
             }
@@ -386,13 +443,52 @@ namespace HistoryManagerDemoSample
                         }
 
                         if (updateFontFamily)
-                            annotation.FontFamily = selectedFontFamily;
+                        {
+                            if (annotation.FontFamily == null || !annotation.FontFamily.Equals(selectedFontFamily))
+                            {
+                                annotation.FontFamily = selectedFontFamily;
+                                HistoryEntry historyEntry = new HistoryEntry();
+                                historyEntry.Mode = EntryMode.External;
+                                historyEntry.Action = HistoryAction.CustomAction;
+                                historyEntry.GroupId = Guid.NewGuid();
+                                historyEntry.UndoElements.Add(annotation.FontFamily);
+                                HistoryManager.UndoStack.Push(historyEntry);
+                                OnHistoryChanged(obj);
+                            }
+                        }
 
                         if (updateFontSize)
-                            annotation.FontSize = selectedFontSize;
+                        {
+                            if (!annotation.FontSize.Equals(selectedFontSize))
+                            {
+                                annotation.FontSize = selectedFontSize;
+
+                                HistoryEntry historyEntry = new HistoryEntry();
+                                historyEntry.GroupId = Guid.NewGuid();
+                                historyEntry.Mode = EntryMode.External;
+                                historyEntry.Action = HistoryAction.CustomAction;
+                                historyEntry.UndoElements.Add(annotation.FontSize);
+                                HistoryManager.UndoStack.Push(historyEntry);
+                                OnHistoryChanged(obj);
+                            }
+                     
+                            
+                        }
 
                         if (updateFontColor)
-                            annotation.Foreground = selectedFontBrush;
+                        {
+                            if (annotation.Foreground == null || !annotation.Foreground.Equals(selectedFontBrush))
+                            {
+                                annotation.Foreground = selectedFontBrush;
+                                HistoryEntry historyEntry = new HistoryEntry();
+                                historyEntry.Mode = EntryMode.External;
+                                historyEntry.Action = HistoryAction.CustomAction;
+                                historyEntry.GroupId = Guid.NewGuid();
+                                historyEntry.UndoElements.Add(annotation.Foreground);
+                                HistoryManager.UndoStack.Push(historyEntry);
+                                OnHistoryChanged(obj);
+                            }
+                        }
                     }
                 }
             }
@@ -402,6 +498,7 @@ namespace HistoryManagerDemoSample
         }
 
         private bool canLogData = true;
+        private object obj;
         private void OnItemSelected(object obj)
         {
             canLogData = false;
