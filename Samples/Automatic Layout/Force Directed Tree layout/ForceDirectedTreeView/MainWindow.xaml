@@ -1,0 +1,530 @@
+﻿<Window x:Class="ForceDirectedTreeView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ForceDirectedTreeView"
+         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowState="Maximized" Height="450" Width="800">
+
+
+    <Window.Resources>
+        <!-- Path styles -->
+        <Style x:Key="RootPathStyle" TargetType="Path">
+            <Setter Property="Fill" Value="#F39C12"/>
+            <Setter Property="Stroke" Value="#FFEDF1F6"/>
+            <Setter Property="Stretch" Value="Fill"/>
+        </Style>
+
+        <Style x:Key="ParentPathStyle" TargetType="Path">
+            <Setter Property="Fill" Value="#2980B9"/>
+            <Setter Property="Stroke" Value="#FFEDF1F6"/>
+            <Setter Property="Stretch" Value="Fill"/>
+        </Style>
+
+        <Style x:Key="ChildPathStyle" TargetType="Path">
+            <Setter Property="Fill" Value="#27AE60"/>
+            <Setter Property="Stroke" Value="#FFEDF1F6"/>
+            <Setter Property="Stretch" Value="Fill"/>
+        </Style>
+
+
+
+
+        <Style TargetType="syncfusion:Node">
+            <Setter Property="ShapeStyle" Value="{StaticResource ChildPathStyle}" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Tag}" Value="Root">
+                    <Setter Property="ShapeStyle" Value="{StaticResource RootPathStyle}" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Tag}" Value="Parent">
+                    <Setter Property="ShapeStyle" Value="{StaticResource ParentPathStyle}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="NodeLabelStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+        <!--Style for Connector-->
+        <Style TargetType="syncfusion:Connector">
+            <Setter Property="ConnectorGeometryStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Stroke" Value="#6BA5D7"/>
+                        <Setter Property="StrokeThickness" Value="2"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="TargetDecoratorStyle">
+                <Setter.Value>
+                    <Style TargetType="Path">
+                        <Setter Property="Fill" Value="Black"/>
+                        <Setter Property="StrokeThickness" Value="2"/>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+        <syncfusion:SfDiagram x:Name="Diagram" DefaultConnectorType="Line"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+            <syncfusion:SfDiagram.Nodes>
+                <syncfusion:NodeCollection>
+
+                    <!-- Root -->
+                    <local:CustomNodeViewModel ID="Node1" UnitWidth="140" UnitHeight="140" Tag="Root">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="70" RadiusY="70" Center="70,70" />
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team" />
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <!-- Parents (PO-1 .. PO-5) -->
+                    <local:CustomNodeViewModel ID="Node2" UnitWidth="100" UnitHeight="100" Tag="Parent">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="50" RadiusY="50" Center="50,50"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="PO-1"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node3" UnitWidth="100" UnitHeight="100" Tag="Parent">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="50" RadiusY="50" Center="50,50"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="PO-2"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node4" UnitWidth="100" UnitHeight="100" Tag="Parent">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="50" RadiusY="50" Center="50,50"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="PO-3"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node5" UnitWidth="100" UnitHeight="100" Tag="Parent">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="50" RadiusY="50" Center="50,50"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="PO-4"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node6" UnitWidth="100" UnitHeight="100" Tag="Parent">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="50" RadiusY="50" Center="50,50"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="PO-5"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <!-- Children (7..30) with labels -->
+                    <local:CustomNodeViewModel ID="Node7" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-1"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node8" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-2"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node9" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-3"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node10" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-4"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <!-- Nodes 11..24 (children) -->
+                    <local:CustomNodeViewModel ID="Node11" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-1"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node12" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-2"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node13" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-3"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node14" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-4"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node15" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-1"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node16" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-2"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node17" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-3"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node18" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-4"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node19" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-1"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node20" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-2"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node21" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-3"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node22" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-4"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node23" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-1"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node24" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-2"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node25" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Sales Team"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node26" UnitWidth="40" UnitHeight="40" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="20" RadiusY="20" Center="20,20"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="AGM-1"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node27" UnitWidth="40" UnitHeight="40" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="20" RadiusY="20" Center="20,20"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="AGM-2"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node28" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-4"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node29" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-3"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                    <local:CustomNodeViewModel ID="Node30" UnitWidth="60" UnitHeight="60" Tag="Child">
+                        <local:CustomNodeViewModel.Shape>
+                            <EllipseGeometry RadiusX="30" RadiusY="30" Center="30,30"/>
+                        </local:CustomNodeViewModel.Shape>
+                        <local:CustomNodeViewModel.Annotations>
+                            <syncfusion:AnnotationCollection>
+                                <syncfusion:AnnotationEditorViewModel Content="Team-2"/>
+                            </syncfusion:AnnotationCollection>
+                        </local:CustomNodeViewModel.Annotations>
+                    </local:CustomNodeViewModel>
+
+                </syncfusion:NodeCollection>
+            </syncfusion:SfDiagram.Nodes>
+
+            <!-- Connectors -->
+            <syncfusion:SfDiagram.Connectors>
+                <syncfusion:ConnectorCollection>
+                    <!-- Level 0 -> Level 1 -->
+                    <syncfusion:ConnectorViewModel ID="Node1->Node2" SourceNodeID="Node1" TargetNodeID="Node2" />
+                    <syncfusion:ConnectorViewModel ID="Node1->Node3" SourceNodeID="Node1" TargetNodeID="Node3" />
+                    <syncfusion:ConnectorViewModel ID="Node1->Node4" SourceNodeID="Node1" TargetNodeID="Node4" />
+                    <syncfusion:ConnectorViewModel ID="Node1->Node5" SourceNodeID="Node1" TargetNodeID="Node5" />
+
+                    <!-- Level 1 -> Level 2 -->
+                    <syncfusion:ConnectorViewModel ID="Node2->Node6" SourceNodeID="Node2" TargetNodeID="Node6" />
+                    <syncfusion:ConnectorViewModel ID="Node2->Node7" SourceNodeID="Node2" TargetNodeID="Node7" />
+                    <syncfusion:ConnectorViewModel ID="Node2->Node8" SourceNodeID="Node2" TargetNodeID="Node8" />
+
+                    <syncfusion:ConnectorViewModel ID="Node3->Node9" SourceNodeID="Node3" TargetNodeID="Node9" />
+                    <syncfusion:ConnectorViewModel ID="Node3->Node10" SourceNodeID="Node3" TargetNodeID="Node10" />
+                    <syncfusion:ConnectorViewModel ID="Node3->Node11" SourceNodeID="Node3" TargetNodeID="Node11" />
+
+                    <syncfusion:ConnectorViewModel ID="Node4->Node12" SourceNodeID="Node4" TargetNodeID="Node12" />
+                    <syncfusion:ConnectorViewModel ID="Node4->Node13" SourceNodeID="Node4" TargetNodeID="Node13" />
+                    <syncfusion:ConnectorViewModel ID="Node4->Node14" SourceNodeID="Node4" TargetNodeID="Node14" />
+
+                    <syncfusion:ConnectorViewModel ID="Node5->Node15" SourceNodeID="Node5" TargetNodeID="Node15" />
+                    <syncfusion:ConnectorViewModel ID="Node5->Node16" SourceNodeID="Node5" TargetNodeID="Node16" />
+                    <syncfusion:ConnectorViewModel ID="Node5->Node17" SourceNodeID="Node5" TargetNodeID="Node17" />
+
+                    <!-- Leaves and deeper children -->
+                    <syncfusion:ConnectorViewModel ID="Node7->Node18" SourceNodeID="Node7" TargetNodeID="Node18" />
+                    <syncfusion:ConnectorViewModel ID="Node10->Node19" SourceNodeID="Node10" TargetNodeID="Node19" />
+                    <syncfusion:ConnectorViewModel ID="Node14->Node20" SourceNodeID="Node14" TargetNodeID="Node20" />
+                    <syncfusion:ConnectorViewModel ID="Node11->Node21" SourceNodeID="Node11" TargetNodeID="Node21" />
+
+                    <syncfusion:ConnectorViewModel ID="Node12->Node22" SourceNodeID="Node12" TargetNodeID="Node22" />
+                    <syncfusion:ConnectorViewModel ID="Node12->Node23" SourceNodeID="Node12" TargetNodeID="Node23" />
+                    <syncfusion:ConnectorViewModel ID="Node12->Node24" SourceNodeID="Node12" TargetNodeID="Node24" />
+
+                    <syncfusion:ConnectorViewModel ID="Node13->Node25" SourceNodeID="Node13" TargetNodeID="Node25" />
+                    <syncfusion:ConnectorViewModel ID="Node13->Node26" SourceNodeID="Node13" TargetNodeID="Node26" />
+                    <syncfusion:ConnectorViewModel ID="Node13->Node27" SourceNodeID="Node13" TargetNodeID="Node27" />
+
+                    <syncfusion:ConnectorViewModel ID="Node14->Node28" SourceNodeID="Node14" TargetNodeID="Node28" />
+                    <syncfusion:ConnectorViewModel ID="Node14->Node29" SourceNodeID="Node14" TargetNodeID="Node29" />
+                    <syncfusion:ConnectorViewModel ID="Node14->Node30" SourceNodeID="Node14" TargetNodeID="Node30" />
+                </syncfusion:ConnectorCollection>
+            </syncfusion:SfDiagram.Connectors>
+
+            <!-- Layout manager -->
+            <syncfusion:SfDiagram.LayoutManager>
+                <syncfusion:LayoutManager>
+                    <syncfusion:LayoutManager.Layout>
+                        <syncfusion:ForceDirectedTree ConnectorLength="110"
+                                          AttractionStrength="0.6"
+                                          RepulsionStrength="25000"
+                                          MaximumIteration="2500" />
+                    </syncfusion:LayoutManager.Layout>
+                </syncfusion:LayoutManager>
+            </syncfusion:SfDiagram.LayoutManager>
+
+        </syncfusion:SfDiagram>
+
+        <Border Margin="3,0,0,0" Background="White" Grid.Column="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" ></RowDefinition>
+                    <RowDefinition Height="45" ></RowDefinition>
+                    <RowDefinition Height="45"></RowDefinition>
+                    <RowDefinition Height="45" ></RowDefinition>
+                    <RowDefinition Height="45"></RowDefinition>
+                    <RowDefinition Height="45" ></RowDefinition>
+                    <RowDefinition Height="45"></RowDefinition>
+                    <RowDefinition Height="45" ></RowDefinition>
+                    <RowDefinition Height="45"></RowDefinition>
+                    <RowDefinition Height="45"></RowDefinition>
+
+                </Grid.RowDefinitions>
+
+                <TextBlock Margin="10,10,0,0" Grid.Row="0" Grid.ColumnSpan="2" Text="Properties" Foreground="#0075C0" 
+                     FontWeight="Bold" FontSize="13pt"/>
+
+                <TextBlock Margin="10,5,0,0" Grid.Row="1" Grid.Column="0" Text="ConnectorLength"  Height="25" VerticalAlignment="Center"/>
+                <syncfusion:UpDown MinValue="50" Margin="5,5,0,0" Grid.Row="1" Grid.Column="1" Value="150" ValueChanged="UpDown_ValueChanged" Step="5" MaxValue="200"
+                                           />
+
+                <TextBlock Margin="10,5,0,0" Grid.Row="2" Grid.Column="0" Text="Max Iteration" VerticalAlignment="Center"  Height="25"/>
+                <syncfusion:UpDown MinValue="300" Margin="5,5,0,0" Grid.Row="2" Grid.Column="1" Value="2500" ValueChanged="UpDown_ValueChanged_1" Step="50"
+                                         />
+
+                <TextBlock Margin="10,5,0,0" Grid.Row="3" Grid.Column="0" Text="Repulsion Strength"  Height="25" VerticalAlignment="Center"/>
+                <syncfusion:UpDown MinValue="10000" Margin="5,5,0,0" Grid.Row="3" Grid.Column="1" Value="25000" ValueChanged="UpDown_ValueChanged_2" Step="200" MaxValue="30000"
+                          />
+
+                <TextBlock Margin="10,0,0,0" Grid.Row="4" Grid.Column="0" Text="Attraction strength"  Height="26" VerticalAlignment="Center"/>
+                <syncfusion:UpDown MinValue="0.1" MaxValue="1" Margin="5,5,0,0" Grid.Row="4" Value="0.6" ValueChanged="UpDown_ValueChanged_3" Grid.Column="1" Step="0.1"
+                          />
+
+
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>
+<!-- ...existing code... -->
