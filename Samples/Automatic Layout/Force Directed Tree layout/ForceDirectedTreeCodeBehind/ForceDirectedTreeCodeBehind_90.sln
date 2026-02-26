@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35017.193
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForceDirectedTreeCodeBehind_90", "ForceDirectedTreeCodeBehind_90.csproj", "{6A413EDE-341E-4637-8307-AEA644C0F812}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A413EDE-341E-4637-8307-AEA644C0F812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A413EDE-341E-4637-8307-AEA644C0F812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A413EDE-341E-4637-8307-AEA644C0F812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A413EDE-341E-4637-8307-AEA644C0F812}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1DB2A1F-59B2-4B82-AD62-3533E3159F20}
+	EndGlobalSection
+EndGlobal
