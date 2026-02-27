@@ -49,7 +49,6 @@ namespace ForceDirectedTreeCodeBehind
             {
                 Layout = new ForceDirectedTree()
                 {
-                    ConnectorLength = 110,
                     AttractionStrength = 0.6,
                     RepulsionStrength = 25000,
                     MaximumIteration = 2500,
@@ -195,13 +194,6 @@ namespace ForceDirectedTreeCodeBehind
                 // e.g. TargetDecorator = new DecoratorViewModel { Shape = DecoratorShapes.Arrow }
             };
         }
-
-        private void UpDown_ValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if(Diagram.LayoutManager != null)
-            (Diagram.LayoutManager.Layout as ForceDirectedTree).ConnectorLength = (double)e.NewValue;
-        }
-
         private void UpDown_ValueChanged_1(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (Diagram.LayoutManager != null)
