@@ -138,7 +138,6 @@ namespace Force_directed_tree.ViewModel
             {
                 Layout = new ForceDirectedTree()
                 {
-                    ConnectorLength = 110,
                     AttractionStrength = 0.6,
                     RepulsionStrength = 25000,
                     MaximumIteration = 1000,

@@ -472,7 +472,7 @@
             <syncfusion:SfDiagram.LayoutManager>
                 <syncfusion:LayoutManager>
                     <syncfusion:LayoutManager.Layout>
-                        <syncfusion:ForceDirectedTree ConnectorLength="110"
+                        <syncfusion:ForceDirectedTree
                                           AttractionStrength="0.6"
                                           RepulsionStrength="25000"
                                           MaximumIteration="2500" />
@@ -493,32 +493,23 @@
                     <RowDefinition Height="45" ></RowDefinition>
                     <RowDefinition Height="45"></RowDefinition>
                     <RowDefinition Height="45" ></RowDefinition>
-                    <RowDefinition Height="45"></RowDefinition>
-                    <RowDefinition Height="45" ></RowDefinition>
-                    <RowDefinition Height="45"></RowDefinition>
-                    <RowDefinition Height="45" ></RowDefinition>
-                    <RowDefinition Height="45"></RowDefinition>
-                    <RowDefinition Height="45"></RowDefinition>
+                    
 
                 </Grid.RowDefinitions>
 
                 <TextBlock Margin="10,10,0,0" Grid.Row="0" Grid.ColumnSpan="2" Text="Properties" Foreground="#0075C0" 
                      FontWeight="Bold" FontSize="13pt"/>
 
-                <TextBlock Margin="10,5,0,0" Grid.Row="1" Grid.Column="0" Text="ConnectorLength"  Height="25" VerticalAlignment="Center"/>
-                <syncfusion:UpDown MinValue="50" Margin="5,5,0,0" Grid.Row="1" Grid.Column="1" Value="150" ValueChanged="UpDown_ValueChanged" Step="5" MaxValue="200"
-                                           />
-
-                <TextBlock Margin="10,5,0,0" Grid.Row="2" Grid.Column="0" Text="Max Iteration" VerticalAlignment="Center"  Height="25"/>
-                <syncfusion:UpDown MinValue="300" Margin="5,5,0,0" Grid.Row="2" Grid.Column="1" Value="2500" ValueChanged="UpDown_ValueChanged_1" Step="50"
+                <TextBlock Margin="10,5,0,0" Grid.Row="1" Grid.Column="0" Text="Max Iteration" VerticalAlignment="Center"  Height="25"/>
+                <syncfusion:UpDown MinValue="300" Margin="5,5,0,0" Grid.Row="1" Grid.Column="1" Value="2500" ValueChanged="UpDown_ValueChanged_1" Step="50"
                                          />
 
-                <TextBlock Margin="10,5,0,0" Grid.Row="3" Grid.Column="0" Text="Repulsion Strength"  Height="25" VerticalAlignment="Center"/>
-                <syncfusion:UpDown MinValue="10000" Margin="5,5,0,0" Grid.Row="3" Grid.Column="1" Value="25000" ValueChanged="UpDown_ValueChanged_2" Step="200" MaxValue="30000"
+                <TextBlock Margin="10,5,0,0" Grid.Row="2" Grid.Column="0" Text="Repulsion Strength"  Height="25" VerticalAlignment="Center"/>
+                <syncfusion:UpDown MinValue="10000" Margin="5,5,0,0" Grid.Row="2" Grid.Column="1" Value="25000" ValueChanged="UpDown_ValueChanged_2" Step="200" MaxValue="30000"
                           />
 
-                <TextBlock Margin="10,0,0,0" Grid.Row="4" Grid.Column="0" Text="Attraction strength"  Height="26" VerticalAlignment="Center"/>
-                <syncfusion:UpDown MinValue="0.1" MaxValue="1" Margin="5,5,0,0" Grid.Row="4" Value="0.6" ValueChanged="UpDown_ValueChanged_3" Grid.Column="1" Step="0.1"
+                <TextBlock Margin="10,0,0,0" Grid.Row="3" Grid.Column="0" Text="Attraction strength"  Height="26" VerticalAlignment="Center"/>
+                <syncfusion:UpDown MinValue="0.1" MaxValue="1" Margin="5,5,0,0" Grid.Row="3" Value="0.6" ValueChanged="UpDown_ValueChanged_3" Grid.Column="1" Step="0.1"
                           />
 
 

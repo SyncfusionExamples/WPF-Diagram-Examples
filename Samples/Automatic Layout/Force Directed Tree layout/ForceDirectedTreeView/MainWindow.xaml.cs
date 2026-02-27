@@ -45,17 +45,6 @@ namespace ForceDirectedTreeView
             (Diagram.Info as IGraphInfo).Commands.FitToPage.Execute(null);
             temp = true;
         }
-
-        private void UpDown_ValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (temp)
-            {
-                if ((Diagram.LayoutManager.Layout as ForceDirectedTree).ConnectorLength != (double)e.NewValue)
-                    (Diagram.LayoutManager.Layout as ForceDirectedTree).ConnectorLength = (double)e.NewValue;
-                temp = true;
-            }
-        }
-
         private void UpDown_ValueChanged_1(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (temp)

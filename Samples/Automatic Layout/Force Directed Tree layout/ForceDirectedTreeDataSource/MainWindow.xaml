@@ -43,7 +43,7 @@
                 <Setter Property="UnitWidth" Value="130"/>
 
             </Style>
-         
+
             <!--Style for Connector-->
             <Style TargetType="Syncfusion:Connector">
                 <Setter Property="ConnectorGeometryStyle">
@@ -102,33 +102,22 @@
                     <RowDefinition Height="35" ></RowDefinition>
                     <RowDefinition Height="35"></RowDefinition>
                     <RowDefinition Height="35" ></RowDefinition>
-                    <RowDefinition Height="35"></RowDefinition>
-                    <RowDefinition Height="35" ></RowDefinition>
-                    <RowDefinition Height="75"></RowDefinition>
-                    <RowDefinition Height="35"></RowDefinition>
-                    <RowDefinition Height="35"></RowDefinition>
-                    <RowDefinition Height="35"></RowDefinition>
-                    
 
                 </Grid.RowDefinitions>
 
                 <TextBlock Margin="10,10,0,0" Grid.Row="0" Grid.ColumnSpan="2" Text="Properties" Foreground="#0075C0" 
                      FontWeight="Bold" FontSize="13pt"/>
 
-                <TextBlock Margin="10,5,0,0" Grid.Row="1" Grid.Column="0" Text="ConnectorLength"  Height="25" VerticalAlignment="Center"/>
-                <Syncfusion:UpDown x:Name="connectorlength" MinValue="100" Margin="5,5,0,0" Grid.Row="1" Grid.Column="1" Step="5" MaxValue="170"
-                                          Value="{Binding ConnectorLength, Mode=TwoWay}" />
-
-                <TextBlock Margin="10,5,0,0" Grid.Row="2" Grid.Column="0" Text="Max Iteration" VerticalAlignment="Center"  Height="25"/>
-                <Syncfusion:UpDown x:Name="maxiteration" MinValue="300" Margin="5,5,0,0" Grid.Row="2" Grid.Column="1" Step="50"
+                <TextBlock Margin="10,5,0,0" Grid.Row="1" Grid.Column="0" Text="Max Iteration" VerticalAlignment="Center"  Height="25"/>
+                <Syncfusion:UpDown x:Name="maxiteration" MinValue="300" Margin="5,5,0,0" Grid.Row="1" Grid.Column="1" Step="50"
                                           Value="{Binding MaximumIteration, Mode=TwoWay}"/>
 
-                <TextBlock Margin="10,5,0,0" Grid.Row="3" Grid.Column="0" Text="Repulsion Strength"  Height="25" VerticalAlignment="Center"/>
-                <Syncfusion:UpDown x:Name="repulsionstrength" MinValue="25000" Margin="5,5,0,0" Grid.Row="3" Grid.Column="1" Step="250" MaxValue="30000"
+                <TextBlock Margin="10,5,0,0" Grid.Row="2" Grid.Column="0" Text="Repulsion Strength"  Height="25" VerticalAlignment="Center"/>
+                <Syncfusion:UpDown x:Name="repulsionstrength" MinValue="25000" Margin="5,5,0,0" Grid.Row="2" Grid.Column="1" Step="250" MaxValue="30000"
                           Value="{Binding RepulsionStrength, Mode=TwoWay}" />
 
-                <TextBlock Margin="10,0,0,0" Grid.Row="4" Grid.Column="0" Text="Attraction strength"  Height="26" VerticalAlignment="Center"/>
-                <Syncfusion:UpDown x:Name="attractionstrength" MinValue="0.1" MaxValue="1" Margin="5,5,0,0" Grid.Row="4" Grid.Column="1" Step="0.1"
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Attraction strength"  Height="26" VerticalAlignment="Center" HorizontalAlignment="Right" Width="120"/>
+                <Syncfusion:UpDown x:Name="attractionstrength" MinValue="0.1" MaxValue="1" Margin="5,5,0,0" Grid.Row="3" Grid.Column="1" Step="0.1"
                           Value="{Binding AttractionStrength, Mode=TwoWay}" />
 
             </Grid>
