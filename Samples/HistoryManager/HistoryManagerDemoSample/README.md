@@ -1,6 +1,6 @@
 # History manager sample
 
-This sample demonstrates undo redo functions of diagram control.
+This sample demonstrates undo redo functions of diagram control. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: 
 

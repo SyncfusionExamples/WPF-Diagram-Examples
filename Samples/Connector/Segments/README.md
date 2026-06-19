@@ -1,6 +1,6 @@
 # Segments sample
 
-This sample demonstrate how to create Orthogonal, Cubic curve, Qudratic curve and multiple segments for connetors.
+This sample demonstrate how to create Orthogonal, Cubic curve, Qudratic curve and multiple segments for connetors. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/connector/segments/orthogonal
 

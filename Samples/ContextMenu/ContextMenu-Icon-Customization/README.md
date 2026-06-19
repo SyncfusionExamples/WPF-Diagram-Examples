@@ -1,5 +1,5 @@
 # Context menu icon customization sample
-This repository contains sample which shows how to customize context menu icon.
+This repository contains sample which shows how to customize context menu icon. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/context-menu#menu-for-node-and-connector
 

@@ -1,5 +1,5 @@
 # Stencil with Custom Commands
-This repository contains sample which shows how can we Add or Remove commands from the Stencil's Command Manager.
+This repository contains sample which shows how can we Add or Remove commands from the Stencil's Command Manager. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/stencil
 

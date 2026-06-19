@@ -1,6 +1,6 @@
 # Set cursors sample
 
-This sample demonstrates how to override the default cursors of diagram objects.
+This sample demonstrates how to override the default cursors of diagram objects. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/tools
 

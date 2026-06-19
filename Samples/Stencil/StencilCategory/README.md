@@ -1,6 +1,6 @@
 # Stencil category sample
 
-This repository contains sample which shows how to add and customize the stencil category into the diagram stencil.
+This repository contains sample which shows how to add and customize the stencil category into the diagram stencil. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/stencil#preserving-node-template-while-drag-and-drop
 

@@ -1,6 +1,6 @@
 # Connector AvoidSegmentsOverlapping sample
 
-This sample demonstrates how to avoid segements overlapping for the connector in the static diagram.
+This sample demonstrates how to avoid segements overlapping for the connector in the static diagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/connector/segments/orthogonal#how-to-customize-the-orthogonal-segments
 

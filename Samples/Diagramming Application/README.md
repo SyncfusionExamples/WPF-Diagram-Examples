@@ -1,5 +1,5 @@
 # Diagramming application
-This sample demonstrate how to create diagramming application easily using SfDiagram, SfDiagramRibbon and Stencil controls.
+This sample demonstrate how to create diagramming application easily using SfDiagram, SfDiagramRibbon and Stencil controls. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__:
 

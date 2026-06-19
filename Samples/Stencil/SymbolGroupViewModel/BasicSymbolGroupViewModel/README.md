@@ -1,6 +1,6 @@
 # SymbolGroupViewModel sample
 
-This sample demonstrate how to create the symbol group view model to the stencil with symbols, name, category source properties.
+This sample demonstrate how to create the symbol group view model to the stencil with symbols, name, category source properties. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/serialization
 ## Project pre-requisites

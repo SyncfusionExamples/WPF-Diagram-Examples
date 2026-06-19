@@ -1,6 +1,6 @@
 # Sample to Serialize symbolgroups in stencil
 
-This repository contains sample which shows how to serialize symbolgroups in stencil.
+This repository contains sample which shows how to serialize symbolgroups in stencil. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/stencil
 

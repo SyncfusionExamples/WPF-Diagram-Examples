@@ -1,5 +1,5 @@
 # Group creation sample
-This repository contains sample which shows how to create group and add it to groupcolletion in SfDiagram.
+This repository contains sample which shows how to create group and add it to groupcolletion in SfDiagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/group
 

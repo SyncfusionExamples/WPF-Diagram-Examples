@@ -1,6 +1,6 @@
 # How to customize the Selector in WPF Diagram (SfDiagram)?
 
-This sample explains how to display selector tooltip closer to the Node and Smaller.
+This sample explains how to display selector tooltip closer to the Node and Smaller. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/interaction/selection
 

@@ -1,5 +1,5 @@
 # Port creation sample
-This repository contains sample which shows how display only the ports of the same color in the target node based on the source node's port color in WPF Diagram
+This repository contains sample which shows how display only the ports of the same color in the target node based on the source node's port color in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/port/port
 

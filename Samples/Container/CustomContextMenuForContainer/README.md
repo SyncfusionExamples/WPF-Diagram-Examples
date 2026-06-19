@@ -1,6 +1,6 @@
 # RestrictNodeFromContainer sample
 
-This sample explains how to rearrange the containers after the layout was updated.
+This sample explains how to rearrange the containers after the layout was updated. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/container
 

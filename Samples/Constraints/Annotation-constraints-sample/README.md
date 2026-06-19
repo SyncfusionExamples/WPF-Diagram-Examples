@@ -1,5 +1,5 @@
 # Annotation Constraints sample
-This repository contains sample which illustrates how to add or remove specific constraints for annotation.
+This repository contains sample which illustrates how to add or remove specific constraints for annotation. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__:https://help.syncfusion.com/wpf/diagram/constraints#annotation-constraints
 

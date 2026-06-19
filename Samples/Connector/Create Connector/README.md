@@ -1,6 +1,6 @@
 # Connector creation sample
 
-This sample demonstrate how to create a simple connector using connection points, Nodes, Ports.
+This sample demonstrate how to create a simple connector using connection points, Nodes, Ports. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/connector/defineconnector#create-connector
 

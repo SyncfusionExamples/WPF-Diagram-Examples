@@ -1,5 +1,5 @@
 # Serialize image Node creation sample
-This repository contains sample which shows how to clone the NodeViewModel.
+This repository contains sample which shows how to clone the NodeViewModel. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
  [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram).
 

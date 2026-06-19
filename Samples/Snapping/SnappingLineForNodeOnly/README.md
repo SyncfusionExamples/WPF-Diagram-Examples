@@ -1,6 +1,6 @@
 # Snapping line for node alone sample
 
-This sample demonstrates how to enable the snap line for node alone
+This sample demonstrates how to enable the snap line for node alone. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/snapping/definesnapping
 

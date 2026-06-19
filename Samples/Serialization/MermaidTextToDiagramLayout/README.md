@@ -1,5 +1,5 @@
 # Mermaid Text to Diagram Layout sample
-This sample demonstrates how to create a diagram layout using Mermaid text as input and how to retrieve Mermaid text from the diagram layout.
+This sample demonstrates how to create a diagram layout using Mermaid text as input and how to retrieve Mermaid text from the diagram layout. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/serialization
 ## Project pre-requisites
