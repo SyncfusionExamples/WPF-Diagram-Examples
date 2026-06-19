@@ -1,5 +1,5 @@
 # RemoveDefaultCommands sample
-This sample demonstrate how to remove the default commands from the diagram commands.
+This sample demonstrate how to remove the default commands from the diagram commands. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/commands#custom-command
 ## Project pre-requisites

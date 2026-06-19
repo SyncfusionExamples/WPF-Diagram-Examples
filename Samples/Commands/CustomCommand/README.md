@@ -1,5 +1,5 @@
 # Custom command sample
-This sample demonstrate how to create custom gesture command and its usage in SfDiagam control.
+This sample demonstrate how to create custom gesture command and its usage in SfDiagam control. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/commands#custom-command
 ## Project pre-requisites

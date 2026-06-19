@@ -1,6 +1,6 @@
 # Annotation Visibility sample
 
-This sample demonstrates annotations creation, appearance customization , interactions of diagram.
+This sample demonstrates annotations creation, appearance customization , interactions of diagram. Explore more details about the UWP Diagram control refer to the following URL : [UWP Diagram](https://www.syncfusion.com/uwp-ui-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/uwp/diagram/annotation
 
