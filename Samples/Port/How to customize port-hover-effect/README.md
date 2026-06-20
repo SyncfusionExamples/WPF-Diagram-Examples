@@ -1,5 +1,5 @@
 # Port customization sample
-This repository contains sample which shows how to customize Port Hover effect.
+This repository contains sample which shows how to customize Port Hover effect. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/port/port#padding
 

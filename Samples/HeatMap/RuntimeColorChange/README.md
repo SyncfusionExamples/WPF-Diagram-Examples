@@ -1,6 +1,6 @@
 # Change a ColorMappingCollection at runtime sample
 
-This repository contains sample which shows how to change the ColorMappingCollection at Runtime in SfHeatMap.
+This repository contains sample which shows how to change the ColorMappingCollection at Runtime in SfHeatMap. Explore more details about the WPF HeatMap control refer to the following URL : [WPF HeatMap](https://www.syncfusion.com/wpf-controls/heatmap)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/heatmap/overview
 

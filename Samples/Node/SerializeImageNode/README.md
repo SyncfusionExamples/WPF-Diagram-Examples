@@ -1,7 +1,5 @@
 # Serialize image Node creation sample
-This repository contains sample which shows how to serialize the image node.
-
- [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram).
+This repository contains sample which shows how to serialize the image node. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 ## Project pre-requisites
 To run this application, you need to have the below two in your system

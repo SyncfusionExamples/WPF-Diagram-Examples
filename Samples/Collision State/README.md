@@ -1,5 +1,5 @@
 # Hierarchical Tree sample
-This sample demonstrate how to arrange diagram elements in proper position by adjusting node's position.
+This sample demonstrate how to arrange diagram elements in proper position by adjusting node's position. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/collision-state
 

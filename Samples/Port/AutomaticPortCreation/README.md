@@ -1,5 +1,5 @@
 # Automatic Port Creation sample
-This repository contains sample which shows how to create a port dynamically by clicking and dragging the mouse over any node or connector.
+This repository contains sample which shows how to create a port dynamically by clicking and dragging the mouse over any node or connector. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/port/automaticportcreation
 

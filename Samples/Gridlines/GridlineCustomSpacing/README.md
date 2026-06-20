@@ -1,6 +1,6 @@
 # Gridlines Custom Space sample
 
-This sample demonstrates customizing the space between gridlines.
+This sample demonstrates customizing the space between gridlines. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/gridlines
 

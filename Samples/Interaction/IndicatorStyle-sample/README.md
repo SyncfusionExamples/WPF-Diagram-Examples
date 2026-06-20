@@ -1,5 +1,5 @@
 # Indicator Style sample
-This repository contains sample to show how to apply Drop indicators and Selection indicators to the diagram control . 
+This repository contains sample to show how to apply Drop indicators and Selection indicators to the diagram control . Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) 
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/interaction#Selection
 

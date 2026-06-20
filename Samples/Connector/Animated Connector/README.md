@@ -1,6 +1,6 @@
 # Animated Connector Sample
 
-This sample demonstrate how to create a connector with animated segments in diagram.
+This sample demonstrate how to create a connector with animated segments in diagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/connector/appearanceandvalidation
 

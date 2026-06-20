@@ -1,5 +1,5 @@
 # Node properties customization sample
-This repository contains sample which shows how to customize the node properties at runtime.
+This repository contains sample which shows how to customize the node properties at runtime. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/node#position
 

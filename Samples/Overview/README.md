@@ -1,6 +1,6 @@
 # Overview sample
 
-This sample illustrates how to add overview control to display a preview (overall view) of the entire content of a Diagram.
+This sample illustrates how to add overview control to display a preview (overall view) of the entire content of a Diagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/overview-control
 

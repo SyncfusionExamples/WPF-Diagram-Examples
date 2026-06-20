@@ -1,6 +1,6 @@
 # Scroll settings sample
 
-This sample demonstrates how to scroll the page dynamically in SfDiagram.
+This sample demonstrates how to scroll the page dynamically in SfDiagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/scroll-settings/scrollstatusandautoscroll
 

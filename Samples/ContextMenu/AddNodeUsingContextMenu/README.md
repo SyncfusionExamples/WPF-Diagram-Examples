@@ -1,6 +1,6 @@
 # Color palette in context menu item sample
 
-This repository contains sample which shows how to add node as a child of the Container using the context menu
+This repository contains sample which shows how to add node as a child of the Container using the context menu. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/context-menu#customize-context-menu
 

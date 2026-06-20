@@ -1,6 +1,6 @@
 # How to customize the Selector in WPF Diagram (SfDiagram)?
 
-This sample explains how to customize the existing selection behavior.
+This sample explains how to customize the existing selection behavior. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/interaction/selection
 

@@ -1,6 +1,6 @@
 # Custom Diagram Ribbon Tab Sample
 
-This sample demonstrate how to customize the SfDiagramRibbon tab items and add new ribbon bar items in it.
+This sample demonstrate how to customize the SfDiagramRibbon tab items and add new ribbon bar items in it. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/diagram-ribbon
 

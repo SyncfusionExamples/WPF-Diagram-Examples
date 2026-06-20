@@ -1,5 +1,5 @@
 # Hierarchical Tree sample
-This sample demonstrate how to do Expand/Collapse in MultiParent Layout using SfDiagram.
+This sample demonstrate how to do Expand/Collapse in MultiParent Layout using SfDiagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/datasource#layout-with-multiple-parents
 

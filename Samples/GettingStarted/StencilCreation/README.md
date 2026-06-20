@@ -1,5 +1,5 @@
 # Stencil creation sample
-This sample demonstrate how to create stencil with symbols. Also this samples allows you to create simple flowchart by drag and drop the symbols from stencil to diagram page.
+This sample demonstrate how to create stencil with symbols. Also this samples allows you to create simple flowchart by drag and drop the symbols from stencil to diagram page. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/getting-started#flowchart-creation-using-stencil
 

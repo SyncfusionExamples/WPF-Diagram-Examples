@@ -6,7 +6,7 @@
 * [MainWindow.xaml](./CS/MainWindow.xaml)
 
 # Print the Diagram in WPF application
-This sample demonstrate how to print the content displayed in the diagram page.
+This sample demonstrate how to print the content displayed in the diagram page. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/printing
 
