@@ -1,6 +1,6 @@
 # Sample to handle the visibility of node and connector
 
-This repository contains sample shows how to to handle the visibility of node and connector in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+This repository contains sample shows how to to handle the visibility of node and connector in [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram) (SfDiagram).
 
 ## Project pre-requisites
 

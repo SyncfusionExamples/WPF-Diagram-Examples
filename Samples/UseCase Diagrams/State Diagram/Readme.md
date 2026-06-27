@@ -1,6 +1,6 @@
 # UML Activity diagram sample
 
-This sample demonstrates how to to create interactive UML State diagram with our built-in UML shapes, Nodes, Containers and the various interactions to position the UML State Diagram nodes in the diagram surface. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This sample demonstrates how to to create interactive UML State diagram with our built-in UML shapes, Nodes, Containers and the various interactions to position the UML State Diagram nodes in the diagram surface. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/umldiagramshapes#umlstatediagram
 

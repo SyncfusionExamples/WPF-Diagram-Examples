@@ -1,6 +1,6 @@
 # Short cut key command for context menu item sample
 
-This repository contains sample which shows how to add short cut key command for menu items to the contextmenu of [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+This repository contains sample which shows how to add short cut key command for menu items to the contextmenu of [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram) (SfDiagram).
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/context-menu#menu-for-node-and-connector
 

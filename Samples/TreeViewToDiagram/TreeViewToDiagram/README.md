@@ -1,5 +1,5 @@
 # Drag and Drop from treeview to diagram sample
-This sample demonstrates how to drag and drop treeview element to sfdiagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This sample demonstrates how to drag and drop treeview element to sfdiagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 __*Documentation*__: https://www.syncfusion.com/kb/10574/how-to-drag-and-drop-elements-from-treeview
 

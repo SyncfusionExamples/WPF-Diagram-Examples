@@ -1,6 +1,6 @@
 # How to Enable or Disbale the stencil symbol in WPF Diagram (SfDiagram)?
 
-This repository contains sample which shows how to Enable/Disable the stencil symbol. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This repository contains sample which shows how to Enable/Disable the stencil symbol. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/serialization
 ## Project pre-requisites

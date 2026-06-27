@@ -1,6 +1,6 @@
 # Update-Symbol-Color sample
 
-This sample demonstrate How to change the color of a node in the stencil and diagram while loading a saved file. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This sample demonstrate How to change the color of a node in the stencil and diagram while loading a saved file. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/stencil/stencil
 ## Project pre-requisites

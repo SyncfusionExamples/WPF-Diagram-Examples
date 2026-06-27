@@ -1,5 +1,5 @@
 # Page breaks Sample
-This sample demonstrate how to adjust the node position when it is lie on the page breaks. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This sample demonstrate how to adjust the node position when it is lie on the page breaks. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/diagram-ribbon
 

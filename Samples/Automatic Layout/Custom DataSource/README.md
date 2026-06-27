@@ -1,7 +1,7 @@
 # Custom Data Source Sample
 This sample demonstrate How to create a Custom layout.
 
-[WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram) can be populated with the [nodes](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.NodeViewModel.html) and [connectors](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.ConnectorViewModel.html) based on the information provided from an external data source. The [DataSource](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.DataSourceSettings~DataSource.html) property is used to define the data source either as a collection of any business objects or collection of Nodes. Here, diagram is generated as layout with DataSource as NodeViewModel.
+[WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram) (SfDiagram) can be populated with the [nodes](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.NodeViewModel.html) and [connectors](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.ConnectorViewModel.html) based on the information provided from an external data source. The [DataSource](https://help.syncfusion.com/cr/wpf/Syncfusion.SfDiagram.WPF~Syncfusion.UI.Xaml.Diagram.DataSourceSettings~DataSource.html) property is used to define the data source either as a collection of any business objects or collection of Nodes. Here, diagram is generated as layout with DataSource as NodeViewModel.
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/automatic-layouts#hierarchical-tree-layout
 
