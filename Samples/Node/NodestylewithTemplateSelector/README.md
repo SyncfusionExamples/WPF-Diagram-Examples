@@ -1,6 +1,6 @@
 # Node style with TemplateSelector sample
 
-This repository contains sample which shows how to add different UI elements, Images as content of the node in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+This repository contains sample which shows how to add different UI elements, Images as content of the node in [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram) (SfDiagram).
 
 We can use ContentTemplateSelector in the the template of the Node to use different templates based on the Content of the Node.
 

@@ -1,5 +1,5 @@
 # Custom Quick command sample
-This repository contains sample shows how to display the different QuickCommand based on the type of the Node. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This repository contains sample shows how to display the different QuickCommand based on the type of the Node. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/interaction#quick-command
 

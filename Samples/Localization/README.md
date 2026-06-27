@@ -1,5 +1,5 @@
 # Localization sample
-This repository contains sample which shows localization of [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram).
+This repository contains sample which shows localization of [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram).
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/localization
 

@@ -1,6 +1,6 @@
 # Sample to add tool tip for Node and Nodeport 
 
-This repository contains sample which shows to add tool tip for Nodes and NodPorts in SfDiagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This repository contains sample which shows to add tool tip for Nodes and NodPorts in SfDiagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/port/port
 

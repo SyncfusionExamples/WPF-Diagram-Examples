@@ -1,5 +1,5 @@
 # Deactivate RubberBandZoom Sample
-This sample demonstrate how to bring the selected nodes and connectors to fit the window. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This sample demonstrate how to bring the selected nodes and connectors to fit the window. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 __*Documentation*__:   https://help.syncfusion.com/wpf/diagram/commands/fittopage  https://help.syncfusion.com/wpf/diagram/interaction/selection#selecting-a-group
 

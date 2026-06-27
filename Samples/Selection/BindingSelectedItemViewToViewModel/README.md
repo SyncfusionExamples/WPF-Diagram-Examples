@@ -1,6 +1,6 @@
 # Sample for how to bind the SelectedItems property of SfDiagram(View) to custom ViewModel property
 
-This sample demonstrates how to bind the SelectedItems property of SfDiagram to ViewModel property. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This sample demonstrates how to bind the SelectedItems property of SfDiagram to ViewModel property. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/interaction/selection
 

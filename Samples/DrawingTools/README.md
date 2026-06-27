@@ -1,6 +1,6 @@
 # Tools sample
 
-This sample demonstrates drawing tools of diagram control. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This sample demonstrates drawing tools of diagram control. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/tools
 

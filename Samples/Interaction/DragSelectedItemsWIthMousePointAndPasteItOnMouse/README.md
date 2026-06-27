@@ -1,6 +1,6 @@
 # Custom sample for how to drag copied selected items with mouse point and paste it on current mouse point
 
-This repository contains sample which shows How to drag copied selected items with mouse point and paste it on current mouse point in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+This repository contains sample which shows How to drag copied selected items with mouse point and paste it on current mouse point in [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram) (SfDiagram).
 
 ## Project pre-requisites
 

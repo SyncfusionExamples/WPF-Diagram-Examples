@@ -1,6 +1,6 @@
 # Swimlane creation sample
 
-This sample demonstrate how to create empty swimlane diagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This sample demonstrate how to create empty swimlane diagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 ## Project pre-requisites
 To run this application, you need to have the below two in your system

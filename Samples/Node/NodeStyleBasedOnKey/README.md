@@ -1,6 +1,6 @@
 # Different style for Nodes based on Key value
 
-This repository contains sample which shows how to apply different style nodes based on its key value in [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+This repository contains sample which shows how to apply different style nodes based on its key value in [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram) (SfDiagram).
 
 
 ## Project pre-requisites

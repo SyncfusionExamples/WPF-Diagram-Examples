@@ -1,5 +1,5 @@
 # Force Directed Tree Layout sample
-This sample demonstrate how to create a simple Force Directed Tree Layout using [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+This sample demonstrate how to create a simple Force Directed Tree Layout using [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram) (SfDiagram).
 
 A force-directed layout algorithm uses a physics simulation (virtual spring-like forces and electrical repulsion) to arrange nodes in a graph. This approach automatically positions nodes to minimize edge crossings and visual clutter, making complex relationships easier to understand.
 

@@ -1,5 +1,5 @@
 # Keyboard shortcut sample
-This repository contains sample interaction with diagram control using shortcut keys. Command Manager support is used to manage keyboard interactions. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This repository contains sample interaction with diagram control using shortcut keys. Command Manager support is used to manage keyboard interactions. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/interaction#keyboard
 

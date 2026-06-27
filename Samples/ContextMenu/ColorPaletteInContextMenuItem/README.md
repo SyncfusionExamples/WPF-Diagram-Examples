@@ -1,6 +1,6 @@
 # Color palette in context menu item sample
 
-This repository contains sample which shows how to add color palette grid in context menu items of [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram) (SfDiagram).
+This repository contains sample which shows how to add color palette grid in context menu items of [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram) (SfDiagram).
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/context-menu#menu-for-node-and-connector
 

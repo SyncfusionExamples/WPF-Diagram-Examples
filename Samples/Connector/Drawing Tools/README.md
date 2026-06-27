@@ -1,6 +1,6 @@
 # Drawing tools sample
 
-This sample demonstrate how to draw different type of connectors using drawing tools of diagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This sample demonstrate how to draw different type of connectors using drawing tools of diagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 __*Documentation*__: https://help.syncfusion.com/wpf/diagram/connector/defineconnector
 

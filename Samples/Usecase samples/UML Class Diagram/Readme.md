@@ -1,6 +1,6 @@
 # UML class diagram sample
 
-This sample demonstrates how to to create interactive UML class diagram with our built-in UML shapes, Nodes, Groups and the various interactions to position the UML class nodes in the diagram surface. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This sample demonstrates how to to create interactive UML class diagram with our built-in UML shapes, Nodes, Groups and the various interactions to position the UML class nodes in the diagram surface. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 ## Project pre-requisites
 To run this application, you need to have the below two in your system

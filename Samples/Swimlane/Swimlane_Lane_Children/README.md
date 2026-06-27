@@ -1,6 +1,6 @@
 # Add child element into Lane sample
 
-This sample demonstrate how to add child element into lane in swimlane diagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/wpf-controls/diagram)
+This sample demonstrate how to add child element into lane in swimlane diagram. Explore more details about the WPF Diagram control refer to the following URL : [WPF Diagram](https://www.syncfusion.com/diagram-sdk/wpf-diagram)
 
 ## Project pre-requisites
 To run this application, you need to have the below two in your system
