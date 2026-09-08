@@ -30,23 +30,23 @@ namespace Force_directed_tree.ViewModel
         /// <summary>
         /// Gets or sets the value for the Lenght of the Connectors
         /// </summary>
-        public double ConnectorLength
-        {
-            get
-            {
-                return _connectorlength;
-            }
-            set
-            {
-                if (!_connectorlength.Equals(value))
-                {
-                    _connectorlength = value;
+        //public double ConnectorLength
+        //{
+        //    get
+        //    {
+        //        return _connectorlength;
+        //    }
+        //    set
+        //    {
+        //        if (!_connectorlength.Equals(value))
+        //        {
+        //            _connectorlength = value;
 
-                    OnPropertyChanged(nameof(ConnectorLength));
-                    (this.LayoutManager.Layout as ForceDirectedTree).ConnectorLength = value;
-                }
-            }
-        }
+        //            OnPropertyChanged(nameof(ConnectorLength));
+        //            (this.LayoutManager.Layout as ForceDirectedTreeLayout).ConnectorLength = value;
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets the value for the AttractionStrength
@@ -63,7 +63,7 @@ namespace Force_directed_tree.ViewModel
                 {
                     attractionStrength = value;
                     OnPropertyChanged(nameof(AttractionStrength));
-                    (this.LayoutManager.Layout as ForceDirectedTree).AttractionStrength = value;
+                    (this.LayoutManager.Layout as ForceDirectedTreeLayout).AttractionStrength = value;
                 }
             }
         }
@@ -83,7 +83,7 @@ namespace Force_directed_tree.ViewModel
                 {
                     repulsionStrength = value;
                     OnPropertyChanged(nameof(RepulsionStrength));
-                    (this.LayoutManager.Layout as ForceDirectedTree).RepulsionStrength = value;
+                    (this.LayoutManager.Layout as ForceDirectedTreeLayout).RepulsionStrength = value;
                 }
             }
         }
@@ -103,7 +103,7 @@ namespace Force_directed_tree.ViewModel
                 {
                     maxIteration = value;
                     OnPropertyChanged(nameof(MaximumIteration));
-                    (this.LayoutManager.Layout as ForceDirectedTree).MaximumIteration = value;
+                    (this.LayoutManager.Layout as ForceDirectedTreeLayout).MaximumIteration = value;
                 }
             }
         }
@@ -136,7 +136,7 @@ namespace Force_directed_tree.ViewModel
             // Initialize the Layout Manager
             LayoutManager = new LayoutManager()
             {
-                Layout = new ForceDirectedTree()
+                Layout = new ForceDirectedTreeLayout()
                 {
                     AttractionStrength = 0.6,
                     RepulsionStrength = 25000,

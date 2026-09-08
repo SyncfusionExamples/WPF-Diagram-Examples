@@ -113,7 +113,7 @@
                                           Value="{Binding MaximumIteration, Mode=TwoWay}"/>
 
                 <TextBlock Margin="10,5,0,0" Grid.Row="2" Grid.Column="0" Text="Repulsion Strength"  Height="25" VerticalAlignment="Center"/>
-                <Syncfusion:UpDown x:Name="repulsionstrength" MinValue="25000" Margin="5,5,0,0" Grid.Row="2" Grid.Column="1" Step="250" MaxValue="30000"
+                <Syncfusion:UpDown x:Name="repulsionstrength" MinValue="25000" Margin="5,5,0,0" Grid.Row="2" Grid.Column="1" Step="250" MaxValue="33000"
                           Value="{Binding RepulsionStrength, Mode=TwoWay}" />
 
                 <TextBlock Grid.Row="3" Grid.Column="0" Text="Attraction strength"  Height="26" VerticalAlignment="Center" HorizontalAlignment="Right" Width="120"/>

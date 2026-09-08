@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>GroupSnapping</RootNamespace>
+    <AssemblyName>GroupSnapping</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.Licensing" Version="*" />
+    <PackageReference Include="Syncfusion.SfDiagram.WPF" Version="*" />
+    <PackageReference Include="Syncfusion.Shared.WPF" Version="*" />
+  </ItemGroup>
+
+</Project>
