@@ -49,8 +49,8 @@ namespace ForceDirectedTreeView
         {
             if (temp)
             {
-                if ((Diagram.LayoutManager.Layout as ForceDirectedTree).MaximumIteration != (int)(double)e.NewValue)
-                    (Diagram.LayoutManager.Layout as ForceDirectedTree).MaximumIteration = (int)(double)e.NewValue;
+                if ((Diagram.LayoutManager.Layout as ForceDirectedTreeLayout).MaximumIteration != (int)(double)e.NewValue)
+                    (Diagram.LayoutManager.Layout as ForceDirectedTreeLayout).MaximumIteration = (int)(double)e.NewValue;
             }
         }
 
@@ -58,8 +58,8 @@ namespace ForceDirectedTreeView
         {
             if (temp)
             {
-                if ((Diagram.LayoutManager.Layout as ForceDirectedTree).RepulsionStrength != (int)(double)e.NewValue)
-                    (Diagram.LayoutManager.Layout as ForceDirectedTree).RepulsionStrength = (int)(double)e.NewValue;
+                if ((Diagram.LayoutManager.Layout as ForceDirectedTreeLayout).RepulsionStrength != (int)(double)e.NewValue)
+                    (Diagram.LayoutManager.Layout as ForceDirectedTreeLayout).RepulsionStrength = (int)(double)e.NewValue;
             }
         }
 
@@ -67,8 +67,8 @@ namespace ForceDirectedTreeView
         {
             if (temp)
             {
-                if ((Diagram.LayoutManager.Layout as ForceDirectedTree).AttractionStrength != (double)e.NewValue)
-                    (Diagram.LayoutManager.Layout as ForceDirectedTree).AttractionStrength = (double)e.NewValue;
+                if ((Diagram.LayoutManager.Layout as ForceDirectedTreeLayout).AttractionStrength != (double)e.NewValue)
+                    (Diagram.LayoutManager.Layout as ForceDirectedTreeLayout).AttractionStrength = (double)e.NewValue;
             }
         }
     }

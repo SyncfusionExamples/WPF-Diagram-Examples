@@ -47,7 +47,7 @@ namespace ForceDirectedTreeCodeBehind
             CreatedNode();
             Diagram.LayoutManager = new LayoutManager()
             {
-                Layout = new ForceDirectedTree()
+                Layout = new ForceDirectedTreeLayout()
                 {
                     AttractionStrength = 0.6,
                     RepulsionStrength = 25000,
@@ -197,19 +197,19 @@ namespace ForceDirectedTreeCodeBehind
         private void UpDown_ValueChanged_1(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (Diagram.LayoutManager != null)
-                (Diagram.LayoutManager.Layout as ForceDirectedTree).MaximumIteration = (int)(double)e.NewValue;
+                (Diagram.LayoutManager.Layout as ForceDirectedTreeLayout).MaximumIteration = (int)(double)e.NewValue;
         }
 
         private void UpDown_ValueChanged_2(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (Diagram.LayoutManager != null)
-                (Diagram.LayoutManager.Layout as ForceDirectedTree).RepulsionStrength = (int)(double)e.NewValue;
+                (Diagram.LayoutManager.Layout as ForceDirectedTreeLayout).RepulsionStrength = (int)(double)e.NewValue;
         }
 
         private void UpDown_ValueChanged_3(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (Diagram.LayoutManager != null)
-                (Diagram.LayoutManager.Layout as ForceDirectedTree).AttractionStrength = (double)e.NewValue;
+                (Diagram.LayoutManager.Layout as ForceDirectedTreeLayout).AttractionStrength = (double)e.NewValue;
         }
     }
 
